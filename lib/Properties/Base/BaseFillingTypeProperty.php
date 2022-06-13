@@ -1,18 +1,15 @@
 <?php
 namespace CureDAO\Client\Properties\Base;
-use CureDAO\Client\Properties\EnumProperty;
-use CureDAO\Client\Types\PhpTypes;
 use CureDAO\Client\UI\FontAwesome;
 use CureDAO\Client\UI\ImageUrls;
 use OpenApi\Generator;
-class BaseFillingTypeProperty extends EnumProperty{
+class BaseFillingTypeProperty{
     public const FILLING_TYPE_ZERO = 'zero';
     public const FILLING_TYPE_UNDEFINED = Generator::UNDEFINED;
     public const FILLING_TYPE_NONE = 'none';
     public const FILLING_TYPE_VALUE = 'value';
     public const FILLING_TYPE_INTERPOLATION = 'interpolation';
     public $dbInput = 'string:nullable';
-	public $dbType = PhpTypes::STRING;
 	public $default = Generator::UNDEFINED;
 	public $description = 'How gaps without any measurements should be treated. Options are none or zero.';
 	public $example = 'none';
@@ -23,7 +20,6 @@ class BaseFillingTypeProperty extends EnumProperty{
         self::FILLING_TYPE_UNDEFINED,
         self::FILLING_TYPE_INTERPOLATION,
     ];
-	public $fieldType = PhpTypes::STRING;
 	public $fontAwesome = FontAwesome::QUESTION_CIRCLE;
 	public $htmlInput = 'text';
 	public $htmlType = 'text';
@@ -37,10 +33,8 @@ class BaseFillingTypeProperty extends EnumProperty{
 	public $name = self::NAME;
 	public const NAME = 'filling_type';
 	public $canBeChangedToNull = true;
-	public $phpType = PhpTypes::STRING;
 	public $rules = 'nullable|in:none,zero';
 	public $title = 'Filling Type';
-	public $type = self::TYPE_ENUM;
 	public $validations = 'nullable|in:none,zero';
 	/**
 	 * @param $val
@@ -63,7 +57,4 @@ class BaseFillingTypeProperty extends EnumProperty{
         return $type === BaseFillingTypeProperty::FILLING_TYPE_VALUE ||
             $type === BaseFillingTypeProperty::FILLING_TYPE_ZERO;
     }
-    public function shouldShowFilter(): bool{return false;}
-    protected function isLowerCase():bool{return true;}
-	public function getEnumOptions(): array{return $this->enum;}
 }
