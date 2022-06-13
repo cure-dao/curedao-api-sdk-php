@@ -27,7 +27,9 @@
         "zircote/swagger-php": "*",
         "icanboogie/inflector": "^2.2",
         "illuminate/collections": "^8.83",
-        "pragmarx/ia-str": "^7.3"
+        "pragmarx/ia-str": "^7.3",
+        "json-mapper/json-mapper": "^2.12",
+        "strikebit/json-to-php": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "*",

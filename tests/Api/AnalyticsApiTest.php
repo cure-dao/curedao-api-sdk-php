@@ -96,11 +96,11 @@ class AnalyticsApiTest extends TestCase
         $yourUserId = "test-user-for-sdk-analyze-test".time();
         $analysis = new Analysis($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
         $results = $analysis->analyze();
-        $this->assertNotNull($results['analysis']);
+        $this->assertNotNull($results->analysis);
         $this->assertStringContainsString(DailyStepCountCommonVariable::NAME,
-            $results['html'], 'study-html');
+            $results->html, 'study-html');
         $this->assertStringContainsString(HeartRateVariabilityVariable::NAME,
-            $results['html'], 'study-html');
+            $results->html, 'study-html');
     }
     /**
      * Test case for getCorrelationExplanations
