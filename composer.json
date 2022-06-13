@@ -1,0 +1,46 @@
+{
+    "name": "cure-dao/cure-dao-sdk-php",
+    "version": "0.0.1",
+    "description": "A PHP SDK for the CureDAO Collaborative for Precision Health API",
+    "keywords": [
+        "curedao",
+        "health",
+        "php",
+        "sdk",
+        "api"
+    ],
+    "homepage": "https://curedao.org",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Mike P. Sine",
+            "homepage": "https://github.com/mikepsinn"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "nategood/httpful": "^0.3.2",
+        "vlucas/phpdotenv": "^5.4",
+        "zircote/swagger-php": "*",
+        "icanboogie/inflector": "^2.2",
+        "illuminate/collections": "^8.83",
+        "pragmarx/ia-str": "^7.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "satooshi/php-coveralls": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "CureDAO\\Client\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CureDAO\\Tests\\": "tests/"
+        }
+    }
+}
