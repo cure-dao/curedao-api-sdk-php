@@ -1,8 +1,6 @@
-# CureDAOClient
+# CureDAO API SDK for PHP
 
 We make it easy to retrieve and analyze normalized user data from a wide array of devices and applications. Check out our [docs and SDKs](https://github.com/cure-dao) or [contact us](https://curedao.org/discord?utm_source=php-sdk).
-
-- API version: 0.0.1
 
 ## Requirements
 
@@ -10,22 +8,10 @@ PHP 7.2 and later
 
 ## Installation & Usage
 
-### Composer
-
-To install the bindings via [Composer](http://getcomposer.org/), add the following to `composer.json`:
+Install [Composer](http://getcomposer.org/), and run
 
 ```
-{
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/cure-dao/curedao-sdk-php.git"
-    }
-  ],
-  "require": {
-    "curedao/curedao-sdk-php": "*@dev"
-  }
-}
+composer require cure-dao/cure-dao-sdk-php
 ```
 
 Then run `composer install`
@@ -36,92 +22,93 @@ Then run `composer install`
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+    require_once(__DIR__ . '/vendor/autoload.php');
 
-        $predictorMeasurementSet = (new MeasurementSet())
-            ->setVariable(new DailyStepCountCommonVariable())
-            ->addMeasurements(array (
-            0 =>
-                array (
-                    'start_at' => '2022-05-7',
-                    'value' => 8472,
-                ),
-            1 =>
-                array (
-                    'start_at' => '2022-05-8',
-                    'value' => 3402,
-                ),
-            2 =>
-                array (
-                    'start_at' => '2022-05-9',
-                    'value' => 3930,
-                ),
-            3 =>
-                array (
-                    'start_at' => '2022-05-10',
-                    'value' => 9909,
-                ),
-            4 =>
-                array (
-                    'start_at' => '2022-05-11',
-                    'value' => 4943,
-                ),
-            5 =>
-                array (
-                    'start_at' => '2022-05-12',
-                    'value' => 9012,
-                ),
-            6 =>
-                array (
-                    'start_at' => '2022-05-13',
-                    'value' => 1122,
-                ),
-        ));
+    $predictorMeasurementSet = (new MeasurementSet())
+         // setVariable accepts an existing variable in lib/Variables or an array with variable_name, unit_name, and variable_category_name
+        ->setVariable(new DailyStepCountCommonVariable())  
+        ->addMeasurements(array (
+        0 =>
+            array (
+                'start_at' => '2022-05-7',
+                'value' => 8472,
+            ),
+        1 =>
+            array (
+                'start_at' => '2022-05-8',
+                'value' => 3402,
+            ),
+        2 =>
+            array (
+                'start_at' => '2022-05-9',
+                'value' => 3930,
+            ),
+        3 =>
+            array (
+                'start_at' => '2022-05-10',
+                'value' => 9909,
+            ),
+        4 =>
+            array (
+                'start_at' => '2022-05-11',
+                'value' => 4943,
+            ),
+        5 =>
+            array (
+                'start_at' => '2022-05-12',
+                'value' => 9012,
+            ),
+        6 =>
+            array (
+                'start_at' => '2022-05-13',
+                'value' => 1122,
+            ),
+    ));
 
-        $outcomeMeasurementSet = (new MeasurementSet())
-            ->setVariable(new HeartRateVariabilityVariable())
-            ->addMeasurements([
-            '0' =>
-                [
-                    'start_at' => '2022-05-7',
-                    'value' => 8472,
-                ],
-            '1' =>
-                [
-                    'start_at' => '2022-05-8',
-                    'value' => 3402,
-                ],
-            '2' =>
-                [
-                    'start_at' => '2022-05-9',
-                    'value' => 3930,
-                ],
-            '3' =>
-                [
-                    'start_at' => '2022-05-10',
-                    'value' => 9909,
-                ],
-            '4' =>
-                [
-                    'start_at' => '2022-05-11',
-                    'value' => 4943,
-                ],
-            '5' =>
-                [
-                    'start_at' => '2022-05-12',
-                    'value' => 9012,
-                ],
-            '6' =>
-                [
-                    'start_at' => '2022-05-13',
-                    'value' => 1122,
-                ],
-        ]);
+    $outcomeMeasurementSet = (new MeasurementSet())
+        ->setVariable(new HeartRateVariabilityVariable())
+        ->addMeasurements([
+        '0' =>
+            [
+                'start_at' => '2022-05-7',
+                'value' => 8472,
+            ],
+        '1' =>
+            [
+                'start_at' => '2022-05-8',
+                'value' => 3402,
+            ],
+        '2' =>
+            [
+                'start_at' => '2022-05-9',
+                'value' => 3930,
+            ],
+        '3' =>
+            [
+                'start_at' => '2022-05-10',
+                'value' => 9909,
+            ],
+        '4' =>
+            [
+                'start_at' => '2022-05-11',
+                'value' => 4943,
+            ],
+        '5' =>
+            [
+                'start_at' => '2022-05-12',
+                'value' => 9012,
+            ],
+        '6' =>
+            [
+                'start_at' => '2022-05-13',
+                'value' => 1122,
+            ],
+    ]);
 
-        $yourUserId = "a-unique-identifier-for-your-user";
-        $analysis = new Analysis($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
-        $results = $analysis->analyze();
-        print_r($results);
+    $yourUserId = "a-unique-identifier-for-your-user";
+    $analysis = new Analysis($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
+    $results = $analysis->analyze();
+    print_r($results);
 ?>
 ```
 # How to Analyze a Pair of Variables
