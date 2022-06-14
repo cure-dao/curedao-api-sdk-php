@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description FeedResponse
 
  */
-class FeedResponseTest extends \PHPUnit\Framework\TestCase
+class FeedResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

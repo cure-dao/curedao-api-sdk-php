@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description UserVariableDelete
 
  */
-class UserVariableDeleteTest extends \PHPUnit\Framework\TestCase
+class UserVariableDeleteTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

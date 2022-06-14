@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description StudySharing
 
  */
-class StudySharingTest extends \PHPUnit\Framework\TestCase
+class StudySharingTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

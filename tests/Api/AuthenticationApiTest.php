@@ -2,7 +2,7 @@
 /**
  * AuthenticationApiTest */
 
-namespace CureDAO\Client;
+namespace CureDAO\Tests\Api;
 
 use \CureDAO\Client\Configuration;
 use \CureDAO\Client\ApiException;
@@ -12,7 +12,7 @@ use \CureDAO\Client\ObjectSerializer;
  * AuthenticationApiTest Class Doc Comment
  *
  */
-class AuthenticationApiTest extends \PHPUnit\Framework\TestCase
+class AuthenticationApiTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

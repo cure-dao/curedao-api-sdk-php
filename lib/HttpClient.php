@@ -100,32 +100,12 @@ class HttpClient
     {
         $this->baseUrl = $baseUrl;
     }
-
     /**
-     * @param string $path
-     * @param $body
-     * @return void
-     */
-    private function generateModels(string $path, $body): void
-    {
-        $parts = explode("/", $path);
-        $className = ucfirst(end($parts))."Response";
-        if(is_array($body)){
-            //$body = array_pop($body);
-        }
-        $generator = new PhpGenerator(true, true, __NAMESPACE__ . "\\Model");
-        $res = $generator->fromJson($className, json_encode($body));
-    }
-
-    /**
-     * @param string $path
      * @return mixed
      */
-    private function getDataFromResponse(string $path)
-    {
+    protected function getDataFromResponse(){
         $body = $this->request->body;
         $this->data = $body->data ?? $body['data'] ?? $body;
-        $this->generateModels($path, $this->data);
         return $this->data;
     }
 }

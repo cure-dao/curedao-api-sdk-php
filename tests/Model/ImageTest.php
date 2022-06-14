@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description Image
 
  */
-class ImageTest extends \PHPUnit\Framework\TestCase
+class ImageTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

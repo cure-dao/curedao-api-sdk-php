@@ -11,7 +11,7 @@ namespace CureDAO\Tests\Model;
  * @category    Class
  * @description DataSource
  */
-class DataSourceTest extends \PHPUnit\Framework\TestCase
+class DataSourceTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

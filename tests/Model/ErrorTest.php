@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description Error
 
  */
-class ErrorTest extends \PHPUnit\Framework\TestCase
+class ErrorTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

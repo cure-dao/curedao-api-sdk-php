@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description ShareInvitationBody
 
  */
-class ShareInvitationBodyTest extends \PHPUnit\Framework\TestCase
+class ShareInvitationBodyTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description DeviceToken
 
  */
-class DeviceTokenTest extends \PHPUnit\Framework\TestCase
+class DeviceTokenTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

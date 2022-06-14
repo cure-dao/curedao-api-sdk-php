@@ -6,7 +6,7 @@
 
 
 
-namespace CureDAO\Client;
+namespace CureDAO\Tests\Model;
 
 /**
  * CardTest Class Doc Comment
@@ -15,7 +15,7 @@ namespace CureDAO\Client;
  * @description Card
 
  */
-class CardTest extends \PHPUnit\Framework\TestCase
+class CardTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

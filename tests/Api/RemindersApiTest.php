@@ -25,7 +25,7 @@ use \CureDAO\Client\ObjectSerializer;
  * @author   Mike P. Sinn
  * @link     https://github.com/cure-dao
  */
-class RemindersApiTest extends \PHPUnit\Framework\TestCase
+class RemindersApiTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

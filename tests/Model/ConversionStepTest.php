@@ -15,7 +15,7 @@ namespace CureDAO\Tests\Model;
  * @description ConversionStep
 
  */
-class ConversionStepTest extends \PHPUnit\Framework\TestCase
+class ConversionStepTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

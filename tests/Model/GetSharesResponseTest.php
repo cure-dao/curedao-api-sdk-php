@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  * @category    Class
  * @description GetSharesResponse
  */
-class GetSharesResponseTest extends \PHPUnit\Framework\TestCase
+class GetSharesResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

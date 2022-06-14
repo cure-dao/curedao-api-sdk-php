@@ -6,9 +6,8 @@ use CureDAO\Client\Analysis;
 use CureDAO\Client\Model\MeasurementSet;
 use CureDAO\Client\Variables\PhysicalActivityCommonVariables\DailyStepCountCommonVariable;
 use CureDAO\Client\Variables\VitalSignsCommonVariables\HeartRateVariabilityVariable;
-use PHPUnit\Framework\TestCase;
 
-class AnalyticsApiTest extends TestCase
+class AnalyticsApiTest extends \CureDAO\Tests\BaseTestCase
 {
 
     public function testAnalyze()
@@ -96,6 +95,8 @@ class AnalyticsApiTest extends TestCase
         $yourUserId = "test-user-for-sdk-analyze-test".time();
         $analysis = new Analysis($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
         $results = $analysis->analyze();
+
+        $this->generateModels(ucfirst(__FUNCTION__)."Response", $response);
         $this->assertNotNull($results->analysis);
         $this->assertStringContainsString(DailyStepCountCommonVariable::NAME,
             $results->html, 'study-html');

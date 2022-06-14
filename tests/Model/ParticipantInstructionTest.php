@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description ParticipantInstruction
 
  */
-class ParticipantInstructionTest extends \PHPUnit\Framework\TestCase
+class ParticipantInstructionTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

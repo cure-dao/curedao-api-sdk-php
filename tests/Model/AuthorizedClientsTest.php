@@ -9,7 +9,7 @@ namespace CureDAO\Tests\Model;
  * @category    Class
  * @description AuthorizedClients
  */
-class AuthorizedClientsTest extends \PHPUnit\Framework\TestCase
+class AuthorizedClientsTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

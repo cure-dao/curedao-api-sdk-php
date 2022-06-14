@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description Chart
 
  */
-class ChartTest extends \PHPUnit\Framework\TestCase
+class ChartTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

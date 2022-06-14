@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description Explanation
 
  */
-class ExplanationTest extends \PHPUnit\Framework\TestCase
+class ExplanationTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

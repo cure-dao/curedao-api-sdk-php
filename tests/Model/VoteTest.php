@@ -11,7 +11,7 @@ namespace CureDAO\Tests\Model;
  * @category    Class
  * @description Vote
  */
-class VoteTest extends \PHPUnit\Framework\TestCase
+class VoteTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

@@ -25,7 +25,7 @@ use \CureDAO\Client\ObjectSerializer;
  * @author   Mike P. Sinn
  * @link     https://github.com/cure-dao
  */
-class VariablesApiTest extends \PHPUnit\Framework\TestCase
+class VariablesApiTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

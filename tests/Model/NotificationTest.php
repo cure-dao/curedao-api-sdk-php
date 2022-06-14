@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description Notification
 
  */
-class NotificationTest extends \PHPUnit\Framework\TestCase
+class NotificationTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description StudyLinks
 
  */
-class StudyLinksTest extends \PHPUnit\Framework\TestCase
+class StudyLinksTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

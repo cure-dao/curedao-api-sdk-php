@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description A study analyzes the relationship between a predictor variable like gluten-intake and an outcome of interest such as overall mood.
 
  */
-class StudyTest extends \PHPUnit\Framework\TestCase
+class StudyTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description PostTrackingRemindersDataResponse
 
  */
-class PostTrackingRemindersDataResponseTest extends \PHPUnit\Framework\TestCase
+class PostTrackingRemindersDataResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

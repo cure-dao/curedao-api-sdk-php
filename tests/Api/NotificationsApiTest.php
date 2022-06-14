@@ -2,7 +2,7 @@
 /**
  * NotificationsApiTest */
 
-namespace CureDAO\Client;
+namespace CureDAO\Tests\Api;
 
 use \CureDAO\Client\Configuration;
 use \CureDAO\Client\ApiException;
@@ -12,10 +12,10 @@ use \CureDAO\Client\ObjectSerializer;
  * NotificationsApiTest Class Doc Comment
  *
  */
-class NotificationsApiTest extends \PHPUnit\Framework\TestCase
+class NotificationsApiTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
+
 
     /**
      * Test case for getNotificationPreferences

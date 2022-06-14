@@ -15,7 +15,7 @@ namespace CureDAO\Tests\Model;
  * @description Correlation
 
  */
-class CorrelationTest extends \PHPUnit\Framework\TestCase
+class CorrelationTest extends \CureDAO\Tests\BaseTestCase
 {
 
 

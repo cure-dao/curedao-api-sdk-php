@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description InputField
 
  */
-class InputFieldTest extends \PHPUnit\Framework\TestCase
+class InputFieldTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

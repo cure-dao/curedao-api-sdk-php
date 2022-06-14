@@ -25,7 +25,7 @@ use \CureDAO\Client\ObjectSerializer;
  * @author   Mike P. Sinn
  * @link     https://github.com/cure-dao
  */
-class StudiesApiTest extends \PHPUnit\Framework\TestCase
+class StudiesApiTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

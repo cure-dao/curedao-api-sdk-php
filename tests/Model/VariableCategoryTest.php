@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description VariableCategory
 
  */
-class VariableCategoryTest extends \PHPUnit\Framework\TestCase
+class VariableCategoryTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

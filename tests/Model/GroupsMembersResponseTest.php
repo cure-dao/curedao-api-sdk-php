@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description GroupsMembersResponse
 
  */
-class GroupsMembersResponseTest extends \PHPUnit\Framework\TestCase
+class GroupsMembersResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

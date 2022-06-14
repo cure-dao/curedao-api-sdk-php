@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description AppSettings
 
  */
-class AppSettingsTest extends \PHPUnit\Framework\TestCase
+class AppSettingsTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

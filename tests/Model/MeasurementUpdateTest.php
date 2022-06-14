@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description MeasurementUpdate
 
  */
-class MeasurementUpdateTest extends \PHPUnit\Framework\TestCase
+class MeasurementUpdateTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

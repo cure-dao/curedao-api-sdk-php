@@ -2,7 +2,7 @@
 /**
  * MeasurementsApiTest */
 
-namespace CureDAO\Client;
+namespace CureDAO\Tests\Api;
 
 use \CureDAO\Client\Configuration;
 use \CureDAO\Client\ApiException;
@@ -12,7 +12,7 @@ use \CureDAO\Client\ObjectSerializer;
  * MeasurementsApiTest Class Doc Comment
  *
  */
-class MeasurementsApiTest extends \PHPUnit\Framework\TestCase
+class MeasurementsApiTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

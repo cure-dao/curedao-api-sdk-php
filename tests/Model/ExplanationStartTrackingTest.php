@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description ExplanationStartTracking
 
  */
-class ExplanationStartTrackingTest extends \PHPUnit\Framework\TestCase
+class ExplanationStartTrackingTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

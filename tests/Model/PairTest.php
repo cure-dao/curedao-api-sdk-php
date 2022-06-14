@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description Pair
 
  */
-class PairTest extends \PHPUnit\Framework\TestCase
+class PairTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

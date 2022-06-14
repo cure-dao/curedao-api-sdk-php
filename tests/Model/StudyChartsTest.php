@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description An object with various chart properties each property contain and svg and Highcharts configuration
 
  */
-class StudyChartsTest extends \PHPUnit\Framework\TestCase
+class StudyChartsTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

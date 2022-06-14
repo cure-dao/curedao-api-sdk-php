@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description MeasurementDelete
 
  */
-class MeasurementDeleteTest extends \PHPUnit\Framework\TestCase
+class MeasurementDeleteTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

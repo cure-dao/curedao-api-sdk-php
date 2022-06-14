@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description Button
 
  */
-class ButtonTest extends \PHPUnit\Framework\TestCase
+class ButtonTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

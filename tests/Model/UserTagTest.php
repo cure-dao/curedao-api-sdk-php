@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description UserTag
 
  */
-class UserTagTest extends \PHPUnit\Framework\TestCase
+class UserTagTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

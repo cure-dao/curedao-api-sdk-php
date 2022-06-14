@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description CommonResponse
 
  */
-class CommonResponseTest extends \PHPUnit\Framework\TestCase
+class CommonResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

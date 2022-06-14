@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description GetCorrelationsResponse
 
  */
-class GetCorrelationsResponseTest extends \PHPUnit\Framework\TestCase
+class GetCorrelationsResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

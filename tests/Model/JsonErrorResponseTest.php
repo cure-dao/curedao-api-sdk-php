@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description JsonErrorResponse
 
  */
-class JsonErrorResponseTest extends \PHPUnit\Framework\TestCase
+class JsonErrorResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

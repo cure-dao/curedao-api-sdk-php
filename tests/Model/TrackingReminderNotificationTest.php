@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description TrackingReminderNotification
 
  */
-class TrackingReminderNotificationTest extends \PHPUnit\Framework\TestCase
+class TrackingReminderNotificationTest extends \CureDAO\Tests\BaseTestCase
 {
 
 

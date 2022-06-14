@@ -6,7 +6,7 @@
 
 
 
-namespace CureDAO\Client;
+namespace CureDAO\Tests\Model;
 
 /**
  * ConnectInstructionsTest Class Doc Comment
@@ -15,7 +15,7 @@ namespace CureDAO\Client;
  * @description ConnectInstructions
 
  */
-class ConnectInstructionsTest extends \PHPUnit\Framework\TestCase
+class ConnectInstructionsTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

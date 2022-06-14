@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description GetConnectorsResponse
 
  */
-class GetConnectorsResponseTest extends \PHPUnit\Framework\TestCase
+class GetConnectorsResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
     /**

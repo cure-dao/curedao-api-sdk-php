@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description VoteDelete
 
  */
-class VoteDeleteTest extends \PHPUnit\Framework\TestCase
+class VoteDeleteTest extends \CureDAO\Tests\BaseTestCase
 {
 
     

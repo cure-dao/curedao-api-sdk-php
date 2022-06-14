@@ -13,7 +13,7 @@ namespace CureDAO\Tests\Model;
  * @description PostMeasurementsResponse
 
  */
-class PostMeasurementsResponseTest extends \PHPUnit\Framework\TestCase
+class PostMeasurementsResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
     
