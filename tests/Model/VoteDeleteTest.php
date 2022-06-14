@@ -16,8 +16,6 @@ namespace CureDAO\Tests\Model;
 class VoteDeleteTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "VoteDelete"
      */

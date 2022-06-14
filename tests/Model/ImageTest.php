@@ -16,8 +16,6 @@ namespace CureDAO\Tests\Model;
 class ImageTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "Image"
      */

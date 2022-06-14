@@ -14,8 +14,6 @@ namespace CureDAO\Tests\Model;
 class GetCorrelationsDataResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "GetCorrelationsDataResponse"
      */

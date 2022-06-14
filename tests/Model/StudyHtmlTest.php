@@ -16,8 +16,6 @@ namespace CureDAO\Tests\Model;
 class StudyHtmlTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "StudyHtml"
      */

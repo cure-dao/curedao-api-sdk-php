@@ -16,8 +16,6 @@ namespace CureDAO\Tests\Model;
 class DeviceTokenTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "DeviceToken"
      */

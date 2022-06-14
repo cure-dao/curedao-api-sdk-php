@@ -16,8 +16,6 @@ namespace CureDAO\Tests\Model;
 class UsersResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "UsersResponse"
      */

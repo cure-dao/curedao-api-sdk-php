@@ -18,8 +18,6 @@ namespace CureDAO\Tests\Model;
 class ConversionStepTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "ConversionStep"
      */

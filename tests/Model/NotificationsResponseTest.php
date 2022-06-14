@@ -16,8 +16,6 @@ namespace CureDAO\Tests\Model;
 class NotificationsResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "NotificationsResponse"
      */

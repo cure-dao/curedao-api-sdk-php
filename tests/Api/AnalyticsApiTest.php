@@ -96,7 +96,7 @@ class AnalyticsApiTest extends \CureDAO\Tests\BaseTestCase
         $analysis = new Analysis($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
         $results = $analysis->analyze();
 
-        $this->generateModels(ucfirst(__FUNCTION__)."Response", $response);
+        $this->generateModels(ucfirst(__FUNCTION__)."Response", $results);
         $this->assertNotNull($results->analysis);
         $this->assertStringContainsString(DailyStepCountCommonVariable::NAME,
             $results->html, 'study-html');

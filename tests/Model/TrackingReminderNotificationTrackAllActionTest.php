@@ -16,8 +16,6 @@ namespace CureDAO\Tests\Model;
 class TrackingReminderNotificationTrackAllActionTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "TrackingReminderNotificationTrackAllAction"
      */

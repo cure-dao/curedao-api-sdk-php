@@ -16,8 +16,6 @@ namespace CureDAO\Tests\Model;
 class VariableChartsTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "VariableCharts"
      */

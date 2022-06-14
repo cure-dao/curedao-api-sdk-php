@@ -16,8 +16,6 @@ namespace CureDAO\Tests\Model;
 class PostTrackingRemindersDataResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "PostTrackingRemindersDataResponse"
      */

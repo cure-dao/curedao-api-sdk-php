@@ -16,8 +16,6 @@ namespace CureDAO\Tests\Model;
 class UserVariableDeleteTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "UserVariableDelete"
      */

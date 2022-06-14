@@ -18,8 +18,6 @@ namespace CureDAO\Tests\Model;
 class PostStudyCreateResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "PostStudyCreateResponse"
      */

@@ -16,8 +16,6 @@ namespace CureDAO\Tests\Model;
 class JsonErrorResponseTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
-
     /**
      * Test "JsonErrorResponse"
      */
