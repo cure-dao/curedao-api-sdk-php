@@ -111,7 +111,7 @@ Then run `composer install`
     print_r($results);
 ?>
 ```
-# How to Analyze a Pair of Variables
+### Example Response from `analyze()`
 
 ```php
 stdClass Object
