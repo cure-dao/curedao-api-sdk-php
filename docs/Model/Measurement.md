@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**card** | [**\CureDAO\Client\Model\Card**](Card.md) | Card containing image, text, link and relevant buttons | [optional] 
+**card** | [**\CureDAO\Client\Models\Card**](Card.md) | Card containing image, text, link and relevant buttons | [optional] 
 **client_id** | **string** | Ex: curedao | [optional] 
 **connector_id** | **int** | Ex: 13 | [optional] 
 **created_at** | **string** | Ex: 2017-07-30 21:08:36 | [optional] 

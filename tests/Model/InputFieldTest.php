@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * InputFieldTest Class Doc Comment
- *
+ * InputFieldTest Class
  * @category    Class
  * @description InputField
 

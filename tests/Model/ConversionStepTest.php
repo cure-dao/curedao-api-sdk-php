@@ -9,8 +9,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * ConversionStepTest Class Doc Comment
- *
+ * ConversionStepTest Class
  * @category    Class
  * @description ConversionStep
 

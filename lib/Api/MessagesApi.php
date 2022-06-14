@@ -36,8 +36,7 @@ use CureDAO\Client\HeaderSelector;
 use CureDAO\Client\ObjectSerializer;
 
 /**
- * MessagesApi Class Doc Comment
- *
+ * MessagesApi Class 
  * @category Class
  * @package  CureDAO\Client
  * @author   Mike P. Sinn
@@ -100,7 +99,7 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\MessagesMessagesResponse[]
+     * @return \CureDAO\Client\Models\MessagesMessagesResponse[]
      */
     public function getMessagesMessages($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
@@ -125,11 +124,11 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\MessagesMessagesResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\MessagesMessagesResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMessagesMessagesWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesMessagesResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesMessagesResponse[]';
         $request = $this->getMessagesMessagesRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         try {
@@ -181,7 +180,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\MessagesMessagesResponse[]',
+                        '\CureDAO\Client\Models\MessagesMessagesResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -239,7 +238,7 @@ class MessagesApi
      */
     public function getMessagesMessagesAsyncWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesMessagesResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesMessagesResponse[]';
         $request = $this->getMessagesMessagesRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         return $this->client
@@ -444,7 +443,7 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\MessagesNoticesResponse[]
+     * @return \CureDAO\Client\Models\MessagesNoticesResponse[]
      */
     public function getMessagesNotices($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
@@ -469,11 +468,11 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\MessagesNoticesResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\MessagesNoticesResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMessagesNoticesWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesNoticesResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesNoticesResponse[]';
         $request = $this->getMessagesNoticesRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         try {
@@ -525,7 +524,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\MessagesNoticesResponse[]',
+                        '\CureDAO\Client\Models\MessagesNoticesResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -583,7 +582,7 @@ class MessagesApi
      */
     public function getMessagesNoticesAsyncWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesNoticesResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesNoticesResponse[]';
         $request = $this->getMessagesNoticesRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         return $this->client
@@ -788,7 +787,7 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\MessagesRecipientsResponse[]
+     * @return \CureDAO\Client\Models\MessagesRecipientsResponse[]
      */
     public function getMessagesRecipients($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
@@ -813,11 +812,11 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\MessagesRecipientsResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\MessagesRecipientsResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getMessagesRecipientsWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesRecipientsResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesRecipientsResponse[]';
         $request = $this->getMessagesRecipientsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         try {
@@ -869,7 +868,7 @@ class MessagesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\MessagesRecipientsResponse[]',
+                        '\CureDAO\Client\Models\MessagesRecipientsResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -927,7 +926,7 @@ class MessagesApi
      */
     public function getMessagesRecipientsAsyncWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesRecipientsResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesRecipientsResponse[]';
         $request = $this->getMessagesRecipientsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         return $this->client
@@ -1132,7 +1131,7 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\MessagesMessagesResponse[]
+     * @return \CureDAO\Client\Models\MessagesMessagesResponse[]
      */
     public function postMessagesMessages($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
@@ -1157,11 +1156,11 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\MessagesMessagesResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\MessagesMessagesResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function postMessagesMessagesWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesMessagesResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesMessagesResponse[]';
         $request = $this->postMessagesMessagesRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         try {
@@ -1213,7 +1212,7 @@ class MessagesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\MessagesMessagesResponse[]',
+                        '\CureDAO\Client\Models\MessagesMessagesResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1271,7 +1270,7 @@ class MessagesApi
      */
     public function postMessagesMessagesAsyncWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesMessagesResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesMessagesResponse[]';
         $request = $this->postMessagesMessagesRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         return $this->client
@@ -1476,7 +1475,7 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\MessagesNoticesResponse[]
+     * @return \CureDAO\Client\Models\MessagesNoticesResponse[]
      */
     public function postMessagesNotices($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
@@ -1501,11 +1500,11 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\MessagesNoticesResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\MessagesNoticesResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function postMessagesNoticesWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesNoticesResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesNoticesResponse[]';
         $request = $this->postMessagesNoticesRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         try {
@@ -1557,7 +1556,7 @@ class MessagesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\MessagesNoticesResponse[]',
+                        '\CureDAO\Client\Models\MessagesNoticesResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1615,7 +1614,7 @@ class MessagesApi
      */
     public function postMessagesNoticesAsyncWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesNoticesResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesNoticesResponse[]';
         $request = $this->postMessagesNoticesRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         return $this->client
@@ -1820,7 +1819,7 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\MessagesRecipientsResponse[]
+     * @return \CureDAO\Client\Models\MessagesRecipientsResponse[]
      */
     public function postMessagesRecipients($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
@@ -1845,11 +1844,11 @@ class MessagesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\MessagesRecipientsResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\MessagesRecipientsResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function postMessagesRecipientsWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesRecipientsResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesRecipientsResponse[]';
         $request = $this->postMessagesRecipientsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         try {
@@ -1901,7 +1900,7 @@ class MessagesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\MessagesRecipientsResponse[]',
+                        '\CureDAO\Client\Models\MessagesRecipientsResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1959,7 +1958,7 @@ class MessagesApi
      */
     public function postMessagesRecipientsAsyncWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\MessagesRecipientsResponse[]';
+        $returnType = '\CureDAO\Client\Models\MessagesRecipientsResponse[]';
         $request = $this->postMessagesRecipientsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         return $this->client

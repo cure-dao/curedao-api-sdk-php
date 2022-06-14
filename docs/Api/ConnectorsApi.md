@@ -125,7 +125,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getConnectors**
-> \CureDAO\Client\Model\GetConnectorsResponse getConnectors($client_id, $platform)
+> \CureDAO\Client\Models\GetConnectorsResponse getConnectors($client_id, $platform)
 
 List of Connectors
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\GetConnectorsResponse**](../Model/GetConnectorsResponse.md)
+[**\CureDAO\Client\Models\GetConnectorsResponse**](../Model/GetConnectorsResponse.md)
 
 ### Authorization
 

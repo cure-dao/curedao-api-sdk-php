@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**postMeasurements**](MeasurementsApi.md#postMeasurements) | **POST** /v3/measurements/post | Post a new set or update existing measurements to the database
 [**updateMeasurement**](MeasurementsApi.md#updateMeasurement) | **POST** /v3/measurements/update | Update a measurement
 # **deleteMeasurement**
-> \CureDAO\Client\Model\CommonResponse deleteMeasurement($body)
+> \CureDAO\Client\Models\CommonResponse deleteMeasurement($body)
 
 Delete a measurement
 
@@ -35,7 +35,7 @@ $apiInstance = new CureDAO\Client\Api\MeasurementsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \CureDAO\Client\Model\MeasurementDelete(); // \CureDAO\Client\Model\MeasurementDelete | The startTime and variableId of the measurement to be deleted.
+$body = new \CureDAO\Client\Models\MeasurementDelete(); // \CureDAO\Client\Models\MeasurementDelete | The startTime and variableId of the measurement to be deleted.
 
 try {
     $result = $apiInstance->deleteMeasurement($body);
@@ -50,11 +50,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\MeasurementDelete**](../Model/MeasurementDelete.md)| The startTime and variableId of the measurement to be deleted. |
+ **body** | [**\CureDAO\Client\Models\MeasurementDelete**](../Model/MeasurementDelete.md)| The startTime and variableId of the measurement to be deleted. |
 
 ### Return type
 
-[**\CureDAO\Client\Model\CommonResponse**](../Model/CommonResponse.md)
+[**\CureDAO\Client\Models\CommonResponse**](../Model/CommonResponse.md)
 
 ### Authorization
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMeasurements**
-> \CureDAO\Client\Model\Measurement[] getMeasurements($variable_name, $sort, $limit, $offset, $variable_category_name, $updated_at, $user_id, $source_name, $connector_name, $value, $unit_name, $earliest_measurement_time, $latest_measurement_time, $created_at, $id, $grouping_width, $grouping_timezone, $do_not_process, $client_id, $do_not_convert, $min_max_filter, $platform)
+> \CureDAO\Client\Models\Measurement[] getMeasurements($variable_name, $sort, $limit, $offset, $variable_category_name, $updated_at, $user_id, $source_name, $connector_name, $value, $unit_name, $earliest_measurement_time, $latest_measurement_time, $created_at, $id, $grouping_width, $grouping_timezone, $do_not_process, $client_id, $do_not_convert, $min_max_filter, $platform)
 
 Get measurements for this user
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\Measurement[]**](../Model/Measurement.md)
+[**\CureDAO\Client\Models\Measurement[]**](../Model/Measurement.md)
 
 ### Authorization
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPairs**
-> \CureDAO\Client\Model\Pair[] getPairs($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $effect_unit_name, $user_id, $cause_unit_name, $onset_delay, $duration_of_action, $earliest_measurement_time, $latest_measurement_time, $limit, $offset, $sort)
+> \CureDAO\Client\Models\Pair[] getPairs($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $effect_unit_name, $user_id, $cause_unit_name, $onset_delay, $duration_of_action, $earliest_measurement_time, $latest_measurement_time, $limit, $offset, $sort)
 
 Get pairs of measurements for correlational analysis
 
@@ -191,10 +191,7 @@ $apiInstance = new CureDAO\Client\Api\MeasurementsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cause_variable_name = "cause_variable_name_example"; // string | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-$effect_variable_name = "effect_variable_name_example"; // string | Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
-$cause_variable_id = 56; // int | Variable id of the hypothetical predictor variable.  Ex: 1398
-$effect_variable_id = 56; // int | Variable id of the outcome variable of interest.  Ex: 1398
+
 $predictor_variable_name = "predictor_variable_name_example"; // string | Name of the hypothetical predictor variable.  Ex: Sleep Duration
 $outcome_variable_name = "outcome_variable_name_example"; // string | Name of the outcome variable of interest.  Ex: Overall Mood
 $effect_unit_name = "effect_unit_name_example"; // string | Name for the unit effect measurements to be returned in
@@ -240,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\Pair[]**](../Model/Pair.md)
+[**\CureDAO\Client\Models\Pair[]**](../Model/Pair.md)
 
 ### Authorization
 
@@ -311,7 +308,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postMeasurements**
-> \CureDAO\Client\Model\PostMeasurementsResponse postMeasurements($body, $user_id)
+> \CureDAO\Client\Models\PostMeasurementsResponse postMeasurements($body, $user_id)
 
 Post a new set or update existing measurements to the database
 
@@ -335,7 +332,7 @@ $apiInstance = new CureDAO\Client\Api\MeasurementsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = array(new \CureDAO\Client\Model\MeasurementSet()); // \CureDAO\Client\Model\MeasurementSet[] | An array of measurement sets containing measurement items you want to insert.
+$body = array(new \CureDAO\Client\Models\MeasurementSet()); // \CureDAO\Client\Models\MeasurementSet[] | An array of measurement sets containing measurement items you want to insert.
 $user_id = 8.14; // float | User's id
 
 try {
@@ -351,12 +348,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\MeasurementSet[]**](../Model/MeasurementSet.md)| An array of measurement sets containing measurement items you want to insert. |
+ **body** | [**\CureDAO\Client\Models\MeasurementSet[]**](../Model/MeasurementSet.md)| An array of measurement sets containing measurement items you want to insert. |
  **user_id** | **float**| User&#39;s id | [optional]
 
 ### Return type
 
-[**\CureDAO\Client\Model\PostMeasurementsResponse**](../Model/PostMeasurementsResponse.md)
+[**\CureDAO\Client\Models\PostMeasurementsResponse**](../Model/PostMeasurementsResponse.md)
 
 ### Authorization
 
@@ -370,7 +367,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateMeasurement**
-> \CureDAO\Client\Model\CommonResponse updateMeasurement($body)
+> \CureDAO\Client\Models\CommonResponse updateMeasurement($body)
 
 Update a measurement
 
@@ -394,7 +391,7 @@ $apiInstance = new CureDAO\Client\Api\MeasurementsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \CureDAO\Client\Model\MeasurementUpdate(); // \CureDAO\Client\Model\MeasurementUpdate | The id as well as the new startTime, note, and/or value of the measurement to be updated
+$body = new \CureDAO\Client\Models\MeasurementUpdate(); // \CureDAO\Client\Models\MeasurementUpdate | The id as well as the new startTime, note, and/or value of the measurement to be updated
 
 try {
     $result = $apiInstance->updateMeasurement($body);
@@ -409,11 +406,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\MeasurementUpdate**](../Model/MeasurementUpdate.md)| The id as well as the new startTime, note, and/or value of the measurement to be updated |
+ **body** | [**\CureDAO\Client\Models\MeasurementUpdate**](../Model/MeasurementUpdate.md)| The id as well as the new startTime, note, and/or value of the measurement to be updated |
 
 ### Return type
 
-[**\CureDAO\Client\Model\CommonResponse**](../Model/CommonResponse.md)
+[**\CureDAO\Client\Models\CommonResponse**](../Model/CommonResponse.md)
 
 ### Authorization
 

@@ -1,7 +1,7 @@
 <?php
 namespace CureDAO\Client\VariableCategories;
 use CureDAO\Client\BaseModel;
-use CureDAO\Client\Model\VariableCategory;
+use CureDAO\Client\Models\VariableCategory;
 use Illuminate\Support\Collection;
 
 class BaseVariableCategory extends BaseModel {

@@ -9,8 +9,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * CorrelationTest Class Doc Comment
- *
+ * CorrelationTest Class
  * @category    Class
  * @description Correlation
 

@@ -1,6 +1,6 @@
 <?php
 namespace CureDAO\Client;
-use CureDAO\Client\Model\MeasurementSet;
+use CureDAO\Client\Models\MeasurementSet;
 
 class Analysis extends HttpClient
 {

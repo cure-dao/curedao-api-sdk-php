@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAppSettings**](AppSettingsApi.md#getAppSettings) | **GET** /v3/appSettings | Get client app settings
 # **getAppSettings**
-> \CureDAO\Client\Model\AppSettingsResponse getAppSettings($client_id, $client_secret, $platform)
+> \CureDAO\Client\Models\AppSettingsResponse getAppSettings($client_id, $client_secret, $platform)
 
 Get client app settings
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\AppSettingsResponse**](../Model/AppSettingsResponse.md)
+[**\CureDAO\Client\Models\AppSettingsResponse**](../Model/AppSettingsResponse.md)
 
 ### Authorization
 

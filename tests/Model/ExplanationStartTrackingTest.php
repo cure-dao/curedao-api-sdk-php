@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * ExplanationStartTrackingTest Class Doc Comment
- *
+ * ExplanationStartTrackingTest Class 
  * @category    Class
  * @description ExplanationStartTracking
 

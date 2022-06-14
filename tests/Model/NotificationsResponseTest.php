@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * NotificationsResponseTest Class Doc Comment
- *
+ * NotificationsResponseTest Class
  * @category    Class
  * @description NotificationsResponse
 

@@ -1,6 +1,6 @@
 <?php
 namespace CureDAO\Client\VariableCategories;
-use CureDAO\Client\Models\Variable;
+use CureDAO\Client\Modelss\Variable;
 use CureDAO\Client\UI\FontAwesome;
 use Illuminate\Database\Eloquent\Builder;
 use CureDAO\Client\VariableCategories\BaseVariableCategory;

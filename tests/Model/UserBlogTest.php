@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * UserBlogTest Class Doc Comment
- *
+ * UserBlogTest Class 
  * @category    Class
  * @description UserBlog
 

@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * DeviceTokenTest Class Doc Comment
- *
+ * DeviceTokenTest Class
  * @category    Class
  * @description DeviceToken
 

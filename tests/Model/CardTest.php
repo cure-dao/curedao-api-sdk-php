@@ -9,8 +9,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * CardTest Class Doc Comment
- *
+ * CardTest Class 
  * @category    Class
  * @description Card
 

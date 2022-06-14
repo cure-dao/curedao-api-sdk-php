@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**getFeed**](FeedApi.md#getFeed) | **GET** /v3/feed | Tracking reminder notifications, messages, and study results
 [**postFeed**](FeedApi.md#postFeed) | **POST** /v3/feed | Post user interactions with feed
 # **getFeed**
-> \CureDAO\Client\Model\FeedResponse getFeed($sort, $user_id, $created_at, $updated_at, $limit, $offset, $client_id, $platform)
+> \CureDAO\Client\Models\FeedResponse getFeed($sort, $user_id, $created_at, $updated_at, $limit, $offset, $client_id, $platform)
 
 Tracking reminder notifications, messages, and study results
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\FeedResponse**](../Model/FeedResponse.md)
+[**\CureDAO\Client\Models\FeedResponse**](../Model/FeedResponse.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postFeed**
-> \CureDAO\Client\Model\FeedResponse postFeed($body, $user_id, $client_id, $platform)
+> \CureDAO\Client\Models\FeedResponse postFeed($body, $user_id, $client_id, $platform)
 
 Post user interactions with feed
 
@@ -102,7 +102,7 @@ $apiInstance = new CureDAO\Client\Api\FeedApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = array(new \CureDAO\Client\Model\Card()); // \CureDAO\Client\Model\Card[] | Id of the tracking reminder notification to be snoozed
+$body = array(new \CureDAO\Client\Models\Card()); // \CureDAO\Client\Models\Card[] | Id of the tracking reminder notification to be snoozed
 $user_id = 8.14; // float | User's id
 $client_id = "client_id_example"; // string | Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org
 $platform = "platform_example"; // string | Ex: chrome, android, ios, web
@@ -120,14 +120,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\Card[]**](../Model/Card.md)| Id of the tracking reminder notification to be snoozed |
+ **body** | [**\CureDAO\Client\Models\Card[]**](../Model/Card.md)| Id of the tracking reminder notification to be snoozed |
  **user_id** | **float**| User&#39;s id | [optional]
  **client_id** | **string**| Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org | [optional]
  **platform** | **string**| Ex: chrome, android, ios, web | [optional]
 
 ### Return type
 
-[**\CureDAO\Client\Model\FeedResponse**](../Model/FeedResponse.md)
+[**\CureDAO\Client\Models\FeedResponse**](../Model/FeedResponse.md)
 
 ### Authorization
 

@@ -18,8 +18,7 @@ use CureDAO\Client\HeaderSelector;
 use CureDAO\Client\ObjectSerializer;
 
 /**
- * StudiesApi Class Doc Comment
- *
+ * StudiesApi Class 
  */
 class StudiesApi
 {
@@ -66,13 +65,13 @@ class StudiesApi
      *
      * Create a Study
      *
-     * @param  \CureDAO\Client\Model\StudyCreationBody $body Details about the study you want to create (required)
+     * @param  \CureDAO\Client\Models\StudyCreationBody $body Details about the study you want to create (required)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\PostStudyCreateResponse
+     * @return \CureDAO\Client\Models\PostStudyCreateResponse
      */
     public function createStudy($body, $client_id = null, $platform = null)
     {
@@ -85,17 +84,17 @@ class StudiesApi
      *
      * Create a Study
      *
-     * @param  \CureDAO\Client\Model\StudyCreationBody $body Details about the study you want to create (required)
+     * @param  \CureDAO\Client\Models\StudyCreationBody $body Details about the study you want to create (required)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\PostStudyCreateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\PostStudyCreateResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createStudyWithHttpInfo($body, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\PostStudyCreateResponse';
+        $returnType = '\CureDAO\Client\Models\PostStudyCreateResponse';
         $request = $this->createStudyRequest($body, $client_id, $platform);
 
         try {
@@ -147,7 +146,7 @@ class StudiesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\PostStudyCreateResponse',
+                        '\CureDAO\Client\Models\PostStudyCreateResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -162,7 +161,7 @@ class StudiesApi
      *
      * Create a Study
      *
-     * @param  \CureDAO\Client\Model\StudyCreationBody $body Details about the study you want to create (required)
+     * @param  \CureDAO\Client\Models\StudyCreationBody $body Details about the study you want to create (required)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
@@ -184,7 +183,7 @@ class StudiesApi
      *
      * Create a Study
      *
-     * @param  \CureDAO\Client\Model\StudyCreationBody $body Details about the study you want to create (required)
+     * @param  \CureDAO\Client\Models\StudyCreationBody $body Details about the study you want to create (required)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
@@ -193,7 +192,7 @@ class StudiesApi
      */
     public function createStudyAsyncWithHttpInfo($body, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\PostStudyCreateResponse';
+        $returnType = '\CureDAO\Client\Models\PostStudyCreateResponse';
         $request = $this->createStudyRequest($body, $client_id, $platform);
 
         return $this->client
@@ -236,7 +235,7 @@ class StudiesApi
     /**
      * Create request for operation 'createStudy'
      *
-     * @param  \CureDAO\Client\Model\StudyCreationBody $body Details about the study you want to create (required)
+     * @param  \CureDAO\Client\Models\StudyCreationBody $body Details about the study you want to create (required)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
@@ -355,12 +354,12 @@ class StudiesApi
      *
      * Delete vote
      *
-     * @param  \CureDAO\Client\Model\VoteDelete $body The cause and effect variable names for the predictor vote to be deleted. (required)
+     * @param  \CureDAO\Client\Models\VoteDelete $body The cause and effect variable names for the predictor vote to be deleted. (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\CommonResponse
+     * @return \CureDAO\Client\Models\CommonResponse
      */
     public function deleteVote($body, $user_id = null)
     {
@@ -373,16 +372,16 @@ class StudiesApi
      *
      * Delete vote
      *
-     * @param  \CureDAO\Client\Model\VoteDelete $body The cause and effect variable names for the predictor vote to be deleted. (required)
+     * @param  \CureDAO\Client\Models\VoteDelete $body The cause and effect variable names for the predictor vote to be deleted. (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\CommonResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\CommonResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteVoteWithHttpInfo($body, $user_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->deleteVoteRequest($body, $user_id);
 
         try {
@@ -434,7 +433,7 @@ class StudiesApi
                 case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\CommonResponse',
+                        '\CureDAO\Client\Models\CommonResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -449,7 +448,7 @@ class StudiesApi
      *
      * Delete vote
      *
-     * @param  \CureDAO\Client\Model\VoteDelete $body The cause and effect variable names for the predictor vote to be deleted. (required)
+     * @param  \CureDAO\Client\Models\VoteDelete $body The cause and effect variable names for the predictor vote to be deleted. (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \InvalidArgumentException
@@ -470,7 +469,7 @@ class StudiesApi
      *
      * Delete vote
      *
-     * @param  \CureDAO\Client\Model\VoteDelete $body The cause and effect variable names for the predictor vote to be deleted. (required)
+     * @param  \CureDAO\Client\Models\VoteDelete $body The cause and effect variable names for the predictor vote to be deleted. (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \InvalidArgumentException
@@ -478,7 +477,7 @@ class StudiesApi
      */
     public function deleteVoteAsyncWithHttpInfo($body, $user_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->deleteVoteRequest($body, $user_id);
 
         return $this->client
@@ -521,7 +520,7 @@ class StudiesApi
     /**
      * Create request for operation 'deleteVote'
      *
-     * @param  \CureDAO\Client\Model\VoteDelete $body The cause and effect variable names for the predictor vote to be deleted. (required)
+     * @param  \CureDAO\Client\Models\VoteDelete $body The cause and effect variable names for the predictor vote to be deleted. (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \InvalidArgumentException
@@ -650,7 +649,7 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\GetStudiesResponse
+     * @return \CureDAO\Client\Models\GetStudiesResponse
      */
     public function getOpenStudies($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null)
     {
@@ -678,11 +677,11 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\GetStudiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\GetStudiesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOpenStudiesWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetStudiesResponse';
+        $returnType = '\CureDAO\Client\Models\GetStudiesResponse';
         $request = $this->getOpenStudiesRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id);
 
         try {
@@ -734,7 +733,7 @@ class StudiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\GetStudiesResponse',
+                        '\CureDAO\Client\Models\GetStudiesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -742,7 +741,7 @@ class StudiesApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\JsonErrorResponse',
+                        '\CureDAO\Client\Models\JsonErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -806,7 +805,7 @@ class StudiesApi
      */
     public function getOpenStudiesAsyncWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetStudiesResponse';
+        $returnType = '\CureDAO\Client\Models\GetStudiesResponse';
         $request = $this->getOpenStudiesRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id);
 
         return $this->client
@@ -1035,7 +1034,7 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\GetStudiesResponse
+     * @return \CureDAO\Client\Models\GetStudiesResponse
      */
     public function getStudies($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null, $sort = null, $limit = '100', $offset = null, $correlation_coefficient = null, $updated_at = null, $outcomes_of_interest = null, $principal_investigator_user_id = null, $open = null, $joined = null, $created = null, $population = null, $downvoted = null)
     {
@@ -1075,11 +1074,11 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\GetStudiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\GetStudiesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStudiesWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null, $sort = null, $limit = '100', $offset = null, $correlation_coefficient = null, $updated_at = null, $outcomes_of_interest = null, $principal_investigator_user_id = null, $open = null, $joined = null, $created = null, $population = null, $downvoted = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetStudiesResponse';
+        $returnType = '\CureDAO\Client\Models\GetStudiesResponse';
         $request = $this->getStudiesRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id, $sort, $limit, $offset, $correlation_coefficient, $updated_at, $outcomes_of_interest, $principal_investigator_user_id, $open, $joined, $created, $population, $downvoted);
 
         try {
@@ -1131,7 +1130,7 @@ class StudiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\GetStudiesResponse',
+                        '\CureDAO\Client\Models\GetStudiesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1139,7 +1138,7 @@ class StudiesApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\JsonErrorResponse',
+                        '\CureDAO\Client\Models\JsonErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1227,7 +1226,7 @@ class StudiesApi
      */
     public function getStudiesAsyncWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null, $sort = null, $limit = '100', $offset = null, $correlation_coefficient = null, $updated_at = null, $outcomes_of_interest = null, $principal_investigator_user_id = null, $open = null, $joined = null, $created = null, $population = null, $downvoted = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetStudiesResponse';
+        $returnType = '\CureDAO\Client\Models\GetStudiesResponse';
         $request = $this->getStudiesRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id, $sort, $limit, $offset, $correlation_coefficient, $updated_at, $outcomes_of_interest, $principal_investigator_user_id, $open, $joined, $created, $population, $downvoted);
 
         return $this->client
@@ -1507,7 +1506,7 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\GetStudiesResponse
+     * @return \CureDAO\Client\Models\GetStudiesResponse
      */
     public function getStudiesCreated($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $sort = null, $limit = '100', $offset = null, $user_id = null, $updated_at = null, $client_id = null, $platform = null)
     {
@@ -1536,11 +1535,11 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\GetStudiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\GetStudiesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStudiesCreatedWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $sort = null, $limit = '100', $offset = null, $user_id = null, $updated_at = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetStudiesResponse';
+        $returnType = '\CureDAO\Client\Models\GetStudiesResponse';
         $request = $this->getStudiesCreatedRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $updated_at, $client_id, $platform);
 
         try {
@@ -1592,7 +1591,7 @@ class StudiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\GetStudiesResponse',
+                        '\CureDAO\Client\Models\GetStudiesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1658,7 +1657,7 @@ class StudiesApi
      */
     public function getStudiesCreatedAsyncWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $sort = null, $limit = '100', $offset = null, $user_id = null, $updated_at = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetStudiesResponse';
+        $returnType = '\CureDAO\Client\Models\GetStudiesResponse';
         $request = $this->getStudiesCreatedRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $updated_at, $client_id, $platform);
 
         return $this->client
@@ -1885,7 +1884,7 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\GetStudiesResponse
+     * @return \CureDAO\Client\Models\GetStudiesResponse
      */
     public function getStudiesJoined($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $sort = null, $limit = '100', $offset = null, $user_id = null, $correlation_coefficient = null, $updated_at = null, $outcomes_of_interest = null, $client_id = null, $platform = null)
     {
@@ -1916,11 +1915,11 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\GetStudiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\GetStudiesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStudiesJoinedWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $sort = null, $limit = '100', $offset = null, $user_id = null, $correlation_coefficient = null, $updated_at = null, $outcomes_of_interest = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetStudiesResponse';
+        $returnType = '\CureDAO\Client\Models\GetStudiesResponse';
         $request = $this->getStudiesJoinedRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $correlation_coefficient, $updated_at, $outcomes_of_interest, $client_id, $platform);
 
         try {
@@ -1972,7 +1971,7 @@ class StudiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\GetStudiesResponse',
+                        '\CureDAO\Client\Models\GetStudiesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2042,7 +2041,7 @@ class StudiesApi
      */
     public function getStudiesJoinedAsyncWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $sort = null, $limit = '100', $offset = null, $user_id = null, $correlation_coefficient = null, $updated_at = null, $outcomes_of_interest = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetStudiesResponse';
+        $returnType = '\CureDAO\Client\Models\GetStudiesResponse';
         $request = $this->getStudiesJoinedRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $correlation_coefficient, $updated_at, $outcomes_of_interest, $client_id, $platform);
 
         return $this->client
@@ -2276,7 +2275,7 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\Study
+     * @return \CureDAO\Client\Models\Study
      */
     public function getStudy($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null)
     {
@@ -2304,11 +2303,11 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\Study, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\Study, HTTP status code, HTTP response headers (array of strings)
      */
     public function getStudyWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\Study';
+        $returnType = '\CureDAO\Client\Models\Study';
         $request = $this->getStudyRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id);
 
         try {
@@ -2360,7 +2359,7 @@ class StudiesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\Study',
+                        '\CureDAO\Client\Models\Study',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2368,7 +2367,7 @@ class StudiesApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\JsonErrorResponse',
+                        '\CureDAO\Client\Models\JsonErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2432,7 +2431,7 @@ class StudiesApi
      */
     public function getStudyAsyncWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\Study';
+        $returnType = '\CureDAO\Client\Models\Study';
         $request = $this->getStudyRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id);
 
         return $this->client
@@ -2647,7 +2646,7 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\StudyJoinResponse
+     * @return \CureDAO\Client\Models\StudyJoinResponse
      */
     public function joinStudy($study_id = null, $cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $platform = null)
     {
@@ -2673,11 +2672,11 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\StudyJoinResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\StudyJoinResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function joinStudyWithHttpInfo($study_id = null, $cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\StudyJoinResponse';
+        $returnType = '\CureDAO\Client\Models\StudyJoinResponse';
         $request = $this->joinStudyRequest($study_id, $cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $platform);
 
         try {
@@ -2729,7 +2728,7 @@ class StudiesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\StudyJoinResponse',
+                        '\CureDAO\Client\Models\StudyJoinResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2789,7 +2788,7 @@ class StudiesApi
      */
     public function joinStudyAsyncWithHttpInfo($study_id = null, $cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\StudyJoinResponse';
+        $returnType = '\CureDAO\Client\Models\StudyJoinResponse';
         $request = $this->joinStudyRequest($study_id, $cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $platform);
 
         return $this->client
@@ -2981,12 +2980,12 @@ class StudiesApi
      *
      * Post or update vote
      *
-     * @param  \CureDAO\Client\Model\Vote $body Contains the cause variable, effect variable, and vote value. (required)
+     * @param  \CureDAO\Client\Models\Vote $body Contains the cause variable, effect variable, and vote value. (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\CommonResponse
+     * @return \CureDAO\Client\Models\CommonResponse
      */
     public function postVote($body, $user_id = null)
     {
@@ -2999,16 +2998,16 @@ class StudiesApi
      *
      * Post or update vote
      *
-     * @param  \CureDAO\Client\Model\Vote $body Contains the cause variable, effect variable, and vote value. (required)
+     * @param  \CureDAO\Client\Models\Vote $body Contains the cause variable, effect variable, and vote value. (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\CommonResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\CommonResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function postVoteWithHttpInfo($body, $user_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->postVoteRequest($body, $user_id);
 
         try {
@@ -3060,7 +3059,7 @@ class StudiesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\CommonResponse',
+                        '\CureDAO\Client\Models\CommonResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3075,7 +3074,7 @@ class StudiesApi
      *
      * Post or update vote
      *
-     * @param  \CureDAO\Client\Model\Vote $body Contains the cause variable, effect variable, and vote value. (required)
+     * @param  \CureDAO\Client\Models\Vote $body Contains the cause variable, effect variable, and vote value. (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \InvalidArgumentException
@@ -3096,7 +3095,7 @@ class StudiesApi
      *
      * Post or update vote
      *
-     * @param  \CureDAO\Client\Model\Vote $body Contains the cause variable, effect variable, and vote value. (required)
+     * @param  \CureDAO\Client\Models\Vote $body Contains the cause variable, effect variable, and vote value. (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \InvalidArgumentException
@@ -3104,7 +3103,7 @@ class StudiesApi
      */
     public function postVoteAsyncWithHttpInfo($body, $user_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->postVoteRequest($body, $user_id);
 
         return $this->client
@@ -3147,7 +3146,7 @@ class StudiesApi
     /**
      * Create request for operation 'postVote'
      *
-     * @param  \CureDAO\Client\Model\Vote $body Contains the cause variable, effect variable, and vote value. (required)
+     * @param  \CureDAO\Client\Models\Vote $body Contains the cause variable, effect variable, and vote value. (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \InvalidArgumentException
@@ -3276,7 +3275,7 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\PostStudyPublishResponse
+     * @return \CureDAO\Client\Models\PostStudyPublishResponse
      */
     public function publishStudy($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null)
     {
@@ -3304,11 +3303,11 @@ class StudiesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\PostStudyPublishResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\PostStudyPublishResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function publishStudyWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\PostStudyPublishResponse';
+        $returnType = '\CureDAO\Client\Models\PostStudyPublishResponse';
         $request = $this->publishStudyRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id);
 
         try {
@@ -3360,7 +3359,7 @@ class StudiesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\PostStudyPublishResponse',
+                        '\CureDAO\Client\Models\PostStudyPublishResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3424,7 +3423,7 @@ class StudiesApi
      */
     public function publishStudyAsyncWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $user_id = null, $client_id = null, $include_charts = null, $platform = null, $recalculate = null, $study_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\PostStudyPublishResponse';
+        $returnType = '\CureDAO\Client\Models\PostStudyPublishResponse';
         $request = $this->publishStudyRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id);
 
         return $this->client

@@ -2,9 +2,7 @@
 
 namespace CureDAO\Client\Variables;
 
-use CureDAO\Client\Api\UnitsApi;
-use CureDAO\Client\Model\Unit;
-use CureDAO\Client\Model\VariableCategory;
+use CureDAO\Client\Models\VariableCategory;
 use CureDAO\Client\Units\BaseUnit;
 use CureDAO\Client\VariableCategories\BaseVariableCategory;
 

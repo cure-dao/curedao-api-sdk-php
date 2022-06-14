@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **access_token_expires** | **string** | Ex: 2018-08-08 02:41:19 | [optional] 
 **access_token_expires_at_milliseconds** | **int** | Ex: 1533696079000 | [optional] 
 **administrator** | **bool** | Is user administrator | 
-**authorized_clients** | [**\CureDAO\Client\Model\AuthorizedClients**](AuthorizedClients.md) |  | [optional] 
+**authorized_clients** | [**\CureDAO\Client\Models\AuthorizedClients**](AuthorizedClients.md) |  | [optional] 
 **avatar** | **string** | Ex: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz&#x3D;50 | [optional] 
 **avatar_image** | **string** | Ex: https://lh6.googleusercontent.com/-BHr4hyUWqZU/AAAAAAAAAAI/AAAAAAAIG28/2Lv0en738II/photo.jpg?sz&#x3D;50 | [optional] 
 **capabilities** | **string** | Ex: a:1:{s:13:\&quot;administrator\&quot;;b:1;} | [optional] 
-**card** | [**\CureDAO\Client\Model\Card**](Card.md) | Avatar and info | [optional] 
+**card** | [**\CureDAO\Client\Models\Card**](Card.md) | Avatar and info | [optional] 
 **client_id** | **string** | Ex: curedao | [optional] 
 **client_user_id** | **string** | Ex: 118444693184829555362 | [optional] 
 **combine_notifications** | **bool** | Ex: 1 | [optional] 

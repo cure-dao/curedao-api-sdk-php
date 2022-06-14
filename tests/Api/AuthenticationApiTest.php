@@ -4,13 +4,12 @@
 
 namespace CureDAO\Tests\Api;
 
-use \CureDAO\Client\Configuration;
-use \CureDAO\Client\ApiException;
-use \CureDAO\Client\ObjectSerializer;
+use CureDAO\Client\Configuration;
+use CureDAO\Client\ApiException;
+use CureDAO\Client\ObjectSerializer;
 
 /**
- * AuthenticationApiTest Class Doc Comment
- *
+ * AuthenticationApiTest Class 
  */
 class AuthenticationApiTest extends \CureDAO\Tests\BaseTestCase
 {

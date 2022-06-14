@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * ImageTest Class Doc Comment
- *
+ * ImageTest Class 
  * @category    Class
  * @description Image
 

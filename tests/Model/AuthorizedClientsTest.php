@@ -4,8 +4,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * AuthorizedClientsTest Class Doc Comment
- *
+ * AuthorizedClientsTest Class
  * @category    Class
  * @description AuthorizedClients
  */

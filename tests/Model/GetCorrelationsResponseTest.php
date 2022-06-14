@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * GetCorrelationsResponseTest Class Doc Comment
- *
+ * GetCorrelationsResponseTest Class 
  * @category    Class
  * @description GetCorrelationsResponse
 

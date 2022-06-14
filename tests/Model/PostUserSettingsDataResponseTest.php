@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * PostUserSettingsDataResponseTest Class Doc Comment
- *
+ * PostUserSettingsDataResponseTest Class 
  * @category    Class
  * @description PostUserSettingsDataResponse
 

@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * MeasurementDeleteTest Class Doc Comment
- *
+ * MeasurementDeleteTest Class 
  * @category    Class
  * @description MeasurementDelete
 

@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * VariableChartsTest Class Doc Comment
- *
+ * VariableChartsTest Class 
  * @category    Class
  * @description An object with various chart properties each property contain and svg and Highcharts configuration
 

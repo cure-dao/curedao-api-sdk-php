@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **category** | **string** | Unit category | 
 **category_id** | **int** | Ex: 6 | [optional] 
 **category_name** | **string** | Ex: Miscellany | [optional] 
-**conversion_steps** | [**\CureDAO\Client\Model\ConversionStep[]**](ConversionStep.md) | Conversion steps list | 
+**conversion_steps** | [**\CureDAO\Client\Models\ConversionStep[]**](ConversionStep.md) | Conversion steps list | 
 **id** | **int** | Ex: 29 | [optional] 
 **manual_tracking** | **int** | Ex: 0 | [optional] 
 **maximum_allowed_value** | **double** | The maximum allowed value for measurements. While you can record a value above this maximum, it will be excluded from the correlation analysis. | [optional] 
@@ -16,6 +16,6 @@ Name | Type | Description | Notes
 **minimum_allowed_value** | **double** | The minimum allowed value for measurements. While you can record a value below this minimum, it will be excluded from the correlation analysis. | [optional] 
 **minimum_value** | **int** | Ex: 0 | [optional] 
 **name** | **string** | Unit name | 
-**unit_category** | [**\CureDAO\Client\Model\UnitCategory**](UnitCategory.md) |  | 
+**unit_category** | [**\CureDAO\Client\Models\UnitCategory**](UnitCategory.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

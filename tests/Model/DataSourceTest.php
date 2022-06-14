@@ -6,8 +6,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * DataSourceTest Class Doc Comment
- *
+ * DataSourceTest Class 
  * @category    Class
  * @description DataSource
  */

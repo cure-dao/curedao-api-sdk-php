@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * GroupsMembersResponseTest Class Doc Comment
- *
+ * GroupsMembersResponseTest Class
  * @category    Class
  * @description GroupsMembersResponse
 

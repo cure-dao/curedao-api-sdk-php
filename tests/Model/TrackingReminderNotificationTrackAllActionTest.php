@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * TrackingReminderNotificationTrackAllActionTest Class Doc Comment
- *
+ * TrackingReminderNotificationTrackAllActionTest Class 
  * @category    Class
  * @description TrackingReminderNotificationTrackAllAction
 

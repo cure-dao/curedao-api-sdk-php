@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * ChartTest Class Doc Comment
- *
+ * ChartTest Class 
  * @category    Class
  * @description Chart
 

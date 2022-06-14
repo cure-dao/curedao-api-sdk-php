@@ -8,10 +8,10 @@ use CureDAO\Client\Files\FileHelper;
 use CureDAO\Client\Files\PHP\ConstantGenerator;
 use CureDAO\Client\Files\PHP\PhpClassFile;
 use CureDAO\Client\Logging\QMLog;
-use CureDAO\Client\Models\AggregateCorrelation;
-use CureDAO\Client\Models\BaseModel;
-use CureDAO\Client\Models\Correlation;
-use CureDAO\Client\Models\User;
+use CureDAO\Client\Modelss\AggregateCorrelation;
+use CureDAO\Client\Modelss\BaseModel;
+use CureDAO\Client\Modelss\Correlation;
+use CureDAO\Client\Modelss\User;
 use CureDAO\Client\Properties\WpPost\WpPostPostNameProperty;
 use CureDAO\Client\Slim\Middleware\QMAuth;
 use CureDAO\Client\Slim\Model\Auth\QMAccessToken;
@@ -34,7 +34,7 @@ use SplStack;
 use stdClass;
 use Throwable;
 /** Class StringHelper
- * @package CureDAO\Client\Slim\Model
+ * @package CureDAO\Client\Slim\Models
  */
 class QMStr {
     public const CONTACT_MIKE_FOR_HELP_STRING = "Please contact mike@quantimo.do if you need any help. ";

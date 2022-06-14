@@ -13,13 +13,12 @@
 
 namespace CureDAO\Tests\Api;
 
-use \CureDAO\Client\Configuration;
-use \CureDAO\Client\ApiException;
-use \CureDAO\Client\ObjectSerializer;
+use CureDAO\Client\Configuration;
+use CureDAO\Client\ApiException;
+use CureDAO\Client\ObjectSerializer;
 
 /**
- * SharesApiTest Class Doc Comment
- *
+ * SharesApiTest Class 
  * @category Class
  * @package  CureDAO\Client
  * @author   Mike P. Sinn

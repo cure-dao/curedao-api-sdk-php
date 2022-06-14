@@ -3,13 +3,13 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**studies** | [**\CureDAO\Client\Model\Study[]**](Study.md) |  | [optional] 
+**studies** | [**\CureDAO\Client\Models\Study[]**](Study.md) |  | [optional] 
 **description** | **string** | Ex: These factors are most predictive of Overall Mood based on your own data. | 
 **summary** | **string** | Can be used as title in help info popup | 
-**image** | [**\CureDAO\Client\Model\Image**](Image.md) |  | [optional] 
+**image** | [**\CureDAO\Client\Models\Image**](Image.md) |  | [optional] 
 **avatar** | **string** | Square icon png url | [optional] 
 **ion_icon** | **string** | Ex: ion-ios-person | [optional] 
-**start_tracking** | [**\CureDAO\Client\Model\ExplanationStartTracking**](ExplanationStartTracking.md) |  | [optional] 
+**start_tracking** | [**\CureDAO\Client\Models\ExplanationStartTracking**](ExplanationStartTracking.md) |  | [optional] 
 **title** | **string** | Ex: Top Predictors of Overall Mood | [optional] 
 **html** | **string** | Embeddable list of study summaries with explanation at the top | [optional] 
 

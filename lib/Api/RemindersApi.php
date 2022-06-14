@@ -18,8 +18,7 @@ use CureDAO\Client\HeaderSelector;
 use CureDAO\Client\ObjectSerializer;
 
 /**
- * RemindersApi Class Doc Comment
- *
+ * RemindersApi Class 
  */
 class RemindersApi
 {
@@ -66,12 +65,12 @@ class RemindersApi
      *
      * Delete Tracking Reminder
      *
-     * @param  \CureDAO\Client\Model\TrackingReminderDelete $body Id of reminder to be deleted (required)
+     * @param  \CureDAO\Client\Models\TrackingReminderDelete $body Id of reminder to be deleted (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\CommonResponse
+     * @return \CureDAO\Client\Models\CommonResponse
      */
     public function deleteTrackingReminder($body, $user_id = null)
     {
@@ -84,16 +83,16 @@ class RemindersApi
      *
      * Delete Tracking Reminder
      *
-     * @param  \CureDAO\Client\Model\TrackingReminderDelete $body Id of reminder to be deleted (required)
+     * @param  \CureDAO\Client\Models\TrackingReminderDelete $body Id of reminder to be deleted (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\CommonResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\CommonResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteTrackingReminderWithHttpInfo($body, $user_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->deleteTrackingReminderRequest($body, $user_id);
 
         try {
@@ -145,7 +144,7 @@ class RemindersApi
                 case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\CommonResponse',
+                        '\CureDAO\Client\Models\CommonResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -160,7 +159,7 @@ class RemindersApi
      *
      * Delete Tracking Reminder
      *
-     * @param  \CureDAO\Client\Model\TrackingReminderDelete $body Id of reminder to be deleted (required)
+     * @param  \CureDAO\Client\Models\TrackingReminderDelete $body Id of reminder to be deleted (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \InvalidArgumentException
@@ -181,7 +180,7 @@ class RemindersApi
      *
      * Delete Tracking Reminder
      *
-     * @param  \CureDAO\Client\Model\TrackingReminderDelete $body Id of reminder to be deleted (required)
+     * @param  \CureDAO\Client\Models\TrackingReminderDelete $body Id of reminder to be deleted (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \InvalidArgumentException
@@ -189,7 +188,7 @@ class RemindersApi
      */
     public function deleteTrackingReminderAsyncWithHttpInfo($body, $user_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->deleteTrackingReminderRequest($body, $user_id);
 
         return $this->client
@@ -232,7 +231,7 @@ class RemindersApi
     /**
      * Create request for operation 'deleteTrackingReminder'
      *
-     * @param  \CureDAO\Client\Model\TrackingReminderDelete $body Id of reminder to be deleted (required)
+     * @param  \CureDAO\Client\Models\TrackingReminderDelete $body Id of reminder to be deleted (required)
      * @param  float $user_id User&#39;s id (optional)
      *
      * @throws \InvalidArgumentException
@@ -361,7 +360,7 @@ class RemindersApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\GetTrackingReminderNotificationsResponse
+     * @return \CureDAO\Client\Models\GetTrackingReminderNotificationsResponse
      */
     public function getTrackingReminderNotifications($sort = null, $user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $variable_category_name = null, $reminder_time = null, $client_id = null, $only_past = null, $include_deleted = null, $platform = null)
     {
@@ -389,11 +388,11 @@ class RemindersApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\GetTrackingReminderNotificationsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\GetTrackingReminderNotificationsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTrackingReminderNotificationsWithHttpInfo($sort = null, $user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $variable_category_name = null, $reminder_time = null, $client_id = null, $only_past = null, $include_deleted = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetTrackingReminderNotificationsResponse';
+        $returnType = '\CureDAO\Client\Models\GetTrackingReminderNotificationsResponse';
         $request = $this->getTrackingReminderNotificationsRequest($sort, $user_id, $created_at, $updated_at, $limit, $offset, $variable_category_name, $reminder_time, $client_id, $only_past, $include_deleted, $platform);
 
         try {
@@ -445,7 +444,7 @@ class RemindersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\GetTrackingReminderNotificationsResponse',
+                        '\CureDAO\Client\Models\GetTrackingReminderNotificationsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -509,7 +508,7 @@ class RemindersApi
      */
     public function getTrackingReminderNotificationsAsyncWithHttpInfo($sort = null, $user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $variable_category_name = null, $reminder_time = null, $client_id = null, $only_past = null, $include_deleted = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetTrackingReminderNotificationsResponse';
+        $returnType = '\CureDAO\Client\Models\GetTrackingReminderNotificationsResponse';
         $request = $this->getTrackingReminderNotificationsRequest($sort, $user_id, $created_at, $updated_at, $limit, $offset, $variable_category_name, $reminder_time, $client_id, $only_past, $include_deleted, $platform);
 
         return $this->client
@@ -726,7 +725,7 @@ class RemindersApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\TrackingReminder[]
+     * @return \CureDAO\Client\Models\TrackingReminder[]
      */
     public function getTrackingReminders($user_id = null, $variable_category_name = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $sort = null, $client_id = null, $app_version = null, $platform = null)
     {
@@ -752,11 +751,11 @@ class RemindersApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\TrackingReminder[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\TrackingReminder[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getTrackingRemindersWithHttpInfo($user_id = null, $variable_category_name = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $sort = null, $client_id = null, $app_version = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\TrackingReminder[]';
+        $returnType = '\CureDAO\Client\Models\TrackingReminder[]';
         $request = $this->getTrackingRemindersRequest($user_id, $variable_category_name, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $platform);
 
         try {
@@ -808,7 +807,7 @@ class RemindersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\TrackingReminder[]',
+                        '\CureDAO\Client\Models\TrackingReminder[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -868,7 +867,7 @@ class RemindersApi
      */
     public function getTrackingRemindersAsyncWithHttpInfo($user_id = null, $variable_category_name = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $sort = null, $client_id = null, $app_version = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\TrackingReminder[]';
+        $returnType = '\CureDAO\Client\Models\TrackingReminder[]';
         $request = $this->getTrackingRemindersRequest($user_id, $variable_category_name, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $platform);
 
         return $this->client
@@ -1062,14 +1061,14 @@ class RemindersApi
      *
      * Snooze, skip, or track a tracking reminder notification
      *
-     * @param  \CureDAO\Client\Model\TrackingReminderNotificationPost[] $body Id of the tracking reminder notification to be snoozed (required)
+     * @param  \CureDAO\Client\Models\TrackingReminderNotificationPost[] $body Id of the tracking reminder notification to be snoozed (required)
      * @param  float $user_id User&#39;s id (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\CommonResponse
+     * @return \CureDAO\Client\Models\CommonResponse
      */
     public function postTrackingReminderNotifications($body, $user_id = null, $client_id = null, $platform = null)
     {
@@ -1082,18 +1081,18 @@ class RemindersApi
      *
      * Snooze, skip, or track a tracking reminder notification
      *
-     * @param  \CureDAO\Client\Model\TrackingReminderNotificationPost[] $body Id of the tracking reminder notification to be snoozed (required)
+     * @param  \CureDAO\Client\Models\TrackingReminderNotificationPost[] $body Id of the tracking reminder notification to be snoozed (required)
      * @param  float $user_id User&#39;s id (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\CommonResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\CommonResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function postTrackingReminderNotificationsWithHttpInfo($body, $user_id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->postTrackingReminderNotificationsRequest($body, $user_id, $client_id, $platform);
 
         try {
@@ -1145,7 +1144,7 @@ class RemindersApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\CommonResponse',
+                        '\CureDAO\Client\Models\CommonResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1160,7 +1159,7 @@ class RemindersApi
      *
      * Snooze, skip, or track a tracking reminder notification
      *
-     * @param  \CureDAO\Client\Model\TrackingReminderNotificationPost[] $body Id of the tracking reminder notification to be snoozed (required)
+     * @param  \CureDAO\Client\Models\TrackingReminderNotificationPost[] $body Id of the tracking reminder notification to be snoozed (required)
      * @param  float $user_id User&#39;s id (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
@@ -1183,7 +1182,7 @@ class RemindersApi
      *
      * Snooze, skip, or track a tracking reminder notification
      *
-     * @param  \CureDAO\Client\Model\TrackingReminderNotificationPost[] $body Id of the tracking reminder notification to be snoozed (required)
+     * @param  \CureDAO\Client\Models\TrackingReminderNotificationPost[] $body Id of the tracking reminder notification to be snoozed (required)
      * @param  float $user_id User&#39;s id (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
@@ -1193,7 +1192,7 @@ class RemindersApi
      */
     public function postTrackingReminderNotificationsAsyncWithHttpInfo($body, $user_id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->postTrackingReminderNotificationsRequest($body, $user_id, $client_id, $platform);
 
         return $this->client
@@ -1236,7 +1235,7 @@ class RemindersApi
     /**
      * Create request for operation 'postTrackingReminderNotifications'
      *
-     * @param  \CureDAO\Client\Model\TrackingReminderNotificationPost[] $body Id of the tracking reminder notification to be snoozed (required)
+     * @param  \CureDAO\Client\Models\TrackingReminderNotificationPost[] $body Id of the tracking reminder notification to be snoozed (required)
      * @param  float $user_id User&#39;s id (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
@@ -1360,11 +1359,11 @@ class RemindersApi
      *
      * Store a Tracking Reminder
      *
-     * @param  \CureDAO\Client\Model\TrackingReminder[] $body TrackingReminder that should be stored (required)
+     * @param  \CureDAO\Client\Models\TrackingReminder[] $body TrackingReminder that should be stored (required)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\PostTrackingRemindersResponse
+     * @return \CureDAO\Client\Models\PostTrackingRemindersResponse
      */
     public function postTrackingReminders($body)
     {
@@ -1377,15 +1376,15 @@ class RemindersApi
      *
      * Store a Tracking Reminder
      *
-     * @param  \CureDAO\Client\Model\TrackingReminder[] $body TrackingReminder that should be stored (required)
+     * @param  \CureDAO\Client\Models\TrackingReminder[] $body TrackingReminder that should be stored (required)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\PostTrackingRemindersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\PostTrackingRemindersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function postTrackingRemindersWithHttpInfo($body)
     {
-        $returnType = '\CureDAO\Client\Model\PostTrackingRemindersResponse';
+        $returnType = '\CureDAO\Client\Models\PostTrackingRemindersResponse';
         $request = $this->postTrackingRemindersRequest($body);
 
         try {
@@ -1437,7 +1436,7 @@ class RemindersApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\PostTrackingRemindersResponse',
+                        '\CureDAO\Client\Models\PostTrackingRemindersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1452,7 +1451,7 @@ class RemindersApi
      *
      * Store a Tracking Reminder
      *
-     * @param  \CureDAO\Client\Model\TrackingReminder[] $body TrackingReminder that should be stored (required)
+     * @param  \CureDAO\Client\Models\TrackingReminder[] $body TrackingReminder that should be stored (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1472,14 +1471,14 @@ class RemindersApi
      *
      * Store a Tracking Reminder
      *
-     * @param  \CureDAO\Client\Model\TrackingReminder[] $body TrackingReminder that should be stored (required)
+     * @param  \CureDAO\Client\Models\TrackingReminder[] $body TrackingReminder that should be stored (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function postTrackingRemindersAsyncWithHttpInfo($body)
     {
-        $returnType = '\CureDAO\Client\Model\PostTrackingRemindersResponse';
+        $returnType = '\CureDAO\Client\Models\PostTrackingRemindersResponse';
         $request = $this->postTrackingRemindersRequest($body);
 
         return $this->client
@@ -1522,7 +1521,7 @@ class RemindersApi
     /**
      * Create request for operation 'postTrackingReminders'
      *
-     * @param  \CureDAO\Client\Model\TrackingReminder[] $body TrackingReminder that should be stored (required)
+     * @param  \CureDAO\Client\Models\TrackingReminder[] $body TrackingReminder that should be stored (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

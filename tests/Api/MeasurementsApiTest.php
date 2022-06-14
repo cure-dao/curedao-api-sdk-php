@@ -4,18 +4,17 @@
 
 namespace CureDAO\Tests\Api;
 
-use \CureDAO\Client\Configuration;
-use \CureDAO\Client\ApiException;
-use \CureDAO\Client\ObjectSerializer;
+use CureDAO\Client\Configuration;
+use CureDAO\Client\ApiException;
+use CureDAO\Client\ObjectSerializer;
 
 /**
- * MeasurementsApiTest Class Doc Comment
- *
+ * MeasurementsApiTest Class
  */
 class MeasurementsApiTest extends \CureDAO\Tests\BaseTestCase
 {
 
-    
+
 
     /**
      * Test case for deleteMeasurement

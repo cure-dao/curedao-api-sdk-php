@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * FeedResponseTest Class Doc Comment
- *
+ * FeedResponseTest Class 
  * @category    Class
  * @description FeedResponse
 

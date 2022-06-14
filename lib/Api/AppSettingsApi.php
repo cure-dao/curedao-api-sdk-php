@@ -10,8 +10,7 @@ use CureDAO\Client\ApiException;
 use CureDAO\Client\Configuration;
 use CureDAO\Client\HeaderSelector;
 use CureDAO\Client\ObjectSerializer;/**
- * AppSettingsApi Class Doc Comment
- *
+ * AppSettingsApi Class 
  */
 class AppSettingsApi
 {
@@ -54,7 +53,7 @@ class AppSettingsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\AppSettingsResponse
+     * @return \CureDAO\Client\Models\AppSettingsResponse
      */
     public function getAppSettings($client_id = null, $client_secret = null, $platform = null)
     {
@@ -71,11 +70,11 @@ class AppSettingsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\AppSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\AppSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAppSettingsWithHttpInfo($client_id = null, $client_secret = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\AppSettingsResponse';
+        $returnType = '\CureDAO\Client\Models\AppSettingsResponse';
         $request = $this->getAppSettingsRequest($client_id, $client_secret, $platform);        try {
             $options = $this->createHttpClientOption();
             try {
@@ -115,7 +114,7 @@ class AppSettingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\AppSettingsResponse',
+                        '\CureDAO\Client\Models\AppSettingsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -123,7 +122,7 @@ class AppSettingsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\JsonErrorResponse',
+                        '\CureDAO\Client\Models\JsonErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -165,7 +164,7 @@ class AppSettingsApi
      */
     public function getAppSettingsAsyncWithHttpInfo($client_id = null, $client_secret = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\AppSettingsResponse';
+        $returnType = '\CureDAO\Client\Models\AppSettingsResponse';
         $request = $this->getAppSettingsRequest($client_id, $client_secret, $platform);        return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(

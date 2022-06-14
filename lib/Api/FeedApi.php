@@ -16,8 +16,7 @@ use CureDAO\Client\HeaderSelector;
 use CureDAO\Client\ObjectSerializer;
 
 /**
- * FeedApi Class Doc Comment
- *
+ * FeedApi Class
  */
 class FeedApi
 {
@@ -75,7 +74,7 @@ class FeedApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\FeedResponse
+     * @return \CureDAO\Client\Models\FeedResponse
      */
     public function getFeed($sort = null, $user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $client_id = null, $platform = null)
     {
@@ -99,11 +98,11 @@ class FeedApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\FeedResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\FeedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeedWithHttpInfo($sort = null, $user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\FeedResponse';
+        $returnType = '\CureDAO\Client\Models\FeedResponse';
         $request = $this->getFeedRequest($sort, $user_id, $created_at, $updated_at, $limit, $offset, $client_id, $platform);
 
         try {
@@ -155,7 +154,7 @@ class FeedApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\FeedResponse',
+                        '\CureDAO\Client\Models\FeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -211,7 +210,7 @@ class FeedApi
      */
     public function getFeedAsyncWithHttpInfo($sort = null, $user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\FeedResponse';
+        $returnType = '\CureDAO\Client\Models\FeedResponse';
         $request = $this->getFeedRequest($sort, $user_id, $created_at, $updated_at, $limit, $offset, $client_id, $platform);
 
         return $this->client
@@ -395,14 +394,14 @@ class FeedApi
      *
      * Post user interactions with feed
      *
-     * @param  \CureDAO\Client\Model\Card[] $body Id of the tracking reminder notification to be snoozed (required)
+     * @param  \CureDAO\Client\Models\Card[] $body Id of the tracking reminder notification to be snoozed (required)
      * @param  float $user_id User&#39;s id (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\FeedResponse
+     * @return \CureDAO\Client\Models\FeedResponse
      */
     public function postFeed($body, $user_id = null, $client_id = null, $platform = null)
     {
@@ -415,18 +414,18 @@ class FeedApi
      *
      * Post user interactions with feed
      *
-     * @param  \CureDAO\Client\Model\Card[] $body Id of the tracking reminder notification to be snoozed (required)
+     * @param  \CureDAO\Client\Models\Card[] $body Id of the tracking reminder notification to be snoozed (required)
      * @param  float $user_id User&#39;s id (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\FeedResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\FeedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function postFeedWithHttpInfo($body, $user_id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\FeedResponse';
+        $returnType = '\CureDAO\Client\Models\FeedResponse';
         $request = $this->postFeedRequest($body, $user_id, $client_id, $platform);
 
         try {
@@ -478,7 +477,7 @@ class FeedApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\FeedResponse',
+                        '\CureDAO\Client\Models\FeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -493,7 +492,7 @@ class FeedApi
      *
      * Post user interactions with feed
      *
-     * @param  \CureDAO\Client\Model\Card[] $body Id of the tracking reminder notification to be snoozed (required)
+     * @param  \CureDAO\Client\Models\Card[] $body Id of the tracking reminder notification to be snoozed (required)
      * @param  float $user_id User&#39;s id (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
@@ -516,7 +515,7 @@ class FeedApi
      *
      * Post user interactions with feed
      *
-     * @param  \CureDAO\Client\Model\Card[] $body Id of the tracking reminder notification to be snoozed (required)
+     * @param  \CureDAO\Client\Models\Card[] $body Id of the tracking reminder notification to be snoozed (required)
      * @param  float $user_id User&#39;s id (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
@@ -526,7 +525,7 @@ class FeedApi
      */
     public function postFeedAsyncWithHttpInfo($body, $user_id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\FeedResponse';
+        $returnType = '\CureDAO\Client\Models\FeedResponse';
         $request = $this->postFeedRequest($body, $user_id, $client_id, $platform);
 
         return $this->client
@@ -569,7 +568,7 @@ class FeedApi
     /**
      * Create request for operation 'postFeed'
      *
-     * @param  \CureDAO\Client\Model\Card[] $body Id of the tracking reminder notification to be snoozed (required)
+     * @param  \CureDAO\Client\Models\Card[] $body Id of the tracking reminder notification to be snoozed (required)
      * @param  float $user_id User&#39;s id (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)

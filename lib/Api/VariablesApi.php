@@ -4,7 +4,7 @@
 
 namespace CureDAO\Client\Api;
 
-use CureDAO\Client\Model\VariableCategory;
+use CureDAO\Client\Models\VariableCategory;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
@@ -18,8 +18,7 @@ use CureDAO\Client\ObjectSerializer;
 use Illuminate\Support\Collection;
 
 /**
- * VariablesApi Class Doc Comment
- *
+ * VariablesApi Class 
  */
 class VariablesApi
 {
@@ -73,11 +72,11 @@ class VariablesApi
      * @param int|null $tagged_variable_id Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). (optional)
      * @param int|null $tag_variable_id Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). (optional)
      *
-     * @return \CureDAO\Client\Model\CommonResponse
+     * @return \CureDAO\Client\Models\CommonResponse
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function deleteUserTag(int $tagged_variable_id = null, int $tag_variable_id = null): \CureDAO\Client\Model\CommonResponse
+    public function deleteUserTag(int $tagged_variable_id = null, int $tag_variable_id = null): \CureDAO\Client\Models\CommonResponse
     {
         [$response] = $this->deleteUserTagWithHttpInfo($tagged_variable_id, $tag_variable_id);
         return $response;
@@ -91,13 +90,13 @@ class VariablesApi
      * @param null $tagged_variable_id Id of the tagged variable (i.e. Lollipop) you would like to get variables it can be tagged with (i.e. Sugar).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). (optional)
      * @param null $tag_variable_id Id of the tag variable (i.e. Sugar) you would like to get variables it can be tagged to (i.e. Lollipop).  Converted measurements of the tagged variable are included in analysis of the tag variable (i.e. ingredient). (optional)
      *
-     * @return array of \CureDAO\Client\Model\CommonResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\CommonResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function deleteUserTagWithHttpInfo($tagged_variable_id = null, $tag_variable_id = null): array
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->deleteUserTagRequest($tagged_variable_id, $tag_variable_id);
 
         try {
@@ -146,7 +145,7 @@ class VariablesApi
             if ($e->getCode() == 204) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\CureDAO\Client\Model\CommonResponse',
+                    '\CureDAO\Client\Models\CommonResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -189,7 +188,7 @@ class VariablesApi
      */
     public function deleteUserTagAsyncWithHttpInfo(int $tagged_variable_id = null, int $tag_variable_id = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->deleteUserTagRequest($tagged_variable_id, $tag_variable_id);
 
         return $this->client
@@ -341,13 +340,13 @@ class VariablesApi
      *
      * Delete All Measurements For Variable
      *
-     * @param \CureDAO\Client\Model\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
+     * @param \CureDAO\Client\Models\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
      *
      * @return void
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function deleteUserVariable(\CureDAO\Client\Model\UserVariableDelete $variable_id)
+    public function deleteUserVariable(\CureDAO\Client\Models\UserVariableDelete $variable_id)
     {
         $this->deleteUserVariableWithHttpInfo($variable_id);
     }
@@ -357,13 +356,13 @@ class VariablesApi
      *
      * Delete All Measurements For Variable
      *
-     * @param \CureDAO\Client\Model\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
+     * @param \CureDAO\Client\Models\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
      *
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function deleteUserVariableWithHttpInfo(\CureDAO\Client\Model\UserVariableDelete $variable_id): array
+    public function deleteUserVariableWithHttpInfo(\CureDAO\Client\Models\UserVariableDelete $variable_id): array
     {
         $returnType = '';
         $request = $this->deleteUserVariableRequest($variable_id);
@@ -403,12 +402,12 @@ class VariablesApi
      *
      * Delete All Measurements For Variable
      *
-     * @param \CureDAO\Client\Model\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
+     * @param \CureDAO\Client\Models\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *@throws \InvalidArgumentException
      */
-    public function deleteUserVariableAsync(\CureDAO\Client\Model\UserVariableDelete $variable_id): \GuzzleHttp\Promise\PromiseInterface
+    public function deleteUserVariableAsync(\CureDAO\Client\Models\UserVariableDelete $variable_id): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->deleteUserVariableAsyncWithHttpInfo($variable_id)
             ->then(
@@ -423,12 +422,12 @@ class VariablesApi
      *
      * Delete All Measurements For Variable
      *
-     * @param \CureDAO\Client\Model\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
+     * @param \CureDAO\Client\Models\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *@throws \InvalidArgumentException
      */
-    public function deleteUserVariableAsyncWithHttpInfo(\CureDAO\Client\Model\UserVariableDelete $variable_id): \GuzzleHttp\Promise\PromiseInterface
+    public function deleteUserVariableAsyncWithHttpInfo(\CureDAO\Client\Models\UserVariableDelete $variable_id): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '';
         $request = $this->deleteUserVariableRequest($variable_id);
@@ -459,12 +458,12 @@ class VariablesApi
     /**
      * Create request for operation 'deleteUserVariable'
      *
-     * @param \CureDAO\Client\Model\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
+     * @param \CureDAO\Client\Models\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
      *
      * @return \GuzzleHttp\Psr7\Request
      *@throws \InvalidArgumentException
      */
-    protected function deleteUserVariableRequest(\CureDAO\Client\Model\UserVariableDelete $variable_id): Request
+    protected function deleteUserVariableRequest(\CureDAO\Client\Models\UserVariableDelete $variable_id): Request
     {
         // verify the required parameter 'variable_id' is set
 
@@ -559,7 +558,7 @@ class VariablesApi
      * Variable categories
      *
      *
-     * @return \CureDAO\Client\Model\VariableCategory[]
+     * @return \CureDAO\Client\Models\VariableCategory[]
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
@@ -575,13 +574,13 @@ class VariablesApi
      * Variable categories
      *
      *
-     * @return array of \CureDAO\Client\Model\VariableCategory[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\VariableCategory[], HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getVariableCategoriesWithHttpInfo(): array
     {
-        $returnType = '\CureDAO\Client\Model\VariableCategory[]';
+        $returnType = '\CureDAO\Client\Models\VariableCategory[]';
         $request = $this->getVariableCategoriesRequest();
 
         try {
@@ -630,7 +629,7 @@ class VariablesApi
             if ($e->getCode() == 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\CureDAO\Client\Model\VariableCategory[]',
+                    '\CureDAO\Client\Models\VariableCategory[]',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -669,7 +668,7 @@ class VariablesApi
      */
     public function getVariableCategoriesAsyncWithHttpInfo(): \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\CureDAO\Client\Model\VariableCategory[]';
+        $returnType = '\CureDAO\Client\Models\VariableCategory[]';
         $request = $this->getVariableCategoriesRequest();
 
         return $this->client
@@ -854,7 +853,7 @@ class VariablesApi
      * @param bool|null $concise Only return field required for variable auto-complete searches.  The smaller size allows for storing more variable results locally reducing API requests. (optional)
      * @param bool|null $refresh Regenerate charts instead of getting from the cache (optional)
      *
-     * @return \CureDAO\Client\Model\Variable[]
+     * @return \CureDAO\Client\Models\Variable[]
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
@@ -911,13 +910,13 @@ class VariablesApi
      * @param null $concise Only return field required for variable auto-complete searches.  The smaller size allows for storing more variable results locally reducing API requests. (optional)
      * @param null $refresh Regenerate charts instead of getting from the cache (optional)
      *
-     * @return array of \CureDAO\Client\Model\Variable[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\Variable[], HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getVariablesWithHttpInfo($include_charts = null, $number_of_raw_measurements = null, $user_id = null, $variable_category_name = null, $name = null, $variable_name = null, $updated_at = null, $source_name = null, $earliest_measurement_time = null, $latest_measurement_time = null, $id = null, $last_source_name = null, string $limit = '100', $offset = null, $sort = null, $include_public = null, $manual_tracking = null, $client_id = null, $upc = null, $effect_or_cause = null, $public_effect_or_cause = null, $exact_match = null, $variable_category_id = null, $include_private = null, $search_phrase = null, $synonyms = null, $tagged_variable_id = null, $tag_variable_id = null, $join_variable_id = null, $parent_user_tag_variable_id = null, $child_user_tag_variable_id = null, $ingredient_user_tag_variable_id = null, $ingredient_of_user_tag_variable_id = null, $common_only = null, $user_only = null, $platform = null, $include_tags = null, $recalculate = null, $variable_id = null, $concise = null, $refresh = null): array
     {
-        $returnType = '\CureDAO\Client\Model\Variable[]';
+        $returnType = '\CureDAO\Client\Models\Variable[]';
         $request = $this->getVariablesRequest($include_charts, $number_of_raw_measurements, $user_id, $variable_category_name, $name, $variable_name, $updated_at, $source_name, $earliest_measurement_time, $latest_measurement_time, $id, $last_source_name, $limit, $offset, $sort, $include_public, $manual_tracking, $client_id, $upc, $effect_or_cause, $public_effect_or_cause, $exact_match, $variable_category_id, $include_private, $search_phrase, $synonyms, $tagged_variable_id, $tag_variable_id, $join_variable_id, $parent_user_tag_variable_id, $child_user_tag_variable_id, $ingredient_user_tag_variable_id, $ingredient_of_user_tag_variable_id, $common_only, $user_only, $platform, $include_tags, $recalculate, $variable_id, $concise, $refresh);
 
         try {
@@ -966,7 +965,7 @@ class VariablesApi
             if ($e->getCode() == 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\CureDAO\Client\Model\Variable[]',
+                    '\CureDAO\Client\Models\Variable[]',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1088,7 +1087,7 @@ class VariablesApi
      */
     public function getVariablesAsyncWithHttpInfo(bool $include_charts = null, string $number_of_raw_measurements = null, float $user_id = null, string $variable_category_name = null, string $name = null, string $variable_name = null, string $updated_at = null, string $source_name = null, string $earliest_measurement_time = null, string $latest_measurement_time = null, int $id = null, string $last_source_name = null, $limit = '100', int $offset = null, string $sort = null, bool $include_public = null, bool $manual_tracking = null, string $client_id = null, string $upc = null, string $effect_or_cause = null, string $public_effect_or_cause = null, bool $exact_match = null, int $variable_category_id = null, bool $include_private = null, string $search_phrase = null, string $synonyms = null, int $tagged_variable_id = null, int $tag_variable_id = null, int $join_variable_id = null, int $parent_user_tag_variable_id = null, int $child_user_tag_variable_id = null, int $ingredient_user_tag_variable_id = null, int $ingredient_of_user_tag_variable_id = null, bool $common_only = null, bool $user_only = null, string $platform = null, bool $include_tags = null, bool $recalculate = null, int $variable_id = null, bool $concise = null, bool $refresh = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\CureDAO\Client\Model\Variable[]';
+        $returnType = '\CureDAO\Client\Models\Variable[]';
         $request = $this->getVariablesRequest($include_charts, $number_of_raw_measurements, $user_id, $variable_category_name, $name, $variable_name, $updated_at, $source_name, $earliest_measurement_time, $latest_measurement_time, $id, $last_source_name, $limit, $offset, $sort, $include_public, $manual_tracking, $client_id, $upc, $effect_or_cause, $public_effect_or_cause, $exact_match, $variable_category_id, $include_private, $search_phrase, $synonyms, $tagged_variable_id, $tag_variable_id, $join_variable_id, $parent_user_tag_variable_id, $child_user_tag_variable_id, $ingredient_user_tag_variable_id, $ingredient_of_user_tag_variable_id, $common_only, $user_only, $platform, $include_tags, $recalculate, $variable_id, $concise, $refresh);
 
         return $this->client
@@ -1437,14 +1436,14 @@ class VariablesApi
      *
      * Post or update user tags or ingredients
      *
-     * @param \CureDAO\Client\Model\UserTag $body Contains the new user tag data (required)
+     * @param \CureDAO\Client\Models\UserTag $body Contains the new user tag data (required)
      * @param float|null $user_id User&#39;s id (optional)
      *
-     * @return \CureDAO\Client\Model\CommonResponse
+     * @return \CureDAO\Client\Models\CommonResponse
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function postUserTags(\CureDAO\Client\Model\UserTag $body, float $user_id = null): \CureDAO\Client\Model\CommonResponse
+    public function postUserTags(\CureDAO\Client\Models\UserTag $body, float $user_id = null): \CureDAO\Client\Models\CommonResponse
     {
         [$response] = $this->postUserTagsWithHttpInfo($body, $user_id);
         return $response;
@@ -1455,16 +1454,16 @@ class VariablesApi
      *
      * Post or update user tags or ingredients
      *
-     * @param \CureDAO\Client\Model\UserTag $body Contains the new user tag data (required)
+     * @param \CureDAO\Client\Models\UserTag $body Contains the new user tag data (required)
      * @param null $user_id User&#39;s id (optional)
      *
-     * @return array of \CureDAO\Client\Model\CommonResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\CommonResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function postUserTagsWithHttpInfo(\CureDAO\Client\Model\UserTag $body, $user_id = null): array
+    public function postUserTagsWithHttpInfo(\CureDAO\Client\Models\UserTag $body, $user_id = null): array
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->postUserTagsRequest($body, $user_id);
 
         try {
@@ -1513,7 +1512,7 @@ class VariablesApi
             if ($e->getCode() == 201) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\CureDAO\Client\Model\CommonResponse',
+                    '\CureDAO\Client\Models\CommonResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1527,13 +1526,13 @@ class VariablesApi
      *
      * Post or update user tags or ingredients
      *
-     * @param \CureDAO\Client\Model\UserTag $body Contains the new user tag data (required)
+     * @param \CureDAO\Client\Models\UserTag $body Contains the new user tag data (required)
      * @param float|null $user_id User&#39;s id (optional)
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *@throws \InvalidArgumentException
      */
-    public function postUserTagsAsync(\CureDAO\Client\Model\UserTag $body, float $user_id = null): \GuzzleHttp\Promise\PromiseInterface
+    public function postUserTagsAsync(\CureDAO\Client\Models\UserTag $body, float $user_id = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->postUserTagsAsyncWithHttpInfo($body, $user_id)
             ->then(
@@ -1548,15 +1547,15 @@ class VariablesApi
      *
      * Post or update user tags or ingredients
      *
-     * @param \CureDAO\Client\Model\UserTag $body Contains the new user tag data (required)
+     * @param \CureDAO\Client\Models\UserTag $body Contains the new user tag data (required)
      * @param float|null $user_id User&#39;s id (optional)
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *@throws \InvalidArgumentException
      */
-    public function postUserTagsAsyncWithHttpInfo(\CureDAO\Client\Model\UserTag $body, float $user_id = null): \GuzzleHttp\Promise\PromiseInterface
+    public function postUserTagsAsyncWithHttpInfo(\CureDAO\Client\Models\UserTag $body, float $user_id = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->postUserTagsRequest($body, $user_id);
 
         return $this->client
@@ -1599,13 +1598,13 @@ class VariablesApi
     /**
      * Create request for operation 'postUserTags'
      *
-     * @param \CureDAO\Client\Model\UserTag $body Contains the new user tag data (required)
+     * @param \CureDAO\Client\Models\UserTag $body Contains the new user tag data (required)
      * @param float|null $user_id User&#39;s id (optional)
      *
      * @return \GuzzleHttp\Psr7\Request
      *@throws \InvalidArgumentException
      */
-    protected function postUserTagsRequest(\CureDAO\Client\Model\UserTag $body, float $user_id = null): Request
+    protected function postUserTagsRequest(\CureDAO\Client\Models\UserTag $body, float $user_id = null): Request
     {
         // verify the required parameter 'body' is set
 
@@ -1703,7 +1702,7 @@ class VariablesApi
      *
      * Update User Settings for a Variable
      *
-     * @param \CureDAO\Client\Model\Variable[] $user_variables Variable user settings data (required)
+     * @param \CureDAO\Client\Models\Variable[] $user_variables Variable user settings data (required)
      * @param bool|null $include_private Include user-specific variables in results (optional)
      * @param string|null $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param bool|null $include_public Include variables the user has no measurements for (optional)
@@ -1715,11 +1714,11 @@ class VariablesApi
      * @param string|null $synonyms Ex: McDonalds hotcake (optional)
      * @param string|null $platform Ex: chrome, android, ios, web (optional)
      *
-     * @return \CureDAO\Client\Model\CommonResponse
+     * @return \CureDAO\Client\Models\CommonResponse
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function postUserVariables(array $user_variables, bool $include_private = null, string $client_id = null, bool $include_public = null, string $search_phrase = null, bool $exact_match = null, bool $manual_tracking = null, string $variable_category_name = null, int $variable_category_id = null, string $synonyms = null, string $platform = null): \CureDAO\Client\Model\CommonResponse
+    public function postUserVariables(array $user_variables, bool $include_private = null, string $client_id = null, bool $include_public = null, string $search_phrase = null, bool $exact_match = null, bool $manual_tracking = null, string $variable_category_name = null, int $variable_category_id = null, string $synonyms = null, string $platform = null): \CureDAO\Client\Models\CommonResponse
     {
         [$response] = $this->postUserVariablesWithHttpInfo($user_variables, $include_private, $client_id, $include_public, $search_phrase, $exact_match, $manual_tracking, $variable_category_name, $variable_category_id, $synonyms, $platform);
         return $response;
@@ -1730,7 +1729,7 @@ class VariablesApi
      *
      * Update User Settings for a Variable
      *
-     * @param \CureDAO\Client\Model\Variable[] $user_variables Variable user settings data (required)
+     * @param \CureDAO\Client\Models\Variable[] $user_variables Variable user settings data (required)
      * @param null $include_private Include user-specific variables in results (optional)
      * @param null $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param null $include_public Include variables the user has no measurements for (optional)
@@ -1742,13 +1741,13 @@ class VariablesApi
      * @param null $synonyms Ex: McDonalds hotcake (optional)
      * @param null $platform Ex: chrome, android, ios, web (optional)
      *
-     * @return array of \CureDAO\Client\Model\CommonResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\CommonResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function postUserVariablesWithHttpInfo(array $user_variables, $include_private = null, $client_id = null, $include_public = null, $search_phrase = null, $exact_match = null, $manual_tracking = null, $variable_category_name = null, $variable_category_id = null, $synonyms = null, $platform = null): array
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->postUserVariablesRequest($user_variables, $include_private, $client_id, $include_public, $search_phrase, $exact_match, $manual_tracking, $variable_category_name, $variable_category_id, $synonyms, $platform);
 
         try {
@@ -1797,7 +1796,7 @@ class VariablesApi
             if ($e->getCode() == 201) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\CureDAO\Client\Model\CommonResponse',
+                    '\CureDAO\Client\Models\CommonResponse',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -1811,7 +1810,7 @@ class VariablesApi
      *
      * Update User Settings for a Variable
      *
-     * @param \CureDAO\Client\Model\Variable[] $user_variables Variable user settings data (required)
+     * @param \CureDAO\Client\Models\Variable[] $user_variables Variable user settings data (required)
      * @param bool|null $include_private Include user-specific variables in results (optional)
      * @param string|null $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param bool|null $include_public Include variables the user has no measurements for (optional)
@@ -1841,7 +1840,7 @@ class VariablesApi
      *
      * Update User Settings for a Variable
      *
-     * @param \CureDAO\Client\Model\Variable[] $user_variables Variable user settings data (required)
+     * @param \CureDAO\Client\Models\Variable[] $user_variables Variable user settings data (required)
      * @param bool|null $include_private Include user-specific variables in results (optional)
      * @param string|null $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param bool|null $include_public Include variables the user has no measurements for (optional)
@@ -1858,7 +1857,7 @@ class VariablesApi
      */
     public function postUserVariablesAsyncWithHttpInfo(array $user_variables, bool $include_private = null, string $client_id = null, bool $include_public = null, string $search_phrase = null, bool $exact_match = null, bool $manual_tracking = null, string $variable_category_name = null, int $variable_category_id = null, string $synonyms = null, string $platform = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->postUserVariablesRequest($user_variables, $include_private, $client_id, $include_public, $search_phrase, $exact_match, $manual_tracking, $variable_category_name, $variable_category_id, $synonyms, $platform);
 
         return $this->client
@@ -1901,7 +1900,7 @@ class VariablesApi
     /**
      * Create request for operation 'postUserVariables'
      *
-     * @param \CureDAO\Client\Model\Variable[] $user_variables Variable user settings data (required)
+     * @param \CureDAO\Client\Models\Variable[] $user_variables Variable user settings data (required)
      * @param bool|null $include_private Include user-specific variables in results (optional)
      * @param string|null $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param bool|null $include_public Include variables the user has no measurements for (optional)
@@ -2055,13 +2054,13 @@ class VariablesApi
      *
      * Reset user settings for a variable to defaults
      *
-     * @param \CureDAO\Client\Model\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
+     * @param \CureDAO\Client\Models\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
      *
      * @return void
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function resetUserVariableSettings(\CureDAO\Client\Model\UserVariableDelete $variable_id)
+    public function resetUserVariableSettings(\CureDAO\Client\Models\UserVariableDelete $variable_id)
     {
         $this->resetUserVariableSettingsWithHttpInfo($variable_id);
     }
@@ -2071,13 +2070,13 @@ class VariablesApi
      *
      * Reset user settings for a variable to defaults
      *
-     * @param \CureDAO\Client\Model\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
+     * @param \CureDAO\Client\Models\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
      *
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function resetUserVariableSettingsWithHttpInfo(\CureDAO\Client\Model\UserVariableDelete $variable_id): array
+    public function resetUserVariableSettingsWithHttpInfo(\CureDAO\Client\Models\UserVariableDelete $variable_id): array
     {
         $returnType = '';
         $request = $this->resetUserVariableSettingsRequest($variable_id);
@@ -2117,12 +2116,12 @@ class VariablesApi
      *
      * Reset user settings for a variable to defaults
      *
-     * @param \CureDAO\Client\Model\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
+     * @param \CureDAO\Client\Models\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *@throws \InvalidArgumentException
      */
-    public function resetUserVariableSettingsAsync(\CureDAO\Client\Model\UserVariableDelete $variable_id): \GuzzleHttp\Promise\PromiseInterface
+    public function resetUserVariableSettingsAsync(\CureDAO\Client\Models\UserVariableDelete $variable_id): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->resetUserVariableSettingsAsyncWithHttpInfo($variable_id)
             ->then(
@@ -2137,12 +2136,12 @@ class VariablesApi
      *
      * Reset user settings for a variable to defaults
      *
-     * @param \CureDAO\Client\Model\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
+     * @param \CureDAO\Client\Models\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
      *
      * @return \GuzzleHttp\Promise\PromiseInterface
      *@throws \InvalidArgumentException
      */
-    public function resetUserVariableSettingsAsyncWithHttpInfo(\CureDAO\Client\Model\UserVariableDelete $variable_id): \GuzzleHttp\Promise\PromiseInterface
+    public function resetUserVariableSettingsAsyncWithHttpInfo(\CureDAO\Client\Models\UserVariableDelete $variable_id): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '';
         $request = $this->resetUserVariableSettingsRequest($variable_id);
@@ -2173,12 +2172,12 @@ class VariablesApi
     /**
      * Create request for operation 'resetUserVariableSettings'
      *
-     * @param \CureDAO\Client\Model\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
+     * @param \CureDAO\Client\Models\UserVariableDelete $variable_id Id of the variable whose measurements should be deleted (required)
      *
      * @return \GuzzleHttp\Psr7\Request
      *@throws \InvalidArgumentException
      */
-    protected function resetUserVariableSettingsRequest(\CureDAO\Client\Model\UserVariableDelete $variable_id): Request
+    protected function resetUserVariableSettingsRequest(\CureDAO\Client\Models\UserVariableDelete $variable_id): Request
     {
         // verify the required parameter 'variable_id' is set
 

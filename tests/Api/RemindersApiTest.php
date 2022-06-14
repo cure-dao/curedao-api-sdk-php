@@ -13,13 +13,8 @@
 
 namespace CureDAO\Tests\Api;
 
-use \CureDAO\Client\Configuration;
-use \CureDAO\Client\ApiException;
-use \CureDAO\Client\ObjectSerializer;
-
 /**
- * RemindersApiTest Class Doc Comment
- *
+ * RemindersApiTest Class
  * @category Class
  * @package  CureDAO\Client
  * @author   Mike P. Sinn

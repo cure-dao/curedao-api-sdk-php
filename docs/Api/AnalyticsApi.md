@@ -8,7 +8,7 @@ All URIs are relative to *https://v7.curedao.org/api*
 | [**getCorrelations**](AnalyticsApi.md#getCorrelations)                       | **GET** /v3/correlations              | Get correlations             |
 
 # **getCorrelationExplanations**
-> \CureDAO\Client\Model\Correlation[] getCorrelationExplanations($predictor_variable_name, $outcome_variable_name)
+> \CureDAO\Client\Models\Correlation[] getCorrelationExplanations($predictor_variable_name, $outcome_variable_name)
 
 Get correlation explanations
 
@@ -32,10 +32,7 @@ $apiInstance = new CureDAO\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cause_variable_name = "cause_variable_name_example"; // string | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-$effect_variable_name = "effect_variable_name_example"; // string | Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
-$cause_variable_id = 56; // int | Variable id of the hypothetical predictor variable.  Ex: 1398
-$effect_variable_id = 56; // int | Variable id of the outcome variable of interest.  Ex: 1398
+
 $predictor_variable_name = "predictor_variable_name_example"; // string | Name of the hypothetical predictor variable.  Ex: Sleep Duration
 $outcome_variable_name = "outcome_variable_name_example"; // string | Name of the outcome variable of interest.  Ex: Overall Mood
 
@@ -61,7 +58,7 @@ try {
 
 ### Return type
 
-[**\CureDAO\Client\Model\Correlation[]**](../Model/Correlation.md)
+[**\CureDAO\Client\Models\Correlation[]**](../Model/Correlation.md)
 
 ### Authorization
 
@@ -75,7 +72,7 @@ try {
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCorrelations**
-> \CureDAO\Client\Model\GetCorrelationsResponse getCorrelations($predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $correlation_coefficient, $updated_at, $outcomes_of_interest, $client_id, $common_only, $platform)
+> \CureDAO\Client\Models\GetCorrelationsResponse getCorrelations($predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $correlation_coefficient, $updated_at, $outcomes_of_interest, $client_id, $common_only, $platform)
 
 Get correlations
 
@@ -99,10 +96,7 @@ $apiInstance = new CureDAO\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cause_variable_name = "cause_variable_name_example"; // string | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-$effect_variable_name = "effect_variable_name_example"; // string | Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
-$cause_variable_id = 56; // int | Variable id of the hypothetical predictor variable.  Ex: 1398
-$effect_variable_id = 56; // int | Variable id of the outcome variable of interest.  Ex: 1398
+
 $predictor_variable_name = "predictor_variable_name_example"; // string | Name of the hypothetical predictor variable.  Ex: Sleep Duration
 $outcome_variable_name = "outcome_variable_name_example"; // string | Name of the outcome variable of interest.  Ex: Overall Mood
 $sort = "sort_example"; // string | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
@@ -148,7 +142,7 @@ try {
 
 ### Return type
 
-[**\CureDAO\Client\Model\GetCorrelationsResponse**](../Model/GetCorrelationsResponse.md)
+[**\CureDAO\Client\Models\GetCorrelationsResponse**](../Model/GetCorrelationsResponse.md)
 
 ### Authorization
 

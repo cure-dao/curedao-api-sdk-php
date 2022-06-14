@@ -5,12 +5,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **affiliate** | **bool** | Ex: true | 
 **background_color** | **string** | Background color HEX code that matches the icon | [optional] 
-**buttons** | [**\CureDAO\Client\Model\Button[]**](Button.md) |  | [optional] 
-**card** | [**\CureDAO\Client\Model\Card**](Card.md) | Card containing instructions, image, text, link and relevant import buttons | [optional] 
+**buttons** | [**\CureDAO\Client\Models\Button[]**](Button.md) |  | [optional] 
+**card** | [**\CureDAO\Client\Models\Card**](Card.md) | Card containing instructions, image, text, link and relevant import buttons | [optional] 
 **client_id** | **string** | Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org | [optional] 
 **connected** | **bool** | True if the authenticated user has this connector enabled | [optional] 
 **connect_error** | **string** | Ex: Your token is expired. Please re-connect | [optional] 
-**connect_instructions** | [**\CureDAO\Client\Model\ConnectInstructions**](ConnectInstructions.md) | URL and parameters used when connecting to a service | [optional] 
+**connect_instructions** | [**\CureDAO\Client\Models\ConnectInstructions**](ConnectInstructions.md) | URL and parameters used when connecting to a service | [optional] 
 **connector_id** | **int** | Ex: 8 | [optional] 
 **connect_status** | **string** | Ex: CONNECTED | [optional] 
 **count** | **int** | Number of measurements from this source or number of users who have measurements from this source | [optional] 

@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * PairTest Class Doc Comment
- *
+ * PairTest Class 
  * @category    Class
  * @description Pair
 

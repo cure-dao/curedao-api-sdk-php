@@ -23,8 +23,7 @@ use CureDAO\Client\HeaderSelector;
 use CureDAO\Client\ObjectSerializer;
 
 /**
- * NotificationsApi Class Doc Comment
- *
+ * NotificationsApi Class
  * @category Class
  * @package  CureDAO\Client
  * @author   Mike P. Sinn
@@ -296,7 +295,7 @@ class NotificationsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\NotificationsResponse[]
+     * @return \CureDAO\Client\Models\NotificationsResponse[]
      */
     public function getNotifications($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
@@ -321,11 +320,11 @@ class NotificationsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\NotificationsResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\NotificationsResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getNotificationsWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\NotificationsResponse[]';
+        $returnType = '\CureDAO\Client\Models\NotificationsResponse[]';
         $request = $this->getNotificationsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         try {
@@ -377,7 +376,7 @@ class NotificationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\NotificationsResponse[]',
+                        '\CureDAO\Client\Models\NotificationsResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -435,7 +434,7 @@ class NotificationsApi
      */
     public function getNotificationsAsyncWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\NotificationsResponse[]';
+        $returnType = '\CureDAO\Client\Models\NotificationsResponse[]';
         $request = $this->getNotificationsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         return $this->client
@@ -624,7 +623,7 @@ class NotificationsApi
      *
      * Post DeviceTokens
      *
-     * @param  \CureDAO\Client\Model\DeviceToken $body The platform and token (required)
+     * @param  \CureDAO\Client\Models\DeviceToken $body The platform and token (required)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -640,7 +639,7 @@ class NotificationsApi
      *
      * Post DeviceTokens
      *
-     * @param  \CureDAO\Client\Model\DeviceToken $body The platform and token (required)
+     * @param  \CureDAO\Client\Models\DeviceToken $body The platform and token (required)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -693,7 +692,7 @@ class NotificationsApi
      *
      * Post DeviceTokens
      *
-     * @param  \CureDAO\Client\Model\DeviceToken $body The platform and token (required)
+     * @param  \CureDAO\Client\Models\DeviceToken $body The platform and token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -713,7 +712,7 @@ class NotificationsApi
      *
      * Post DeviceTokens
      *
-     * @param  \CureDAO\Client\Model\DeviceToken $body The platform and token (required)
+     * @param  \CureDAO\Client\Models\DeviceToken $body The platform and token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -749,7 +748,7 @@ class NotificationsApi
     /**
      * Create request for operation 'postDeviceToken'
      *
-     * @param  \CureDAO\Client\Model\DeviceToken $body The platform and token (required)
+     * @param  \CureDAO\Client\Models\DeviceToken $body The platform and token (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -859,7 +858,7 @@ class NotificationsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\NotificationsResponse[]
+     * @return \CureDAO\Client\Models\NotificationsResponse[]
      */
     public function postNotifications($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
@@ -884,11 +883,11 @@ class NotificationsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\NotificationsResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\NotificationsResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function postNotificationsWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\NotificationsResponse[]';
+        $returnType = '\CureDAO\Client\Models\NotificationsResponse[]';
         $request = $this->postNotificationsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         try {
@@ -940,7 +939,7 @@ class NotificationsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\NotificationsResponse[]',
+                        '\CureDAO\Client\Models\NotificationsResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -998,7 +997,7 @@ class NotificationsApi
      */
     public function postNotificationsAsyncWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\NotificationsResponse[]';
+        $returnType = '\CureDAO\Client\Models\NotificationsResponse[]';
         $request = $this->postNotificationsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         return $this->client

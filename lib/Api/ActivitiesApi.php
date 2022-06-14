@@ -40,8 +40,7 @@ use QuantiModo\Client\HeaderSelector;
 use QuantiModo\Client\ObjectSerializer;
 
 /**
- * ActivitiesApi Class Doc Comment
- *
+ * ActivitiesApi Class 
  * @category Class
  * @package  QuantiModo\Client
  * @author   Swagger Codegen team
@@ -129,7 +128,7 @@ class ActivitiesApi
      *
      * @throws \QuantiModo\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \QuantiModo\Client\Model\ActivitiesResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \QuantiModo\Client\Models\ActivitiesResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getActivitiesWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
@@ -473,7 +472,7 @@ class ActivitiesApi
      *
      * @throws \QuantiModo\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \QuantiModo\Client\Model\ActivitiesResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \QuantiModo\Client\Models\ActivitiesResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function postActivitiesWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {

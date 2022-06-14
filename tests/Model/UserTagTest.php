@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * UserTagTest Class Doc Comment
- *
+ * UserTagTest Class 
  * @category    Class
  * @description UserTag
 

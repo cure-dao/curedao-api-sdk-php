@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * ButtonTest Class Doc Comment
- *
+ * ButtonTest Class 
  * @category    Class
  * @description Button
 

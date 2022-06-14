@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**getShares**](SharesApi.md#getShares) | **GET** /v3/shares | Get Authorized Apps, Studies, and Individuals
 [**inviteShare**](SharesApi.md#inviteShare) | **POST** /v3/shares/invite | Delete share
 # **deleteShare**
-> \CureDAO\Client\Model\User deleteShare($client_id_to_revoke, $reason, $platform)
+> \CureDAO\Client\Models\User deleteShare($client_id_to_revoke, $reason, $platform)
 
 Delete share
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\User**](../Model/User.md)
+[**\CureDAO\Client\Models\User**](../Model/User.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getShares**
-> \CureDAO\Client\Model\GetSharesResponse getShares($user_id, $created_at, $updated_at, $client_id, $app_version, $platform, $log, $pwd)
+> \CureDAO\Client\Models\GetSharesResponse getShares($user_id, $created_at, $updated_at, $client_id, $app_version, $platform, $log, $pwd)
 
 Get Authorized Apps, Studies, and Individuals
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\GetSharesResponse**](../Model/GetSharesResponse.md)
+[**\CureDAO\Client\Models\GetSharesResponse**](../Model/GetSharesResponse.md)
 
 ### Authorization
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **inviteShare**
-> \CureDAO\Client\Model\User inviteShare($body, $platform, $client_id)
+> \CureDAO\Client\Models\User inviteShare($body, $platform, $client_id)
 
 Delete share
 
@@ -164,7 +164,7 @@ $apiInstance = new CureDAO\Client\Api\SharesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \CureDAO\Client\Model\ShareInvitationBody(); // \CureDAO\Client\Model\ShareInvitationBody | Details about person to share with
+$body = new \CureDAO\Client\Models\ShareInvitationBody(); // \CureDAO\Client\Models\ShareInvitationBody | Details about person to share with
 $platform = "platform_example"; // string | Ex: chrome, android, ios, web
 $client_id = "client_id_example"; // string | Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org
 
@@ -181,13 +181,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\ShareInvitationBody**](../Model/ShareInvitationBody.md)| Details about person to share with |
+ **body** | [**\CureDAO\Client\Models\ShareInvitationBody**](../Model/ShareInvitationBody.md)| Details about person to share with |
  **platform** | **string**| Ex: chrome, android, ios, web | [optional]
  **client_id** | **string**| Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org | [optional]
 
 ### Return type
 
-[**\CureDAO\Client\Model\User**](../Model/User.md)
+[**\CureDAO\Client\Models\User**](../Model/User.md)
 
 ### Authorization
 

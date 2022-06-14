@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * StudyTest Class Doc Comment
- *
+ * StudyTest Class
  * @category    Class
  * @description A study analyzes the relationship between a predictor variable like gluten-intake and an outcome of interest such as overall mood.
 

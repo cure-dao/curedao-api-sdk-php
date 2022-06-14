@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * VoteDeleteTest Class Doc Comment
- *
+ * VoteDeleteTest Class 
  * @category    Class
  * @description VoteDelete
 

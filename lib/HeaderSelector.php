@@ -4,11 +4,10 @@
 
 namespace CureDAO\Client;
 
-use \Exception;
+use Exception;
 
 /**
- * ApiException Class Doc Comment
- *
+ * ApiException Class 
  */
 class HeaderSelector
 {

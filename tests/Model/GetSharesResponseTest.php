@@ -8,8 +8,7 @@ namespace CureDAO\Tests\Model;
 
 use PHPUnit\Framework\TestCase;
 /**
- * GetSharesResponseTest Class Doc Comment
- *
+ * GetSharesResponseTest Class 
  * @category    Class
  * @description GetSharesResponse
  */

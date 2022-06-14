@@ -3,7 +3,7 @@
 namespace CureDAO\Tests\Api;
 
 use CureDAO\Client\Analysis;
-use CureDAO\Client\Model\MeasurementSet;
+use CureDAO\Client\Models\MeasurementSet;
 use CureDAO\Client\Variables\PhysicalActivityCommonVariables\DailyStepCountCommonVariable;
 use CureDAO\Client\Variables\VitalSignsCommonVariables\HeartRateVariabilityVariable;
 

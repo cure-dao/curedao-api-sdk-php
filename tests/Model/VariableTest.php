@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * VariableTest Class Doc Comment
- *
+ * VariableTest Class
  * @category    Class
  * @description Variable
 

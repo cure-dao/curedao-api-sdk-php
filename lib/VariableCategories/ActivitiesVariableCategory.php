@@ -3,7 +3,7 @@ namespace CureDAO\Client\VariableCategories;
 use CureDAO\Client\Properties\VariableCategory\BaseFillingTypeProperty;
 use CureDAO\Client\Units\MinutesUnit;
 use CureDAO\Client\Properties\VariableCategory\VariableCategoryCombinationOperationProperty;
-use CureDAO\Client\Models\BaseModel;
+use CureDAO\Client\Modelss\BaseModel;
 use CureDAO\Client\UI\FontAwesome;
 use CureDAO\Client\UI\ImageUrls;
 use Illuminate\Database\Eloquent\Builder;

@@ -4,13 +4,12 @@
 
 namespace CureDAO\Tests\Api;
 
-use \CureDAO\Client\Configuration;
-use \CureDAO\Client\ApiException;
-use \CureDAO\Client\ObjectSerializer;
+use CureDAO\Client\Configuration;
+use CureDAO\Client\ApiException;
+use CureDAO\Client\ObjectSerializer;
 
 /**
- * FeedApiTest Class Doc Comment
- *
+ * FeedApiTest Class 
  */
 class FeedApiTest extends \CureDAO\Tests\BaseTestCase
 {

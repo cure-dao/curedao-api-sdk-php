@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **build_enabled** | **string** | What do you expect? | [optional] 
 **client_id** | **string** | Get yours at https://builder.curedao.org | 
 **client_secret** | **string** | Get yours at https://builder.curedao.org | [optional] 
-**collaborators** | [**\CureDAO\Client\Model\User[]**](User.md) | What do you expect? | [optional] 
+**collaborators** | [**\CureDAO\Client\Models\User[]**](User.md) | What do you expect? | [optional] 
 **created_at** | **string** | What do you expect? | [optional] 
 **user_id** | **int** | User id of the owner of the application | [optional] 
-**users** | [**\CureDAO\Client\Model\User[]**](User.md) | What do you expect? | [optional] 
+**users** | [**\CureDAO\Client\Models\User[]**](User.md) | What do you expect? | [optional] 
 **redirect_uri** | **string** | What do you expect? | [optional] 
 **company_name** | **string** | What do you expect? | [optional] 
 **homepage_url** | **string** | What do you expect? | [optional] 

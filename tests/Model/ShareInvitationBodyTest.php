@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * ShareInvitationBodyTest Class Doc Comment
- *
+ * ShareInvitationBodyTest Class
  * @category    Class
  * @description ShareInvitationBody
 

@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**getUnitCategories**](UnitsApi.md#getUnitCategories) | **GET** /v3/unitCategories | Get unit categories
 [**getUnits**](UnitsApi.md#getUnits) | **GET** /v3/units | Get units
 # **getUnitCategories**
-> \CureDAO\Client\Model\UnitCategory[] getUnitCategories()
+> \CureDAO\Client\Models\UnitCategory[] getUnitCategories()
 
 Get unit categories
 
@@ -46,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\CureDAO\Client\Model\UnitCategory[]**](../Model/UnitCategory.md)
+[**\CureDAO\Client\Models\UnitCategory[]**](../Model/UnitCategory.md)
 
 ### Authorization
 
@@ -60,7 +60,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUnits**
-> \CureDAO\Client\Model\Unit[] getUnits()
+> \CureDAO\Client\Models\Unit[] getUnits()
 
 Get units
 
@@ -99,7 +99,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\CureDAO\Client\Model\Unit[]**](../Model/Unit.md)
+[**\CureDAO\Client\Models\Unit[]**](../Model/Unit.md)
 
 ### Authorization
 

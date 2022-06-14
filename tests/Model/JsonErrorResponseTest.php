@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * JsonErrorResponseTest Class Doc Comment
- *
+ * JsonErrorResponseTest Class 
  * @category    Class
  * @description JsonErrorResponse
 

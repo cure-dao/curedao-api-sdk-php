@@ -1,6 +1,6 @@
 <?php
 namespace CureDAO\Client\VariableCategories;
-use CureDAO\Client\Models\User;
+use CureDAO\Client\Modelss\User;
 use CureDAO\Client\Properties\Base\BaseClientIdProperty;
 use CureDAO\Client\Properties\Base\BaseCombinationOperationProperty;
 use CureDAO\Client\Properties\Base\BaseFillingTypeProperty;

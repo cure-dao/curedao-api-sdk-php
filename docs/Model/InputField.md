@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **post_url** | **string** | What do you expect? | [optional] 
 **required** | **bool** | What do you expect? | [optional] 
 **show** | **bool** | Ex: Title | [optional] 
-**submit_button** | [**\CureDAO\Client\Model\Button**](Button.md) |  | [optional] 
+**submit_button** | [**\CureDAO\Client\Models\Button**](Button.md) |  | [optional] 
 **type** | **string** | Ex: Title | 
 **validation_pattern** | **string** | See http://html5pattern.com/ for examples | [optional] 
 **value** | **string** | What do you expect? | [optional] 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**postUserBlogs**](UserApi.md#postUserBlogs) | **POST** /v3/userBlogs | Post UserBlogs
 [**postUserSettings**](UserApi.md#postUserSettings) | **POST** /v3/userSettings | Post UserSettings
 # **deleteUser**
-> \CureDAO\Client\Model\CommonResponse deleteUser($reason, $client_id, $platform)
+> \CureDAO\Client\Models\CommonResponse deleteUser($reason, $client_id, $platform)
 
 Delete user
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\CommonResponse**](../Model/CommonResponse.md)
+[**\CureDAO\Client\Models\CommonResponse**](../Model/CommonResponse.md)
 
 ### Authorization
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUser**
-> \CureDAO\Client\Model\User getUser($user_id, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $client_user_id, $platform, $log, $pwd, $include_authorized_clients)
+> \CureDAO\Client\Models\User getUser($user_id, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $client_user_id, $platform, $log, $pwd, $include_authorized_clients)
 
 Get user info
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\User**](../Model/User.md)
+[**\CureDAO\Client\Models\User**](../Model/User.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserBlogs**
-> \CureDAO\Client\Model\UserBlogsResponse[] getUserBlogs($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform)
+> \CureDAO\Client\Models\UserBlogsResponse[] getUserBlogs($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform)
 
 Get UserBlogs
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\UserBlogsResponse[]**](../Model/UserBlogsResponse.md)
+[**\CureDAO\Client\Models\UserBlogsResponse[]**](../Model/UserBlogsResponse.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUsers**
-> \CureDAO\Client\Model\UsersResponse getUsers($user_id, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $client_user_id, $platform, $log, $pwd)
+> \CureDAO\Client\Models\UsersResponse getUsers($user_id, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $client_user_id, $platform, $log, $pwd)
 
 Get users who shared data
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\UsersResponse**](../Model/UsersResponse.md)
+[**\CureDAO\Client\Models\UsersResponse**](../Model/UsersResponse.md)
 
 ### Authorization
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postUserBlogs**
-> \CureDAO\Client\Model\UserBlogsResponse[] postUserBlogs($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform)
+> \CureDAO\Client\Models\UserBlogsResponse[] postUserBlogs($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform)
 
 Post UserBlogs
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\UserBlogsResponse[]**](../Model/UserBlogsResponse.md)
+[**\CureDAO\Client\Models\UserBlogsResponse[]**](../Model/UserBlogsResponse.md)
 
 ### Authorization
 
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postUserSettings**
-> \CureDAO\Client\Model\PostUserSettingsResponse postUserSettings($body, $client_id, $platform)
+> \CureDAO\Client\Models\PostUserSettingsResponse postUserSettings($body, $client_id, $platform)
 
 Post UserSettings
 
@@ -394,7 +394,7 @@ $apiInstance = new CureDAO\Client\Api\UserApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \CureDAO\Client\Model\User(); // \CureDAO\Client\Model\User | User settings to update
+$body = new \CureDAO\Client\Models\User(); // \CureDAO\Client\Models\User | User settings to update
 $client_id = "client_id_example"; // string | Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org
 $platform = "platform_example"; // string | Ex: chrome, android, ios, web
 
@@ -411,13 +411,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\User**](../Model/User.md)| User settings to update |
+ **body** | [**\CureDAO\Client\Models\User**](../Model/User.md)| User settings to update |
  **client_id** | **string**| Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org | [optional]
  **platform** | **string**| Ex: chrome, android, ios, web | [optional]
 
 ### Return type
 
-[**\CureDAO\Client\Model\PostUserSettingsResponse**](../Model/PostUserSettingsResponse.md)
+[**\CureDAO\Client\Models\PostUserSettingsResponse**](../Model/PostUserSettingsResponse.md)
 
 ### Authorization
 

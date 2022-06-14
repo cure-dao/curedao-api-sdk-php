@@ -33,8 +33,8 @@ abstract class BaseProperty
      * Make sure it's 2 digits i.e. "01" as opposed to "1"
      */
     public $order = "99";
-    protected $shouldNotContain = []; // Add to model as ['field_to_check' => ['string to exclude']; See \CureDAO\Client\Models\WpPost for example
-    protected $requiredStrings = [];  // Add to model as ['field_to_check' => ['string to exclude']; See \CureDAO\Client\Models\WpPost for example
+    protected $shouldNotContain = []; // Add to model as ['field_to_check' => ['string to exclude']; See \CureDAO\Client\Modelss\WpPost for example
+    protected $requiredStrings = [];  // Add to model as ['field_to_check' => ['string to exclude']; See \CureDAO\Client\Modelss\WpPost for example
     public $parentClass;
     protected static $validationDisabledFor = [];
     /**

@@ -4,13 +4,12 @@
 
 namespace CureDAO\Tests\Api;
 
-use \CureDAO\Client\Configuration;
-use \CureDAO\Client\ApiException;
-use \CureDAO\Client\ObjectSerializer;
+use CureDAO\Client\Configuration;
+use CureDAO\Client\ApiException;
+use CureDAO\Client\ObjectSerializer;
 
 /**
- * NotificationsApiTest Class Doc Comment
- *
+ * NotificationsApiTest Class 
  */
 class NotificationsApiTest extends \CureDAO\Tests\BaseTestCase
 {

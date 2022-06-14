@@ -11,8 +11,7 @@ use CureDAO\Client\ApiException;
 use CureDAO\Client\Configuration;
 use CureDAO\Client\HeaderSelector;
 use CureDAO\Client\ObjectSerializer;/**
- * AnalyticsApi Class Doc Comment
- *
+ * AnalyticsApi Class
  */
 class AnalyticsApi
 {
@@ -58,7 +57,7 @@ class AnalyticsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\Correlation[]
+     * @return \CureDAO\Client\Models\Correlation[]
      */
     public function getCorrelationExplanations($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null)
     {
@@ -78,11 +77,11 @@ class AnalyticsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\Correlation[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\Correlation[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getCorrelationExplanationsWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null)
     {
-        $returnType = '\CureDAO\Client\Model\Correlation[]';
+        $returnType = '\CureDAO\Client\Models\Correlation[]';
         $request = $this->getCorrelationExplanationsRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name);        try {
             $options = $this->createHttpClientOption();
             try {
@@ -122,7 +121,7 @@ class AnalyticsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\Correlation[]',
+                        '\CureDAO\Client\Models\Correlation[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -170,7 +169,7 @@ class AnalyticsApi
      */
     public function getCorrelationExplanationsAsyncWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null)
     {
-        $returnType = '\CureDAO\Client\Model\Correlation[]';
+        $returnType = '\CureDAO\Client\Models\Correlation[]';
         $request = $this->getCorrelationExplanationsRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name);        return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
@@ -333,7 +332,7 @@ class AnalyticsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\GetCorrelationsResponse
+     * @return \CureDAO\Client\Models\GetCorrelationsResponse
      */
     public function getCorrelations($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $sort = null, $limit = '100', $offset = null, $user_id = null, $correlation_coefficient = null, $updated_at = null, $outcomes_of_interest = null, $client_id = null, $common_only = null, $platform = null)
     {
@@ -363,11 +362,11 @@ class AnalyticsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\GetCorrelationsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\GetCorrelationsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCorrelationsWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $sort = null, $limit = '100', $offset = null, $user_id = null, $correlation_coefficient = null, $updated_at = null, $outcomes_of_interest = null, $client_id = null, $common_only = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetCorrelationsResponse';
+        $returnType = '\CureDAO\Client\Models\GetCorrelationsResponse';
         $request = $this->getCorrelationsRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $correlation_coefficient, $updated_at, $outcomes_of_interest, $client_id, $common_only, $platform);        try {
             $options = $this->createHttpClientOption();
             try {
@@ -407,7 +406,7 @@ class AnalyticsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\GetCorrelationsResponse',
+                        '\CureDAO\Client\Models\GetCorrelationsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -475,7 +474,7 @@ class AnalyticsApi
      */
     public function getCorrelationsAsyncWithHttpInfo($cause_variable_name = null, $effect_variable_name = null, $cause_variable_id = null, $effect_variable_id = null, $predictor_variable_name = null, $outcome_variable_name = null, $sort = null, $limit = '100', $offset = null, $user_id = null, $correlation_coefficient = null, $updated_at = null, $outcomes_of_interest = null, $client_id = null, $common_only = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetCorrelationsResponse';
+        $returnType = '\CureDAO\Client\Models\GetCorrelationsResponse';
         $request = $this->getCorrelationsRequest($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $correlation_coefficient, $updated_at, $outcomes_of_interest, $client_id, $common_only, $platform);        return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(

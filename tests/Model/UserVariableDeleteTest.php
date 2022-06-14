@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * UserVariableDeleteTest Class Doc Comment
- *
+ * UserVariableDeleteTest Class 
  * @category    Class
  * @description UserVariableDelete
 

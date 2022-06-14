@@ -9,8 +9,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * ConnectInstructionsTest Class Doc Comment
- *
+ * ConnectInstructionsTest Class 
  * @category    Class
  * @description ConnectInstructions
 

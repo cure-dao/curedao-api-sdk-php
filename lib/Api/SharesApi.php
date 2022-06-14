@@ -18,8 +18,7 @@ use CureDAO\Client\HeaderSelector;
 use CureDAO\Client\ObjectSerializer;
 
 /**
- * SharesApi Class Doc Comment
- *
+ * SharesApi Class 
  */
 class SharesApi
 {
@@ -72,7 +71,7 @@ class SharesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\User
+     * @return \CureDAO\Client\Models\User
      */
     public function deleteShare($client_id_to_revoke, $reason = null, $platform = null)
     {
@@ -91,11 +90,11 @@ class SharesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\User, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\User, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteShareWithHttpInfo($client_id_to_revoke, $reason = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\User';
+        $returnType = '\CureDAO\Client\Models\User';
         $request = $this->deleteShareRequest($client_id_to_revoke, $reason, $platform);
 
         try {
@@ -147,7 +146,7 @@ class SharesApi
                 case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\User',
+                        '\CureDAO\Client\Models\User',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -193,7 +192,7 @@ class SharesApi
      */
     public function deleteShareAsyncWithHttpInfo($client_id_to_revoke, $reason = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\User';
+        $returnType = '\CureDAO\Client\Models\User';
         $request = $this->deleteShareRequest($client_id_to_revoke, $reason, $platform);
 
         return $this->client
@@ -367,7 +366,7 @@ class SharesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\GetSharesResponse
+     * @return \CureDAO\Client\Models\GetSharesResponse
      */
     public function getShares($user_id = null, $created_at = null, $updated_at = null, $client_id = null, $app_version = null, $platform = null, $log = null, $pwd = null)
     {
@@ -391,11 +390,11 @@ class SharesApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\GetSharesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\GetSharesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSharesWithHttpInfo($user_id = null, $created_at = null, $updated_at = null, $client_id = null, $app_version = null, $platform = null, $log = null, $pwd = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetSharesResponse';
+        $returnType = '\CureDAO\Client\Models\GetSharesResponse';
         $request = $this->getSharesRequest($user_id, $created_at, $updated_at, $client_id, $app_version, $platform, $log, $pwd);
 
         try {
@@ -447,7 +446,7 @@ class SharesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\GetSharesResponse',
+                        '\CureDAO\Client\Models\GetSharesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -503,7 +502,7 @@ class SharesApi
      */
     public function getSharesAsyncWithHttpInfo($user_id = null, $created_at = null, $updated_at = null, $client_id = null, $app_version = null, $platform = null, $log = null, $pwd = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetSharesResponse';
+        $returnType = '\CureDAO\Client\Models\GetSharesResponse';
         $request = $this->getSharesRequest($user_id, $created_at, $updated_at, $client_id, $app_version, $platform, $log, $pwd);
 
         return $this->client
@@ -685,13 +684,13 @@ class SharesApi
      *
      * Delete share
      *
-     * @param  \CureDAO\Client\Model\ShareInvitationBody $body Details about person to share with (required)
+     * @param  \CureDAO\Client\Models\ShareInvitationBody $body Details about person to share with (required)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\User
+     * @return \CureDAO\Client\Models\User
      */
     public function inviteShare($body, $platform = null, $client_id = null)
     {
@@ -704,17 +703,17 @@ class SharesApi
      *
      * Delete share
      *
-     * @param  \CureDAO\Client\Model\ShareInvitationBody $body Details about person to share with (required)
+     * @param  \CureDAO\Client\Models\ShareInvitationBody $body Details about person to share with (required)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\User, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\User, HTTP status code, HTTP response headers (array of strings)
      */
     public function inviteShareWithHttpInfo($body, $platform = null, $client_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\User';
+        $returnType = '\CureDAO\Client\Models\User';
         $request = $this->inviteShareRequest($body, $platform, $client_id);
 
         try {
@@ -766,7 +765,7 @@ class SharesApi
                 case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\User',
+                        '\CureDAO\Client\Models\User',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -781,7 +780,7 @@ class SharesApi
      *
      * Delete share
      *
-     * @param  \CureDAO\Client\Model\ShareInvitationBody $body Details about person to share with (required)
+     * @param  \CureDAO\Client\Models\ShareInvitationBody $body Details about person to share with (required)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      *
@@ -803,7 +802,7 @@ class SharesApi
      *
      * Delete share
      *
-     * @param  \CureDAO\Client\Model\ShareInvitationBody $body Details about person to share with (required)
+     * @param  \CureDAO\Client\Models\ShareInvitationBody $body Details about person to share with (required)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      *
@@ -812,7 +811,7 @@ class SharesApi
      */
     public function inviteShareAsyncWithHttpInfo($body, $platform = null, $client_id = null)
     {
-        $returnType = '\CureDAO\Client\Model\User';
+        $returnType = '\CureDAO\Client\Models\User';
         $request = $this->inviteShareRequest($body, $platform, $client_id);
 
         return $this->client
@@ -855,7 +854,7 @@ class SharesApi
     /**
      * Create request for operation 'inviteShare'
      *
-     * @param  \CureDAO\Client\Model\ShareInvitationBody $body Details about person to share with (required)
+     * @param  \CureDAO\Client\Models\ShareInvitationBody $body Details about person to share with (required)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      *

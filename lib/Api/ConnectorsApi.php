@@ -14,8 +14,7 @@ use CureDAO\Client\Configuration;
 use CureDAO\Client\HeaderSelector;
 use CureDAO\Client\ObjectSerializer;
 /**
- * ConnectorsApi Class Doc Comment
- *
+ * ConnectorsApi Class 
  */
 class ConnectorsApi
 {
@@ -507,7 +506,7 @@ class ConnectorsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\GetConnectorsResponse
+     * @return \CureDAO\Client\Models\GetConnectorsResponse
      */
     public function getConnectors($client_id = null, $platform = null)
     {
@@ -524,11 +523,11 @@ class ConnectorsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\GetConnectorsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\GetConnectorsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConnectorsWithHttpInfo($client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetConnectorsResponse';
+        $returnType = '\CureDAO\Client\Models\GetConnectorsResponse';
         $request = $this->getConnectorsRequest($client_id, $platform);
         try {
             $options = $this->createHttpClientOption();
@@ -574,7 +573,7 @@ class ConnectorsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\GetConnectorsResponse',
+                        '\CureDAO\Client\Models\GetConnectorsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -616,7 +615,7 @@ class ConnectorsApi
      */
     public function getConnectorsAsyncWithHttpInfo($client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\GetConnectorsResponse';
+        $returnType = '\CureDAO\Client\Models\GetConnectorsResponse';
         $request = $this->getConnectorsRequest($client_id, $platform);
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())

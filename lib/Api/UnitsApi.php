@@ -11,7 +11,7 @@
 
 namespace CureDAO\Client\Api;
 
-use CureDAO\Client\Model\Unit;
+use CureDAO\Client\Models\Unit;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
@@ -26,8 +26,7 @@ use CureDAO\Client\ObjectSerializer;
 use Illuminate\Support\Collection;
 
 /**
- * UnitsApi Class Doc Comment
- *
+ * UnitsApi Class
  * @category Class
  * @package  CureDAO\Client
  * @author   Mike P. Sinn
@@ -36,7 +35,7 @@ use Illuminate\Support\Collection;
 class UnitsApi
 {
     /**
-     * @var \CureDAO\Client\Model\Unit[]
+     * @var \CureDAO\Client\Models\Unit[]
      */
     private static $units;
     /**
@@ -99,7 +98,7 @@ class UnitsApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\UnitCategory[]
+     * @return \CureDAO\Client\Models\UnitCategory[]
      */
     public function getUnitCategories(): array
     {
@@ -113,12 +112,12 @@ class UnitsApi
      * Get unit categories
      *
      *
-     * @return array of \CureDAO\Client\Model\UnitCategory[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\UnitCategory[], HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response
      */
     public function getUnitCategoriesWithHttpInfo(): array
     {
-        $returnType = '\CureDAO\Client\Model\UnitCategory[]';
+        $returnType = '\CureDAO\Client\Models\UnitCategory[]';
         $request = $this->getUnitCategoriesRequest();
 
         try {
@@ -168,7 +167,7 @@ class UnitsApi
             if ($e->getCode() == 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\CureDAO\Client\Model\UnitCategory[]',
+                    '\CureDAO\Client\Models\UnitCategory[]',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -207,7 +206,7 @@ class UnitsApi
      */
     public function getUnitCategoriesAsyncWithHttpInfo(): \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\CureDAO\Client\Model\UnitCategory[]';
+        $returnType = '\CureDAO\Client\Models\UnitCategory[]';
         $request = $this->getUnitCategoriesRequest();
 
         return $this->client
@@ -351,7 +350,7 @@ class UnitsApi
      *
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
-     * @return \CureDAO\Client\Model\Unit[]
+     * @return \CureDAO\Client\Models\Unit[]
      */
     public function getUnits(): array
     {
@@ -365,12 +364,12 @@ class UnitsApi
      * Get units
      *
      *
-     * @return array of \CureDAO\Client\Model\Unit[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\Unit[], HTTP status code, HTTP response headers (array of strings)
      * @throws ApiException on non-2xx response
      */
     public function getUnitsWithHttpInfo(): array
     {
-        $returnType = '\CureDAO\Client\Model\Unit[]';
+        $returnType = '\CureDAO\Client\Models\Unit[]';
         $request = $this->getUnitsRequest();
 
         try {
@@ -420,7 +419,7 @@ class UnitsApi
             if ($e->getCode() == 200) {
                 $data = ObjectSerializer::deserialize(
                     $e->getResponseBody(),
-                    '\CureDAO\Client\Model\Unit[]',
+                    '\CureDAO\Client\Models\Unit[]',
                     $e->getResponseHeaders()
                 );
                 $e->setResponseObject($data);
@@ -459,7 +458,7 @@ class UnitsApi
      */
     public function getUnitsAsyncWithHttpInfo(): \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\CureDAO\Client\Model\Unit[]';
+        $returnType = '\CureDAO\Client\Models\Unit[]';
         $request = $this->getUnitsRequest();
 
         return $this->client

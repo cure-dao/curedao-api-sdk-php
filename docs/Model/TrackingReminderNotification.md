@@ -3,18 +3,18 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action_array** | [**\CureDAO\Client\Model\TrackingReminderNotificationAction[]**](TrackingReminderNotificationAction.md) |  | 
-**available_units** | [**\CureDAO\Client\Model\Unit[]**](Unit.md) |  | 
+**action_array** | [**\CureDAO\Client\Models\TrackingReminderNotificationAction[]**](TrackingReminderNotificationAction.md) |  | 
+**available_units** | [**\CureDAO\Client\Models\Unit[]**](Unit.md) |  | 
 **best_study_link** | **string** | Link to study comparing variable with strongest relationship for user or population | [optional] 
-**best_study_card** | [**\CureDAO\Client\Model\Card**](Card.md) | Description of relationship with variable with strongest relationship for user or population | [optional] 
+**best_study_card** | [**\CureDAO\Client\Models\Card**](Card.md) | Description of relationship with variable with strongest relationship for user or population | [optional] 
 **best_user_study_link** | **string** | Link to study comparing variable with strongest relationship for user | [optional] 
-**best_user_study_card** | [**\CureDAO\Client\Model\Card**](Card.md) | Description of relationship with variable with strongest relationship for user | [optional] 
+**best_user_study_card** | [**\CureDAO\Client\Models\Card**](Card.md) | Description of relationship with variable with strongest relationship for user | [optional] 
 **best_population_study_link** | **string** | Link to study comparing variable with strongest relationship for population | [optional] 
-**best_population_study_card** | [**\CureDAO\Client\Model\Card**](Card.md) | Description of relationship with variable with strongest relationship for population | [optional] 
+**best_population_study_card** | [**\CureDAO\Client\Models\Card**](Card.md) | Description of relationship with variable with strongest relationship for population | [optional] 
 **optimal_value_message** | **string** | Description of relationship with variable with strongest relationship for user or population | [optional] 
 **common_optimal_value_message** | **string** | Description of relationship with variable with strongest relationship for population | [optional] 
 **user_optimal_value_message** | **string** | Description of relationship with variable with strongest relationship for user | [optional] 
-**card** | [**\CureDAO\Client\Model\Card**](Card.md) | Card with options for tracking. | [optional] 
+**card** | [**\CureDAO\Client\Models\Card**](Card.md) | Card with options for tracking. | [optional] 
 **client_id** | **string** | Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org | [optional] 
 **combination_operation** | **string** | The way multiple measurements are aggregated over time | [optional] 
 **created_at** | **string** | Ex: 2017-07-29 20:49:54 UTC ISO 8601 YYYY-MM-DDThh:mm:ss | [optional] 
@@ -62,7 +62,7 @@ Name | Type | Description | Notes
 **third_to_last_value** | **double** | Ex: 2 | [optional] 
 **title** | **string** | Ex: Rate Overall Mood | [optional] 
 **total** | **double** | Ex: 3 | [optional] 
-**track_all_actions** | [**\CureDAO\Client\Model\TrackingReminderNotificationTrackAllAction[]**](TrackingReminderNotificationTrackAllAction.md) |  | 
+**track_all_actions** | [**\CureDAO\Client\Models\TrackingReminderNotificationTrackAllAction[]**](TrackingReminderNotificationTrackAllAction.md) |  | 
 **tracking_reminder_id** | **int** | id for the repeating tracking remidner | [optional] 
 **tracking_reminder_image_url** | **string** | Ex: https://rximage.nlm.nih.gov/image/images/gallery/original/55111-0129-60_RXNAVIMAGE10_B051D81E.jpg | [optional] 
 **tracking_reminder_notification_id** | **int** | Ex: 5072482 | [optional] 

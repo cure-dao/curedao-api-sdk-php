@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**postVote**](StudiesApi.md#postVote) | **POST** /v3/votes | Post or update vote
 [**publishStudy**](StudiesApi.md#publishStudy) | **POST** /v3/study/publish | Publish Your Study
 # **createStudy**
-> \CureDAO\Client\Model\PostStudyCreateResponse createStudy($body, $client_id, $platform)
+> \CureDAO\Client\Models\PostStudyCreateResponse createStudy($body, $client_id, $platform)
 
 Create a Study
 
@@ -39,7 +39,7 @@ $apiInstance = new CureDAO\Client\Api\StudiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \CureDAO\Client\Model\StudyCreationBody(); // \CureDAO\Client\Model\StudyCreationBody | Details about the study you want to create
+$body = new \CureDAO\Client\Models\StudyCreationBody(); // \CureDAO\Client\Models\StudyCreationBody | Details about the study you want to create
 $client_id = "client_id_example"; // string | Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org
 $platform = "platform_example"; // string | Ex: chrome, android, ios, web
 
@@ -56,13 +56,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\StudyCreationBody**](../Model/StudyCreationBody.md)| Details about the study you want to create |
+ **body** | [**\CureDAO\Client\Models\StudyCreationBody**](../Model/StudyCreationBody.md)| Details about the study you want to create |
  **client_id** | **string**| Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org | [optional]
  **platform** | **string**| Ex: chrome, android, ios, web | [optional]
 
 ### Return type
 
-[**\CureDAO\Client\Model\PostStudyCreateResponse**](../Model/PostStudyCreateResponse.md)
+[**\CureDAO\Client\Models\PostStudyCreateResponse**](../Model/PostStudyCreateResponse.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteVote**
-> \CureDAO\Client\Model\CommonResponse deleteVote($body, $user_id)
+> \CureDAO\Client\Models\CommonResponse deleteVote($body, $user_id)
 
 Delete vote
 
@@ -100,7 +100,7 @@ $apiInstance = new CureDAO\Client\Api\StudiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \CureDAO\Client\Model\VoteDelete(); // \CureDAO\Client\Model\VoteDelete | The cause and effect variable names for the predictor vote to be deleted.
+$body = new \CureDAO\Client\Models\VoteDelete(); // \CureDAO\Client\Models\VoteDelete | The cause and effect variable names for the predictor vote to be deleted.
 $user_id = 8.14; // float | User's id
 
 try {
@@ -116,12 +116,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\VoteDelete**](../Model/VoteDelete.md)| The cause and effect variable names for the predictor vote to be deleted. |
+ **body** | [**\CureDAO\Client\Models\VoteDelete**](../Model/VoteDelete.md)| The cause and effect variable names for the predictor vote to be deleted. |
  **user_id** | **float**| User&#39;s id | [optional]
 
 ### Return type
 
-[**\CureDAO\Client\Model\CommonResponse**](../Model/CommonResponse.md)
+[**\CureDAO\Client\Models\CommonResponse**](../Model/CommonResponse.md)
 
 ### Authorization
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOpenStudies**
-> \CureDAO\Client\Model\GetStudiesResponse getOpenStudies($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id)
+> \CureDAO\Client\Models\GetStudiesResponse getOpenStudies($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id)
 
 These are open studies that anyone can join
 
@@ -159,10 +159,7 @@ $apiInstance = new CureDAO\Client\Api\StudiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cause_variable_name = "cause_variable_name_example"; // string | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-$effect_variable_name = "effect_variable_name_example"; // string | Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
-$cause_variable_id = 56; // int | Variable id of the hypothetical predictor variable.  Ex: 1398
-$effect_variable_id = 56; // int | Variable id of the outcome variable of interest.  Ex: 1398
+
 $predictor_variable_name = "predictor_variable_name_example"; // string | Name of the hypothetical predictor variable.  Ex: Sleep Duration
 $outcome_variable_name = "outcome_variable_name_example"; // string | Name of the outcome variable of interest.  Ex: Overall Mood
 $user_id = 8.14; // float | User's id
@@ -200,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\GetStudiesResponse**](../Model/GetStudiesResponse.md)
+[**\CureDAO\Client\Models\GetStudiesResponse**](../Model/GetStudiesResponse.md)
 
 ### Authorization
 
@@ -214,7 +211,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getStudies**
-> \CureDAO\Client\Model\GetStudiesResponse getStudies($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id, $sort, $limit, $offset, $correlation_coefficient, $updated_at, $outcomes_of_interest, $principal_investigator_user_id, $open, $joined, $created, $population, $downvoted)
+> \CureDAO\Client\Models\GetStudiesResponse getStudies($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id, $sort, $limit, $offset, $correlation_coefficient, $updated_at, $outcomes_of_interest, $principal_investigator_user_id, $open, $joined, $created, $population, $downvoted)
 
 Get Personal or Population Studies
 
@@ -238,10 +235,7 @@ $apiInstance = new CureDAO\Client\Api\StudiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cause_variable_name = "cause_variable_name_example"; // string | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-$effect_variable_name = "effect_variable_name_example"; // string | Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
-$cause_variable_id = 56; // int | Variable id of the hypothetical predictor variable.  Ex: 1398
-$effect_variable_id = 56; // int | Variable id of the outcome variable of interest.  Ex: 1398
+
 $predictor_variable_name = "predictor_variable_name_example"; // string | Name of the hypothetical predictor variable.  Ex: Sleep Duration
 $outcome_variable_name = "outcome_variable_name_example"; // string | Name of the outcome variable of interest.  Ex: Overall Mood
 $user_id = 8.14; // float | User's id
@@ -303,7 +297,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\GetStudiesResponse**](../Model/GetStudiesResponse.md)
+[**\CureDAO\Client\Models\GetStudiesResponse**](../Model/GetStudiesResponse.md)
 
 ### Authorization
 
@@ -317,7 +311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getStudiesCreated**
-> \CureDAO\Client\Model\GetStudiesResponse getStudiesCreated($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $updated_at, $client_id, $platform)
+> \CureDAO\Client\Models\GetStudiesResponse getStudiesCreated($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $updated_at, $client_id, $platform)
 
 Get studies you have created
 
@@ -341,10 +335,7 @@ $apiInstance = new CureDAO\Client\Api\StudiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cause_variable_name = "cause_variable_name_example"; // string | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-$effect_variable_name = "effect_variable_name_example"; // string | Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
-$cause_variable_id = 56; // int | Variable id of the hypothetical predictor variable.  Ex: 1398
-$effect_variable_id = 56; // int | Variable id of the outcome variable of interest.  Ex: 1398
+
 $predictor_variable_name = "predictor_variable_name_example"; // string | Name of the hypothetical predictor variable.  Ex: Sleep Duration
 $outcome_variable_name = "outcome_variable_name_example"; // string | Name of the outcome variable of interest.  Ex: Overall Mood
 $sort = "sort_example"; // string | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
@@ -384,7 +375,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\GetStudiesResponse**](../Model/GetStudiesResponse.md)
+[**\CureDAO\Client\Models\GetStudiesResponse**](../Model/GetStudiesResponse.md)
 
 ### Authorization
 
@@ -398,7 +389,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getStudiesJoined**
-> \CureDAO\Client\Model\GetStudiesResponse getStudiesJoined($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $correlation_coefficient, $updated_at, $outcomes_of_interest, $client_id, $platform)
+> \CureDAO\Client\Models\GetStudiesResponse getStudiesJoined($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $sort, $limit, $offset, $user_id, $correlation_coefficient, $updated_at, $outcomes_of_interest, $client_id, $platform)
 
 Studies You Have Joined
 
@@ -422,10 +413,7 @@ $apiInstance = new CureDAO\Client\Api\StudiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cause_variable_name = "cause_variable_name_example"; // string | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-$effect_variable_name = "effect_variable_name_example"; // string | Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
-$cause_variable_id = 56; // int | Variable id of the hypothetical predictor variable.  Ex: 1398
-$effect_variable_id = 56; // int | Variable id of the outcome variable of interest.  Ex: 1398
+
 $predictor_variable_name = "predictor_variable_name_example"; // string | Name of the hypothetical predictor variable.  Ex: Sleep Duration
 $outcome_variable_name = "outcome_variable_name_example"; // string | Name of the outcome variable of interest.  Ex: Overall Mood
 $sort = "sort_example"; // string | Sort by one of the listed field names. If the field name is prefixed with `-`, it will sort in descending order.
@@ -469,7 +457,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\GetStudiesResponse**](../Model/GetStudiesResponse.md)
+[**\CureDAO\Client\Models\GetStudiesResponse**](../Model/GetStudiesResponse.md)
 
 ### Authorization
 
@@ -483,7 +471,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getStudy**
-> \CureDAO\Client\Model\Study getStudy($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id)
+> \CureDAO\Client\Models\Study getStudy($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id)
 
 Get Study
 
@@ -507,10 +495,7 @@ $apiInstance = new CureDAO\Client\Api\StudiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cause_variable_name = "cause_variable_name_example"; // string | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-$effect_variable_name = "effect_variable_name_example"; // string | Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
-$cause_variable_id = 56; // int | Variable id of the hypothetical predictor variable.  Ex: 1398
-$effect_variable_id = 56; // int | Variable id of the outcome variable of interest.  Ex: 1398
+
 $predictor_variable_name = "predictor_variable_name_example"; // string | Name of the hypothetical predictor variable.  Ex: Sleep Duration
 $outcome_variable_name = "outcome_variable_name_example"; // string | Name of the outcome variable of interest.  Ex: Overall Mood
 $user_id = 8.14; // float | User's id
@@ -548,7 +533,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\Study**](../Model/Study.md)
+[**\CureDAO\Client\Models\Study**](../Model/Study.md)
 
 ### Authorization
 
@@ -562,7 +547,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **joinStudy**
-> \CureDAO\Client\Model\StudyJoinResponse joinStudy($study_id, $cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $platform)
+> \CureDAO\Client\Models\StudyJoinResponse joinStudy($study_id, $cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $platform)
 
 Join a Study
 
@@ -587,10 +572,7 @@ $apiInstance = new CureDAO\Client\Api\StudiesApi(
     $config
 );
 $study_id = "study_id_example"; // string | Client id for the study you want
-$cause_variable_name = "cause_variable_name_example"; // string | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-$effect_variable_name = "effect_variable_name_example"; // string | Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
-$cause_variable_id = 56; // int | Variable id of the hypothetical predictor variable.  Ex: 1398
-$effect_variable_id = 56; // int | Variable id of the outcome variable of interest.  Ex: 1398
+
 $predictor_variable_name = "predictor_variable_name_example"; // string | Name of the hypothetical predictor variable.  Ex: Sleep Duration
 $outcome_variable_name = "outcome_variable_name_example"; // string | Name of the outcome variable of interest.  Ex: Overall Mood
 $user_id = 8.14; // float | User's id
@@ -623,7 +605,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\StudyJoinResponse**](../Model/StudyJoinResponse.md)
+[**\CureDAO\Client\Models\StudyJoinResponse**](../Model/StudyJoinResponse.md)
 
 ### Authorization
 
@@ -637,7 +619,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postVote**
-> \CureDAO\Client\Model\CommonResponse postVote($body, $user_id)
+> \CureDAO\Client\Models\CommonResponse postVote($body, $user_id)
 
 Post or update vote
 
@@ -661,7 +643,7 @@ $apiInstance = new CureDAO\Client\Api\StudiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \CureDAO\Client\Model\Vote(); // \CureDAO\Client\Model\Vote | Contains the cause variable, effect variable, and vote value.
+$body = new \CureDAO\Client\Models\Vote(); // \CureDAO\Client\Models\Vote | Contains the cause variable, effect variable, and vote value.
 $user_id = 8.14; // float | User's id
 
 try {
@@ -677,12 +659,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\Vote**](../Model/Vote.md)| Contains the cause variable, effect variable, and vote value. |
+ **body** | [**\CureDAO\Client\Models\Vote**](../Model/Vote.md)| Contains the cause variable, effect variable, and vote value. |
  **user_id** | **float**| User&#39;s id | [optional]
 
 ### Return type
 
-[**\CureDAO\Client\Model\CommonResponse**](../Model/CommonResponse.md)
+[**\CureDAO\Client\Models\CommonResponse**](../Model/CommonResponse.md)
 
 ### Authorization
 
@@ -696,7 +678,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **publishStudy**
-> \CureDAO\Client\Model\PostStudyPublishResponse publishStudy($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id)
+> \CureDAO\Client\Models\PostStudyPublishResponse publishStudy($cause_variable_name, $effect_variable_name, $cause_variable_id, $effect_variable_id, $predictor_variable_name, $outcome_variable_name, $user_id, $client_id, $include_charts, $platform, $recalculate, $study_id)
 
 Publish Your Study
 
@@ -720,10 +702,7 @@ $apiInstance = new CureDAO\Client\Api\StudiesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$cause_variable_name = "cause_variable_name_example"; // string | Deprecated: Name of the hypothetical predictor variable.  Ex: Sleep Duration
-$effect_variable_name = "effect_variable_name_example"; // string | Deprecated: Name of the outcome variable of interest.  Ex: Overall Mood
-$cause_variable_id = 56; // int | Variable id of the hypothetical predictor variable.  Ex: 1398
-$effect_variable_id = 56; // int | Variable id of the outcome variable of interest.  Ex: 1398
+
 $predictor_variable_name = "predictor_variable_name_example"; // string | Name of the hypothetical predictor variable.  Ex: Sleep Duration
 $outcome_variable_name = "outcome_variable_name_example"; // string | Name of the outcome variable of interest.  Ex: Overall Mood
 $user_id = 8.14; // float | User's id
@@ -761,7 +740,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\PostStudyPublishResponse**](../Model/PostStudyPublishResponse.md)
+[**\CureDAO\Client\Models\PostStudyPublishResponse**](../Model/PostStudyPublishResponse.md)
 
 ### Authorization
 

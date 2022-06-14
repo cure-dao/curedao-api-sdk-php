@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**postTrackingReminderNotifications**](RemindersApi.md#postTrackingReminderNotifications) | **POST** /v3/trackingReminderNotifications | Snooze, skip, or track a tracking reminder notification
 [**postTrackingReminders**](RemindersApi.md#postTrackingReminders) | **POST** /v3/trackingReminders | Store a Tracking Reminder
 # **deleteTrackingReminder**
-> \CureDAO\Client\Model\CommonResponse deleteTrackingReminder($body, $user_id)
+> \CureDAO\Client\Models\CommonResponse deleteTrackingReminder($body, $user_id)
 
 Delete Tracking Reminder
 
@@ -34,7 +34,7 @@ $apiInstance = new CureDAO\Client\Api\RemindersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \CureDAO\Client\Model\TrackingReminderDelete(); // \CureDAO\Client\Model\TrackingReminderDelete | Id of reminder to be deleted
+$body = new \CureDAO\Client\Models\TrackingReminderDelete(); // \CureDAO\Client\Models\TrackingReminderDelete | Id of reminder to be deleted
 $user_id = 8.14; // float | User's id
 
 try {
@@ -50,12 +50,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\TrackingReminderDelete**](../Model/TrackingReminderDelete.md)| Id of reminder to be deleted |
+ **body** | [**\CureDAO\Client\Models\TrackingReminderDelete**](../Model/TrackingReminderDelete.md)| Id of reminder to be deleted |
  **user_id** | **float**| User&#39;s id | [optional]
 
 ### Return type
 
-[**\CureDAO\Client\Model\CommonResponse**](../Model/CommonResponse.md)
+[**\CureDAO\Client\Models\CommonResponse**](../Model/CommonResponse.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTrackingReminderNotifications**
-> \CureDAO\Client\Model\GetTrackingReminderNotificationsResponse getTrackingReminderNotifications($sort, $user_id, $created_at, $updated_at, $limit, $offset, $variable_category_name, $reminder_time, $client_id, $only_past, $include_deleted, $platform)
+> \CureDAO\Client\Models\GetTrackingReminderNotificationsResponse getTrackingReminderNotifications($sort, $user_id, $created_at, $updated_at, $limit, $offset, $variable_category_name, $reminder_time, $client_id, $only_past, $include_deleted, $platform)
 
 Get specific tracking reminder notifications
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\GetTrackingReminderNotificationsResponse**](../Model/GetTrackingReminderNotificationsResponse.md)
+[**\CureDAO\Client\Models\GetTrackingReminderNotificationsResponse**](../Model/GetTrackingReminderNotificationsResponse.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTrackingReminders**
-> \CureDAO\Client\Model\TrackingReminder[] getTrackingReminders($user_id, $variable_category_name, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $platform)
+> \CureDAO\Client\Models\TrackingReminder[] getTrackingReminders($user_id, $variable_category_name, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $platform)
 
 Get repeating tracking reminder settings
 
@@ -209,7 +209,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\TrackingReminder[]**](../Model/TrackingReminder.md)
+[**\CureDAO\Client\Models\TrackingReminder[]**](../Model/TrackingReminder.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postTrackingReminderNotifications**
-> \CureDAO\Client\Model\CommonResponse postTrackingReminderNotifications($body, $user_id, $client_id, $platform)
+> \CureDAO\Client\Models\CommonResponse postTrackingReminderNotifications($body, $user_id, $client_id, $platform)
 
 Snooze, skip, or track a tracking reminder notification
 
@@ -247,7 +247,7 @@ $apiInstance = new CureDAO\Client\Api\RemindersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = array(new \CureDAO\Client\Model\TrackingReminderNotificationPost()); // \CureDAO\Client\Model\TrackingReminderNotificationPost[] | Id of the tracking reminder notification to be snoozed
+$body = array(new \CureDAO\Client\Models\TrackingReminderNotificationPost()); // \CureDAO\Client\Models\TrackingReminderNotificationPost[] | Id of the tracking reminder notification to be snoozed
 $user_id = 8.14; // float | User's id
 $client_id = "client_id_example"; // string | Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org
 $platform = "platform_example"; // string | Ex: chrome, android, ios, web
@@ -265,14 +265,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\TrackingReminderNotificationPost[]**](../Model/TrackingReminderNotificationPost.md)| Id of the tracking reminder notification to be snoozed |
+ **body** | [**\CureDAO\Client\Models\TrackingReminderNotificationPost[]**](../Model/TrackingReminderNotificationPost.md)| Id of the tracking reminder notification to be snoozed |
  **user_id** | **float**| User&#39;s id | [optional]
  **client_id** | **string**| Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org | [optional]
  **platform** | **string**| Ex: chrome, android, ios, web | [optional]
 
 ### Return type
 
-[**\CureDAO\Client\Model\CommonResponse**](../Model/CommonResponse.md)
+[**\CureDAO\Client\Models\CommonResponse**](../Model/CommonResponse.md)
 
 ### Authorization
 
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postTrackingReminders**
-> \CureDAO\Client\Model\PostTrackingRemindersResponse postTrackingReminders($body)
+> \CureDAO\Client\Models\PostTrackingRemindersResponse postTrackingReminders($body)
 
 Store a Tracking Reminder
 
@@ -310,7 +310,7 @@ $apiInstance = new CureDAO\Client\Api\RemindersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = array(new \CureDAO\Client\Model\TrackingReminder()); // \CureDAO\Client\Model\TrackingReminder[] | TrackingReminder that should be stored
+$body = array(new \CureDAO\Client\Models\TrackingReminder()); // \CureDAO\Client\Models\TrackingReminder[] | TrackingReminder that should be stored
 
 try {
     $result = $apiInstance->postTrackingReminders($body);
@@ -325,11 +325,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\TrackingReminder[]**](../Model/TrackingReminder.md)| TrackingReminder that should be stored |
+ **body** | [**\CureDAO\Client\Models\TrackingReminder[]**](../Model/TrackingReminder.md)| TrackingReminder that should be stored |
 
 ### Return type
 
-[**\CureDAO\Client\Model\PostTrackingRemindersResponse**](../Model/PostTrackingRemindersResponse.md)
+[**\CureDAO\Client\Models\PostTrackingRemindersResponse**](../Model/PostTrackingRemindersResponse.md)
 
 ### Authorization
 

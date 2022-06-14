@@ -16,8 +16,7 @@ use CureDAO\Client\HeaderSelector;
 use CureDAO\Client\ObjectSerializer;
 
 /**
- * AuthenticationApi Class Doc Comment
- *
+ * AuthenticationApi Class 
  */
 class AuthenticationApi
 {

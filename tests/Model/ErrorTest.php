@@ -7,8 +7,7 @@
 namespace CureDAO\Tests\Model;
 
 /**
- * ErrorTest Class Doc Comment
- *
+ * ErrorTest Class 
  * @category    Class
  * @description Error
 

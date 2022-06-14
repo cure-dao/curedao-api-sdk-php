@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**postUserVariables**](VariablesApi.md#postUserVariables) | **POST** /v3/variables | Update User Settings for a Variable
 [**resetUserVariableSettings**](VariablesApi.md#resetUserVariableSettings) | **POST** /v3/userVariables/reset | Reset user settings for a variable to defaults
 # **deleteUserTag**
-> \CureDAO\Client\Model\CommonResponse deleteUserTag($tagged_variable_id, $tag_variable_id)
+> \CureDAO\Client\Models\CommonResponse deleteUserTag($tagged_variable_id, $tag_variable_id)
 
 Delete user tag or ingredient
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\CommonResponse**](../Model/CommonResponse.md)
+[**\CureDAO\Client\Models\CommonResponse**](../Model/CommonResponse.md)
 
 ### Authorization
 
@@ -95,7 +95,7 @@ $apiInstance = new CureDAO\Client\Api\VariablesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$variable_id = new \CureDAO\Client\Model\UserVariableDelete(); // \CureDAO\Client\Model\UserVariableDelete | Id of the variable whose measurements should be deleted
+$variable_id = new \CureDAO\Client\Models\UserVariableDelete(); // \CureDAO\Client\Models\UserVariableDelete | Id of the variable whose measurements should be deleted
 
 try {
     $apiInstance->deleteUserVariable($variable_id);
@@ -109,7 +109,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variable_id** | [**\CureDAO\Client\Model\UserVariableDelete**](../Model/UserVariableDelete.md)| Id of the variable whose measurements should be deleted |
+ **variable_id** | [**\CureDAO\Client\Models\UserVariableDelete**](../Model/UserVariableDelete.md)| Id of the variable whose measurements should be deleted |
 
 ### Return type
 
@@ -127,7 +127,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getVariableCategories**
-> \CureDAO\Client\Model\VariableCategory[] getVariableCategories()
+> \CureDAO\Client\Models\VariableCategory[] getVariableCategories()
 
 Variable categories
 
@@ -166,7 +166,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\CureDAO\Client\Model\VariableCategory[]**](../Model/VariableCategory.md)
+[**\CureDAO\Client\Models\VariableCategory[]**](../Model/VariableCategory.md)
 
 ### Authorization
 
@@ -180,7 +180,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getVariables**
-> \CureDAO\Client\Model\Variable[] getVariables($include_charts, $number_of_raw_measurements, $user_id, $variable_category_name, $name, $variable_name, $updated_at, $source_name, $earliest_measurement_time, $latest_measurement_time, $id, $last_source_name, $limit, $offset, $sort, $include_public, $manual_tracking, $client_id, $upc, $effect_or_cause, $public_effect_or_cause, $exact_match, $variable_category_id, $include_private, $search_phrase, $synonyms, $tagged_variable_id, $tag_variable_id, $join_variable_id, $parent_user_tag_variable_id, $child_user_tag_variable_id, $ingredient_user_tag_variable_id, $ingredient_of_user_tag_variable_id, $common_only, $user_only, $platform, $include_tags, $recalculate, $variable_id, $concise, $refresh)
+> \CureDAO\Client\Models\Variable[] getVariables($include_charts, $number_of_raw_measurements, $user_id, $variable_category_name, $name, $variable_name, $updated_at, $source_name, $earliest_measurement_time, $latest_measurement_time, $id, $last_source_name, $limit, $offset, $sort, $include_public, $manual_tracking, $client_id, $upc, $effect_or_cause, $public_effect_or_cause, $exact_match, $variable_category_id, $include_private, $search_phrase, $synonyms, $tagged_variable_id, $tag_variable_id, $join_variable_id, $parent_user_tag_variable_id, $child_user_tag_variable_id, $ingredient_user_tag_variable_id, $ingredient_of_user_tag_variable_id, $common_only, $user_only, $platform, $include_tags, $recalculate, $variable_id, $concise, $refresh)
 
 Get variables along with related user-specific analysis settings and statistics
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\Variable[]**](../Model/Variable.md)
+[**\CureDAO\Client\Models\Variable[]**](../Model/Variable.md)
 
 ### Authorization
 
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postUserTags**
-> \CureDAO\Client\Model\CommonResponse postUserTags($body, $user_id)
+> \CureDAO\Client\Models\CommonResponse postUserTags($body, $user_id)
 
 Post or update user tags or ingredients
 
@@ -341,7 +341,7 @@ $apiInstance = new CureDAO\Client\Api\VariablesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \CureDAO\Client\Model\UserTag(); // \CureDAO\Client\Model\UserTag | Contains the new user tag data
+$body = new \CureDAO\Client\Models\UserTag(); // \CureDAO\Client\Models\UserTag | Contains the new user tag data
 $user_id = 8.14; // float | User's id
 
 try {
@@ -357,12 +357,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\CureDAO\Client\Model\UserTag**](../Model/UserTag.md)| Contains the new user tag data |
+ **body** | [**\CureDAO\Client\Models\UserTag**](../Model/UserTag.md)| Contains the new user tag data |
  **user_id** | **float**| User&#39;s id | [optional]
 
 ### Return type
 
-[**\CureDAO\Client\Model\CommonResponse**](../Model/CommonResponse.md)
+[**\CureDAO\Client\Models\CommonResponse**](../Model/CommonResponse.md)
 
 ### Authorization
 
@@ -376,7 +376,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postUserVariables**
-> \CureDAO\Client\Model\CommonResponse postUserVariables($user_variables, $include_private, $client_id, $include_public, $search_phrase, $exact_match, $manual_tracking, $variable_category_name, $variable_category_id, $synonyms, $platform)
+> \CureDAO\Client\Models\CommonResponse postUserVariables($user_variables, $include_private, $client_id, $include_public, $search_phrase, $exact_match, $manual_tracking, $variable_category_name, $variable_category_id, $synonyms, $platform)
 
 Update User Settings for a Variable
 
@@ -400,7 +400,7 @@ $apiInstance = new CureDAO\Client\Api\VariablesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$user_variables = array(new \CureDAO\Client\Model\Variable()); // \CureDAO\Client\Model\Variable[] | Variable user settings data
+$user_variables = array(new \CureDAO\Client\Models\Variable()); // \CureDAO\Client\Models\Variable[] | Variable user settings data
 $include_private = true; // bool | Include user-specific variables in results
 $client_id = "client_id_example"; // string | Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org
 $include_public = true; // bool | Include variables the user has no measurements for
@@ -425,7 +425,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_variables** | [**\CureDAO\Client\Model\Variable[]**](../Model/Variable.md)| Variable user settings data |
+ **user_variables** | [**\CureDAO\Client\Models\Variable[]**](../Model/Variable.md)| Variable user settings data |
  **include_private** | **bool**| Include user-specific variables in results | [optional]
  **client_id** | **string**| Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org | [optional]
  **include_public** | **bool**| Include variables the user has no measurements for | [optional]
@@ -439,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\CommonResponse**](../Model/CommonResponse.md)
+[**\CureDAO\Client\Models\CommonResponse**](../Model/CommonResponse.md)
 
 ### Authorization
 
@@ -477,7 +477,7 @@ $apiInstance = new CureDAO\Client\Api\VariablesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$variable_id = new \CureDAO\Client\Model\UserVariableDelete(); // \CureDAO\Client\Model\UserVariableDelete | Id of the variable whose measurements should be deleted
+$variable_id = new \CureDAO\Client\Models\UserVariableDelete(); // \CureDAO\Client\Models\UserVariableDelete | Id of the variable whose measurements should be deleted
 
 try {
     $apiInstance->resetUserVariableSettings($variable_id);
@@ -491,7 +491,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **variable_id** | [**\CureDAO\Client\Model\UserVariableDelete**](../Model/UserVariableDelete.md)| Id of the variable whose measurements should be deleted |
+ **variable_id** | [**\CureDAO\Client\Models\UserVariableDelete**](../Model/UserVariableDelete.md)| Id of the variable whose measurements should be deleted |
 
 ### Return type
 

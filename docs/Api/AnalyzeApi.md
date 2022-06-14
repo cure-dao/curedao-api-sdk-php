@@ -8,7 +8,7 @@ All URIs are relative to *https://v7.curedao.org/api*
 | [**postAnalyze**](AnalyzeApi.md#postAnalyze) | **POST** /v6/analyze | Post Analyze |
 
 # **getAnalyze**
-> \CureDAO\Client\Model\AnalyzeResponse[] getAnalyze($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform)
+> \CureDAO\Client\Models\AnalyzeResponse[] getAnalyze($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform)
 
 Get Analyze
 
@@ -67,7 +67,7 @@ try {
 
 ### Return type
 
-[**\CureDAO\Client\Model\AnalyzeResponse[]**](../Model/analyzeResponse.md)
+[**\CureDAO\Client\Models\AnalyzeResponse[]**](../Model/analyzeResponse.md)
 
 ### Authorization
 
@@ -81,7 +81,7 @@ try {
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postAnalyze**
-> \CureDAO\Client\Model\AnalyzeResponse[] postAnalyze($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform)
+> \CureDAO\Client\Models\AnalyzeResponse[] postAnalyze($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform)
 
 Post Analyze
 
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\CureDAO\Client\Model\AnalyzeResponse[]**](../Model/analyzeResponse.md)
+[**\CureDAO\Client\Models\AnalyzeResponse[]**](../Model/analyzeResponse.md)
 
 ### Authorization
 

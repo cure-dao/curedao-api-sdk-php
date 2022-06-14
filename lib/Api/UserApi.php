@@ -18,8 +18,7 @@ use CureDAO\Client\HeaderSelector;
 use CureDAO\Client\ObjectSerializer;
 
 /**
- * UserApi Class Doc Comment
- *
+ * UserApi Class 
  */
 class UserApi
 {
@@ -72,7 +71,7 @@ class UserApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\CommonResponse
+     * @return \CureDAO\Client\Models\CommonResponse
      */
     public function deleteUser($reason, $client_id = null, $platform = null)
     {
@@ -91,11 +90,11 @@ class UserApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\CommonResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\CommonResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteUserWithHttpInfo($reason, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->deleteUserRequest($reason, $client_id, $platform);
 
         try {
@@ -147,7 +146,7 @@ class UserApi
                 case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\CommonResponse',
+                        '\CureDAO\Client\Models\CommonResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -193,7 +192,7 @@ class UserApi
      */
     public function deleteUserAsyncWithHttpInfo($reason, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\CommonResponse';
+        $returnType = '\CureDAO\Client\Models\CommonResponse';
         $request = $this->deleteUserRequest($reason, $client_id, $platform);
 
         return $this->client
@@ -372,7 +371,7 @@ class UserApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\User
+     * @return \CureDAO\Client\Models\User
      */
     public function getUser($user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $sort = null, $client_id = null, $app_version = null, $client_user_id = null, $platform = null, $log = null, $pwd = null, $include_authorized_clients = null)
     {
@@ -401,11 +400,11 @@ class UserApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\User, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\User, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserWithHttpInfo($user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $sort = null, $client_id = null, $app_version = null, $client_user_id = null, $platform = null, $log = null, $pwd = null, $include_authorized_clients = null)
     {
-        $returnType = '\CureDAO\Client\Model\User';
+        $returnType = '\CureDAO\Client\Models\User';
         $request = $this->getUserRequest($user_id, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $client_user_id, $platform, $log, $pwd, $include_authorized_clients);
 
         try {
@@ -457,7 +456,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\User',
+                        '\CureDAO\Client\Models\User',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -523,7 +522,7 @@ class UserApi
      */
     public function getUserAsyncWithHttpInfo($user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $sort = null, $client_id = null, $app_version = null, $client_user_id = null, $platform = null, $log = null, $pwd = null, $include_authorized_clients = null)
     {
-        $returnType = '\CureDAO\Client\Model\User';
+        $returnType = '\CureDAO\Client\Models\User';
         $request = $this->getUserRequest($user_id, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $client_user_id, $platform, $log, $pwd, $include_authorized_clients);
 
         return $this->client
@@ -744,7 +743,7 @@ class UserApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\UserBlogsResponse[]
+     * @return \CureDAO\Client\Models\UserBlogsResponse[]
      */
     public function getUserBlogs($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
@@ -769,11 +768,11 @@ class UserApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\UserBlogsResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\UserBlogsResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserBlogsWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\UserBlogsResponse[]';
+        $returnType = '\CureDAO\Client\Models\UserBlogsResponse[]';
         $request = $this->getUserBlogsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         try {
@@ -825,7 +824,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\UserBlogsResponse[]',
+                        '\CureDAO\Client\Models\UserBlogsResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -883,7 +882,7 @@ class UserApi
      */
     public function getUserBlogsAsyncWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\UserBlogsResponse[]';
+        $returnType = '\CureDAO\Client\Models\UserBlogsResponse[]';
         $request = $this->getUserBlogsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         return $this->client
@@ -1087,7 +1086,7 @@ class UserApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\UsersResponse
+     * @return \CureDAO\Client\Models\UsersResponse
      */
     public function getUsers($user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $sort = null, $client_id = null, $app_version = null, $client_user_id = null, $platform = null, $log = null, $pwd = null)
     {
@@ -1115,11 +1114,11 @@ class UserApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\UsersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\UsersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUsersWithHttpInfo($user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $sort = null, $client_id = null, $app_version = null, $client_user_id = null, $platform = null, $log = null, $pwd = null)
     {
-        $returnType = '\CureDAO\Client\Model\UsersResponse';
+        $returnType = '\CureDAO\Client\Models\UsersResponse';
         $request = $this->getUsersRequest($user_id, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $client_user_id, $platform, $log, $pwd);
 
         try {
@@ -1171,7 +1170,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\UsersResponse',
+                        '\CureDAO\Client\Models\UsersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1235,7 +1234,7 @@ class UserApi
      */
     public function getUsersAsyncWithHttpInfo($user_id = null, $created_at = null, $updated_at = null, $limit = '100', $offset = null, $sort = null, $client_id = null, $app_version = null, $client_user_id = null, $platform = null, $log = null, $pwd = null)
     {
-        $returnType = '\CureDAO\Client\Model\UsersResponse';
+        $returnType = '\CureDAO\Client\Models\UsersResponse';
         $request = $this->getUsersRequest($user_id, $created_at, $updated_at, $limit, $offset, $sort, $client_id, $app_version, $client_user_id, $platform, $log, $pwd);
 
         return $this->client
@@ -1451,7 +1450,7 @@ class UserApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\UserBlogsResponse[]
+     * @return \CureDAO\Client\Models\UserBlogsResponse[]
      */
     public function postUserBlogs($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
@@ -1476,11 +1475,11 @@ class UserApi
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\UserBlogsResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\UserBlogsResponse[], HTTP status code, HTTP response headers (array of strings)
      */
     public function postUserBlogsWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\UserBlogsResponse[]';
+        $returnType = '\CureDAO\Client\Models\UserBlogsResponse[]';
         $request = $this->postUserBlogsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         try {
@@ -1532,7 +1531,7 @@ class UserApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\UserBlogsResponse[]',
+                        '\CureDAO\Client\Models\UserBlogsResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1590,7 +1589,7 @@ class UserApi
      */
     public function postUserBlogsAsyncWithHttpInfo($sort = null, $limit = '100', $offset = null, $updated_at = null, $user_id = null, $created_at = null, $id = null, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\UserBlogsResponse[]';
+        $returnType = '\CureDAO\Client\Models\UserBlogsResponse[]';
         $request = $this->postUserBlogsRequest($sort, $limit, $offset, $updated_at, $user_id, $created_at, $id, $client_id, $platform);
 
         return $this->client
@@ -1779,13 +1778,13 @@ class UserApi
      *
      * Post UserSettings
      *
-     * @param  \CureDAO\Client\Model\User $body User settings to update (required)
+     * @param  \CureDAO\Client\Models\User $body User settings to update (required)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \CureDAO\Client\Model\PostUserSettingsResponse
+     * @return \CureDAO\Client\Models\PostUserSettingsResponse
      */
     public function postUserSettings($body, $client_id = null, $platform = null)
     {
@@ -1798,17 +1797,17 @@ class UserApi
      *
      * Post UserSettings
      *
-     * @param  \CureDAO\Client\Model\User $body User settings to update (required)
+     * @param  \CureDAO\Client\Models\User $body User settings to update (required)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
      * @throws \CureDAO\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \CureDAO\Client\Model\PostUserSettingsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \CureDAO\Client\Models\PostUserSettingsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function postUserSettingsWithHttpInfo($body, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\PostUserSettingsResponse';
+        $returnType = '\CureDAO\Client\Models\PostUserSettingsResponse';
         $request = $this->postUserSettingsRequest($body, $client_id, $platform);
 
         try {
@@ -1860,7 +1859,7 @@ class UserApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\CureDAO\Client\Model\PostUserSettingsResponse',
+                        '\CureDAO\Client\Models\PostUserSettingsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1875,7 +1874,7 @@ class UserApi
      *
      * Post UserSettings
      *
-     * @param  \CureDAO\Client\Model\User $body User settings to update (required)
+     * @param  \CureDAO\Client\Models\User $body User settings to update (required)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
@@ -1897,7 +1896,7 @@ class UserApi
      *
      * Post UserSettings
      *
-     * @param  \CureDAO\Client\Model\User $body User settings to update (required)
+     * @param  \CureDAO\Client\Models\User $body User settings to update (required)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
@@ -1906,7 +1905,7 @@ class UserApi
      */
     public function postUserSettingsAsyncWithHttpInfo($body, $client_id = null, $platform = null)
     {
-        $returnType = '\CureDAO\Client\Model\PostUserSettingsResponse';
+        $returnType = '\CureDAO\Client\Models\PostUserSettingsResponse';
         $request = $this->postUserSettingsRequest($body, $client_id, $platform);
 
         return $this->client
@@ -1949,7 +1948,7 @@ class UserApi
     /**
      * Create request for operation 'postUserSettings'
      *
-     * @param  \CureDAO\Client\Model\User $body User settings to update (required)
+     * @param  \CureDAO\Client\Models\User $body User settings to update (required)
      * @param  string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org (optional)
      * @param  string $platform Ex: chrome, android, ios, web (optional)
      *
