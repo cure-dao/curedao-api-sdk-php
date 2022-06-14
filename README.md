@@ -11,7 +11,7 @@ PHP 7.2 and up
 Install [Composer](http://getcomposer.org/) and run
 
 ```
-composer require cure-dao/cure-dao-sdk-php
+composer require curedao/curedao-sdk-php
 ```
 
 Then run `composer install`
