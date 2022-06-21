@@ -1,7 +1,6 @@
 <?php
 namespace CureDAO\Client;
 use Httpful\Request;
-use Strikebit\Util\PhpGenerator;
 
 class HttpClient
 {
@@ -17,7 +16,12 @@ class HttpClient
 
     public function __construct() {
         if(!isset($_ENV['CUREDAO_CLIENT_ID'])){
-            $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__.'/..');
+            $envPath = __DIR__ . '/../../..';
+            if(!file_exists($envPath."/.env")){
+                throw new \Exception('Please create a .env file in your project directory like 
+                cure-dao/cure-dao-sdk-php/.env.example');
+            }
+            $dotenv = \Dotenv\Dotenv::createImmutable($envPath);
             $dotenv->load();
         }
         $msg = "Get your client id from https://builder.curedao.org";
@@ -53,10 +57,11 @@ class HttpClient
      * @param string $path
      * @param array $payload
      * @param array $headers
-     * @return mixed
+     * @return array
      * @throws \Httpful\Exception\ConnectionErrorException
      */
-    public function post(string $path, array $payload, array $headers = []){
+    public function post(string $path, array $payload, array $headers = []): array
+    {
         $payload['client_id'] = $_ENV["CUREDAO_CLIENT_ID"];
         $payload['client_secret'] = $_ENV["CUREDAO_CLIENT_SECRET"];
         $this->request = Request::post($this->getUrl($path))
@@ -66,9 +71,9 @@ class HttpClient
             ->followRedirects()
             //->withoutStrictSSL()
             ->send();
-        return $this->getDataFromResponse($path);
+        return $this->getDataFromResponse();
     }
-    public function get(string $path, array $params = []){
+    public function get(string $path, array $params = []): array{
         if(isset($_ENV['CUREDAO_CLIENT_ID'])) {
             $params['client_id'] = $_ENV["CUREDAO_CLIENT_ID"];
             $params['client_secret'] = $_ENV["CUREDAO_CLIENT_SECRET"];
@@ -100,12 +105,20 @@ class HttpClient
     {
         $this->baseUrl = $baseUrl;
     }
+
     /**
-     * @return mixed
+     * @return array
+     * @throws \Exception
      */
-    protected function getDataFromResponse(){
+    protected function getDataFromResponse(): array {
         $body = $this->request->body;
+        if(!empty($body->error)){
+            throw new \Exception($body->error);
+        }
         $this->data = $body->data ?? $body['data'] ?? $body;
+        if(!is_array($this->data)){
+            $this->data = json_decode(json_encode($this->data), true);
+        }
         return $this->data;
     }
 }
