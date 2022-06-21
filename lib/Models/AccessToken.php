@@ -2,7 +2,9 @@
 
 namespace CureDAO\Client\Models;
 
-class AccessToken
+use CureDAO\Client\BaseModel;
+
+class AccessToken extends BaseModel
 {
     /**
      * @var string
@@ -51,7 +53,7 @@ class AccessToken
     public function setAccessToken(?string $accessToken): AccessToken
     {
         $this->accessToken = $accessToken;
-        
+
         return $this;
     }
 
@@ -71,7 +73,7 @@ class AccessToken
     public function setClientId(?string $clientId): AccessToken
     {
         $this->clientId = $clientId;
-        
+
         return $this;
     }
 
@@ -91,7 +93,7 @@ class AccessToken
     public function setCreatedAt(?string $createdAt): AccessToken
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
 
@@ -111,7 +113,7 @@ class AccessToken
     public function setExpires(?string $expires): AccessToken
     {
         $this->expires = $expires;
-        
+
         return $this;
     }
 
@@ -131,7 +133,7 @@ class AccessToken
     public function setUpdatedAt(?string $updatedAt): AccessToken
     {
         $this->updatedAt = $updatedAt;
-        
+
         return $this;
     }
 
@@ -151,7 +153,7 @@ class AccessToken
     public function setUserId(?int $userId): AccessToken
     {
         $this->userId = $userId;
-        
+
         return $this;
     }
 }

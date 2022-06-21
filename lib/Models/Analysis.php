@@ -2,8 +2,15 @@
 
 namespace CureDAO\Client\Models;
 
-class Analysis
+use CureDAO\Client\BaseModel;
+
+class Analysis extends BaseModel
 {
+    public function __construct($data = [])
+    {
+        parent::__construct($data);
+    }
+
     /**
      * @var string
      */

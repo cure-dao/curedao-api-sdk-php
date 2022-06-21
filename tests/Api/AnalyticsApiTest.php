@@ -86,13 +86,16 @@ class AnalyticsApiTest extends \CureDAO\Tests\BaseTestCase
         $analysis = new AnalysisRequest($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
         $response = $analysis->analyze();
 
+        $response->saveHtml();
+
+        $this->generateModels("UserVariable", $response->predictor_variable);
         //$this->generateModels("AnalysisResponse", $response);
-        //$this->generateModels("UserVariable", $results->predictor_user_variable);
+        //$this->generateModels("UserVariable", $response->predictor_user_variable);
         $this->assertNotNull($response->analysis);
         $this->assertStringContainsString(DailyStepCountVariable::NAME,
-            $response->html, 'study-html');
+            $response->getHtml(), 'study-html');
         $this->assertStringContainsString(HeartRateVariabilityVariable::NAME,
-            $response->html, 'study-html');
+            $response->getHtml(), 'study-html');
     }
     public function testAnalyzeWithNewVariables()
     {

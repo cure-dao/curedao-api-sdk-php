@@ -7,7 +7,7 @@ use CureDAO\Client\Models\User;
 use CureDAO\Client\Models\UserVariable;
 use CureDAO\Client\Models\Variable;
 
-class AnalysisResponse
+class AnalysisResponse extends BaseResponse
 {
     /**
      * @var Analysis
@@ -44,6 +44,10 @@ class AnalysisResponse
      */
     public $user;
 
+    public function __construct($data = [])
+    {
+        parent::__construct($data);
+    }
 
 
     /**

@@ -3,11 +3,9 @@
 namespace CureDAO\Client\Responses;
 
 use CureDAO\Client\Models\Analysis;
-use CureDAO\Client\Models\OutcomeUserVariable;
-use CureDAO\Client\Models\OutcomeVariable;
-use CureDAO\Client\Models\PredictorUserVariable;
-use CureDAO\Client\Models\PredictorVariable;
 use CureDAO\Client\Models\User;
+use CureDAO\Client\Models\UserVariable;
+use CureDAO\Client\Models\Variable;
 
 class AnalyzeResponse extends BaseResponse
 {
@@ -29,22 +27,22 @@ class AnalyzeResponse extends BaseResponse
     public $html;
 
     /**
-     * @var OutcomeUserVariable
+     * @var UserVariable
      */
     public $outcomeUserVariable;
 
     /**
-     * @var OutcomeVariable
+     * @var Variable
      */
     public $outcomeVariable;
 
     /**
-     * @var PredictorUserVariable
+     * @var UserVariable
      */
     public $predictorUserVariable;
 
     /**
-     * @var PredictorVariable
+     * @var Variable
      */
     public $predictorVariable;
 
@@ -95,19 +93,19 @@ class AnalyzeResponse extends BaseResponse
     }
 
     /**
-     * @return OutcomeUserVariable|null
+     * @return UserVariable|null
      */
-    public function getOutcomeUserVariable(): ?OutcomeUserVariable
+    public function getOutcomeUserVariable(): ?UserVariable
     {
         return $this->outcomeUserVariable;
     }
 
     /**
-     * @param OutcomeUserVariable|null $outcomeUserVariable
+     * @param UserVariable|null $outcomeUserVariable
      *
      * @return AnalyzeResponse
      */
-    public function setOutcomeUserVariable(?OutcomeUserVariable $outcomeUserVariable): AnalyzeResponse
+    public function setOutcomeUserVariable(?UserVariable $outcomeUserVariable): AnalyzeResponse
     {
         $this->outcomeUserVariable = $outcomeUserVariable;
 
@@ -115,19 +113,19 @@ class AnalyzeResponse extends BaseResponse
     }
 
     /**
-     * @return OutcomeVariable|null
+     * @return Variable|null
      */
-    public function getOutcomeVariable(): ?OutcomeVariable
+    public function getOutcomeVariable(): ?Variable
     {
         return $this->outcomeVariable;
     }
 
     /**
-     * @param OutcomeVariable|null $outcomeVariable
+     * @param Variable|null $outcomeVariable
      *
      * @return AnalyzeResponse
      */
-    public function setOutcomeVariable(?OutcomeVariable $outcomeVariable): AnalyzeResponse
+    public function setOutcomeVariable(?Variable $outcomeVariable): AnalyzeResponse
     {
         $this->outcomeVariable = $outcomeVariable;
 
@@ -135,19 +133,19 @@ class AnalyzeResponse extends BaseResponse
     }
 
     /**
-     * @return PredictorUserVariable|null
+     * @return UserVariable|null
      */
-    public function getPredictorUserVariable(): ?PredictorUserVariable
+    public function getPredictorUserVariable(): ?UserVariable
     {
         return $this->predictorUserVariable;
     }
 
     /**
-     * @param PredictorUserVariable|null $predictorUserVariable
+     * @param UserVariable|null $predictorUserVariable
      *
      * @return AnalyzeResponse
      */
-    public function setPredictorUserVariable(?PredictorUserVariable $predictorUserVariable): AnalyzeResponse
+    public function setPredictorUserVariable(?UserVariable $predictorUserVariable): AnalyzeResponse
     {
         $this->predictorUserVariable = $predictorUserVariable;
 
@@ -155,19 +153,19 @@ class AnalyzeResponse extends BaseResponse
     }
 
     /**
-     * @return PredictorVariable|null
+     * @return Variable|null
      */
-    public function getPredictorVariable(): ?PredictorVariable
+    public function getPredictorVariable(): ?Variable
     {
         return $this->predictorVariable;
     }
 
     /**
-     * @param PredictorVariable|null $predictorVariable
+     * @param Variable|null $predictorVariable
      *
      * @return AnalyzeResponse
      */
-    public function setPredictorVariable(?PredictorVariable $predictorVariable): AnalyzeResponse
+    public function setPredictorVariable(?Variable $predictorVariable): AnalyzeResponse
     {
         $this->predictorVariable = $predictorVariable;
 
@@ -192,6 +190,21 @@ class AnalyzeResponse extends BaseResponse
         $this->user = $user;
 
         return $this;
+    }
+
+    public function saveHtml(string $path = null)
+    {
+        $slug = $this->getSlug();
+        if(!$path){
+            $path = __DIR__."../../public/".$slug.".html";
+        }
+        file_put_contents($path, $this->getHtml());
+    }
+
+    private function getSlug(): ?string
+    {
+        $analysis = $this->getAnalysis();
+        return $analysis->getSlug();
     }
 }
 
