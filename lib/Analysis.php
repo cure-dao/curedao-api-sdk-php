@@ -8,7 +8,14 @@ class Analysis extends HttpClient
     private $predictorMeasurementSet;
     private $outcomeMeasurementSet;
     private $yourUserId;
-    public function __construct($yourUserId,  $predictorMeasurementSet, MeasurementSet $outcomeMeasurementSet)
+
+    /**
+     * @param int|string $yourUserId
+     * @param MeasurementSet $predictorMeasurementSet
+     * @param MeasurementSet $outcomeMeasurementSet
+     * @throws \Exception
+     */
+    public function __construct($yourUserId, MeasurementSet $predictorMeasurementSet, MeasurementSet $outcomeMeasurementSet)
     {
         $this->setYourUserId($yourUserId);
         $this->setPredictorMeasurementSet($predictorMeasurementSet);

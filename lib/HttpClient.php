@@ -16,7 +16,10 @@ class HttpClient
 
     public function __construct() {
         if(!isset($_ENV['CUREDAO_CLIENT_ID'])){
-            $envPath = __DIR__ . '/../../..';
+            $envPath = __DIR__ . '/../../../..';
+            if(!file_exists($envPath."/.env")){
+                $envPath = __DIR__ . '/../..';
+            }
             if(!file_exists($envPath."/.env")){
                 throw new \Exception('Please create a .env file in your project directory like 
                 cure-dao/cure-dao-sdk-php/.env.example');
