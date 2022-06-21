@@ -7,22 +7,22 @@ class Column
     /**
      * @var int
      */
-    private $borderWidth;
+    public $borderWidth;
 
     /**
      * @var bool
      */
-    private $colorByPoint;
+    public $colorByPoint;
 
     /**
      * @var float
      */
-    private $pointPadding;
+    public $pointPadding;
 
     /**
      * @var bool
      */
-    private $enableMouseTracking;
+    public $enableMouseTracking;
 
 
     /**

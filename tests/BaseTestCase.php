@@ -12,11 +12,11 @@ class BaseTestCase extends TestCase
      * @param $body
      * @return void
      */
-    protected function generateModels(string $className, $body): void{
+    protected function generateModels(string $className, $body, string $namespace = "CureDAO\\Client\\Models"): void{
         if(!$_ENV['GENERATE_MODELS']){
             return;
         }
-        $generator = new PhpGenerator(true, true, "CureDAO\\Client\\Models");
+        $generator = new PhpGenerator(true, true, $namespace);
         $classes = $generator->fromJson($className, json_encode($body));
         foreach ($classes as $className => $content) {
             try {

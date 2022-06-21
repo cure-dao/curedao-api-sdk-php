@@ -7,7 +7,7 @@ class Formatter
     /**
      * @var string
      */
-    private $expression;
+    public $expression;
 
 
     /**

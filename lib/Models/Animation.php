@@ -7,7 +7,7 @@ class Animation
     /**
      * @var int
      */
-    private $duration;
+    public $duration;
 
 
     /**

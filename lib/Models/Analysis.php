@@ -7,557 +7,557 @@ class Analysis
     /**
      * @var string
      */
-    private $title;
+    public $title;
 
     /**
      * @var int
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      */
-    private $actionsCount;
+    public $actionsCount;
 
     /**
      * @var int
      */
-    private $aggregateCorrelationId;
+    public $aggregateCorrelationId;
 
     /**
      * @var string
      */
-    private $aggregatedAt;
+    public $aggregatedAt;
 
     /**
      * @var string
      */
-    private $analysisEndedAt;
+    public $analysisEndedAt;
 
     /**
      * @var string
      */
-    private $analysisRequestedAt;
+    public $analysisRequestedAt;
 
     /**
      * @var string
      */
-    private $analysisStartedAt;
+    public $analysisStartedAt;
 
     /**
      * @var int
      */
-    private $averageDailyHighCause;
+    public $averageDailyHighCause;
 
     /**
      * @var float
      */
-    private $averageDailyLowCause;
+    public $averageDailyLowCause;
 
     /**
      * @var float
      */
-    private $averageEffect;
+    public $averageEffect;
 
     /**
      * @var float
      */
-    private $averageEffectFollowingHighCause;
+    public $averageEffectFollowingHighCause;
 
     /**
      * @var float
      */
-    private $averageEffectFollowingLowCause;
+    public $averageEffectFollowingLowCause;
 
     /**
      * @var float
      */
-    private $averageForwardPearsonCorrelationOverOnsetDelays;
+    public $averageForwardPearsonCorrelationOverOnsetDelays;
 
     /**
      * @var float
      */
-    private $averageReversePearsonCorrelationOverOnsetDelays;
+    public $averageReversePearsonCorrelationOverOnsetDelays;
 
     /**
      * @var string
      */
-    private $boring;
+    public $boring;
 
     /**
      * @var string
      */
-    private $causalityVote;
+    public $causalityVote;
 
     /**
      * @var float
      */
-    private $causeBaselineAveragePerDay;
+    public $causeBaselineAveragePerDay;
 
     /**
      * @var int
      */
-    private $causeBaselineAveragePerDurationOfAction;
+    public $causeBaselineAveragePerDurationOfAction;
 
     /**
      * @var int
      */
-    private $causeChanges;
+    public $causeChanges;
 
     /**
      * @var string
      */
-    private $causeFillingValue;
+    public $causeFillingValue;
 
     /**
      * @var int
      */
-    private $causeNumberOfProcessedDailyMeasurements;
+    public $causeNumberOfProcessedDailyMeasurements;
 
     /**
      * @var int
      */
-    private $causeNumberOfRawMeasurements;
+    public $causeNumberOfRawMeasurements;
 
     /**
      * @var float
      */
-    private $causeTreatmentAveragePerDay;
+    public $causeTreatmentAveragePerDay;
 
     /**
      * @var int
      */
-    private $causeTreatmentAveragePerDurationOfAction;
+    public $causeTreatmentAveragePerDurationOfAction;
 
     /**
      * @var int
      */
-    private $causeUnitId;
+    public $causeUnitId;
 
     /**
      * @var int
      */
-    private $causeUserVariableId;
+    public $causeUserVariableId;
 
     /**
      * @var int
      */
-    private $causeVariableCategoryId;
+    public $causeVariableCategoryId;
 
     /**
      * @var int
      */
-    private $causeVariableId;
+    public $causeVariableId;
 
     /**
      * @var string
      */
-    private $clientId;
+    public $clientId;
 
     /**
      * @var float
      */
-    private $confidenceInterval;
+    public $confidenceInterval;
 
     /**
      * @var string
      */
-    private $confidenceLevel;
+    public $confidenceLevel;
 
     /**
      * @var string
      */
-    private $correlation;
+    public $correlation;
 
     /**
      * @var string
      */
-    private $correlationCausalityVotesCount;
+    public $correlationCausalityVotesCount;
 
     /**
      * @var string
      */
-    private $correlationUsefulnessVotesCount;
+    public $correlationUsefulnessVotesCount;
 
     /**
-     * @var CorrelationsOverDelays
+     * @var array
      */
-    private $correlationsOverDelays;
+    public $correlationsOverDelays;
 
     /**
-     * @var CorrelationsOverDurations
+     * @var array
      */
-    private $correlationsOverDurations;
+    public $correlationsOverDurations;
 
     /**
      * @var string
      */
-    private $createdAt;
+    public $createdAt;
 
     /**
      * @var float
      */
-    private $criticalTValue;
+    public $criticalTValue;
 
     /**
      * @var string
      */
-    private $dataSource;
+    public $dataSource;
 
     /**
      * @var string
      */
-    private $dataSourceName;
+    public $dataSourceName;
 
     /**
      * @var string
      */
-    private $deletionReason;
+    public $deletionReason;
 
     /**
      * @var int
      */
-    private $durationOfAction;
+    public $durationOfAction;
 
     /**
      * @var string
      */
-    private $earliestMeasurementStartAt;
+    public $earliestMeasurementStartAt;
 
     /**
      * @var int
      */
-    private $effectBaselineAverage;
+    public $effectBaselineAverage;
 
     /**
      * @var float
      */
-    private $effectBaselineRelativeStandardDeviation;
+    public $effectBaselineRelativeStandardDeviation;
 
     /**
      * @var float
      */
-    private $effectBaselineStandardDeviation;
+    public $effectBaselineStandardDeviation;
 
     /**
      * @var int
      */
-    private $effectChanges;
+    public $effectChanges;
 
     /**
      * @var string
      */
-    private $effectFillingValue;
+    public $effectFillingValue;
 
     /**
      * @var float
      */
-    private $effectFollowUpAverage;
+    public $effectFollowUpAverage;
 
     /**
      * @var int
      */
-    private $effectFollowUpPercentChangeFromBaseline;
+    public $effectFollowUpPercentChangeFromBaseline;
 
     /**
      * @var int
      */
-    private $effectNumberOfProcessedDailyMeasurements;
+    public $effectNumberOfProcessedDailyMeasurements;
 
     /**
      * @var int
      */
-    private $effectNumberOfRawMeasurements;
+    public $effectNumberOfRawMeasurements;
 
     /**
      * @var int
      */
-    private $effectUserVariableId;
+    public $effectUserVariableId;
 
     /**
      * @var int
      */
-    private $effectVariableCategoryId;
+    public $effectVariableCategoryId;
 
     /**
      * @var int
      */
-    private $effectVariableId;
+    public $effectVariableId;
 
     /**
      * @var string
      */
-    private $experimentEndAt;
+    public $experimentEndAt;
 
     /**
      * @var string
      */
-    private $experimentStartAt;
+    public $experimentStartAt;
 
     /**
      * @var string
      */
-    private $favoritersCount;
+    public $favoritersCount;
 
     /**
      * @var float
      */
-    private $forwardPearsonCorrelationCoefficient;
+    public $forwardPearsonCorrelationCoefficient;
 
     /**
      * @var float
      */
-    private $forwardSpearmanCorrelationCoefficient;
+    public $forwardSpearmanCorrelationCoefficient;
 
     /**
      * @var int
      */
-    private $groupedCauseValueClosestToValuePredictingHighOutcome;
+    public $groupedCauseValueClosestToValuePredictingHighOutcome;
 
     /**
      * @var int
      */
-    private $groupedCauseValueClosestToValuePredictingLowOutcome;
+    public $groupedCauseValueClosestToValuePredictingLowOutcome;
 
     /**
      * @var bool
      */
-    private $interestingVariableCategoryPair;
+    public $interestingVariableCategoryPair;
 
     /**
      * @var string
      */
-    private $isPublic;
+    public $isPublic;
 
     /**
      * @var string
      */
-    private $latestMeasurementStartAt;
+    public $latestMeasurementStartAt;
 
     /**
      * @var string
      */
-    private $likersCount;
+    public $likersCount;
 
     /**
      * @var string
      */
-    private $mediaCount;
+    public $mediaCount;
 
     /**
      * @var string
      */
-    private $name;
+    public $name;
 
     /**
      * @var string
      */
-    private $newestDataAt;
+    public $newestDataAt;
 
     /**
      * @var int
      */
-    private $numberOfDays;
+    public $numberOfDays;
 
     /**
      * @var string
      */
-    private $numberOfDownVotes;
+    public $numberOfDownVotes;
 
     /**
      * @var int
      */
-    private $numberOfPairs;
+    public $numberOfPairs;
 
     /**
      * @var string
      */
-    private $numberOfUpVotes;
+    public $numberOfUpVotes;
 
     /**
      * @var string
      */
-    private $obvious;
+    public $obvious;
 
     /**
      * @var int
      */
-    private $onsetDelay;
+    public $onsetDelay;
 
     /**
      * @var int
      */
-    private $onsetDelayWithStrongestPearsonCorrelation;
+    public $onsetDelayWithStrongestPearsonCorrelation;
 
     /**
      * @var float
      */
-    private $optimalPearsonProduct;
+    public $optimalPearsonProduct;
 
     /**
      * @var string
      */
-    private $outcomeIsGoal;
+    public $outcomeIsGoal;
 
     /**
      * @var float
      */
-    private $pValue;
+    public $pValue;
 
     /**
      * @var float
      */
-    private $pearsonCorrelationWithNoOnsetDelay;
+    public $pearsonCorrelationWithNoOnsetDelay;
 
     /**
      * @var string
      */
-    private $plausiblyCausal;
+    public $plausiblyCausal;
 
     /**
      * @var float
      */
-    private $predictivePearsonCorrelationCoefficient;
+    public $predictivePearsonCorrelationCoefficient;
 
     /**
      * @var string
      */
-    private $predictorIsControllable;
+    public $predictorIsControllable;
 
     /**
      * @var int
      */
-    private $predictsHighEffectChange;
+    public $predictsHighEffectChange;
 
     /**
      * @var int
      */
-    private $predictsLowEffectChange;
+    public $predictsLowEffectChange;
 
     /**
      * @var string
      */
-    private $publishedAt;
+    public $publishedAt;
 
     /**
      * @var float
      */
-    private $qmScore;
+    public $qmScore;
 
     /**
      * @var string
      */
-    private $reasonForAnalysis;
+    public $reasonForAnalysis;
 
     /**
      * @var string
      */
-    private $recordSizeInKb;
+    public $recordSizeInKb;
 
     /**
      * @var string
      */
-    private $relationship;
+    public $relationship;
 
     /**
      * @var string
      */
-    private $reportTitle;
+    public $reportTitle;
 
     /**
      * @var string
      */
-    private $reversePearsonCorrelationCoefficient;
+    public $reversePearsonCorrelationCoefficient;
 
     /**
      * @var string
      */
-    private $slug;
+    public $slug;
 
     /**
      * @var string
      */
-    private $sortOrder;
+    public $sortOrder;
 
     /**
      * @var float
      */
-    private $statisticalSignificance;
+    public $statisticalSignificance;
 
     /**
      * @var string
      */
-    private $strengthLevel;
+    public $strengthLevel;
 
     /**
      * @var float
      */
-    private $strongestPearsonCorrelationCoefficient;
+    public $strongestPearsonCorrelationCoefficient;
 
     /**
      * @var string
      */
-    private $subtitle;
+    public $subtitle;
 
     /**
      * @var float
      */
-    private $tValue;
+    public $tValue;
 
     /**
      * @var string
      */
-    private $updatedAt;
+    public $updatedAt;
 
     /**
      * @var string
      */
-    private $usefulnessVote;
+    public $usefulnessVote;
 
     /**
      * @var string
      */
-    private $userErrorMessage;
+    public $userErrorMessage;
 
     /**
      * @var int
      */
-    private $userId;
+    public $userId;
 
     /**
      * @var string
      */
-    private $userVariablesWhereBestUserCorrelationCount;
+    public $userVariablesWhereBestUserCorrelationCount;
 
     /**
      * @var float
      */
-    private $valuePredictingHighOutcome;
+    public $valuePredictingHighOutcome;
 
     /**
      * @var int
      */
-    private $valuePredictingLowOutcome;
+    public $valuePredictingLowOutcome;
 
     /**
      * @var string
      */
-    private $vote;
+    public $vote;
 
     /**
      * @var string
      */
-    private $votesCount;
+    public $votesCount;
 
     /**
      * @var string
      */
-    private $wpPostId;
+    public $wpPostId;
 
     /**
      * @var float
      */
-    private $zScore;
+    public $zScore;
 
 
     /**
@@ -576,7 +576,7 @@ class Analysis
     public function setTitle(?string $title): Analysis
     {
         $this->title = $title;
-        
+
         return $this;
     }
 
@@ -596,7 +596,7 @@ class Analysis
     public function setId(?int $id): Analysis
     {
         $this->id = $id;
-        
+
         return $this;
     }
 
@@ -616,7 +616,7 @@ class Analysis
     public function setActionsCount(?string $actionsCount): Analysis
     {
         $this->actionsCount = $actionsCount;
-        
+
         return $this;
     }
 
@@ -636,7 +636,7 @@ class Analysis
     public function setAggregateCorrelationId(?int $aggregateCorrelationId): Analysis
     {
         $this->aggregateCorrelationId = $aggregateCorrelationId;
-        
+
         return $this;
     }
 
@@ -656,7 +656,7 @@ class Analysis
     public function setAggregatedAt(?string $aggregatedAt): Analysis
     {
         $this->aggregatedAt = $aggregatedAt;
-        
+
         return $this;
     }
 
@@ -676,7 +676,7 @@ class Analysis
     public function setAnalysisEndedAt(?string $analysisEndedAt): Analysis
     {
         $this->analysisEndedAt = $analysisEndedAt;
-        
+
         return $this;
     }
 
@@ -696,7 +696,7 @@ class Analysis
     public function setAnalysisRequestedAt(?string $analysisRequestedAt): Analysis
     {
         $this->analysisRequestedAt = $analysisRequestedAt;
-        
+
         return $this;
     }
 
@@ -716,7 +716,7 @@ class Analysis
     public function setAnalysisStartedAt(?string $analysisStartedAt): Analysis
     {
         $this->analysisStartedAt = $analysisStartedAt;
-        
+
         return $this;
     }
 
@@ -736,7 +736,7 @@ class Analysis
     public function setAverageDailyHighCause(?int $averageDailyHighCause): Analysis
     {
         $this->averageDailyHighCause = $averageDailyHighCause;
-        
+
         return $this;
     }
 
@@ -756,7 +756,7 @@ class Analysis
     public function setAverageDailyLowCause(?float $averageDailyLowCause): Analysis
     {
         $this->averageDailyLowCause = $averageDailyLowCause;
-        
+
         return $this;
     }
 
@@ -776,7 +776,7 @@ class Analysis
     public function setAverageEffect(?float $averageEffect): Analysis
     {
         $this->averageEffect = $averageEffect;
-        
+
         return $this;
     }
 
@@ -796,7 +796,7 @@ class Analysis
     public function setAverageEffectFollowingHighCause(?float $averageEffectFollowingHighCause): Analysis
     {
         $this->averageEffectFollowingHighCause = $averageEffectFollowingHighCause;
-        
+
         return $this;
     }
 
@@ -816,7 +816,7 @@ class Analysis
     public function setAverageEffectFollowingLowCause(?float $averageEffectFollowingLowCause): Analysis
     {
         $this->averageEffectFollowingLowCause = $averageEffectFollowingLowCause;
-        
+
         return $this;
     }
 
@@ -836,7 +836,7 @@ class Analysis
     public function setAverageForwardPearsonCorrelationOverOnsetDelays(?float $averageForwardPearsonCorrelationOverOnsetDelays): Analysis
     {
         $this->averageForwardPearsonCorrelationOverOnsetDelays = $averageForwardPearsonCorrelationOverOnsetDelays;
-        
+
         return $this;
     }
 
@@ -856,7 +856,7 @@ class Analysis
     public function setAverageReversePearsonCorrelationOverOnsetDelays(?float $averageReversePearsonCorrelationOverOnsetDelays): Analysis
     {
         $this->averageReversePearsonCorrelationOverOnsetDelays = $averageReversePearsonCorrelationOverOnsetDelays;
-        
+
         return $this;
     }
 
@@ -876,7 +876,7 @@ class Analysis
     public function setBoring(?string $boring): Analysis
     {
         $this->boring = $boring;
-        
+
         return $this;
     }
 
@@ -896,7 +896,7 @@ class Analysis
     public function setCausalityVote(?string $causalityVote): Analysis
     {
         $this->causalityVote = $causalityVote;
-        
+
         return $this;
     }
 
@@ -916,7 +916,7 @@ class Analysis
     public function setCauseBaselineAveragePerDay(?float $causeBaselineAveragePerDay): Analysis
     {
         $this->causeBaselineAveragePerDay = $causeBaselineAveragePerDay;
-        
+
         return $this;
     }
 
@@ -936,7 +936,7 @@ class Analysis
     public function setCauseBaselineAveragePerDurationOfAction(?int $causeBaselineAveragePerDurationOfAction): Analysis
     {
         $this->causeBaselineAveragePerDurationOfAction = $causeBaselineAveragePerDurationOfAction;
-        
+
         return $this;
     }
 
@@ -956,7 +956,7 @@ class Analysis
     public function setCauseChanges(?int $causeChanges): Analysis
     {
         $this->causeChanges = $causeChanges;
-        
+
         return $this;
     }
 
@@ -976,7 +976,7 @@ class Analysis
     public function setCauseFillingValue(?string $causeFillingValue): Analysis
     {
         $this->causeFillingValue = $causeFillingValue;
-        
+
         return $this;
     }
 
@@ -996,7 +996,7 @@ class Analysis
     public function setCauseNumberOfProcessedDailyMeasurements(?int $causeNumberOfProcessedDailyMeasurements): Analysis
     {
         $this->causeNumberOfProcessedDailyMeasurements = $causeNumberOfProcessedDailyMeasurements;
-        
+
         return $this;
     }
 
@@ -1016,7 +1016,7 @@ class Analysis
     public function setCauseNumberOfRawMeasurements(?int $causeNumberOfRawMeasurements): Analysis
     {
         $this->causeNumberOfRawMeasurements = $causeNumberOfRawMeasurements;
-        
+
         return $this;
     }
 
@@ -1036,7 +1036,7 @@ class Analysis
     public function setCauseTreatmentAveragePerDay(?float $causeTreatmentAveragePerDay): Analysis
     {
         $this->causeTreatmentAveragePerDay = $causeTreatmentAveragePerDay;
-        
+
         return $this;
     }
 
@@ -1056,7 +1056,7 @@ class Analysis
     public function setCauseTreatmentAveragePerDurationOfAction(?int $causeTreatmentAveragePerDurationOfAction): Analysis
     {
         $this->causeTreatmentAveragePerDurationOfAction = $causeTreatmentAveragePerDurationOfAction;
-        
+
         return $this;
     }
 
@@ -1076,7 +1076,7 @@ class Analysis
     public function setCauseUnitId(?int $causeUnitId): Analysis
     {
         $this->causeUnitId = $causeUnitId;
-        
+
         return $this;
     }
 
@@ -1096,7 +1096,7 @@ class Analysis
     public function setCauseUserVariableId(?int $causeUserVariableId): Analysis
     {
         $this->causeUserVariableId = $causeUserVariableId;
-        
+
         return $this;
     }
 
@@ -1116,7 +1116,7 @@ class Analysis
     public function setCauseVariableCategoryId(?int $causeVariableCategoryId): Analysis
     {
         $this->causeVariableCategoryId = $causeVariableCategoryId;
-        
+
         return $this;
     }
 
@@ -1136,7 +1136,7 @@ class Analysis
     public function setCauseVariableId(?int $causeVariableId): Analysis
     {
         $this->causeVariableId = $causeVariableId;
-        
+
         return $this;
     }
 
@@ -1156,7 +1156,7 @@ class Analysis
     public function setClientId(?string $clientId): Analysis
     {
         $this->clientId = $clientId;
-        
+
         return $this;
     }
 
@@ -1176,7 +1176,7 @@ class Analysis
     public function setConfidenceInterval(?float $confidenceInterval): Analysis
     {
         $this->confidenceInterval = $confidenceInterval;
-        
+
         return $this;
     }
 
@@ -1196,7 +1196,7 @@ class Analysis
     public function setConfidenceLevel(?string $confidenceLevel): Analysis
     {
         $this->confidenceLevel = $confidenceLevel;
-        
+
         return $this;
     }
 
@@ -1216,7 +1216,7 @@ class Analysis
     public function setCorrelation(?string $correlation): Analysis
     {
         $this->correlation = $correlation;
-        
+
         return $this;
     }
 
@@ -1236,7 +1236,7 @@ class Analysis
     public function setCorrelationCausalityVotesCount(?string $correlationCausalityVotesCount): Analysis
     {
         $this->correlationCausalityVotesCount = $correlationCausalityVotesCount;
-        
+
         return $this;
     }
 
@@ -1256,47 +1256,47 @@ class Analysis
     public function setCorrelationUsefulnessVotesCount(?string $correlationUsefulnessVotesCount): Analysis
     {
         $this->correlationUsefulnessVotesCount = $correlationUsefulnessVotesCount;
-        
+
         return $this;
     }
 
     /**
-     * @return CorrelationsOverDelays|null
+     * @return array|null
      */
-    public function getCorrelationsOverDelays(): ?CorrelationsOverDelays
+    public function getCorrelationsOverDelays(): ?array
     {
         return $this->correlationsOverDelays;
     }
 
     /**
-     * @param CorrelationsOverDelays|null $correlationsOverDelays
+     * @param array|null $correlationsOverDelays
      *
      * @return Analysis
      */
-    public function setCorrelationsOverDelays(?CorrelationsOverDelays $correlationsOverDelays): Analysis
+    public function setCorrelationsOverDelays(?array $correlationsOverDelays): Analysis
     {
         $this->correlationsOverDelays = $correlationsOverDelays;
-        
+
         return $this;
     }
 
     /**
-     * @return CorrelationsOverDurations|null
+     * @return array|null
      */
-    public function getCorrelationsOverDurations(): ?CorrelationsOverDurations
+    public function getCorrelationsOverDurations(): ?array
     {
         return $this->correlationsOverDurations;
     }
 
     /**
-     * @param CorrelationsOverDurations|null $correlationsOverDurations
+     * @param array|null $correlationsOverDurations
      *
      * @return Analysis
      */
-    public function setCorrelationsOverDurations(?CorrelationsOverDurations $correlationsOverDurations): Analysis
+    public function setCorrelationsOverDurations(?array $correlationsOverDurations): Analysis
     {
         $this->correlationsOverDurations = $correlationsOverDurations;
-        
+
         return $this;
     }
 
@@ -1316,7 +1316,7 @@ class Analysis
     public function setCreatedAt(?string $createdAt): Analysis
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
 
@@ -1336,7 +1336,7 @@ class Analysis
     public function setCriticalTValue(?float $criticalTValue): Analysis
     {
         $this->criticalTValue = $criticalTValue;
-        
+
         return $this;
     }
 
@@ -1356,7 +1356,7 @@ class Analysis
     public function setDataSource(?string $dataSource): Analysis
     {
         $this->dataSource = $dataSource;
-        
+
         return $this;
     }
 
@@ -1376,7 +1376,7 @@ class Analysis
     public function setDataSourceName(?string $dataSourceName): Analysis
     {
         $this->dataSourceName = $dataSourceName;
-        
+
         return $this;
     }
 
@@ -1396,7 +1396,7 @@ class Analysis
     public function setDeletionReason(?string $deletionReason): Analysis
     {
         $this->deletionReason = $deletionReason;
-        
+
         return $this;
     }
 
@@ -1416,7 +1416,7 @@ class Analysis
     public function setDurationOfAction(?int $durationOfAction): Analysis
     {
         $this->durationOfAction = $durationOfAction;
-        
+
         return $this;
     }
 
@@ -1436,7 +1436,7 @@ class Analysis
     public function setEarliestMeasurementStartAt(?string $earliestMeasurementStartAt): Analysis
     {
         $this->earliestMeasurementStartAt = $earliestMeasurementStartAt;
-        
+
         return $this;
     }
 
@@ -1456,7 +1456,7 @@ class Analysis
     public function setEffectBaselineAverage(?int $effectBaselineAverage): Analysis
     {
         $this->effectBaselineAverage = $effectBaselineAverage;
-        
+
         return $this;
     }
 
@@ -1476,7 +1476,7 @@ class Analysis
     public function setEffectBaselineRelativeStandardDeviation(?float $effectBaselineRelativeStandardDeviation): Analysis
     {
         $this->effectBaselineRelativeStandardDeviation = $effectBaselineRelativeStandardDeviation;
-        
+
         return $this;
     }
 
@@ -1496,7 +1496,7 @@ class Analysis
     public function setEffectBaselineStandardDeviation(?float $effectBaselineStandardDeviation): Analysis
     {
         $this->effectBaselineStandardDeviation = $effectBaselineStandardDeviation;
-        
+
         return $this;
     }
 
@@ -1516,7 +1516,7 @@ class Analysis
     public function setEffectChanges(?int $effectChanges): Analysis
     {
         $this->effectChanges = $effectChanges;
-        
+
         return $this;
     }
 
@@ -1536,7 +1536,7 @@ class Analysis
     public function setEffectFillingValue(?string $effectFillingValue): Analysis
     {
         $this->effectFillingValue = $effectFillingValue;
-        
+
         return $this;
     }
 
@@ -1556,7 +1556,7 @@ class Analysis
     public function setEffectFollowUpAverage(?float $effectFollowUpAverage): Analysis
     {
         $this->effectFollowUpAverage = $effectFollowUpAverage;
-        
+
         return $this;
     }
 
@@ -1576,7 +1576,7 @@ class Analysis
     public function setEffectFollowUpPercentChangeFromBaseline(?int $effectFollowUpPercentChangeFromBaseline): Analysis
     {
         $this->effectFollowUpPercentChangeFromBaseline = $effectFollowUpPercentChangeFromBaseline;
-        
+
         return $this;
     }
 
@@ -1596,7 +1596,7 @@ class Analysis
     public function setEffectNumberOfProcessedDailyMeasurements(?int $effectNumberOfProcessedDailyMeasurements): Analysis
     {
         $this->effectNumberOfProcessedDailyMeasurements = $effectNumberOfProcessedDailyMeasurements;
-        
+
         return $this;
     }
 
@@ -1616,7 +1616,7 @@ class Analysis
     public function setEffectNumberOfRawMeasurements(?int $effectNumberOfRawMeasurements): Analysis
     {
         $this->effectNumberOfRawMeasurements = $effectNumberOfRawMeasurements;
-        
+
         return $this;
     }
 
@@ -1636,7 +1636,7 @@ class Analysis
     public function setEffectUserVariableId(?int $effectUserVariableId): Analysis
     {
         $this->effectUserVariableId = $effectUserVariableId;
-        
+
         return $this;
     }
 
@@ -1656,7 +1656,7 @@ class Analysis
     public function setEffectVariableCategoryId(?int $effectVariableCategoryId): Analysis
     {
         $this->effectVariableCategoryId = $effectVariableCategoryId;
-        
+
         return $this;
     }
 
@@ -1676,7 +1676,7 @@ class Analysis
     public function setEffectVariableId(?int $effectVariableId): Analysis
     {
         $this->effectVariableId = $effectVariableId;
-        
+
         return $this;
     }
 
@@ -1696,7 +1696,7 @@ class Analysis
     public function setExperimentEndAt(?string $experimentEndAt): Analysis
     {
         $this->experimentEndAt = $experimentEndAt;
-        
+
         return $this;
     }
 
@@ -1716,7 +1716,7 @@ class Analysis
     public function setExperimentStartAt(?string $experimentStartAt): Analysis
     {
         $this->experimentStartAt = $experimentStartAt;
-        
+
         return $this;
     }
 
@@ -1736,7 +1736,7 @@ class Analysis
     public function setFavoritersCount(?string $favoritersCount): Analysis
     {
         $this->favoritersCount = $favoritersCount;
-        
+
         return $this;
     }
 
@@ -1756,7 +1756,7 @@ class Analysis
     public function setForwardPearsonCorrelationCoefficient(?float $forwardPearsonCorrelationCoefficient): Analysis
     {
         $this->forwardPearsonCorrelationCoefficient = $forwardPearsonCorrelationCoefficient;
-        
+
         return $this;
     }
 
@@ -1776,7 +1776,7 @@ class Analysis
     public function setForwardSpearmanCorrelationCoefficient(?float $forwardSpearmanCorrelationCoefficient): Analysis
     {
         $this->forwardSpearmanCorrelationCoefficient = $forwardSpearmanCorrelationCoefficient;
-        
+
         return $this;
     }
 
@@ -1796,7 +1796,7 @@ class Analysis
     public function setGroupedCauseValueClosestToValuePredictingHighOutcome(?int $groupedCauseValueClosestToValuePredictingHighOutcome): Analysis
     {
         $this->groupedCauseValueClosestToValuePredictingHighOutcome = $groupedCauseValueClosestToValuePredictingHighOutcome;
-        
+
         return $this;
     }
 
@@ -1816,7 +1816,7 @@ class Analysis
     public function setGroupedCauseValueClosestToValuePredictingLowOutcome(?int $groupedCauseValueClosestToValuePredictingLowOutcome): Analysis
     {
         $this->groupedCauseValueClosestToValuePredictingLowOutcome = $groupedCauseValueClosestToValuePredictingLowOutcome;
-        
+
         return $this;
     }
 
@@ -1836,7 +1836,7 @@ class Analysis
     public function setInterestingVariableCategoryPair(?bool $interestingVariableCategoryPair): Analysis
     {
         $this->interestingVariableCategoryPair = $interestingVariableCategoryPair;
-        
+
         return $this;
     }
 
@@ -1856,7 +1856,7 @@ class Analysis
     public function setIsPublic(?string $isPublic): Analysis
     {
         $this->isPublic = $isPublic;
-        
+
         return $this;
     }
 
@@ -1876,7 +1876,7 @@ class Analysis
     public function setLatestMeasurementStartAt(?string $latestMeasurementStartAt): Analysis
     {
         $this->latestMeasurementStartAt = $latestMeasurementStartAt;
-        
+
         return $this;
     }
 
@@ -1896,7 +1896,7 @@ class Analysis
     public function setLikersCount(?string $likersCount): Analysis
     {
         $this->likersCount = $likersCount;
-        
+
         return $this;
     }
 
@@ -1916,7 +1916,7 @@ class Analysis
     public function setMediaCount(?string $mediaCount): Analysis
     {
         $this->mediaCount = $mediaCount;
-        
+
         return $this;
     }
 
@@ -1936,7 +1936,7 @@ class Analysis
     public function setName(?string $name): Analysis
     {
         $this->name = $name;
-        
+
         return $this;
     }
 
@@ -1956,7 +1956,7 @@ class Analysis
     public function setNewestDataAt(?string $newestDataAt): Analysis
     {
         $this->newestDataAt = $newestDataAt;
-        
+
         return $this;
     }
 
@@ -1976,7 +1976,7 @@ class Analysis
     public function setNumberOfDays(?int $numberOfDays): Analysis
     {
         $this->numberOfDays = $numberOfDays;
-        
+
         return $this;
     }
 
@@ -1996,7 +1996,7 @@ class Analysis
     public function setNumberOfDownVotes(?string $numberOfDownVotes): Analysis
     {
         $this->numberOfDownVotes = $numberOfDownVotes;
-        
+
         return $this;
     }
 
@@ -2016,7 +2016,7 @@ class Analysis
     public function setNumberOfPairs(?int $numberOfPairs): Analysis
     {
         $this->numberOfPairs = $numberOfPairs;
-        
+
         return $this;
     }
 
@@ -2036,7 +2036,7 @@ class Analysis
     public function setNumberOfUpVotes(?string $numberOfUpVotes): Analysis
     {
         $this->numberOfUpVotes = $numberOfUpVotes;
-        
+
         return $this;
     }
 
@@ -2056,7 +2056,7 @@ class Analysis
     public function setObvious(?string $obvious): Analysis
     {
         $this->obvious = $obvious;
-        
+
         return $this;
     }
 
@@ -2076,7 +2076,7 @@ class Analysis
     public function setOnsetDelay(?int $onsetDelay): Analysis
     {
         $this->onsetDelay = $onsetDelay;
-        
+
         return $this;
     }
 
@@ -2096,7 +2096,7 @@ class Analysis
     public function setOnsetDelayWithStrongestPearsonCorrelation(?int $onsetDelayWithStrongestPearsonCorrelation): Analysis
     {
         $this->onsetDelayWithStrongestPearsonCorrelation = $onsetDelayWithStrongestPearsonCorrelation;
-        
+
         return $this;
     }
 
@@ -2116,7 +2116,7 @@ class Analysis
     public function setOptimalPearsonProduct(?float $optimalPearsonProduct): Analysis
     {
         $this->optimalPearsonProduct = $optimalPearsonProduct;
-        
+
         return $this;
     }
 
@@ -2136,7 +2136,7 @@ class Analysis
     public function setOutcomeIsGoal(?string $outcomeIsGoal): Analysis
     {
         $this->outcomeIsGoal = $outcomeIsGoal;
-        
+
         return $this;
     }
 
@@ -2156,7 +2156,7 @@ class Analysis
     public function setPValue(?float $pValue): Analysis
     {
         $this->pValue = $pValue;
-        
+
         return $this;
     }
 
@@ -2176,7 +2176,7 @@ class Analysis
     public function setPearsonCorrelationWithNoOnsetDelay(?float $pearsonCorrelationWithNoOnsetDelay): Analysis
     {
         $this->pearsonCorrelationWithNoOnsetDelay = $pearsonCorrelationWithNoOnsetDelay;
-        
+
         return $this;
     }
 
@@ -2196,7 +2196,7 @@ class Analysis
     public function setPlausiblyCausal(?string $plausiblyCausal): Analysis
     {
         $this->plausiblyCausal = $plausiblyCausal;
-        
+
         return $this;
     }
 
@@ -2216,7 +2216,7 @@ class Analysis
     public function setPredictivePearsonCorrelationCoefficient(?float $predictivePearsonCorrelationCoefficient): Analysis
     {
         $this->predictivePearsonCorrelationCoefficient = $predictivePearsonCorrelationCoefficient;
-        
+
         return $this;
     }
 
@@ -2236,7 +2236,7 @@ class Analysis
     public function setPredictorIsControllable(?string $predictorIsControllable): Analysis
     {
         $this->predictorIsControllable = $predictorIsControllable;
-        
+
         return $this;
     }
 
@@ -2256,7 +2256,7 @@ class Analysis
     public function setPredictsHighEffectChange(?int $predictsHighEffectChange): Analysis
     {
         $this->predictsHighEffectChange = $predictsHighEffectChange;
-        
+
         return $this;
     }
 
@@ -2276,7 +2276,7 @@ class Analysis
     public function setPredictsLowEffectChange(?int $predictsLowEffectChange): Analysis
     {
         $this->predictsLowEffectChange = $predictsLowEffectChange;
-        
+
         return $this;
     }
 
@@ -2296,7 +2296,7 @@ class Analysis
     public function setPublishedAt(?string $publishedAt): Analysis
     {
         $this->publishedAt = $publishedAt;
-        
+
         return $this;
     }
 
@@ -2316,7 +2316,7 @@ class Analysis
     public function setQmScore(?float $qmScore): Analysis
     {
         $this->qmScore = $qmScore;
-        
+
         return $this;
     }
 
@@ -2336,7 +2336,7 @@ class Analysis
     public function setReasonForAnalysis(?string $reasonForAnalysis): Analysis
     {
         $this->reasonForAnalysis = $reasonForAnalysis;
-        
+
         return $this;
     }
 
@@ -2356,7 +2356,7 @@ class Analysis
     public function setRecordSizeInKb(?string $recordSizeInKb): Analysis
     {
         $this->recordSizeInKb = $recordSizeInKb;
-        
+
         return $this;
     }
 
@@ -2376,7 +2376,7 @@ class Analysis
     public function setRelationship(?string $relationship): Analysis
     {
         $this->relationship = $relationship;
-        
+
         return $this;
     }
 
@@ -2396,7 +2396,7 @@ class Analysis
     public function setReportTitle(?string $reportTitle): Analysis
     {
         $this->reportTitle = $reportTitle;
-        
+
         return $this;
     }
 
@@ -2416,7 +2416,7 @@ class Analysis
     public function setReversePearsonCorrelationCoefficient(?string $reversePearsonCorrelationCoefficient): Analysis
     {
         $this->reversePearsonCorrelationCoefficient = $reversePearsonCorrelationCoefficient;
-        
+
         return $this;
     }
 
@@ -2436,7 +2436,7 @@ class Analysis
     public function setSlug(?string $slug): Analysis
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
 
@@ -2456,7 +2456,7 @@ class Analysis
     public function setSortOrder(?string $sortOrder): Analysis
     {
         $this->sortOrder = $sortOrder;
-        
+
         return $this;
     }
 
@@ -2476,7 +2476,7 @@ class Analysis
     public function setStatisticalSignificance(?float $statisticalSignificance): Analysis
     {
         $this->statisticalSignificance = $statisticalSignificance;
-        
+
         return $this;
     }
 
@@ -2496,7 +2496,7 @@ class Analysis
     public function setStrengthLevel(?string $strengthLevel): Analysis
     {
         $this->strengthLevel = $strengthLevel;
-        
+
         return $this;
     }
 
@@ -2516,7 +2516,7 @@ class Analysis
     public function setStrongestPearsonCorrelationCoefficient(?float $strongestPearsonCorrelationCoefficient): Analysis
     {
         $this->strongestPearsonCorrelationCoefficient = $strongestPearsonCorrelationCoefficient;
-        
+
         return $this;
     }
 
@@ -2536,7 +2536,7 @@ class Analysis
     public function setSubtitle(?string $subtitle): Analysis
     {
         $this->subtitle = $subtitle;
-        
+
         return $this;
     }
 
@@ -2556,7 +2556,7 @@ class Analysis
     public function setTValue(?float $tValue): Analysis
     {
         $this->tValue = $tValue;
-        
+
         return $this;
     }
 
@@ -2576,7 +2576,7 @@ class Analysis
     public function setUpdatedAt(?string $updatedAt): Analysis
     {
         $this->updatedAt = $updatedAt;
-        
+
         return $this;
     }
 
@@ -2596,7 +2596,7 @@ class Analysis
     public function setUsefulnessVote(?string $usefulnessVote): Analysis
     {
         $this->usefulnessVote = $usefulnessVote;
-        
+
         return $this;
     }
 
@@ -2616,7 +2616,7 @@ class Analysis
     public function setUserErrorMessage(?string $userErrorMessage): Analysis
     {
         $this->userErrorMessage = $userErrorMessage;
-        
+
         return $this;
     }
 
@@ -2636,7 +2636,7 @@ class Analysis
     public function setUserId(?int $userId): Analysis
     {
         $this->userId = $userId;
-        
+
         return $this;
     }
 
@@ -2656,7 +2656,7 @@ class Analysis
     public function setUserVariablesWhereBestUserCorrelationCount(?string $userVariablesWhereBestUserCorrelationCount): Analysis
     {
         $this->userVariablesWhereBestUserCorrelationCount = $userVariablesWhereBestUserCorrelationCount;
-        
+
         return $this;
     }
 
@@ -2676,7 +2676,7 @@ class Analysis
     public function setValuePredictingHighOutcome(?float $valuePredictingHighOutcome): Analysis
     {
         $this->valuePredictingHighOutcome = $valuePredictingHighOutcome;
-        
+
         return $this;
     }
 
@@ -2696,7 +2696,7 @@ class Analysis
     public function setValuePredictingLowOutcome(?int $valuePredictingLowOutcome): Analysis
     {
         $this->valuePredictingLowOutcome = $valuePredictingLowOutcome;
-        
+
         return $this;
     }
 
@@ -2716,7 +2716,7 @@ class Analysis
     public function setVote(?string $vote): Analysis
     {
         $this->vote = $vote;
-        
+
         return $this;
     }
 
@@ -2736,7 +2736,7 @@ class Analysis
     public function setVotesCount(?string $votesCount): Analysis
     {
         $this->votesCount = $votesCount;
-        
+
         return $this;
     }
 
@@ -2756,7 +2756,7 @@ class Analysis
     public function setWpPostId(?string $wpPostId): Analysis
     {
         $this->wpPostId = $wpPostId;
-        
+
         return $this;
     }
 
@@ -2776,7 +2776,7 @@ class Analysis
     public function setZScore(?float $zScore): Analysis
     {
         $this->zScore = $zScore;
-        
+
         return $this;
     }
 }

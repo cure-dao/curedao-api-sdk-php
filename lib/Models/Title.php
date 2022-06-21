@@ -7,17 +7,17 @@ class Title
     /**
      * @var string
      */
-    private $text;
+    public $text;
 
     /**
      * @var array
      */
-    private $style;
+    public $style;
 
     /**
      * @var bool
      */
-    private $enabled;
+    public $enabled;
 
 
     /**

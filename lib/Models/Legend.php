@@ -7,7 +7,7 @@ class Legend
     /**
      * @var bool
      */
-    private $enabled;
+    public $enabled;
 
 
     /**

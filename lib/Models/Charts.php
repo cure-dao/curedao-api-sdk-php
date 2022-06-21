@@ -7,22 +7,22 @@ class Charts
     /**
      * @var string
      */
-    private $id;
+    public $id;
 
     /**
      * @var MonthlyColumnChart
      */
-    private $monthlyColumnChart;
+    public $monthlyColumnChart;
 
     /**
      * @var WeekdayColumnChart
      */
-    private $weekdayColumnChart;
+    public $weekdayColumnChart;
 
     /**
      * @var DistributionColumnChart
      */
-    private $distributionColumnChart;
+    public $distributionColumnChart;
 
 
     /**

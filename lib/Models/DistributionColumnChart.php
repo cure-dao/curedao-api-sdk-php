@@ -7,72 +7,72 @@ class DistributionColumnChart
     /**
      * @var string
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      */
-    private $title;
+    public $title;
 
     /**
      * @var string
      */
-    private $jpgUrl;
+    public $jpgUrl;
 
     /**
      * @var string
      */
-    private $pngUrl;
+    public $pngUrl;
 
     /**
      * @var string
      */
-    private $svgUrl;
+    public $svgUrl;
 
     /**
      * @var string
      */
-    private $chartId;
+    public $chartId;
 
     /**
      * @var string
      */
-    private $imageUrl;
+    public $imageUrl;
 
     /**
      * @var string
      */
-    private $subtitle;
+    public $subtitle;
 
     /**
      * @var string
      */
-    private $chartTitle;
+    public $chartTitle;
 
     /**
      * @var string
      */
-    private $explanation;
+    public $explanation;
 
     /**
      * @var string
      */
-    private $variableName;
+    public $variableName;
 
     /**
      * @var bool
      */
-    private $validImageOnS3;
+    public $validImageOnS3;
 
     /**
      * @var HighchartConfig
      */
-    private $highchartConfig;
+    public $highchartConfig;
 
     /**
      * @var string
      */
-    private $imageGeneratedAt;
+    public $imageGeneratedAt;
 
 
     /**

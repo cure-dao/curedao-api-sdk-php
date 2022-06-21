@@ -7,7 +7,7 @@ class Tooltip
     /**
      * @var Formatter
      */
-    private $formatter;
+    public $formatter;
 
 
     /**

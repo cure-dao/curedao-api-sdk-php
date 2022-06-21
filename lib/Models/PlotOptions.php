@@ -7,7 +7,7 @@ class PlotOptions
     /**
      * @var Column
      */
-    private $column;
+    public $column;
 
 
     /**

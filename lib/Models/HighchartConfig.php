@@ -7,82 +7,82 @@ class HighchartConfig
     /**
      * @var string
      */
-    private $id;
+    public $id;
 
     /**
      * @var Lang
      */
-    private $lang;
+    public $lang;
 
     /**
      * @var Chart
      */
-    private $chart;
+    public $chart;
 
     /**
      * @var Title
      */
-    private $title;
+    public $title;
 
     /**
      * @var XAxis
      */
-    private $xAxis;
+    public $xAxis;
 
     /**
      * @var YAxis
      */
-    private $yAxis;
+    public $yAxis;
 
     /**
      * @var array
      */
-    private $colors;
+    public $colors;
 
     /**
      * @var Legend
      */
-    private $legend;
+    public $legend;
 
     /**
      * @var array
      */
-    private $series;
+    public $series;
 
     /**
      * @var Credits
      */
-    private $credits;
+    public $credits;
 
     /**
      * @var Loading
      */
-    private $loading;
+    public $loading;
 
     /**
      * @var Tooltip
      */
-    private $tooltip;
+    public $tooltip;
 
     /**
      * @var Subtitle
      */
-    private $subtitle;
+    public $subtitle;
 
     /**
      * @var Exporting
      */
-    private $exporting;
+    public $exporting;
 
     /**
      * @var PlotOptions
      */
-    private $plotOptions;
+    public $plotOptions;
 
     /**
      * @var bool
      */
-    private $useHighStocks;
+    public $useHighStocks;
 
 
     /**

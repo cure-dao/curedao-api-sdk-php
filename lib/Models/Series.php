@@ -7,12 +7,12 @@ class Series
     /**
      * @var array
      */
-    private $data;
+    public $data;
 
     /**
      * @var string
      */
-    private $name;
+    public $name;
 
 
     /**

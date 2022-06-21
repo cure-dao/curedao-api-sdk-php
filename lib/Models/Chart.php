@@ -7,17 +7,17 @@ class Chart
     /**
      * @var string
      */
-    private $type;
+    public $type;
 
     /**
      * @var string
      */
-    private $renderTo;
+    public $renderTo;
 
     /**
      * @var Animation
      */
-    private $animation;
+    public $animation;
 
 
     /**

@@ -7,7 +7,7 @@ class Lang
     /**
      * @var string
      */
-    private $loading;
+    public $loading;
 
 
     /**

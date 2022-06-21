@@ -7,312 +7,312 @@ class User
     /**
      * @var string
      */
-    private $address;
+    public $address;
 
     /**
      * @var string
      */
-    private $analysisEndedAt;
+    public $analysisEndedAt;
 
     /**
      * @var string
      */
-    private $analysisRequestedAt;
+    public $analysisRequestedAt;
 
     /**
      * @var string
      */
-    private $analysisStartedAt;
+    public $analysisStartedAt;
 
     /**
      * @var string
      */
-    private $avatar;
+    public $avatar;
 
     /**
      * @var string
      */
-    private $birthday;
+    public $birthday;
 
     /**
      * @var string
      */
-    private $clientId;
+    public $clientId;
 
     /**
      * @var string
      */
-    private $clientUserId;
+    public $clientUserId;
 
     /**
      * @var string
      */
-    private $combineNotifications;
+    public $combineNotifications;
 
     /**
      * @var string
      */
-    private $country;
+    public $country;
 
     /**
      * @var string
      */
-    private $coverPhoto;
+    public $coverPhoto;
 
     /**
      * @var string
      */
-    private $createdAt;
+    public $createdAt;
 
     /**
      * @var string
      */
-    private $currency;
+    public $currency;
 
     /**
      * @var string
      */
-    private $displayName;
+    public $displayName;
 
     /**
      * @var string
      */
-    private $earliestReminderTime;
+    public $earliestReminderTime;
 
     /**
      * @var string
      */
-    private $email;
+    public $email;
 
     /**
      * @var string
      */
-    private $firstName;
+    public $firstName;
 
     /**
      * @var string
      */
-    private $gender;
+    public $gender;
 
     /**
      * @var string
      */
-    private $gravatar;
+    public $gravatar;
 
     /**
      * @var string
      */
-    private $hasAndroidApp;
+    public $hasAndroidApp;
 
     /**
      * @var string
      */
-    private $hasChromeExtension;
+    public $hasChromeExtension;
 
     /**
      * @var string
      */
-    private $hasIosApp;
+    public $hasIosApp;
 
     /**
      * @var int
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      */
-    private $isPublic;
+    public $isPublic;
 
     /**
      * @var string
      */
-    private $language;
+    public $language;
 
     /**
      * @var string
      */
-    private $lastEmailAt;
+    public $lastEmailAt;
 
     /**
      * @var string
      */
-    private $lastLoginAt;
+    public $lastLoginAt;
 
     /**
      * @var string
      */
-    private $lastName;
+    public $lastName;
 
     /**
      * @var string
      */
-    private $lastPushAt;
+    public $lastPushAt;
 
     /**
      * @var string
      */
-    private $latestReminderTime;
+    public $latestReminderTime;
 
     /**
      * @var string
      */
-    private $measurementsCount;
+    public $measurementsCount;
 
     /**
      * @var string
      */
-    private $newestDataAt;
+    public $newestDataAt;
 
     /**
      * @var string
      */
-    private $notificationsCount;
+    public $notificationsCount;
 
     /**
      * @var string
      */
-    private $numberOfPatients;
+    public $numberOfPatients;
 
     /**
      * @var string
      */
-    private $password;
+    public $password;
 
     /**
      * @var string
      */
-    private $phoneNumber;
+    public $phoneNumber;
 
     /**
      * @var string
      */
-    private $primaryOutcomeVariableId;
+    public $primaryOutcomeVariableId;
 
     /**
      * @var string
      */
-    private $providerId;
+    public $providerId;
 
     /**
      * @var string
      */
-    private $pushNotificationsEnabled;
+    public $pushNotificationsEnabled;
 
     /**
      * @var string
      */
-    private $regProvider;
+    public $regProvider;
 
     /**
      * @var array
      */
-    private $roles;
+    public $roles;
 
     /**
      * @var string
      */
-    private $sendPredictorEmails;
+    public $sendPredictorEmails;
 
     /**
      * @var string
      */
-    private $sendReminderNotificationEmails;
+    public $sendReminderNotificationEmails;
 
     /**
      * @var string
      */
-    private $sentEmailsCount;
+    public $sentEmailsCount;
 
     /**
      * @var string
      */
-    private $shareAllData;
+    public $shareAllData;
 
     /**
      * @var string
      */
-    private $slug;
+    public $slug;
 
     /**
      * @var string
      */
-    private $state;
+    public $state;
 
     /**
      * @var string
      */
-    private $tagLine;
+    public $tagLine;
 
     /**
      * @var string
      */
-    private $timeZoneOffset;
+    public $timeZoneOffset;
 
     /**
      * @var string
      */
-    private $timezone;
+    public $timezone;
 
     /**
      * @var string
      */
-    private $trackLocation;
+    public $trackLocation;
 
     /**
      * @var string
      */
-    private $trackingReminderNotificationsCount;
+    public $trackingReminderNotificationsCount;
 
     /**
      * @var string
      */
-    private $trackingRemindersCount;
+    public $trackingRemindersCount;
 
     /**
      * @var bool
      */
-    private $unsubscribed;
+    public $unsubscribed;
 
     /**
      * @var string
      */
-    private $updatedAt;
+    public $updatedAt;
 
     /**
      * @var string
      */
-    private $userErrorMessage;
+    public $userErrorMessage;
 
     /**
      * @var string
      */
-    private $userLogin;
+    public $userLogin;
 
     /**
      * @var string
      */
-    private $userUrl;
+    public $userUrl;
 
     /**
      * @var string
      */
-    private $verified;
+    public $verified;
 
     /**
      * @var string
      */
-    private $zipCode;
+    public $zipCode;
 
     /**
      * @var AccessToken
      */
-    private $accessToken;
+    public $accessToken;
 
     /**
      * @var RefreshToken
      */
-    private $refreshToken;
+    public $refreshToken;
 
 
     /**

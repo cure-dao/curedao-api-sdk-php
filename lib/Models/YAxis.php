@@ -7,17 +7,17 @@ class YAxis
     /**
      * @var float
      */
-    private $max;
+    public $max;
 
     /**
      * @var float
      */
-    private $min;
+    public $min;
 
     /**
      * @var Title
      */
-    private $title;
+    public $title;
 
 
     /**

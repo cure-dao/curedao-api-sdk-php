@@ -84,15 +84,15 @@ class AnalyticsApiTest extends \CureDAO\Tests\BaseTestCase
 
         $yourUserId = "test-user-for-sdk-analyze-test".time();
         $analysis = new AnalysisRequest($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
-        $results = $analysis->analyze();
+        $response = $analysis->analyze();
 
-        //$this->generateModels(ucfirst(__FUNCTION__)."Response", $results);
-        $this->generateModels("UserVariable", $results->predictor_user_variable);
-        $this->assertNotNull($results->analysis);
+        //$this->generateModels("AnalysisResponse", $response);
+        //$this->generateModels("UserVariable", $results->predictor_user_variable);
+        $this->assertNotNull($response->analysis);
         $this->assertStringContainsString(DailyStepCountVariable::NAME,
-            $results->html, 'study-html');
+            $response->html, 'study-html');
         $this->assertStringContainsString(HeartRateVariabilityVariable::NAME,
-            $results->html, 'study-html');
+            $response->html, 'study-html');
     }
     public function testAnalyzeWithNewVariables()
     {

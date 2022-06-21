@@ -7,12 +7,12 @@ class XAxis
     /**
      * @var Title
      */
-    private $title;
+    public $title;
 
     /**
      * @var array
      */
-    private $categories;
+    public $categories;
 
 
     /**

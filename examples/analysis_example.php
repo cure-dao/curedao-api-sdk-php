@@ -1,6 +1,6 @@
 <?php
 
-use CureDAO\Client\Analysis;
+use CureDAO\Client\Requests\AnalysisRequest;
 use CureDAO\Client\Models\MeasurementSet;
 use CureDAO\Client\Variables\PhysicalActivityVariables\DailyStepCountVariable;
 use CureDAO\Client\Variables\VitalSignsVariables\HeartRateVariabilityVariable;
@@ -76,7 +76,8 @@ $outcomeMeasurementSet = (new MeasurementSet())
     ]);
 
 $yourUserId = "test-user-for-sdk-analyze-test".time();
-$analysis = new Analysis($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
+$analysis = new AnalysisRequest($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
 $results = $analysis->analyze();
+//file_put_contents($analysis->getSlug(), HeartRateVariabilityVariable::>)
 print_r($results);
 

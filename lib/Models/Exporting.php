@@ -7,7 +7,7 @@ class Exporting
     /**
      * @var bool
      */
-    private $enabled;
+    public $enabled;
 
 
     /**

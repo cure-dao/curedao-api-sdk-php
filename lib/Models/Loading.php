@@ -7,17 +7,17 @@ class Loading
     /**
      * @var array
      */
-    private $style;
+    public $style;
 
     /**
      * @var int
      */
-    private $hideDuration;
+    public $hideDuration;
 
     /**
      * @var int
      */
-    private $showDuration;
+    public $showDuration;
 
 
     /**

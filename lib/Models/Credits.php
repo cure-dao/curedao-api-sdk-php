@@ -7,7 +7,7 @@ class Credits
     /**
      * @var bool
      */
-    private $enabled;
+    public $enabled;
 
 
     /**

@@ -21,7 +21,7 @@ class HttpClient
                 $envPath = __DIR__ . '/../..';
             }
             if(!file_exists($envPath."/.env")){
-                throw new \Exception('Please create a .env file in your project directory like 
+                throw new \RuntimeException('Please create a .env file in your project directory like 
                 cure-dao/cure-dao-sdk-php/.env.example');
             }
             $dotenv = \Dotenv\Dotenv::createImmutable($envPath);

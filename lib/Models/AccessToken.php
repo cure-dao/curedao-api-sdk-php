@@ -7,32 +7,32 @@ class AccessToken
     /**
      * @var string
      */
-    private $accessToken;
+    public $accessToken;
 
     /**
      * @var string
      */
-    private $clientId;
+    public $clientId;
 
     /**
      * @var string
      */
-    private $createdAt;
+    public $createdAt;
 
     /**
      * @var string
      */
-    private $expires;
+    public $expires;
 
     /**
      * @var string
      */
-    private $updatedAt;
+    public $updatedAt;
 
     /**
      * @var int
      */
-    private $userId;
+    public $userId;
 
 
     /**

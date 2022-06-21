@@ -7,12 +7,12 @@ class Subtitle
     /**
      * @var string
      */
-    private $text;
+    public $text;
 
     /**
      * @var array
      */
-    private $style;
+    public $style;
 
 
     /**
