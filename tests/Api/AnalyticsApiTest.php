@@ -2,7 +2,7 @@
 
 namespace CureDAO\Tests\Api;
 
-use CureDAO\Client\Analysis;
+use CureDAO\Client\Requests\AnalysisRequest;
 use CureDAO\Client\Models\MeasurementSet;
 use CureDAO\Client\Units\MilligramsUnit;
 use CureDAO\Client\Units\OneToFiveRatingUnit;
@@ -83,10 +83,11 @@ class AnalyticsApiTest extends \CureDAO\Tests\BaseTestCase
         ]);
 
         $yourUserId = "test-user-for-sdk-analyze-test".time();
-        $analysis = new Analysis($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
+        $analysis = new AnalysisRequest($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
         $results = $analysis->analyze();
 
-        $this->generateModels(ucfirst(__FUNCTION__)."Response", $results);
+        //$this->generateModels(ucfirst(__FUNCTION__)."Response", $results);
+        $this->generateModels("UserVariable", $results->predictor_user_variable);
         $this->assertNotNull($results->analysis);
         $this->assertStringContainsString(DailyStepCountVariable::NAME,
             $results->html, 'study-html');
@@ -168,7 +169,7 @@ class AnalyticsApiTest extends \CureDAO\Tests\BaseTestCase
             ]);
 
         $yourUserId = "test-user-for-sdk-analyze-test".time();
-        $analysis = new Analysis($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
+        $analysis = new AnalysisRequest($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
         $results = $analysis->analyze();
 
         $this->generateModels(ucfirst(__FUNCTION__)."Response", $results);

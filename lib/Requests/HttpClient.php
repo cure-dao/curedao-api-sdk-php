@@ -1,5 +1,5 @@
 <?php
-namespace CureDAO\Client;
+namespace CureDAO\Client\Requests;
 use Httpful\Request;
 
 class HttpClient

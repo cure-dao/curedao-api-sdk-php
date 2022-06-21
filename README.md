@@ -34,7 +34,7 @@ configurations.  The chart configs could be transformed to work with other chart
 
 ```php
 <?php
-use CureDAO\Client\Analysis;
+use CureDAO\Client\Requests\AnalysisRequest;
 use CureDAO\Client\Models\MeasurementSet;
 use CureDAO\Client\Variables\PhysicalActivityVariables\DailyStepCountVariable;
 use CureDAO\Client\Variables\VitalSignsVariables\HeartRateVariabilityVariable;
@@ -49,7 +49,7 @@ use CureDAO\Client\Variables\VitalSignsVariables\HeartRateVariabilityVariable;
         ->addMeasurements([['start_at' => '2022-05-8','value' => 3402], etc...]);
     
     $yourUserId = "a-unique-identifier-for-your-user";
-    $analysis = new Analysis($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
+    $analysis = new AnalysisRequest($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
     $results = $analysis->analyze();
     print_r($results);
 ?>

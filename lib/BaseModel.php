@@ -2,6 +2,7 @@
 
 namespace CureDAO\Client;
 
+use CureDAO\Client\Requests\HttpClient;
 use ICanBoogie\Inflector;
 use Illuminate\Support\Collection;
 use LogicException;

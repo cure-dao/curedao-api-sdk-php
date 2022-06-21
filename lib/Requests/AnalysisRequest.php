@@ -1,13 +1,15 @@
 <?php
-namespace CureDAO\Client;
+namespace CureDAO\Client\Requests;
 use CureDAO\Client\Models\MeasurementSet;
+use CureDAO\Client\Responses\AnalyzeResponse;
 
-class Analysis extends HttpClient
+class AnalysisRequest extends HttpClient
 {
 
     private $predictorMeasurementSet;
     private $outcomeMeasurementSet;
     private $yourUserId;
+    private $response;
 
     /**
      * @param int|string $yourUserId
@@ -23,17 +25,18 @@ class Analysis extends HttpClient
         parent::__construct();
     }
 
-    public function analyze(){
-        if($this->data){
-            return $this->data;
+    public function analyze(): AnalyzeResponse{
+        if($this->response){
+            return $this->response;
         }
         $p = $this->getPredictorMeasurementSet();
         $o = $this->getOutcomeMeasurementSet();
-        return $this->post('/api/v6/analyze', array (
+        $data = $this->post('/api/v6/analyze', array (
             'predictor' => $p->toArray(),
             'outcome' => $o->toArray(),
             'your_user_id' => $this->getYourUserId(),
         ));
+        return $this->getResponse();
     }
 
     /**
@@ -83,6 +86,16 @@ class Analysis extends HttpClient
     {
         $this->yourUserId = $yourUserId;
         return $this;
+    }
+
+    public function getSlug()
+    {
+        $this->getResponse()->getAnalysis()->getSlug();
+    }
+
+    public function getResponse(): AnalyzeResponse
+    {
+        return new AnalyzeResponse($this->getData());
     }
 
 }

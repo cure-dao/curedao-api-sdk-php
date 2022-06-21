@@ -16,10 +16,11 @@ class BaseTestCase extends TestCase
         if(!$_ENV['GENERATE_MODELS']){
             return;
         }
-        $generator = new PhpGenerator(true, true, "CureDAO\\Models");
+        $generator = new PhpGenerator(true, true, "CureDAO\\Client\\Models");
         $classes = $generator->fromJson($className, json_encode($body));
         foreach ($classes as $className => $content) {
             try {
+                $content = str_replace("private $", "public $", $content);
                 file_put_contents(__DIR__ . "/../lib/Models/{$className}.php", $content);
             } catch (\Throwable $e) {
                 error_log("Could not generate model: " . $className . " because: " . $e->getMessage());

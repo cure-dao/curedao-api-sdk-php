@@ -1,43 +1,57 @@
 <?php
 
-namespace CureDAO\Client\Models;
+namespace CureDAO\Client\Responses;
 
-class TestAnalyzeResponse
+use CureDAO\Client\Models\Analysis;
+use CureDAO\Client\Models\OutcomeUserVariable;
+use CureDAO\Client\Models\OutcomeVariable;
+use CureDAO\Client\Models\PredictorUserVariable;
+use CureDAO\Client\Models\PredictorVariable;
+use CureDAO\Client\Models\User;
+
+class AnalyzeResponse extends BaseResponse
 {
+    public function __construct($data = [])
+    {
+        parent::__construct($data);
+        $this->analysis = new Analysis($data['analysis']);
+        //$this->predictorUserVariable = new UserVariable($data['analysis']);
+    }
+
     /**
      * @var Analysis
      */
-    private $analysis;
+    public $analysis;
 
     /**
      * @var string
      */
-    private $html;
+    public $html;
 
     /**
      * @var OutcomeUserVariable
      */
-    private $outcomeUserVariable;
+    public $outcomeUserVariable;
 
     /**
      * @var OutcomeVariable
      */
-    private $outcomeVariable;
+    public $outcomeVariable;
 
     /**
      * @var PredictorUserVariable
      */
-    private $predictorUserVariable;
+    public $predictorUserVariable;
 
     /**
      * @var PredictorVariable
      */
-    private $predictorVariable;
+    public $predictorVariable;
 
     /**
      * @var User
      */
-    private $user;
+    public $user;
 
 
     /**
@@ -51,12 +65,12 @@ class TestAnalyzeResponse
     /**
      * @param Analysis|null $analysis
      *
-     * @return TestAnalyzeResponse
+     * @return AnalyzeResponse
      */
-    public function setAnalysis(?Analysis $analysis): TestAnalyzeResponse
+    public function setAnalysis(?Analysis $analysis): AnalyzeResponse
     {
         $this->analysis = $analysis;
-        
+
         return $this;
     }
 
@@ -71,12 +85,12 @@ class TestAnalyzeResponse
     /**
      * @param string|null $html
      *
-     * @return TestAnalyzeResponse
+     * @return AnalyzeResponse
      */
-    public function setHtml(?string $html): TestAnalyzeResponse
+    public function setHtml(?string $html): AnalyzeResponse
     {
         $this->html = $html;
-        
+
         return $this;
     }
 
@@ -91,12 +105,12 @@ class TestAnalyzeResponse
     /**
      * @param OutcomeUserVariable|null $outcomeUserVariable
      *
-     * @return TestAnalyzeResponse
+     * @return AnalyzeResponse
      */
-    public function setOutcomeUserVariable(?OutcomeUserVariable $outcomeUserVariable): TestAnalyzeResponse
+    public function setOutcomeUserVariable(?OutcomeUserVariable $outcomeUserVariable): AnalyzeResponse
     {
         $this->outcomeUserVariable = $outcomeUserVariable;
-        
+
         return $this;
     }
 
@@ -111,12 +125,12 @@ class TestAnalyzeResponse
     /**
      * @param OutcomeVariable|null $outcomeVariable
      *
-     * @return TestAnalyzeResponse
+     * @return AnalyzeResponse
      */
-    public function setOutcomeVariable(?OutcomeVariable $outcomeVariable): TestAnalyzeResponse
+    public function setOutcomeVariable(?OutcomeVariable $outcomeVariable): AnalyzeResponse
     {
         $this->outcomeVariable = $outcomeVariable;
-        
+
         return $this;
     }
 
@@ -131,12 +145,12 @@ class TestAnalyzeResponse
     /**
      * @param PredictorUserVariable|null $predictorUserVariable
      *
-     * @return TestAnalyzeResponse
+     * @return AnalyzeResponse
      */
-    public function setPredictorUserVariable(?PredictorUserVariable $predictorUserVariable): TestAnalyzeResponse
+    public function setPredictorUserVariable(?PredictorUserVariable $predictorUserVariable): AnalyzeResponse
     {
         $this->predictorUserVariable = $predictorUserVariable;
-        
+
         return $this;
     }
 
@@ -151,12 +165,12 @@ class TestAnalyzeResponse
     /**
      * @param PredictorVariable|null $predictorVariable
      *
-     * @return TestAnalyzeResponse
+     * @return AnalyzeResponse
      */
-    public function setPredictorVariable(?PredictorVariable $predictorVariable): TestAnalyzeResponse
+    public function setPredictorVariable(?PredictorVariable $predictorVariable): AnalyzeResponse
     {
         $this->predictorVariable = $predictorVariable;
-        
+
         return $this;
     }
 
@@ -171,12 +185,12 @@ class TestAnalyzeResponse
     /**
      * @param User|null $user
      *
-     * @return TestAnalyzeResponse
+     * @return AnalyzeResponse
      */
-    public function setUser(?User $user): TestAnalyzeResponse
+    public function setUser(?User $user): AnalyzeResponse
     {
         $this->user = $user;
-        
+
         return $this;
     }
 }
