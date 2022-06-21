@@ -2,7 +2,7 @@
 namespace CureDAO\Client\Units;
 use CureDAO\Client\Properties\Base\BaseFillingTypeProperty;
 
-use CureDAO\Client\Variables\PhysicalActivityCommonVariables\CaloriesBurnedCommonVariable;
+use CureDAO\Client\Variables\PhysicalActivityVariables\CaloriesBurnedVariable;
 class CaloriesUnit extends BaseUnit {
 	const ABBREVIATED_NAME = 'cal';
 	const ADVANCED = 1;
@@ -17,7 +17,7 @@ class CaloriesUnit extends BaseUnit {
 	const ID = 39;
 	const MANUAL_TRACKING = 0;
 	const MAXIMUM_VALUE = null;
-	public $maximumDailyValue = CaloriesBurnedCommonVariable::MAXIMUM_ALLOWED_VALUE;
+	public $maximumDailyValue = CaloriesBurnedVariable::MAXIMUM_ALLOWED_VALUE;
 	const MINIMUM_VALUE = null;
 	const NAME = 'Calories';
 	const SCALE = 'ratio';

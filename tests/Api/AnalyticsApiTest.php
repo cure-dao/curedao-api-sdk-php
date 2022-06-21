@@ -4,8 +4,12 @@ namespace CureDAO\Tests\Api;
 
 use CureDAO\Client\Analysis;
 use CureDAO\Client\Models\MeasurementSet;
-use CureDAO\Client\Variables\PhysicalActivityCommonVariables\DailyStepCountCommonVariable;
-use CureDAO\Client\Variables\VitalSignsCommonVariables\HeartRateVariabilityVariable;
+use CureDAO\Client\Units\MilligramsUnit;
+use CureDAO\Client\Units\OneToFiveRatingUnit;
+use CureDAO\Client\VariableCategories\SymptomsVariableCategory;
+use CureDAO\Client\VariableCategories\TreatmentsVariableCategory;
+use CureDAO\Client\Variables\PhysicalActivityVariables\DailyStepCountVariable;
+use CureDAO\Client\Variables\VitalSignsVariables\HeartRateVariabilityVariable;
 
 class AnalyticsApiTest extends \CureDAO\Tests\BaseTestCase
 {
@@ -13,79 +17,65 @@ class AnalyticsApiTest extends \CureDAO\Tests\BaseTestCase
     public function testAnalyze()
     {
         $predictorMeasurementSet = (new MeasurementSet())
-            ->setVariable(new DailyStepCountCommonVariable())
-            ->addMeasurements(array (
-            0 =>
-                array (
+            ->setVariable(new DailyStepCountVariable())
+            ->addMeasurements([
+                [
                     'start_at' => '2022-05-7',
                     'value' => 8472,
-                ),
-            1 =>
-                array (
+                ],
+                [
                     'start_at' => '2022-05-8',
                     'value' => 3402,
-                ),
-            2 =>
-                array (
+                ],
+                [
                     'start_at' => '2022-05-9',
                     'value' => 3930,
-                ),
-            3 =>
-                array (
+                ],
+                [
                     'start_at' => '2022-05-10',
                     'value' => 9909,
-                ),
-            4 =>
-                array (
+                ],
+                [
                     'start_at' => '2022-05-11',
                     'value' => 4943,
-                ),
-            5 =>
-                array (
+                ],
+                [
                     'start_at' => '2022-05-12',
                     'value' => 9012,
-                ),
-            6 =>
-                array (
+                ],
+                [
                     'start_at' => '2022-05-13',
                     'value' => 1122,
-                ),
-        ));
+                ],
+            ]);
 
         $outcomeMeasurementSet = (new MeasurementSet())
             ->setVariable(new HeartRateVariabilityVariable())
             ->addMeasurements([
-            '0' =>
                 [
                     'start_at' => '2022-05-7',
                     'value' => 8472,
                 ],
-            '1' =>
                 [
                     'start_at' => '2022-05-8',
                     'value' => 3402,
                 ],
-            '2' =>
                 [
                     'start_at' => '2022-05-9',
                     'value' => 3930,
                 ],
-            '3' =>
                 [
                     'start_at' => '2022-05-10',
                     'value' => 9909,
                 ],
-            '4' =>
                 [
                     'start_at' => '2022-05-11',
                     'value' => 4943,
                 ],
-            '5' =>
                 [
                     'start_at' => '2022-05-12',
                     'value' => 9012,
                 ],
-            '6' =>
                 [
                     'start_at' => '2022-05-13',
                     'value' => 1122,
@@ -98,9 +88,94 @@ class AnalyticsApiTest extends \CureDAO\Tests\BaseTestCase
 
         $this->generateModels(ucfirst(__FUNCTION__)."Response", $results);
         $this->assertNotNull($results->analysis);
-        $this->assertStringContainsString(DailyStepCountCommonVariable::NAME,
+        $this->assertStringContainsString(DailyStepCountVariable::NAME,
             $results->html, 'study-html');
         $this->assertStringContainsString(HeartRateVariabilityVariable::NAME,
+            $results->html, 'study-html');
+    }
+    public function testAnalyzeWithNewVariables()
+    {
+        $treatments_variable_name = 'Treatments Test Variable';
+        $predictorMeasurementSet = (new MeasurementSet())
+            ->setVariableName($treatments_variable_name)
+            ->setUnitName(MilligramsUnit::NAME)
+            ->setVariableCategoryName(TreatmentsVariableCategory::NAME)
+            ->addMeasurements([
+                    [
+                        'start_at' => '2022-05-7',
+                        'value' => 500,
+                    ],
+                    [
+                        'start_at' => '2022-05-8',
+                        'value' => 0,
+                    ],
+                    [
+                        'start_at' => '2022-05-9',
+                        'value' => 0,
+                    ],
+                    [
+                        'start_at' => '2022-05-10',
+                        'value' => 500,
+                    ],
+                    [
+                        'start_at' => '2022-05-11',
+                        'value' => 500,
+                    ],
+                    [
+                        'start_at' => '2022-05-12',
+                        'value' => 0,
+                    ],
+                    [
+                        'start_at' => '2022-05-13',
+                        'value' => 0,
+                    ],
+            ]);
+
+        $symptoms_variable_name = 'Symptoms Test Variable';
+        $outcomeMeasurementSet = (new MeasurementSet())
+            ->setVariableName($symptoms_variable_name)
+            ->setUnitName(OneToFiveRatingUnit::NAME)
+            ->setVariableCategoryName(SymptomsVariableCategory::NAME)
+            ->addMeasurements([
+                [
+                    'start_at' => '2022-05-7',
+                    'value' => 3,
+                ],
+                [
+                    'start_at' => '2022-05-8',
+                    'value' => 1,
+                ],
+                [
+                    'start_at' => '2022-05-9',
+                    'value' => 5,
+                ],
+                [
+                    'start_at' => '2022-05-10',
+                    'value' => 2,
+                ],
+                [
+                    'start_at' => '2022-05-11',
+                    'value' => 2,
+                ],
+                [
+                    'start_at' => '2022-05-12',
+                    'value' => 4,
+                ],
+                [
+                    'start_at' => '2022-05-13',
+                    'value' => 5,
+                ],
+            ]);
+
+        $yourUserId = "test-user-for-sdk-analyze-test".time();
+        $analysis = new Analysis($yourUserId, $predictorMeasurementSet, $outcomeMeasurementSet);
+        $results = $analysis->analyze();
+
+        $this->generateModels(ucfirst(__FUNCTION__)."Response", $results);
+        $this->assertNotNull($results->analysis);
+        $this->assertStringContainsString($treatments_variable_name,
+            $results->html, 'study-html');
+        $this->assertStringContainsString($symptoms_variable_name,
             $results->html, 'study-html');
     }
     /**

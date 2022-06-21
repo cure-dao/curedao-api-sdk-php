@@ -11,12 +11,21 @@ PHP 7.2 and up
 Install [Composer](http://getcomposer.org/) and run
 
 ```
-composer require curedao/curedao-sdk-php
+composer require cure-dao/cure-dao-sdk-php
 ```
 
 Then run `composer install`
 
 ## Getting Started
+
+Create a .env file in the root directory of your project.
+
+Add the following lines:
+
+```
+CUREDAO_CLIENT_ID=Get me from https://builder.curedao.org
+CUREDAO_CLIENT_SECRET=Get me from https://builder.curedao.org
+```
 
 ### How to Analyze the Relationship Between a Pair of Variables
 
@@ -27,12 +36,12 @@ configurations.  The chart configs could be transformed to work with other chart
 <?php
 use CureDAO\Client\Analysis;
 use CureDAO\Client\Models\MeasurementSet;
-use CureDAO\Client\Variables\PhysicalActivityCommonVariables\DailyStepCountCommonVariable;
-use CureDAO\Client\Variables\VitalSignsCommonVariables\HeartRateVariabilityVariable;
+use CureDAO\Client\Variables\PhysicalActivityVariables\DailyStepCountVariable;
+use CureDAO\Client\Variables\VitalSignsVariables\HeartRateVariabilityVariable;
     
     $predictorMeasurementSet = (new MeasurementSet())
          // setVariable accepts an existing variable in lib/Variables or an array with variable_name, unit_name, and variable_category_name
-        ->setVariable(new DailyStepCountCommonVariable())  
+        ->setVariable(new DailyStepCountVariable())  
         ->addMeasurements([['start_at' => '2022-05-7', 'value' => 8472], etc...]);
     
     $outcomeMeasurementSet = (new MeasurementSet())
