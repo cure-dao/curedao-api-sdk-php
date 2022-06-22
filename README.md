@@ -20,11 +20,15 @@ Then run `composer install`
 
 Create a .env file in the root directory of your project.
 
-Add the following lines:
+Create your API Client Application at [https://curedao.org/api-clients](https://curedao.org/api-clients).
+
+Copy the `client_id` and `client_secret` you receive into the .env file.
+
+Add the following lines to your .env file:
 
 ```
-CUREDAO_CLIENT_ID=Get me from https://builder.curedao.org
-CUREDAO_CLIENT_SECRET=Get me from https://builder.curedao.org
+CUREDAO_CLIENT_ID=Get me from https://builder.curedao.org/#/app/clients
+CUREDAO_CLIENT_SECRET=Get me from https://builder.curedao.org/#/app/clients
 ```
 
 ### How to Analyze the Relationship Between a Pair of Variables
