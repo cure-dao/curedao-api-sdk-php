@@ -2,7 +2,9 @@
 
 namespace CureDAO\Client\Models;
 
-class User
+use CureDAO\Client\BaseModel;
+
+class User extends BaseModel
 {
     /**
      * @var string
@@ -331,7 +333,7 @@ class User
     public function setAddress(?string $address): User
     {
         $this->address = $address;
-        
+
         return $this;
     }
 
@@ -351,7 +353,7 @@ class User
     public function setAnalysisEndedAt(?string $analysisEndedAt): User
     {
         $this->analysisEndedAt = $analysisEndedAt;
-        
+
         return $this;
     }
 
@@ -371,7 +373,7 @@ class User
     public function setAnalysisRequestedAt(?string $analysisRequestedAt): User
     {
         $this->analysisRequestedAt = $analysisRequestedAt;
-        
+
         return $this;
     }
 
@@ -391,7 +393,7 @@ class User
     public function setAnalysisStartedAt(?string $analysisStartedAt): User
     {
         $this->analysisStartedAt = $analysisStartedAt;
-        
+
         return $this;
     }
 
@@ -411,7 +413,7 @@ class User
     public function setAvatar(?string $avatar): User
     {
         $this->avatar = $avatar;
-        
+
         return $this;
     }
 
@@ -431,7 +433,7 @@ class User
     public function setBirthday(?string $birthday): User
     {
         $this->birthday = $birthday;
-        
+
         return $this;
     }
 
@@ -451,7 +453,7 @@ class User
     public function setClientId(?string $clientId): User
     {
         $this->clientId = $clientId;
-        
+
         return $this;
     }
 
@@ -471,7 +473,7 @@ class User
     public function setClientUserId(?string $clientUserId): User
     {
         $this->clientUserId = $clientUserId;
-        
+
         return $this;
     }
 
@@ -491,7 +493,7 @@ class User
     public function setCombineNotifications(?string $combineNotifications): User
     {
         $this->combineNotifications = $combineNotifications;
-        
+
         return $this;
     }
 
@@ -511,7 +513,7 @@ class User
     public function setCountry(?string $country): User
     {
         $this->country = $country;
-        
+
         return $this;
     }
 
@@ -531,7 +533,7 @@ class User
     public function setCoverPhoto(?string $coverPhoto): User
     {
         $this->coverPhoto = $coverPhoto;
-        
+
         return $this;
     }
 
@@ -551,7 +553,7 @@ class User
     public function setCreatedAt(?string $createdAt): User
     {
         $this->createdAt = $createdAt;
-        
+
         return $this;
     }
 
@@ -571,7 +573,7 @@ class User
     public function setCurrency(?string $currency): User
     {
         $this->currency = $currency;
-        
+
         return $this;
     }
 
@@ -591,7 +593,7 @@ class User
     public function setDisplayName(?string $displayName): User
     {
         $this->displayName = $displayName;
-        
+
         return $this;
     }
 
@@ -611,7 +613,7 @@ class User
     public function setEarliestReminderTime(?string $earliestReminderTime): User
     {
         $this->earliestReminderTime = $earliestReminderTime;
-        
+
         return $this;
     }
 
@@ -631,7 +633,7 @@ class User
     public function setEmail(?string $email): User
     {
         $this->email = $email;
-        
+
         return $this;
     }
 
@@ -651,7 +653,7 @@ class User
     public function setFirstName(?string $firstName): User
     {
         $this->firstName = $firstName;
-        
+
         return $this;
     }
 
@@ -671,7 +673,7 @@ class User
     public function setGender(?string $gender): User
     {
         $this->gender = $gender;
-        
+
         return $this;
     }
 
@@ -691,7 +693,7 @@ class User
     public function setGravatar(?string $gravatar): User
     {
         $this->gravatar = $gravatar;
-        
+
         return $this;
     }
 
@@ -711,7 +713,7 @@ class User
     public function setHasAndroidApp(?string $hasAndroidApp): User
     {
         $this->hasAndroidApp = $hasAndroidApp;
-        
+
         return $this;
     }
 
@@ -731,7 +733,7 @@ class User
     public function setHasChromeExtension(?string $hasChromeExtension): User
     {
         $this->hasChromeExtension = $hasChromeExtension;
-        
+
         return $this;
     }
 
@@ -751,7 +753,7 @@ class User
     public function setHasIosApp(?string $hasIosApp): User
     {
         $this->hasIosApp = $hasIosApp;
-        
+
         return $this;
     }
 
@@ -771,7 +773,7 @@ class User
     public function setId(?int $id): User
     {
         $this->id = $id;
-        
+
         return $this;
     }
 
@@ -791,7 +793,7 @@ class User
     public function setIsPublic(?string $isPublic): User
     {
         $this->isPublic = $isPublic;
-        
+
         return $this;
     }
 
@@ -811,7 +813,7 @@ class User
     public function setLanguage(?string $language): User
     {
         $this->language = $language;
-        
+
         return $this;
     }
 
@@ -831,7 +833,7 @@ class User
     public function setLastEmailAt(?string $lastEmailAt): User
     {
         $this->lastEmailAt = $lastEmailAt;
-        
+
         return $this;
     }
 
@@ -851,7 +853,7 @@ class User
     public function setLastLoginAt(?string $lastLoginAt): User
     {
         $this->lastLoginAt = $lastLoginAt;
-        
+
         return $this;
     }
 
@@ -871,7 +873,7 @@ class User
     public function setLastName(?string $lastName): User
     {
         $this->lastName = $lastName;
-        
+
         return $this;
     }
 
@@ -891,7 +893,7 @@ class User
     public function setLastPushAt(?string $lastPushAt): User
     {
         $this->lastPushAt = $lastPushAt;
-        
+
         return $this;
     }
 
@@ -911,7 +913,7 @@ class User
     public function setLatestReminderTime(?string $latestReminderTime): User
     {
         $this->latestReminderTime = $latestReminderTime;
-        
+
         return $this;
     }
 
@@ -931,7 +933,7 @@ class User
     public function setMeasurementsCount(?string $measurementsCount): User
     {
         $this->measurementsCount = $measurementsCount;
-        
+
         return $this;
     }
 
@@ -951,7 +953,7 @@ class User
     public function setNewestDataAt(?string $newestDataAt): User
     {
         $this->newestDataAt = $newestDataAt;
-        
+
         return $this;
     }
 
@@ -971,7 +973,7 @@ class User
     public function setNotificationsCount(?string $notificationsCount): User
     {
         $this->notificationsCount = $notificationsCount;
-        
+
         return $this;
     }
 
@@ -991,7 +993,7 @@ class User
     public function setNumberOfPatients(?string $numberOfPatients): User
     {
         $this->numberOfPatients = $numberOfPatients;
-        
+
         return $this;
     }
 
@@ -1011,7 +1013,7 @@ class User
     public function setPassword(?string $password): User
     {
         $this->password = $password;
-        
+
         return $this;
     }
 
@@ -1031,7 +1033,7 @@ class User
     public function setPhoneNumber(?string $phoneNumber): User
     {
         $this->phoneNumber = $phoneNumber;
-        
+
         return $this;
     }
 
@@ -1051,7 +1053,7 @@ class User
     public function setPrimaryOutcomeVariableId(?string $primaryOutcomeVariableId): User
     {
         $this->primaryOutcomeVariableId = $primaryOutcomeVariableId;
-        
+
         return $this;
     }
 
@@ -1071,7 +1073,7 @@ class User
     public function setProviderId(?string $providerId): User
     {
         $this->providerId = $providerId;
-        
+
         return $this;
     }
 
@@ -1091,7 +1093,7 @@ class User
     public function setPushNotificationsEnabled(?string $pushNotificationsEnabled): User
     {
         $this->pushNotificationsEnabled = $pushNotificationsEnabled;
-        
+
         return $this;
     }
 
@@ -1111,7 +1113,7 @@ class User
     public function setRegProvider(?string $regProvider): User
     {
         $this->regProvider = $regProvider;
-        
+
         return $this;
     }
 
@@ -1131,7 +1133,7 @@ class User
     public function setRoles(?array $roles): User
     {
         $this->roles = $roles;
-        
+
         return $this;
     }
 
@@ -1151,7 +1153,7 @@ class User
     public function setSendPredictorEmails(?string $sendPredictorEmails): User
     {
         $this->sendPredictorEmails = $sendPredictorEmails;
-        
+
         return $this;
     }
 
@@ -1171,7 +1173,7 @@ class User
     public function setSendReminderNotificationEmails(?string $sendReminderNotificationEmails): User
     {
         $this->sendReminderNotificationEmails = $sendReminderNotificationEmails;
-        
+
         return $this;
     }
 
@@ -1191,7 +1193,7 @@ class User
     public function setSentEmailsCount(?string $sentEmailsCount): User
     {
         $this->sentEmailsCount = $sentEmailsCount;
-        
+
         return $this;
     }
 
@@ -1211,7 +1213,7 @@ class User
     public function setShareAllData(?string $shareAllData): User
     {
         $this->shareAllData = $shareAllData;
-        
+
         return $this;
     }
 
@@ -1231,7 +1233,7 @@ class User
     public function setSlug(?string $slug): User
     {
         $this->slug = $slug;
-        
+
         return $this;
     }
 
@@ -1251,7 +1253,7 @@ class User
     public function setState(?string $state): User
     {
         $this->state = $state;
-        
+
         return $this;
     }
 
@@ -1271,7 +1273,7 @@ class User
     public function setTagLine(?string $tagLine): User
     {
         $this->tagLine = $tagLine;
-        
+
         return $this;
     }
 
@@ -1291,7 +1293,7 @@ class User
     public function setTimeZoneOffset(?string $timeZoneOffset): User
     {
         $this->timeZoneOffset = $timeZoneOffset;
-        
+
         return $this;
     }
 
@@ -1311,7 +1313,7 @@ class User
     public function setTimezone(?string $timezone): User
     {
         $this->timezone = $timezone;
-        
+
         return $this;
     }
 
@@ -1331,7 +1333,7 @@ class User
     public function setTrackLocation(?string $trackLocation): User
     {
         $this->trackLocation = $trackLocation;
-        
+
         return $this;
     }
 
@@ -1351,7 +1353,7 @@ class User
     public function setTrackingReminderNotificationsCount(?string $trackingReminderNotificationsCount): User
     {
         $this->trackingReminderNotificationsCount = $trackingReminderNotificationsCount;
-        
+
         return $this;
     }
 
@@ -1371,7 +1373,7 @@ class User
     public function setTrackingRemindersCount(?string $trackingRemindersCount): User
     {
         $this->trackingRemindersCount = $trackingRemindersCount;
-        
+
         return $this;
     }
 
@@ -1391,7 +1393,7 @@ class User
     public function setUnsubscribed(?bool $unsubscribed): User
     {
         $this->unsubscribed = $unsubscribed;
-        
+
         return $this;
     }
 
@@ -1411,7 +1413,7 @@ class User
     public function setUpdatedAt(?string $updatedAt): User
     {
         $this->updatedAt = $updatedAt;
-        
+
         return $this;
     }
 
@@ -1431,7 +1433,7 @@ class User
     public function setUserErrorMessage(?string $userErrorMessage): User
     {
         $this->userErrorMessage = $userErrorMessage;
-        
+
         return $this;
     }
 
@@ -1451,7 +1453,7 @@ class User
     public function setUserLogin(?string $userLogin): User
     {
         $this->userLogin = $userLogin;
-        
+
         return $this;
     }
 
@@ -1471,7 +1473,7 @@ class User
     public function setUserUrl(?string $userUrl): User
     {
         $this->userUrl = $userUrl;
-        
+
         return $this;
     }
 
@@ -1491,7 +1493,7 @@ class User
     public function setVerified(?string $verified): User
     {
         $this->verified = $verified;
-        
+
         return $this;
     }
 
@@ -1511,7 +1513,7 @@ class User
     public function setZipCode(?string $zipCode): User
     {
         $this->zipCode = $zipCode;
-        
+
         return $this;
     }
 
@@ -1531,7 +1533,7 @@ class User
     public function setAccessToken(?AccessToken $accessToken): User
     {
         $this->accessToken = $accessToken;
-        
+
         return $this;
     }
 
@@ -1551,7 +1553,7 @@ class User
     public function setRefreshToken(?RefreshToken $refreshToken): User
     {
         $this->refreshToken = $refreshToken;
-        
+
         return $this;
     }
 }

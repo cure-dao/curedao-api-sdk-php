@@ -88,7 +88,7 @@ class AnalyticsApiTest extends \CureDAO\Tests\BaseTestCase
 
         $response->saveHtml();
 
-        $this->generateModels("Variable", $response->getPredictorVariable());
+        //$this->generateModels("Variable", $response->predictorVariable);
         //$this->generateModels("AnalysisResponse", $response);
         //$this->generateModels("UserVariable", $response->predictor_user_variable);
         $this->assertNotNull($response->getAnalysis());

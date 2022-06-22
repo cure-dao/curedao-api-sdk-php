@@ -1,4953 +1,5060 @@
 <?php
-/**
- * Variable
- *
- */
-
-
 
 namespace CureDAO\Client\Models;
 
-use ArrayAccess;
-use CureDAO\Client\ObjectSerializer;
+use CureDAO\Client\BaseModel;
 
-/**
- * Variable Class 
- */
-class Variable implements ModelInterface, ArrayAccess
+class Variable extends BaseModel
 {
-    const DISCRIMINATOR = null;
-
-    /**
-      * The original name of the model.
-      *
-      * @var string
-      */
-    protected static $swaggerModelName = 'Variable';
-
-    /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
-    protected static $swaggerTypes = [
-        'action_array' => '\CureDAO\Client\Models\TrackingReminderNotificationAction[]',
-        'alias' => 'string',
-        'available_units' => '\CureDAO\Client\Models\Unit[]',
-        'best_study_link' => 'string',
-        'best_study_card' => '\CureDAO\Client\Models\Card',
-        'best_user_study_link' => 'string',
-        'best_user_study_card' => '\CureDAO\Client\Models\Card',
-        'best_population_study_link' => 'string',
-        'best_population_study_card' => '\CureDAO\Client\Models\Card',
-        'optimal_value_message' => 'string',
-        'common_optimal_value_message' => 'string',
-        'user_optimal_value_message' => 'string',
-        'card' => '\CureDAO\Client\Models\Card',
-        'cause_only' => 'bool',
-        'charts' => '\CureDAO\Client\Models\VariableCharts',
-        'charts_link_dynamic' => 'string',
-        'charts_link_email' => 'string',
-        'charts_link_facebook' => 'string',
-        'charts_link_google' => 'string',
-        'charts_link_static' => 'string',
-        'charts_link_twitter' => 'string',
-        'child_common_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'child_user_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'client_id' => 'string',
-        'combination_operation' => 'string',
-        'common_alias' => 'string',
-        'common_tagged_variables' => '\CureDAO\Client\Models\Variable[]',
-        'common_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'created_at' => 'string',
-        'data_source_names' => 'string',
-        'data_sources' => '\CureDAO\Client\Models\DataSource[]',
-        'description' => 'string',
-        'display_name' => 'string',
-        'duration_of_action' => 'int',
-        'duration_of_action_in_hours' => 'float',
-        'earliest_filling_time' => 'int',
-        'earliest_measurement_time' => 'int',
-        'earliest_source_time' => 'int',
-        'error_message' => 'string',
-        'experiment_end_time' => 'string',
-        'experiment_start_time' => 'string',
-        'filling_type' => 'string',
-        'filling_value' => 'float',
-        'icon_icon' => 'string',
-        'id' => 'int',
-        'image_url' => 'string',
-        'informational_url' => 'string',
-        'ingredient_of_common_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'ingredient_common_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'ingredient_of_user_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'ingredient_user_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'input_type' => 'string',
-        'ion_icon' => 'string',
-        'joined_common_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'joined_user_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'join_with' => 'int',
-        'kurtosis' => 'float',
-        'last_processed_daily_value' => 'double',
-        'last_successful_update_time' => 'string',
-        'last_value' => 'float',
-        'latest_filling_time' => 'int',
-        'latest_measurement_time' => 'int',
-        'latest_source_time' => 'int',
-        'latest_user_measurement_time' => 'int',
-        'latitude' => 'float',
-        'location' => 'string',
-        'longitude' => 'float',
-        'manual_tracking' => 'bool',
-        'maximum_allowed_daily_value' => 'float',
-        'maximum_allowed_value' => 'float',
-        'maximum_recorded_daily_value' => 'float',
-        'maximum_recorded_value' => 'double',
-        'mean' => 'float',
-        'measurements_at_last_analysis' => 'int',
-        'median' => 'float',
-        'minimum_allowed_value' => 'float',
-        'minimum_allowed_daily_value' => 'float',
-        'minimum_non_zero_value' => 'float',
-        'minimum_recorded_value' => 'float',
-        'most_common_connector_id' => 'int',
-        'most_common_original_unit_id' => 'int',
-        'most_common_unit_id' => 'int',
-        'most_common_value' => 'float',
-        'name' => 'string',
-        'number_of_aggregate_correlations_as_cause' => 'int',
-        'number_of_aggregate_correlations_as_effect' => 'int',
-        'number_of_changes' => 'int',
-        'number_of_correlations' => 'int',
-        'number_of_correlations_as_cause' => 'int',
-        'number_of_correlations_as_effect' => 'int',
-        'number_of_processed_daily_measurements' => 'int',
-        'number_of_raw_measurements' => 'int',
-        'number_of_tracking_reminders' => 'int',
-        'number_of_unique_daily_values' => 'float',
-        'number_of_unique_values' => 'int',
-        'number_of_user_correlations_as_cause' => 'int',
-        'number_of_user_correlations_as_effect' => 'int',
-        'number_of_user_variables' => 'int',
-        'onset_delay' => 'int',
-        'onset_delay_in_hours' => 'double',
-        'outcome' => 'bool',
-        'outcome_of_interest' => 'bool',
-        'parent_common_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'parent_user_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'png_path' => 'string',
-        'png_url' => 'string',
-        'predictor_of_interest' => 'int',
-        'price' => 'double',
-        'product_url' => 'string',
-        'public' => 'bool',
-        'question' => 'string',
-        'long_question' => 'string',
-        'raw_measurements_at_last_analysis' => 'int',
-        'second_most_common_value' => 'double',
-        'second_to_last_value' => 'double',
-        'share_user_measurements' => 'bool',
-        'skewness' => 'float',
-        'standard_deviation' => 'double',
-        'status' => 'string',
-        'subtitle' => 'string',
-        'svg_url' => 'string',
-        'third_most_common_value' => 'double',
-        'third_to_last_value' => 'double',
-        'tracking_instructions' => 'string',
-        'tracking_instructions_card' => '\CureDAO\Client\Models\Card',
-        'unit' => '\CureDAO\Client\Models\Unit',
-        'unit_abbreviated_name' => 'string',
-        'unit_category_id' => 'int',
-        'unit_category_name' => 'string',
-        'unit_id' => 'int',
-        'unit_name' => 'string',
-        'upc' => 'string',
-        'updated' => 'int',
-        'updated_at' => 'string',
-        'updated_time' => 'string',
-        'user_id' => 'int',
-        'user_tagged_variables' => '\CureDAO\Client\Models\Variable[]',
-        'user_tag_variables' => '\CureDAO\Client\Models\Variable[]',
-        'user_variable_unit_abbreviated_name' => 'string',
-        'user_variable_unit_category_id' => 'int',
-        'user_variable_unit_category_name' => 'string',
-        'user_variable_unit_id' => 'int',
-        'user_variable_unit_name' => 'string',
-        'variable_category' => '\CureDAO\Client\Models\VariableCategory',
-        'joined_variables' => '\CureDAO\Client\Models\Variable[]',
-        'valence' => 'string',
-        'variable_category_id' => 'int',
-        'variable_category_name' => 'string',
-        'variable_id' => 'int',
-        'variable_name' => 'string',
-        'variance' => 'double',
-        'wikipedia_title' => 'string'
-    ];
-
-    /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
-    protected static $swaggerFormats = [
-        'action_array' => null,
-        'alias' => null,
-        'available_units' => null,
-        'best_study_link' => null,
-        'best_study_card' => null,
-        'best_user_study_link' => null,
-        'best_user_study_card' => null,
-        'best_population_study_link' => null,
-        'best_population_study_card' => null,
-        'optimal_value_message' => null,
-        'common_optimal_value_message' => null,
-        'user_optimal_value_message' => null,
-        'card' => null,
-        'cause_only' => null,
-        'charts' => null,
-        'charts_link_dynamic' => null,
-        'charts_link_email' => null,
-        'charts_link_facebook' => null,
-        'charts_link_google' => null,
-        'charts_link_static' => null,
-        'charts_link_twitter' => null,
-        'child_common_tag_variables' => null,
-        'child_user_tag_variables' => null,
-        'client_id' => null,
-        'combination_operation' => null,
-        'common_alias' => null,
-        'common_tagged_variables' => null,
-        'common_tag_variables' => null,
-        'created_at' => null,
-        'data_source_names' => null,
-        'data_sources' => null,
-        'description' => null,
-        'display_name' => null,
-        'duration_of_action' => 'int32',
-        'duration_of_action_in_hours' => 'float',
-        'earliest_filling_time' => 'int32',
-        'earliest_measurement_time' => 'int32',
-        'earliest_source_time' => 'int32',
-        'error_message' => null,
-        'experiment_end_time' => null,
-        'experiment_start_time' => null,
-        'filling_type' => null,
-        'filling_value' => 'float',
-        'icon_icon' => null,
-        'id' => null,
-        'image_url' => null,
-        'informational_url' => null,
-        'ingredient_of_common_tag_variables' => null,
-        'ingredient_common_tag_variables' => null,
-        'ingredient_of_user_tag_variables' => null,
-        'ingredient_user_tag_variables' => null,
-        'input_type' => null,
-        'ion_icon' => null,
-        'joined_common_tag_variables' => null,
-        'joined_user_tag_variables' => null,
-        'join_with' => 'int32',
-        'kurtosis' => 'float',
-        'last_processed_daily_value' => 'double',
-        'last_successful_update_time' => null,
-        'last_value' => 'float',
-        'latest_filling_time' => 'int32',
-        'latest_measurement_time' => 'int32',
-        'latest_source_time' => 'int32',
-        'latest_user_measurement_time' => null,
-        'latitude' => 'float',
-        'location' => null,
-        'longitude' => 'float',
-        'manual_tracking' => null,
-        'maximum_allowed_daily_value' => 'float',
-        'maximum_allowed_value' => 'float',
-        'maximum_recorded_daily_value' => 'float',
-        'maximum_recorded_value' => 'double',
-        'mean' => 'float',
-        'measurements_at_last_analysis' => 'int32',
-        'median' => 'float',
-        'minimum_allowed_value' => 'float',
-        'minimum_allowed_daily_value' => 'float',
-        'minimum_non_zero_value' => 'float',
-        'minimum_recorded_value' => 'float',
-        'most_common_connector_id' => null,
-        'most_common_original_unit_id' => null,
-        'most_common_unit_id' => 'int32',
-        'most_common_value' => 'float',
-        'name' => null,
-        'number_of_aggregate_correlations_as_cause' => null,
-        'number_of_aggregate_correlations_as_effect' => null,
-        'number_of_changes' => 'int32',
-        'number_of_correlations' => 'int32',
-        'number_of_correlations_as_cause' => null,
-        'number_of_correlations_as_effect' => null,
-        'number_of_processed_daily_measurements' => 'int32',
-        'number_of_raw_measurements' => null,
-        'number_of_tracking_reminders' => null,
-        'number_of_unique_daily_values' => 'float',
-        'number_of_unique_values' => null,
-        'number_of_user_correlations_as_cause' => null,
-        'number_of_user_correlations_as_effect' => null,
-        'number_of_user_variables' => null,
-        'onset_delay' => 'int32',
-        'onset_delay_in_hours' => 'double',
-        'outcome' => null,
-        'outcome_of_interest' => null,
-        'parent_common_tag_variables' => null,
-        'parent_user_tag_variables' => null,
-        'png_path' => null,
-        'png_url' => null,
-        'predictor_of_interest' => null,
-        'price' => 'double',
-        'product_url' => null,
-        'public' => null,
-        'question' => null,
-        'long_question' => null,
-        'raw_measurements_at_last_analysis' => null,
-        'second_most_common_value' => 'double',
-        'second_to_last_value' => 'double',
-        'share_user_measurements' => null,
-        'skewness' => 'float',
-        'standard_deviation' => 'double',
-        'status' => null,
-        'subtitle' => null,
-        'svg_url' => null,
-        'third_most_common_value' => 'double',
-        'third_to_last_value' => 'double',
-        'tracking_instructions' => null,
-        'tracking_instructions_card' => null,
-        'unit' => null,
-        'unit_abbreviated_name' => null,
-        'unit_category_id' => null,
-        'unit_category_name' => null,
-        'unit_id' => 'int32',
-        'unit_name' => null,
-        'upc' => null,
-        'updated' => 'int32',
-        'updated_at' => null,
-        'updated_time' => null,
-        'user_id' => 'int32',
-        'user_tagged_variables' => null,
-        'user_tag_variables' => null,
-        'user_variable_unit_abbreviated_name' => null,
-        'user_variable_unit_category_id' => null,
-        'user_variable_unit_category_name' => null,
-        'user_variable_unit_id' => null,
-        'user_variable_unit_name' => null,
-        'variable_category' => null,
-        'joined_variables' => null,
-        'valence' => null,
-        'variable_category_id' => null,
-        'variable_category_name' => null,
-        'variable_id' => null,
-        'variable_name' => null,
-        'variance' => 'double',
-        'wikipedia_title' => null
-    ];
-
-    /**
-     * Array of property to type mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function swaggerTypes()
-    {
-        return self::$swaggerTypes;
-    }
-
-    /**
-     * Array of property to format mappings. Used for (de)serialization
-     *
-     * @return array
-     */
-    public static function swaggerFormats()
-    {
-        return self::$swaggerFormats;
-    }
-
-    /**
-     * Array of attributes where the key is the local name,
-     * and the value is the original name
-     *
-     * @var string[]
-     */
-    protected static $attributeMap = [
-        'action_array' => 'actionArray',
-        'alias' => 'alias',
-        'available_units' => 'availableUnits',
-        'best_study_link' => 'bestStudyLink',
-        'best_study_card' => 'bestStudyCard',
-        'best_user_study_link' => 'bestUserStudyLink',
-        'best_user_study_card' => 'bestUserStudyCard',
-        'best_population_study_link' => 'bestPopulationStudyLink',
-        'best_population_study_card' => 'bestPopulationStudyCard',
-        'optimal_value_message' => 'optimalValueMessage',
-        'common_optimal_value_message' => 'commonOptimalValueMessage',
-        'user_optimal_value_message' => 'userOptimalValueMessage',
-        'card' => 'card',
-        'cause_only' => 'causeOnly',
-        'charts' => 'charts',
-        'charts_link_dynamic' => 'chartsLinkDynamic',
-        'charts_link_email' => 'chartsLinkEmail',
-        'charts_link_facebook' => 'chartsLinkFacebook',
-        'charts_link_google' => 'chartsLinkGoogle',
-        'charts_link_static' => 'chartsLinkStatic',
-        'charts_link_twitter' => 'chartsLinkTwitter',
-        'child_common_tag_variables' => 'childCommonTagVariables',
-        'child_user_tag_variables' => 'childUserTagVariables',
-        'client_id' => 'clientId',
-        'combination_operation' => 'combinationOperation',
-        'common_alias' => 'commonAlias',
-        'common_tagged_variables' => 'commonTaggedVariables',
-        'common_tag_variables' => 'commonTagVariables',
-        'created_at' => 'createdAt',
-        'data_source_names' => 'dataSourceNames',
-        'data_sources' => 'dataSources',
-        'description' => 'description',
-        'display_name' => 'displayName',
-        'duration_of_action' => 'durationOfAction',
-        'duration_of_action_in_hours' => 'durationOfActionInHours',
-        'earliest_filling_time' => 'earliestFillingTime',
-        'earliest_measurement_time' => 'earliestMeasurementTime',
-        'earliest_source_time' => 'earliestSourceTime',
-        'error_message' => 'errorMessage',
-        'experiment_end_time' => 'experimentEndTime',
-        'experiment_start_time' => 'experimentStartTime',
-        'filling_type' => 'fillingType',
-        'filling_value' => 'fillingValue',
-        'icon_icon' => 'iconIcon',
-        'id' => 'id',
-        'image_url' => 'imageUrl',
-        'informational_url' => 'informationalUrl',
-        'ingredient_of_common_tag_variables' => 'ingredientOfCommonTagVariables',
-        'ingredient_common_tag_variables' => 'ingredientCommonTagVariables',
-        'ingredient_of_user_tag_variables' => 'ingredientOfUserTagVariables',
-        'ingredient_user_tag_variables' => 'ingredientUserTagVariables',
-        'input_type' => 'inputType',
-        'ion_icon' => 'ionIcon',
-        'joined_common_tag_variables' => 'joinedCommonTagVariables',
-        'joined_user_tag_variables' => 'joinedUserTagVariables',
-        'join_with' => 'joinWith',
-        'kurtosis' => 'kurtosis',
-        'last_processed_daily_value' => 'lastProcessedDailyValue',
-        'last_successful_update_time' => 'lastSuccessfulUpdateTime',
-        'last_value' => 'lastValue',
-        'latest_filling_time' => 'latestFillingTime',
-        'latest_measurement_time' => 'latestMeasurementTime',
-        'latest_source_time' => 'latestSourceTime',
-        'latest_user_measurement_time' => 'latestUserMeasurementTime',
-        'latitude' => 'latitude',
-        'location' => 'location',
-        'longitude' => 'longitude',
-        'manual_tracking' => 'manualTracking',
-        'maximum_allowed_daily_value' => 'maximumAllowedDailyValue',
-        'maximum_allowed_value' => 'maximumAllowedValue',
-        'maximum_recorded_daily_value' => 'maximumRecordedDailyValue',
-        'maximum_recorded_value' => 'maximumRecordedValue',
-        'mean' => 'mean',
-        'measurements_at_last_analysis' => 'measurementsAtLastAnalysis',
-        'median' => 'median',
-        'minimum_allowed_value' => 'minimumAllowedValue',
-        'minimum_allowed_daily_value' => 'minimumAllowedDailyValue',
-        'minimum_non_zero_value' => 'minimumNonZeroValue',
-        'minimum_recorded_value' => 'minimumRecordedValue',
-        'most_common_connector_id' => 'mostCommonConnectorId',
-        'most_common_original_unit_id' => 'mostCommonOriginalUnitId',
-        'most_common_unit_id' => 'mostCommonUnitId',
-        'most_common_value' => 'mostCommonValue',
-        'name' => 'name',
-        'number_of_aggregate_correlations_as_cause' => 'numberOfAggregateCorrelationsAsCause',
-        'number_of_aggregate_correlations_as_effect' => 'numberOfAggregateCorrelationsAsEffect',
-        'number_of_changes' => 'numberOfChanges',
-        'number_of_correlations' => 'numberOfCorrelations',
-        'number_of_correlations_as_cause' => 'numberOfCorrelationsAsCause',
-        'number_of_correlations_as_effect' => 'numberOfCorrelationsAsEffect',
-        'number_of_processed_daily_measurements' => 'numberOfProcessedDailyMeasurements',
-        'number_of_raw_measurements' => 'numberOfRawMeasurements',
-        'number_of_tracking_reminders' => 'numberOfTrackingReminders',
-        'number_of_unique_daily_values' => 'numberOfUniqueDailyValues',
-        'number_of_unique_values' => 'numberOfUniqueValues',
-        'number_of_user_correlations_as_cause' => 'numberOfUserCorrelationsAsCause',
-        'number_of_user_correlations_as_effect' => 'numberOfUserCorrelationsAsEffect',
-        'number_of_user_variables' => 'numberOfUserVariables',
-        'onset_delay' => 'onsetDelay',
-        'onset_delay_in_hours' => 'onsetDelayInHours',
-        'outcome' => 'outcome',
-        'outcome_of_interest' => 'outcomeOfInterest',
-        'parent_common_tag_variables' => 'parentCommonTagVariables',
-        'parent_user_tag_variables' => 'parentUserTagVariables',
-        'png_path' => 'pngPath',
-        'png_url' => 'pngUrl',
-        'predictor_of_interest' => 'predictorOfInterest',
-        'price' => 'price',
-        'product_url' => 'productUrl',
-        'public' => 'public',
-        'question' => 'question',
-        'long_question' => 'longQuestion',
-        'raw_measurements_at_last_analysis' => 'rawMeasurementsAtLastAnalysis',
-        'second_most_common_value' => 'secondMostCommonValue',
-        'second_to_last_value' => 'secondToLastValue',
-        'share_user_measurements' => 'shareUserMeasurements',
-        'skewness' => 'skewness',
-        'standard_deviation' => 'standardDeviation',
-        'status' => 'status',
-        'subtitle' => 'subtitle',
-        'svg_url' => 'svgUrl',
-        'third_most_common_value' => 'thirdMostCommonValue',
-        'third_to_last_value' => 'thirdToLastValue',
-        'tracking_instructions' => 'trackingInstructions',
-        'tracking_instructions_card' => 'trackingInstructionsCard',
-        'unit' => 'unit',
-        'unit_abbreviated_name' => 'unitAbbreviatedName',
-        'unit_category_id' => 'unitCategoryId',
-        'unit_category_name' => 'unitCategoryName',
-        'unit_id' => 'unitId',
-        'unit_name' => 'unitName',
-        'upc' => 'upc',
-        'updated' => 'updated',
-        'updated_at' => 'updatedAt',
-        'updated_time' => 'updatedTime',
-        'user_id' => 'userId',
-        'user_tagged_variables' => 'userTaggedVariables',
-        'user_tag_variables' => 'userTagVariables',
-        'user_variable_unit_abbreviated_name' => 'userVariableUnitAbbreviatedName',
-        'user_variable_unit_category_id' => 'userVariableUnitCategoryId',
-        'user_variable_unit_category_name' => 'userVariableUnitCategoryName',
-        'user_variable_unit_id' => 'userVariableUnitId',
-        'user_variable_unit_name' => 'userVariableUnitName',
-        'variable_category' => 'variableCategory',
-        'joined_variables' => 'joinedVariables',
-        'valence' => 'valence',
-        'variable_category_id' => 'variableCategoryId',
-        'variable_category_name' => 'variableCategoryName',
-        'variable_id' => 'variableId',
-        'variable_name' => 'variableName',
-        'variance' => 'variance',
-        'wikipedia_title' => 'wikipediaTitle'
-    ];
-
-    /**
-     * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @var string[]
-     */
-    protected static $setters = [
-        'action_array' => 'setActionArray',
-        'alias' => 'setAlias',
-        'available_units' => 'setAvailableUnits',
-        'best_study_link' => 'setBestStudyLink',
-        'best_study_card' => 'setBestStudyCard',
-        'best_user_study_link' => 'setBestUserStudyLink',
-        'best_user_study_card' => 'setBestUserStudyCard',
-        'best_population_study_link' => 'setBestPopulationStudyLink',
-        'best_population_study_card' => 'setBestPopulationStudyCard',
-        'optimal_value_message' => 'setOptimalValueMessage',
-        'common_optimal_value_message' => 'setCommonOptimalValueMessage',
-        'user_optimal_value_message' => 'setUserOptimalValueMessage',
-        'card' => 'setCard',
-        'cause_only' => 'setCauseOnly',
-        'charts' => 'setCharts',
-        'charts_link_dynamic' => 'setChartsLinkDynamic',
-        'charts_link_email' => 'setChartsLinkEmail',
-        'charts_link_facebook' => 'setChartsLinkFacebook',
-        'charts_link_google' => 'setChartsLinkGoogle',
-        'charts_link_static' => 'setChartsLinkStatic',
-        'charts_link_twitter' => 'setChartsLinkTwitter',
-        'child_common_tag_variables' => 'setChildCommonTagVariables',
-        'child_user_tag_variables' => 'setChildUserTagVariables',
-        'client_id' => 'setClientId',
-        'combination_operation' => 'setCombinationOperation',
-        'common_alias' => 'setCommonAlias',
-        'common_tagged_variables' => 'setCommonTaggedVariables',
-        'common_tag_variables' => 'setCommonTagVariables',
-        'created_at' => 'setCreatedAt',
-        'data_source_names' => 'setDataSourceNames',
-        'data_sources' => 'setDataSources',
-        'description' => 'setDescription',
-        'display_name' => 'setDisplayName',
-        'duration_of_action' => 'setDurationOfAction',
-        'duration_of_action_in_hours' => 'setDurationOfActionInHours',
-        'earliest_filling_time' => 'setEarliestFillingTime',
-        'earliest_measurement_time' => 'setEarliestMeasurementTime',
-        'earliest_source_time' => 'setEarliestSourceTime',
-        'error_message' => 'setErrorMessage',
-        'experiment_end_time' => 'setExperimentEndTime',
-        'experiment_start_time' => 'setExperimentStartTime',
-        'filling_type' => 'setFillingType',
-        'filling_value' => 'setFillingValue',
-        'icon_icon' => 'setIconIcon',
-        'id' => 'setId',
-        'image_url' => 'setImageUrl',
-        'informational_url' => 'setInformationalUrl',
-        'ingredient_of_common_tag_variables' => 'setIngredientOfCommonTagVariables',
-        'ingredient_common_tag_variables' => 'setIngredientCommonTagVariables',
-        'ingredient_of_user_tag_variables' => 'setIngredientOfUserTagVariables',
-        'ingredient_user_tag_variables' => 'setIngredientUserTagVariables',
-        'input_type' => 'setInputType',
-        'ion_icon' => 'setIonIcon',
-        'joined_common_tag_variables' => 'setJoinedCommonTagVariables',
-        'joined_user_tag_variables' => 'setJoinedUserTagVariables',
-        'join_with' => 'setJoinWith',
-        'kurtosis' => 'setKurtosis',
-        'last_processed_daily_value' => 'setLastProcessedDailyValue',
-        'last_successful_update_time' => 'setLastSuccessfulUpdateTime',
-        'last_value' => 'setLastValue',
-        'latest_filling_time' => 'setLatestFillingTime',
-        'latest_measurement_time' => 'setLatestMeasurementTime',
-        'latest_source_time' => 'setLatestSourceTime',
-        'latest_user_measurement_time' => 'setLatestUserMeasurementTime',
-        'latitude' => 'setLatitude',
-        'location' => 'setLocation',
-        'longitude' => 'setLongitude',
-        'manual_tracking' => 'setManualTracking',
-        'maximum_allowed_daily_value' => 'setMaximumAllowedDailyValue',
-        'maximum_allowed_value' => 'setMaximumAllowedValue',
-        'maximum_recorded_daily_value' => 'setMaximumRecordedDailyValue',
-        'maximum_recorded_value' => 'setMaximumRecordedValue',
-        'mean' => 'setMean',
-        'measurements_at_last_analysis' => 'setMeasurementsAtLastAnalysis',
-        'median' => 'setMedian',
-        'minimum_allowed_value' => 'setMinimumAllowedValue',
-        'minimum_allowed_daily_value' => 'setMinimumAllowedDailyValue',
-        'minimum_non_zero_value' => 'setMinimumNonZeroValue',
-        'minimum_recorded_value' => 'setMinimumRecordedValue',
-        'most_common_connector_id' => 'setMostCommonConnectorId',
-        'most_common_original_unit_id' => 'setMostCommonOriginalUnitId',
-        'most_common_unit_id' => 'setMostCommonUnitId',
-        'most_common_value' => 'setMostCommonValue',
-        'name' => 'setName',
-        'number_of_aggregate_correlations_as_cause' => 'setNumberOfAggregateCorrelationsAsCause',
-        'number_of_aggregate_correlations_as_effect' => 'setNumberOfAggregateCorrelationsAsEffect',
-        'number_of_changes' => 'setNumberOfChanges',
-        'number_of_correlations' => 'setNumberOfCorrelations',
-        'number_of_correlations_as_cause' => 'setNumberOfCorrelationsAsCause',
-        'number_of_correlations_as_effect' => 'setNumberOfCorrelationsAsEffect',
-        'number_of_processed_daily_measurements' => 'setNumberOfProcessedDailyMeasurements',
-        'number_of_raw_measurements' => 'setNumberOfRawMeasurements',
-        'number_of_tracking_reminders' => 'setNumberOfTrackingReminders',
-        'number_of_unique_daily_values' => 'setNumberOfUniqueDailyValues',
-        'number_of_unique_values' => 'setNumberOfUniqueValues',
-        'number_of_user_correlations_as_cause' => 'setNumberOfUserCorrelationsAsCause',
-        'number_of_user_correlations_as_effect' => 'setNumberOfUserCorrelationsAsEffect',
-        'number_of_user_variables' => 'setNumberOfUserVariables',
-        'onset_delay' => 'setOnsetDelay',
-        'onset_delay_in_hours' => 'setOnsetDelayInHours',
-        'outcome' => 'setOutcome',
-        'outcome_of_interest' => 'setOutcomeOfInterest',
-        'parent_common_tag_variables' => 'setParentCommonTagVariables',
-        'parent_user_tag_variables' => 'setParentUserTagVariables',
-        'png_path' => 'setPngPath',
-        'png_url' => 'setPngUrl',
-        'predictor_of_interest' => 'setPredictorOfInterest',
-        'price' => 'setPrice',
-        'product_url' => 'setProductUrl',
-        'public' => 'setPublic',
-        'question' => 'setQuestion',
-        'long_question' => 'setLongQuestion',
-        'raw_measurements_at_last_analysis' => 'setRawMeasurementsAtLastAnalysis',
-        'second_most_common_value' => 'setSecondMostCommonValue',
-        'second_to_last_value' => 'setSecondToLastValue',
-        'share_user_measurements' => 'setShareUserMeasurements',
-        'skewness' => 'setSkewness',
-        'standard_deviation' => 'setStandardDeviation',
-        'status' => 'setStatus',
-        'subtitle' => 'setSubtitle',
-        'svg_url' => 'setSvgUrl',
-        'third_most_common_value' => 'setThirdMostCommonValue',
-        'third_to_last_value' => 'setThirdToLastValue',
-        'tracking_instructions' => 'setTrackingInstructions',
-        'tracking_instructions_card' => 'setTrackingInstructionsCard',
-        'unit' => 'setUnit',
-        'unit_abbreviated_name' => 'setUnitAbbreviatedName',
-        'unit_category_id' => 'setUnitCategoryId',
-        'unit_category_name' => 'setUnitCategoryName',
-        'unit_id' => 'setUnitId',
-        'unit_name' => 'setUnitName',
-        'upc' => 'setUpc',
-        'updated' => 'setUpdated',
-        'updated_at' => 'setUpdatedAt',
-        'updated_time' => 'setUpdatedTime',
-        'user_id' => 'setUserId',
-        'user_tagged_variables' => 'setUserTaggedVariables',
-        'user_tag_variables' => 'setUserTagVariables',
-        'user_variable_unit_abbreviated_name' => 'setUserVariableUnitAbbreviatedName',
-        'user_variable_unit_category_id' => 'setUserVariableUnitCategoryId',
-        'user_variable_unit_category_name' => 'setUserVariableUnitCategoryName',
-        'user_variable_unit_id' => 'setUserVariableUnitId',
-        'user_variable_unit_name' => 'setUserVariableUnitName',
-        'variable_category' => 'setVariableCategory',
-        'joined_variables' => 'setJoinedVariables',
-        'valence' => 'setValence',
-        'variable_category_id' => 'setVariableCategoryId',
-        'variable_category_name' => 'setVariableCategoryName',
-        'variable_id' => 'setVariableId',
-        'variable_name' => 'setVariableName',
-        'variance' => 'setVariance',
-        'wikipedia_title' => 'setWikipediaTitle'
-    ];
-
-    /**
-     * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @var string[]
-     */
-    protected static $getters = [
-        'action_array' => 'getActionArray',
-        'alias' => 'getAlias',
-        'available_units' => 'getAvailableUnits',
-        'best_study_link' => 'getBestStudyLink',
-        'best_study_card' => 'getBestStudyCard',
-        'best_user_study_link' => 'getBestUserStudyLink',
-        'best_user_study_card' => 'getBestUserStudyCard',
-        'best_population_study_link' => 'getBestPopulationStudyLink',
-        'best_population_study_card' => 'getBestPopulationStudyCard',
-        'optimal_value_message' => 'getOptimalValueMessage',
-        'common_optimal_value_message' => 'getCommonOptimalValueMessage',
-        'user_optimal_value_message' => 'getUserOptimalValueMessage',
-        'card' => 'getCard',
-        'cause_only' => 'getCauseOnly',
-        'charts' => 'getCharts',
-        'charts_link_dynamic' => 'getChartsLinkDynamic',
-        'charts_link_email' => 'getChartsLinkEmail',
-        'charts_link_facebook' => 'getChartsLinkFacebook',
-        'charts_link_google' => 'getChartsLinkGoogle',
-        'charts_link_static' => 'getChartsLinkStatic',
-        'charts_link_twitter' => 'getChartsLinkTwitter',
-        'child_common_tag_variables' => 'getChildCommonTagVariables',
-        'child_user_tag_variables' => 'getChildUserTagVariables',
-        'client_id' => 'getClientId',
-        'combination_operation' => 'getCombinationOperation',
-        'common_alias' => 'getCommonAlias',
-        'common_tagged_variables' => 'getCommonTaggedVariables',
-        'common_tag_variables' => 'getCommonTagVariables',
-        'created_at' => 'getCreatedAt',
-        'data_source_names' => 'getDataSourceNames',
-        'data_sources' => 'getDataSources',
-        'description' => 'getDescription',
-        'display_name' => 'getDisplayName',
-        'duration_of_action' => 'getDurationOfAction',
-        'duration_of_action_in_hours' => 'getDurationOfActionInHours',
-        'earliest_filling_time' => 'getEarliestFillingTime',
-        'earliest_measurement_time' => 'getEarliestMeasurementTime',
-        'earliest_source_time' => 'getEarliestSourceTime',
-        'error_message' => 'getErrorMessage',
-        'experiment_end_time' => 'getExperimentEndTime',
-        'experiment_start_time' => 'getExperimentStartTime',
-        'filling_type' => 'getFillingType',
-        'filling_value' => 'getFillingValue',
-        'icon_icon' => 'getIconIcon',
-        'id' => 'getId',
-        'image_url' => 'getImageUrl',
-        'informational_url' => 'getInformationalUrl',
-        'ingredient_of_common_tag_variables' => 'getIngredientOfCommonTagVariables',
-        'ingredient_common_tag_variables' => 'getIngredientCommonTagVariables',
-        'ingredient_of_user_tag_variables' => 'getIngredientOfUserTagVariables',
-        'ingredient_user_tag_variables' => 'getIngredientUserTagVariables',
-        'input_type' => 'getInputType',
-        'ion_icon' => 'getIonIcon',
-        'joined_common_tag_variables' => 'getJoinedCommonTagVariables',
-        'joined_user_tag_variables' => 'getJoinedUserTagVariables',
-        'join_with' => 'getJoinWith',
-        'kurtosis' => 'getKurtosis',
-        'last_processed_daily_value' => 'getLastProcessedDailyValue',
-        'last_successful_update_time' => 'getLastSuccessfulUpdateTime',
-        'last_value' => 'getLastValue',
-        'latest_filling_time' => 'getLatestFillingTime',
-        'latest_measurement_time' => 'getLatestMeasurementTime',
-        'latest_source_time' => 'getLatestSourceTime',
-        'latest_user_measurement_time' => 'getLatestUserMeasurementTime',
-        'latitude' => 'getLatitude',
-        'location' => 'getLocation',
-        'longitude' => 'getLongitude',
-        'manual_tracking' => 'getManualTracking',
-        'maximum_allowed_daily_value' => 'getMaximumAllowedDailyValue',
-        'maximum_allowed_value' => 'getMaximumAllowedValue',
-        'maximum_recorded_daily_value' => 'getMaximumRecordedDailyValue',
-        'maximum_recorded_value' => 'getMaximumRecordedValue',
-        'mean' => 'getMean',
-        'measurements_at_last_analysis' => 'getMeasurementsAtLastAnalysis',
-        'median' => 'getMedian',
-        'minimum_allowed_value' => 'getMinimumAllowedValue',
-        'minimum_allowed_daily_value' => 'getMinimumAllowedDailyValue',
-        'minimum_non_zero_value' => 'getMinimumNonZeroValue',
-        'minimum_recorded_value' => 'getMinimumRecordedValue',
-        'most_common_connector_id' => 'getMostCommonConnectorId',
-        'most_common_original_unit_id' => 'getMostCommonOriginalUnitId',
-        'most_common_unit_id' => 'getMostCommonUnitId',
-        'most_common_value' => 'getMostCommonValue',
-        'name' => 'getName',
-        'number_of_aggregate_correlations_as_cause' => 'getNumberOfAggregateCorrelationsAsCause',
-        'number_of_aggregate_correlations_as_effect' => 'getNumberOfAggregateCorrelationsAsEffect',
-        'number_of_changes' => 'getNumberOfChanges',
-        'number_of_correlations' => 'getNumberOfCorrelations',
-        'number_of_correlations_as_cause' => 'getNumberOfCorrelationsAsCause',
-        'number_of_correlations_as_effect' => 'getNumberOfCorrelationsAsEffect',
-        'number_of_processed_daily_measurements' => 'getNumberOfProcessedDailyMeasurements',
-        'number_of_raw_measurements' => 'getNumberOfRawMeasurements',
-        'number_of_tracking_reminders' => 'getNumberOfTrackingReminders',
-        'number_of_unique_daily_values' => 'getNumberOfUniqueDailyValues',
-        'number_of_unique_values' => 'getNumberOfUniqueValues',
-        'number_of_user_correlations_as_cause' => 'getNumberOfUserCorrelationsAsCause',
-        'number_of_user_correlations_as_effect' => 'getNumberOfUserCorrelationsAsEffect',
-        'number_of_user_variables' => 'getNumberOfUserVariables',
-        'onset_delay' => 'getOnsetDelay',
-        'onset_delay_in_hours' => 'getOnsetDelayInHours',
-        'outcome' => 'getOutcome',
-        'outcome_of_interest' => 'getOutcomeOfInterest',
-        'parent_common_tag_variables' => 'getParentCommonTagVariables',
-        'parent_user_tag_variables' => 'getParentUserTagVariables',
-        'png_path' => 'getPngPath',
-        'png_url' => 'getPngUrl',
-        'predictor_of_interest' => 'getPredictorOfInterest',
-        'price' => 'getPrice',
-        'product_url' => 'getProductUrl',
-        'public' => 'getPublic',
-        'question' => 'getQuestion',
-        'long_question' => 'getLongQuestion',
-        'raw_measurements_at_last_analysis' => 'getRawMeasurementsAtLastAnalysis',
-        'second_most_common_value' => 'getSecondMostCommonValue',
-        'second_to_last_value' => 'getSecondToLastValue',
-        'share_user_measurements' => 'getShareUserMeasurements',
-        'skewness' => 'getSkewness',
-        'standard_deviation' => 'getStandardDeviation',
-        'status' => 'getStatus',
-        'subtitle' => 'getSubtitle',
-        'svg_url' => 'getSvgUrl',
-        'third_most_common_value' => 'getThirdMostCommonValue',
-        'third_to_last_value' => 'getThirdToLastValue',
-        'tracking_instructions' => 'getTrackingInstructions',
-        'tracking_instructions_card' => 'getTrackingInstructionsCard',
-        'unit' => 'getUnit',
-        'unit_abbreviated_name' => 'getUnitAbbreviatedName',
-        'unit_category_id' => 'getUnitCategoryId',
-        'unit_category_name' => 'getUnitCategoryName',
-        'unit_id' => 'getUnitId',
-        'unit_name' => 'getUnitName',
-        'upc' => 'getUpc',
-        'updated' => 'getUpdated',
-        'updated_at' => 'getUpdatedAt',
-        'updated_time' => 'getUpdatedTime',
-        'user_id' => 'getUserId',
-        'user_tagged_variables' => 'getUserTaggedVariables',
-        'user_tag_variables' => 'getUserTagVariables',
-        'user_variable_unit_abbreviated_name' => 'getUserVariableUnitAbbreviatedName',
-        'user_variable_unit_category_id' => 'getUserVariableUnitCategoryId',
-        'user_variable_unit_category_name' => 'getUserVariableUnitCategoryName',
-        'user_variable_unit_id' => 'getUserVariableUnitId',
-        'user_variable_unit_name' => 'getUserVariableUnitName',
-        'variable_category' => 'getVariableCategory',
-        'joined_variables' => 'getJoinedVariables',
-        'valence' => 'getValence',
-        'variable_category_id' => 'getVariableCategoryId',
-        'variable_category_name' => 'getVariableCategoryName',
-        'variable_id' => 'getVariableId',
-        'variable_name' => 'getVariableName',
-        'variance' => 'getVariance',
-        'wikipedia_title' => 'getWikipediaTitle'
-    ];
-
-    /**
-     * Array of attributes where the key is the local name,
-     * and the value is the original name
-     *
-     * @return array
-     */
-    public static function attributeMap()
-    {
-        return self::$attributeMap;
-    }
-
-    /**
-     * Array of attributes to setter functions (for deserialization of responses)
-     *
-     * @return array
-     */
-    public static function setters()
-    {
-        return self::$setters;
-    }
-
-    /**
-     * Array of attributes to getter functions (for serialization of requests)
-     *
-     * @return array
-     */
-    public static function getters()
-    {
-        return self::$getters;
-    }
-
-    /**
-     * The original name of the model.
-     *
-     * @return string
-     */
-    public function getModelName()
-    {
-        return self::$swaggerModelName;
-    }
-
-    const COMBINATION_OPERATION_MEAN = 'MEAN';
-    const COMBINATION_OPERATION_SUM = 'SUM';
-    const FILLING_TYPE_NONE = 'none';
-    const FILLING_TYPE_ZERO_FILLING = 'zero-filling';
-    const FILLING_TYPE_VALUE_FILLING = 'value-filling';
-    const VARIABLE_CATEGORY_NAME_ACTIVITY = 'Activity';
-    const VARIABLE_CATEGORY_NAME_BOOKS = 'Books';
-    const VARIABLE_CATEGORY_NAME_CAUSES_OF_ILLNESS = 'Causes of Illness';
-    const VARIABLE_CATEGORY_NAME_COGNITIVE_PERFORMANCE = 'Cognitive Performance';
-    const VARIABLE_CATEGORY_NAME_CONDITIONS = 'Conditions';
-    const VARIABLE_CATEGORY_NAME_EMOTIONS = 'Emotions';
-    const VARIABLE_CATEGORY_NAME_ENVIRONMENT = 'Environment';
-    const VARIABLE_CATEGORY_NAME_FOODS = 'Foods';
-    const VARIABLE_CATEGORY_NAME_GOALS = 'Goals';
-    const VARIABLE_CATEGORY_NAME_LOCATIONS = 'Locations';
-    const VARIABLE_CATEGORY_NAME_MISCELLANEOUS = 'Miscellaneous';
-    const VARIABLE_CATEGORY_NAME_MOVIES_AND_TV = 'Movies and TV';
-    const VARIABLE_CATEGORY_NAME_MUSIC = 'Music';
-    const VARIABLE_CATEGORY_NAME_NUTRIENTS = 'Nutrients';
-    const VARIABLE_CATEGORY_NAME_PAYMENTS = 'Payments';
-    const VARIABLE_CATEGORY_NAME_PHYSICAL_ACTIVITIES = 'Physical Activities';
-    const VARIABLE_CATEGORY_NAME_PHYSIQUE = 'Physique';
-    const VARIABLE_CATEGORY_NAME_SLEEP = 'Sleep';
-    const VARIABLE_CATEGORY_NAME_SOCIAL_INTERACTIONS = 'Social Interactions';
-    const VARIABLE_CATEGORY_NAME_SOFTWARE = 'Software';
-    const VARIABLE_CATEGORY_NAME_SYMPTOMS = 'Symptoms';
-    const VARIABLE_CATEGORY_NAME_TREATMENTS = 'Treatments';
-    const VARIABLE_CATEGORY_NAME_VITAL_SIGNS = 'Vital Signs';
-    
-
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCombinationOperationAllowableValues()
-    {
-        return [
-            self::COMBINATION_OPERATION_MEAN,
-            self::COMBINATION_OPERATION_SUM,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getFillingTypeAllowableValues()
-    {
-        return [
-            self::FILLING_TYPE_NONE,
-            self::FILLING_TYPE_ZERO_FILLING,
-            self::FILLING_TYPE_VALUE_FILLING,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getVariableCategoryNameAllowableValues()
-    {
-        return [
-            self::VARIABLE_CATEGORY_NAME_ACTIVITY,
-            self::VARIABLE_CATEGORY_NAME_BOOKS,
-            self::VARIABLE_CATEGORY_NAME_CAUSES_OF_ILLNESS,
-            self::VARIABLE_CATEGORY_NAME_COGNITIVE_PERFORMANCE,
-            self::VARIABLE_CATEGORY_NAME_CONDITIONS,
-            self::VARIABLE_CATEGORY_NAME_EMOTIONS,
-            self::VARIABLE_CATEGORY_NAME_ENVIRONMENT,
-            self::VARIABLE_CATEGORY_NAME_FOODS,
-            self::VARIABLE_CATEGORY_NAME_GOALS,
-            self::VARIABLE_CATEGORY_NAME_LOCATIONS,
-            self::VARIABLE_CATEGORY_NAME_MISCELLANEOUS,
-            self::VARIABLE_CATEGORY_NAME_MOVIES_AND_TV,
-            self::VARIABLE_CATEGORY_NAME_MUSIC,
-            self::VARIABLE_CATEGORY_NAME_NUTRIENTS,
-            self::VARIABLE_CATEGORY_NAME_PAYMENTS,
-            self::VARIABLE_CATEGORY_NAME_PHYSICAL_ACTIVITIES,
-            self::VARIABLE_CATEGORY_NAME_PHYSIQUE,
-            self::VARIABLE_CATEGORY_NAME_SLEEP,
-            self::VARIABLE_CATEGORY_NAME_SOCIAL_INTERACTIONS,
-            self::VARIABLE_CATEGORY_NAME_SOFTWARE,
-            self::VARIABLE_CATEGORY_NAME_SYMPTOMS,
-            self::VARIABLE_CATEGORY_NAME_TREATMENTS,
-            self::VARIABLE_CATEGORY_NAME_VITAL_SIGNS,
-        ];
-    }
-    
-
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
-
-    /**
-     * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
-     */
-    public function __construct(array $data = null)
-    {
-        $this->container['action_array'] = isset($data['action_array']) ? $data['action_array'] : null;
-        $this->container['alias'] = isset($data['alias']) ? $data['alias'] : null;
-        $this->container['available_units'] = isset($data['available_units']) ? $data['available_units'] : null;
-        $this->container['best_study_link'] = isset($data['best_study_link']) ? $data['best_study_link'] : null;
-        $this->container['best_study_card'] = isset($data['best_study_card']) ? $data['best_study_card'] : null;
-        $this->container['best_user_study_link'] = isset($data['best_user_study_link']) ? $data['best_user_study_link'] : null;
-        $this->container['best_user_study_card'] = isset($data['best_user_study_card']) ? $data['best_user_study_card'] : null;
-        $this->container['best_population_study_link'] = isset($data['best_population_study_link']) ? $data['best_population_study_link'] : null;
-        $this->container['best_population_study_card'] = isset($data['best_population_study_card']) ? $data['best_population_study_card'] : null;
-        $this->container['optimal_value_message'] = isset($data['optimal_value_message']) ? $data['optimal_value_message'] : null;
-        $this->container['common_optimal_value_message'] = isset($data['common_optimal_value_message']) ? $data['common_optimal_value_message'] : null;
-        $this->container['user_optimal_value_message'] = isset($data['user_optimal_value_message']) ? $data['user_optimal_value_message'] : null;
-        $this->container['card'] = isset($data['card']) ? $data['card'] : null;
-        $this->container['cause_only'] = isset($data['cause_only']) ? $data['cause_only'] : null;
-        $this->container['charts'] = isset($data['charts']) ? $data['charts'] : null;
-        $this->container['charts_link_dynamic'] = isset($data['charts_link_dynamic']) ? $data['charts_link_dynamic'] : null;
-        $this->container['charts_link_email'] = isset($data['charts_link_email']) ? $data['charts_link_email'] : null;
-        $this->container['charts_link_facebook'] = isset($data['charts_link_facebook']) ? $data['charts_link_facebook'] : null;
-        $this->container['charts_link_google'] = isset($data['charts_link_google']) ? $data['charts_link_google'] : null;
-        $this->container['charts_link_static'] = isset($data['charts_link_static']) ? $data['charts_link_static'] : null;
-        $this->container['charts_link_twitter'] = isset($data['charts_link_twitter']) ? $data['charts_link_twitter'] : null;
-        $this->container['child_common_tag_variables'] = isset($data['child_common_tag_variables']) ? $data['child_common_tag_variables'] : null;
-        $this->container['child_user_tag_variables'] = isset($data['child_user_tag_variables']) ? $data['child_user_tag_variables'] : null;
-        $this->container['client_id'] = isset($data['client_id']) ? $data['client_id'] : null;
-        $this->container['combination_operation'] = isset($data['combination_operation']) ? $data['combination_operation'] : null;
-        $this->container['common_alias'] = isset($data['common_alias']) ? $data['common_alias'] : null;
-        $this->container['common_tagged_variables'] = isset($data['common_tagged_variables']) ? $data['common_tagged_variables'] : null;
-        $this->container['common_tag_variables'] = isset($data['common_tag_variables']) ? $data['common_tag_variables'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['data_source_names'] = isset($data['data_source_names']) ? $data['data_source_names'] : null;
-        $this->container['data_sources'] = isset($data['data_sources']) ? $data['data_sources'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['display_name'] = isset($data['display_name']) ? $data['display_name'] : null;
-        $this->container['duration_of_action'] = isset($data['duration_of_action']) ? $data['duration_of_action'] : null;
-        $this->container['duration_of_action_in_hours'] = isset($data['duration_of_action_in_hours']) ? $data['duration_of_action_in_hours'] : null;
-        $this->container['earliest_filling_time'] = isset($data['earliest_filling_time']) ? $data['earliest_filling_time'] : null;
-        $this->container['earliest_measurement_time'] = isset($data['earliest_measurement_time']) ? $data['earliest_measurement_time'] : null;
-        $this->container['earliest_source_time'] = isset($data['earliest_source_time']) ? $data['earliest_source_time'] : null;
-        $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
-        $this->container['experiment_end_time'] = isset($data['experiment_end_time']) ? $data['experiment_end_time'] : null;
-        $this->container['experiment_start_time'] = isset($data['experiment_start_time']) ? $data['experiment_start_time'] : null;
-        $this->container['filling_type'] = isset($data['filling_type']) ? $data['filling_type'] : null;
-        $this->container['filling_value'] = isset($data['filling_value']) ? $data['filling_value'] : null;
-        $this->container['icon_icon'] = isset($data['icon_icon']) ? $data['icon_icon'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['image_url'] = isset($data['image_url']) ? $data['image_url'] : null;
-        $this->container['informational_url'] = isset($data['informational_url']) ? $data['informational_url'] : null;
-        $this->container['ingredient_of_common_tag_variables'] = isset($data['ingredient_of_common_tag_variables']) ? $data['ingredient_of_common_tag_variables'] : null;
-        $this->container['ingredient_common_tag_variables'] = isset($data['ingredient_common_tag_variables']) ? $data['ingredient_common_tag_variables'] : null;
-        $this->container['ingredient_of_user_tag_variables'] = isset($data['ingredient_of_user_tag_variables']) ? $data['ingredient_of_user_tag_variables'] : null;
-        $this->container['ingredient_user_tag_variables'] = isset($data['ingredient_user_tag_variables']) ? $data['ingredient_user_tag_variables'] : null;
-        $this->container['input_type'] = isset($data['input_type']) ? $data['input_type'] : null;
-        $this->container['ion_icon'] = isset($data['ion_icon']) ? $data['ion_icon'] : null;
-        $this->container['joined_common_tag_variables'] = isset($data['joined_common_tag_variables']) ? $data['joined_common_tag_variables'] : null;
-        $this->container['joined_user_tag_variables'] = isset($data['joined_user_tag_variables']) ? $data['joined_user_tag_variables'] : null;
-        $this->container['join_with'] = isset($data['join_with']) ? $data['join_with'] : null;
-        $this->container['kurtosis'] = isset($data['kurtosis']) ? $data['kurtosis'] : null;
-        $this->container['last_processed_daily_value'] = isset($data['last_processed_daily_value']) ? $data['last_processed_daily_value'] : null;
-        $this->container['last_successful_update_time'] = isset($data['last_successful_update_time']) ? $data['last_successful_update_time'] : null;
-        $this->container['last_value'] = isset($data['last_value']) ? $data['last_value'] : null;
-        $this->container['latest_filling_time'] = isset($data['latest_filling_time']) ? $data['latest_filling_time'] : null;
-        $this->container['latest_measurement_time'] = isset($data['latest_measurement_time']) ? $data['latest_measurement_time'] : null;
-        $this->container['latest_source_time'] = isset($data['latest_source_time']) ? $data['latest_source_time'] : null;
-        $this->container['latest_user_measurement_time'] = isset($data['latest_user_measurement_time']) ? $data['latest_user_measurement_time'] : null;
-        $this->container['latitude'] = isset($data['latitude']) ? $data['latitude'] : null;
-        $this->container['location'] = isset($data['location']) ? $data['location'] : null;
-        $this->container['longitude'] = isset($data['longitude']) ? $data['longitude'] : null;
-        $this->container['manual_tracking'] = isset($data['manual_tracking']) ? $data['manual_tracking'] : null;
-        $this->container['maximum_allowed_daily_value'] = isset($data['maximum_allowed_daily_value']) ? $data['maximum_allowed_daily_value'] : null;
-        $this->container['maximum_allowed_value'] = isset($data['maximum_allowed_value']) ? $data['maximum_allowed_value'] : null;
-        $this->container['maximum_recorded_daily_value'] = isset($data['maximum_recorded_daily_value']) ? $data['maximum_recorded_daily_value'] : null;
-        $this->container['maximum_recorded_value'] = isset($data['maximum_recorded_value']) ? $data['maximum_recorded_value'] : null;
-        $this->container['mean'] = isset($data['mean']) ? $data['mean'] : null;
-        $this->container['measurements_at_last_analysis'] = isset($data['measurements_at_last_analysis']) ? $data['measurements_at_last_analysis'] : null;
-        $this->container['median'] = isset($data['median']) ? $data['median'] : null;
-        $this->container['minimum_allowed_value'] = isset($data['minimum_allowed_value']) ? $data['minimum_allowed_value'] : null;
-        $this->container['minimum_allowed_daily_value'] = isset($data['minimum_allowed_daily_value']) ? $data['minimum_allowed_daily_value'] : null;
-        $this->container['minimum_non_zero_value'] = isset($data['minimum_non_zero_value']) ? $data['minimum_non_zero_value'] : null;
-        $this->container['minimum_recorded_value'] = isset($data['minimum_recorded_value']) ? $data['minimum_recorded_value'] : null;
-        $this->container['most_common_connector_id'] = isset($data['most_common_connector_id']) ? $data['most_common_connector_id'] : null;
-        $this->container['most_common_original_unit_id'] = isset($data['most_common_original_unit_id']) ? $data['most_common_original_unit_id'] : null;
-        $this->container['most_common_unit_id'] = isset($data['most_common_unit_id']) ? $data['most_common_unit_id'] : null;
-        $this->container['most_common_value'] = isset($data['most_common_value']) ? $data['most_common_value'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['number_of_aggregate_correlations_as_cause'] = isset($data['number_of_aggregate_correlations_as_cause']) ? $data['number_of_aggregate_correlations_as_cause'] : null;
-        $this->container['number_of_aggregate_correlations_as_effect'] = isset($data['number_of_aggregate_correlations_as_effect']) ? $data['number_of_aggregate_correlations_as_effect'] : null;
-        $this->container['number_of_changes'] = isset($data['number_of_changes']) ? $data['number_of_changes'] : null;
-        $this->container['number_of_correlations'] = isset($data['number_of_correlations']) ? $data['number_of_correlations'] : null;
-        $this->container['number_of_correlations_as_cause'] = isset($data['number_of_correlations_as_cause']) ? $data['number_of_correlations_as_cause'] : null;
-        $this->container['number_of_correlations_as_effect'] = isset($data['number_of_correlations_as_effect']) ? $data['number_of_correlations_as_effect'] : null;
-        $this->container['number_of_processed_daily_measurements'] = isset($data['number_of_processed_daily_measurements']) ? $data['number_of_processed_daily_measurements'] : null;
-        $this->container['number_of_raw_measurements'] = isset($data['number_of_raw_measurements']) ? $data['number_of_raw_measurements'] : null;
-        $this->container['number_of_tracking_reminders'] = isset($data['number_of_tracking_reminders']) ? $data['number_of_tracking_reminders'] : null;
-        $this->container['number_of_unique_daily_values'] = isset($data['number_of_unique_daily_values']) ? $data['number_of_unique_daily_values'] : null;
-        $this->container['number_of_unique_values'] = isset($data['number_of_unique_values']) ? $data['number_of_unique_values'] : null;
-        $this->container['number_of_user_correlations_as_cause'] = isset($data['number_of_user_correlations_as_cause']) ? $data['number_of_user_correlations_as_cause'] : null;
-        $this->container['number_of_user_correlations_as_effect'] = isset($data['number_of_user_correlations_as_effect']) ? $data['number_of_user_correlations_as_effect'] : null;
-        $this->container['number_of_user_variables'] = isset($data['number_of_user_variables']) ? $data['number_of_user_variables'] : null;
-        $this->container['onset_delay'] = isset($data['onset_delay']) ? $data['onset_delay'] : null;
-        $this->container['onset_delay_in_hours'] = isset($data['onset_delay_in_hours']) ? $data['onset_delay_in_hours'] : null;
-        $this->container['outcome'] = isset($data['outcome']) ? $data['outcome'] : null;
-        $this->container['outcome_of_interest'] = isset($data['outcome_of_interest']) ? $data['outcome_of_interest'] : null;
-        $this->container['parent_common_tag_variables'] = isset($data['parent_common_tag_variables']) ? $data['parent_common_tag_variables'] : null;
-        $this->container['parent_user_tag_variables'] = isset($data['parent_user_tag_variables']) ? $data['parent_user_tag_variables'] : null;
-        $this->container['png_path'] = isset($data['png_path']) ? $data['png_path'] : null;
-        $this->container['png_url'] = isset($data['png_url']) ? $data['png_url'] : null;
-        $this->container['predictor_of_interest'] = isset($data['predictor_of_interest']) ? $data['predictor_of_interest'] : null;
-        $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['product_url'] = isset($data['product_url']) ? $data['product_url'] : null;
-        $this->container['public'] = isset($data['public']) ? $data['public'] : null;
-        $this->container['question'] = isset($data['question']) ? $data['question'] : null;
-        $this->container['long_question'] = isset($data['long_question']) ? $data['long_question'] : null;
-        $this->container['raw_measurements_at_last_analysis'] = isset($data['raw_measurements_at_last_analysis']) ? $data['raw_measurements_at_last_analysis'] : null;
-        $this->container['second_most_common_value'] = isset($data['second_most_common_value']) ? $data['second_most_common_value'] : null;
-        $this->container['second_to_last_value'] = isset($data['second_to_last_value']) ? $data['second_to_last_value'] : null;
-        $this->container['share_user_measurements'] = isset($data['share_user_measurements']) ? $data['share_user_measurements'] : null;
-        $this->container['skewness'] = isset($data['skewness']) ? $data['skewness'] : null;
-        $this->container['standard_deviation'] = isset($data['standard_deviation']) ? $data['standard_deviation'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['subtitle'] = isset($data['subtitle']) ? $data['subtitle'] : null;
-        $this->container['svg_url'] = isset($data['svg_url']) ? $data['svg_url'] : null;
-        $this->container['third_most_common_value'] = isset($data['third_most_common_value']) ? $data['third_most_common_value'] : null;
-        $this->container['third_to_last_value'] = isset($data['third_to_last_value']) ? $data['third_to_last_value'] : null;
-        $this->container['tracking_instructions'] = isset($data['tracking_instructions']) ? $data['tracking_instructions'] : null;
-        $this->container['tracking_instructions_card'] = isset($data['tracking_instructions_card']) ? $data['tracking_instructions_card'] : null;
-        $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
-        $this->container['unit_abbreviated_name'] = isset($data['unit_abbreviated_name']) ? $data['unit_abbreviated_name'] : null;
-        $this->container['unit_category_id'] = isset($data['unit_category_id']) ? $data['unit_category_id'] : null;
-        $this->container['unit_category_name'] = isset($data['unit_category_name']) ? $data['unit_category_name'] : null;
-        $this->container['unit_id'] = isset($data['unit_id']) ? $data['unit_id'] : null;
-        $this->container['unit_name'] = isset($data['unit_name']) ? $data['unit_name'] : null;
-        $this->container['upc'] = isset($data['upc']) ? $data['upc'] : null;
-        $this->container['updated'] = isset($data['updated']) ? $data['updated'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['updated_time'] = isset($data['updated_time']) ? $data['updated_time'] : null;
-        $this->container['user_id'] = isset($data['user_id']) ? $data['user_id'] : null;
-        $this->container['user_tagged_variables'] = isset($data['user_tagged_variables']) ? $data['user_tagged_variables'] : null;
-        $this->container['user_tag_variables'] = isset($data['user_tag_variables']) ? $data['user_tag_variables'] : null;
-        $this->container['user_variable_unit_abbreviated_name'] = isset($data['user_variable_unit_abbreviated_name']) ? $data['user_variable_unit_abbreviated_name'] : null;
-        $this->container['user_variable_unit_category_id'] = isset($data['user_variable_unit_category_id']) ? $data['user_variable_unit_category_id'] : null;
-        $this->container['user_variable_unit_category_name'] = isset($data['user_variable_unit_category_name']) ? $data['user_variable_unit_category_name'] : null;
-        $this->container['user_variable_unit_id'] = isset($data['user_variable_unit_id']) ? $data['user_variable_unit_id'] : null;
-        $this->container['user_variable_unit_name'] = isset($data['user_variable_unit_name']) ? $data['user_variable_unit_name'] : null;
-        $this->container['variable_category'] = isset($data['variable_category']) ? $data['variable_category'] : null;
-        $this->container['joined_variables'] = isset($data['joined_variables']) ? $data['joined_variables'] : null;
-        $this->container['valence'] = isset($data['valence']) ? $data['valence'] : null;
-        $this->container['variable_category_id'] = isset($data['variable_category_id']) ? $data['variable_category_id'] : null;
-        $this->container['variable_category_name'] = isset($data['variable_category_name']) ? $data['variable_category_name'] : null;
-        $this->container['variable_id'] = isset($data['variable_id']) ? $data['variable_id'] : null;
-        $this->container['variable_name'] = isset($data['variable_name']) ? $data['variable_name'] : null;
-        $this->container['variance'] = isset($data['variance']) ? $data['variance'] : null;
-        $this->container['wikipedia_title'] = isset($data['wikipedia_title']) ? $data['wikipedia_title'] : null;
-    }
-
-    /**
-     * Show all the invalid properties with reasons.
-     *
-     * @return array invalid properties with reasons
-     */
-    public function listInvalidProperties()
-    {
-        $invalidProperties = [];
-
-        $allowedValues = $this->getCombinationOperationAllowableValues();
-        if (!is_null($this->container['combination_operation']) && !in_array($this->container['combination_operation'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'combination_operation', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        $allowedValues = $this->getFillingTypeAllowableValues();
-        if (!is_null($this->container['filling_type']) && !in_array($this->container['filling_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'filling_type', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['user_id'] === null) {
-            $invalidProperties[] = "'user_id' can't be null";
-        }
-        $allowedValues = $this->getVariableCategoryNameAllowableValues();
-        if (!is_null($this->container['variable_category_name']) && !in_array($this->container['variable_category_name'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'variable_category_name', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['variable_id'] === null) {
-            $invalidProperties[] = "'variable_id' can't be null";
-        }
-        return $invalidProperties;
-    }
-
-    /**
-     * Validate all the properties in the model
-     * return true if all passed
-     *
-     * @return bool True if all properties are valid
-     */
-    public function valid()
-    {
-        return count($this->listInvalidProperties()) === 0;
-    }
-    /**
-     * Gets action_array
-     *
-     * @return \CureDAO\Client\Models\TrackingReminderNotificationAction[]
-     */
-    public function getActionArray()
-    {
-        return $this->container['action_array'];
-    }
-
-    /**
-     * Sets action_array
-     *
-     * @param \CureDAO\Client\Models\TrackingReminderNotificationAction[] $action_array action_array
-     *
-     * @return $this
-     */
-    public function setActionArray($action_array)
-    {
-        $this->container['action_array'] = $action_array;
-
-        return $this;
-    }
-
-    /**
-     * Gets alias
-     *
-     * @return string
-     */
-    public function getAlias()
-    {
-        return $this->container['alias'];
-    }
-
-    /**
-     * Sets alias
-     *
-     * @param string $alias User-Defined Variable Setting:  Alternative display name
-     *
-     * @return $this
-     */
-    public function setAlias($alias)
-    {
-        $this->container['alias'] = $alias;
-
-        return $this;
-    }
-
-    /**
-     * Gets available_units
-     *
-     * @return \CureDAO\Client\Models\Unit[]
-     */
-    public function getAvailableUnits()
-    {
-        return $this->container['available_units'];
-    }
-
-    /**
-     * Sets available_units
-     *
-     * @param \CureDAO\Client\Models\Unit[] $available_units available_units
-     *
-     * @return $this
-     */
-    public function setAvailableUnits($available_units)
-    {
-        $this->container['available_units'] = $available_units;
-
-        return $this;
-    }
-
-    /**
-     * Gets best_study_link
-     *
-     * @return string
-     */
-    public function getBestStudyLink()
-    {
-        return $this->container['best_study_link'];
-    }
-
-    /**
-     * Sets best_study_link
-     *
-     * @param string $best_study_link Link to study comparing variable with strongest relationship for user or population
-     *
-     * @return $this
-     */
-    public function setBestStudyLink($best_study_link)
-    {
-        $this->container['best_study_link'] = $best_study_link;
-
-        return $this;
-    }
-
-    /**
-     * Gets best_study_card
-     *
-     * @return \CureDAO\Client\Models\Card
-     */
-    public function getBestStudyCard()
-    {
-        return $this->container['best_study_card'];
-    }
-
-    /**
-     * Sets best_study_card
-     *
-     * @param \CureDAO\Client\Models\Card $best_study_card Description of relationship with variable with strongest relationship for user or population
-     *
-     * @return $this
-     */
-    public function setBestStudyCard($best_study_card)
-    {
-        $this->container['best_study_card'] = $best_study_card;
-
-        return $this;
-    }
-
-    /**
-     * Gets best_user_study_link
-     *
-     * @return string
-     */
-    public function getBestUserStudyLink()
-    {
-        return $this->container['best_user_study_link'];
-    }
-
-    /**
-     * Sets best_user_study_link
-     *
-     * @param string $best_user_study_link Link to study comparing variable with strongest relationship for user
-     *
-     * @return $this
-     */
-    public function setBestUserStudyLink($best_user_study_link)
-    {
-        $this->container['best_user_study_link'] = $best_user_study_link;
-
-        return $this;
-    }
-
-    /**
-     * Gets best_user_study_card
-     *
-     * @return \CureDAO\Client\Models\Card
-     */
-    public function getBestUserStudyCard()
-    {
-        return $this->container['best_user_study_card'];
-    }
-
-    /**
-     * Sets best_user_study_card
-     *
-     * @param \CureDAO\Client\Models\Card $best_user_study_card Description of relationship with variable with strongest relationship for user
-     *
-     * @return $this
-     */
-    public function setBestUserStudyCard($best_user_study_card)
-    {
-        $this->container['best_user_study_card'] = $best_user_study_card;
-
-        return $this;
-    }
-
-    /**
-     * Gets best_population_study_link
-     *
-     * @return string
-     */
-    public function getBestPopulationStudyLink()
-    {
-        return $this->container['best_population_study_link'];
-    }
-
-    /**
-     * Sets best_population_study_link
-     *
-     * @param string $best_population_study_link Link to study comparing variable with strongest relationship for population
-     *
-     * @return $this
-     */
-    public function setBestPopulationStudyLink($best_population_study_link)
-    {
-        $this->container['best_population_study_link'] = $best_population_study_link;
-
-        return $this;
-    }
-
-    /**
-     * Gets best_population_study_card
-     *
-     * @return \CureDAO\Client\Models\Card
-     */
-    public function getBestPopulationStudyCard()
-    {
-        return $this->container['best_population_study_card'];
-    }
-
-    /**
-     * Sets best_population_study_card
-     *
-     * @param \CureDAO\Client\Models\Card $best_population_study_card Description of relationship with variable with strongest relationship for population
-     *
-     * @return $this
-     */
-    public function setBestPopulationStudyCard($best_population_study_card)
-    {
-        $this->container['best_population_study_card'] = $best_population_study_card;
-
-        return $this;
-    }
-
-    /**
-     * Gets optimal_value_message
-     *
-     * @return string
-     */
-    public function getOptimalValueMessage()
-    {
-        return $this->container['optimal_value_message'];
-    }
-
-    /**
-     * Sets optimal_value_message
-     *
-     * @param string $optimal_value_message Description of relationship with variable with strongest relationship for user or population
-     *
-     * @return $this
-     */
-    public function setOptimalValueMessage($optimal_value_message)
-    {
-        $this->container['optimal_value_message'] = $optimal_value_message;
-
-        return $this;
-    }
-
-    /**
-     * Gets common_optimal_value_message
-     *
-     * @return string
-     */
-    public function getCommonOptimalValueMessage()
-    {
-        return $this->container['common_optimal_value_message'];
-    }
-
-    /**
-     * Sets common_optimal_value_message
-     *
-     * @param string $common_optimal_value_message Description of relationship with variable with strongest relationship for population
-     *
-     * @return $this
-     */
-    public function setCommonOptimalValueMessage($common_optimal_value_message)
-    {
-        $this->container['common_optimal_value_message'] = $common_optimal_value_message;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_optimal_value_message
-     *
-     * @return string
-     */
-    public function getUserOptimalValueMessage()
-    {
-        return $this->container['user_optimal_value_message'];
-    }
-
-    /**
-     * Sets user_optimal_value_message
-     *
-     * @param string $user_optimal_value_message Description of relationship with variable with strongest relationship for user
-     *
-     * @return $this
-     */
-    public function setUserOptimalValueMessage($user_optimal_value_message)
-    {
-        $this->container['user_optimal_value_message'] = $user_optimal_value_message;
-
-        return $this;
-    }
-
-    /**
-     * Gets card
-     *
-     * @return \CureDAO\Client\Models\Card
-     */
-    public function getCard()
-    {
-        return $this->container['card'];
-    }
-
-    /**
-     * Sets card
-     *
-     * @param \CureDAO\Client\Models\Card $card Card containing instructions, image, text, link and relevant import buttons
-     *
-     * @return $this
-     */
-    public function setCard($card)
-    {
-        $this->container['card'] = $card;
-
-        return $this;
-    }
-
-    /**
-     * Gets cause_only
-     *
-     * @return bool
-     */
-    public function getCauseOnly()
-    {
-        return $this->container['cause_only'];
-    }
-
-    /**
-     * Sets cause_only
-     *
-     * @param bool $cause_only User-Defined Variable Setting: True indicates that this variable is generally a cause in a causal relationship.  An example of a causeOnly variable would be a variable such as Cloud Cover which would generally not be influenced by the behaviour of the user
-     *
-     * @return $this
-     */
-    public function setCauseOnly($cause_only)
-    {
-        $this->container['cause_only'] = $cause_only;
-
-        return $this;
-    }
-
-    /**
-     * Gets charts
-     *
-     * @return \CureDAO\Client\Models\VariableCharts
-     */
-    public function getCharts()
-    {
-        return $this->container['charts'];
-    }
-
-    /**
-     * Sets charts
-     *
-     * @param \CureDAO\Client\Models\VariableCharts $charts charts
-     *
-     * @return $this
-     */
-    public function setCharts($charts)
-    {
-        $this->container['charts'] = $charts;
-
-        return $this;
-    }
-
-    /**
-     * Gets charts_link_dynamic
-     *
-     * @return string
-     */
-    public function getChartsLinkDynamic()
-    {
-        return $this->container['charts_link_dynamic'];
-    }
-
-    /**
-     * Sets charts_link_dynamic
-     *
-     * @param string $charts_link_dynamic Ex: https://local.quantimo.do/ionic/Modo/www/#/app/charts/Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29?variableName=Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29&userId=230&pngUrl=https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Ftreatments.png
-     *
-     * @return $this
-     */
-    public function setChartsLinkDynamic($charts_link_dynamic)
-    {
-        $this->container['charts_link_dynamic'] = $charts_link_dynamic;
+    /**
+     * @var string
+     */
+    public $title;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $abbreviatedUnitName;
+
+    /**
+     * @var string
+     */
+    public $actionsCount;
+
+    /**
+     * @var string
+     */
+    public $additionalMetaData;
+
+    /**
+     * @var string
+     */
+    public $aggregateCorrelationsCount;
+
+    /**
+     * @var string
+     */
+    public $aggregateCorrelationsWhereCauseVariableCount;
+
+    /**
+     * @var string
+     */
+    public $aggregateCorrelationsWhereEffectVariableCount;
+
+    /**
+     * @var string
+     */
+    public $analysisEndedAt;
+
+    /**
+     * @var string
+     */
+    public $analysisRequestedAt;
+
+    /**
+     * @var string
+     */
+    public $analysisSettingsModifiedAt;
+
+    /**
+     * @var string
+     */
+    public $analysisStartedAt;
+
+    /**
+     * @var string
+     */
+    public $applicationsWhereOutcomeVariableCount;
+
+    /**
+     * @var string
+     */
+    public $applicationsWherePredictorVariableCount;
+
+    /**
+     * @var int
+     */
+    public $averageSecondsBetweenMeasurements;
+
+    /**
+     * @var int
+     */
+    public $bestAggregateCorrelationId;
+
+    /**
+     * @var int
+     */
+    public $bestCauseVariableId;
+
+    /**
+     * @var int
+     */
+    public $bestEffectVariableId;
+
+    /**
+     * @var string
+     */
+    public $boring;
+
+    /**
+     * @var string
+     */
+    public $brandName;
+
+    /**
+     * @var string
+     */
+    public $canonicalVariableId;
+
+    /**
+     * @var bool
+     */
+    public $causeOnly;
+
+    /**
+     * @var Charts
+     */
+    public $charts;
+
+    /**
+     * @var string
+     */
+    public $clientId;
+
+    /**
+     * @var string
+     */
+    public $combinationOperation;
+
+    /**
+     * @var string
+     */
+    public $commonAlias;
+
+    /**
+     * @var string
+     */
+    public $commonMaximumAllowedDailyValue;
+
+    /**
+     * @var string
+     */
+    public $commonMinimumAllowedDailyValue;
+
+    /**
+     * @var string
+     */
+    public $commonMinimumAllowedNonZeroValue;
+
+    /**
+     * @var string
+     */
+    public $commonTaggedByCount;
+
+    /**
+     * @var string
+     */
+    public $commonTagsCount;
+
+    /**
+     * @var string
+     */
+    public $commonTagsWhereTagVariableCount;
+
+    /**
+     * @var string
+     */
+    public $commonTagsWhereTaggedVariableCount;
+
+    /**
+     * @var string
+     */
+    public $conditionCausesWhereCauseCount;
+
+    /**
+     * @var string
+     */
+    public $conditionCausesWhereConditionCount;
+
+    /**
+     * @var string
+     */
+    public $conditionTreatmentsCount;
+
+    /**
+     * @var string
+     */
+    public $conditionTreatmentsWhereConditionCount;
+
+    /**
+     * @var string
+     */
+    public $conditionTreatmentsWhereTreatmentCount;
+
+    /**
+     * @var string
+     */
+    public $controllable;
+
+    /**
+     * @var string
+     */
+    public $correlationCausalityVotesWhereCauseVariableCount;
+
+    /**
+     * @var string
+     */
+    public $correlationCausalityVotesWhereEffectVariableCount;
+
+    /**
+     * @var string
+     */
+    public $correlationUsefulnessVotesWhereCauseVariableCount;
+
+    /**
+     * @var string
+     */
+    public $correlationUsefulnessVotesWhereEffectVariableCount;
+
+    /**
+     * @var string
+     */
+    public $correlationsCount;
+
+    /**
+     * @var string
+     */
+    public $correlationsWhereCauseVariableCount;
+
+    /**
+     * @var string
+     */
+    public $correlationsWhereEffectVariableCount;
+
+    /**
+     * @var string
+     */
+    public $createdAt;
+
+    /**
+     * @var int
+     */
+    public $creatorUserId;
+
+    /**
+     * @var string
+     */
+    public $ctTreatmentSideEffectsWhereSideEffectVariableCount;
+
+    /**
+     * @var string
+     */
+    public $ctTreatmentSideEffectsWhereTreatmentVariableCount;
+
+    /**
+     * @var DataSourcesCount
+     */
+    public $dataSourcesCount;
+
+    /**
+     * @var int
+     */
+    public $defaultUnitId;
+
+    /**
+     * @var string
+     */
+    public $defaultValue;
+
+    /**
+     * @var string
+     */
+    public $deletionReason;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $displayName;
+
+    /**
+     * @var int
+     */
+    public $durationOfAction;
+
+    /**
+     * @var string
+     */
+    public $earliestNonTaggedMeasurementStartAt;
+
+    /**
+     * @var string
+     */
+    public $earliestTaggedMeasurementStartAt;
+
+    /**
+     * @var string
+     */
+    public $favoritersCount;
+
+    /**
+     * @var string
+     */
+    public $favoritesCount;
+
+    /**
+     * @var string
+     */
+    public $fillingType;
+
+    /**
+     * @var string
+     */
+    public $fillingValue;
+
+    /**
+     * @var string
+     */
+    public $imageUrl;
+
+    /**
+     * @var string
+     */
+    public $individualCauseStudiesCount;
+
+    /**
+     * @var string
+     */
+    public $individualEffectStudiesCount;
+
+    /**
+     * @var string
+     */
+    public $informationalUrl;
+
+    /**
+     * @var string
+     */
+    public $ionIcon;
+
+    /**
+     * @var string
+     */
+    public $isGoal;
+
+    /**
+     * @var int
+     */
+    public $isPublic;
+
+    /**
+     * @var float
+     */
+    public $kurtosis;
+
+    /**
+     * @var string
+     */
+    public $latestNonTaggedMeasurementStartAt;
+
+    /**
+     * @var string
+     */
+    public $latestTaggedMeasurementStartAt;
+
+    /**
+     * @var bool
+     */
+    public $manualTracking;
+
+    /**
+     * @var string
+     */
+    public $maximumAllowedDailyValue;
+
+    /**
+     * @var string
+     */
+    public $maximumAllowedValue;
+
+    /**
+     * @var int
+     */
+    public $maximumRecordedValue;
+
+    /**
+     * @var float
+     */
+    public $mean;
+
+    /**
+     * @var string
+     */
+    public $measurementsCount;
+
+    /**
+     * @var string
+     */
+    public $mediaCount;
+
+    /**
+     * @var float
+     */
+    public $median;
+
+    /**
+     * @var int
+     */
+    public $medianSecondsBetweenMeasurements;
+
+    /**
+     * @var string
+     */
+    public $metaData;
+
+    /**
+     * @var int
+     */
+    public $minimumAllowedSecondsBetweenMeasurements;
+
+    /**
+     * @var int
+     */
+    public $minimumAllowedValue;
+
+    /**
+     * @var int
+     */
+    public $minimumRecordedValue;
+
+    /**
+     * @var int
+     */
+    public $mostCommonConnectorId;
+
+    /**
+     * @var int
+     */
+    public $mostCommonOriginalUnitId;
+
+    /**
+     * @var string
+     */
+    public $mostCommonSourceName;
+
+    /**
+     * @var int
+     */
+    public $mostCommonValue;
+
+    /**
+     * @var string
+     */
+    public $newestDataAt;
+
+    /**
+     * @var int
+     */
+    public $numberCommonTaggedBy;
+
+    /**
+     * @var int
+     */
+    public $numberOfAggregateCorrelationsAsCause;
+
+    /**
+     * @var int
+     */
+    public $numberOfAggregateCorrelationsAsEffect;
+
+    /**
+     * @var int
+     */
+    public $numberOfApplicationsWhereOutcomeVariable;
+
+    /**
+     * @var int
+     */
+    public $numberOfApplicationsWherePredictorVariable;
+
+    /**
+     * @var string
+     */
+    public $numberOfCommonChildren;
+
+    /**
+     * @var string
+     */
+    public $numberOfCommonFoods;
+
+    /**
+     * @var string
+     */
+    public $numberOfCommonIngredients;
+
+    /**
+     * @var string
+     */
+    public $numberOfCommonJoinedVariables;
+
+    /**
+     * @var string
+     */
+    public $numberOfCommonParents;
+
+    /**
+     * @var int
+     */
+    public $numberOfCommonTags;
+
+    /**
+     * @var int
+     */
+    public $numberOfCommonTagsWhereTagVariable;
+
+    /**
+     * @var int
+     */
+    public $numberOfCommonTagsWhereTaggedVariable;
+
+    /**
+     * @var int
+     */
+    public $numberOfMeasurements;
+
+    /**
+     * @var string
+     */
+    public $numberOfOutcomeCaseStudies;
+
+    /**
+     * @var string
+     */
+    public $numberOfOutcomePopulationStudies;
+
+    /**
+     * @var string
+     */
+    public $numberOfPredictorCaseStudies;
+
+    /**
+     * @var string
+     */
+    public $numberOfPredictorPopulationStudies;
+
+    /**
+     * @var string
+     */
+    public $numberOfRawMeasurements;
+
+    /**
+     * @var int
+     */
+    public $numberOfRawMeasurementsWithTagsJoinsChildren;
+
+    /**
+     * @var string
+     */
+    public $numberOfSoftDeletedMeasurements;
+
+    /**
+     * @var int
+     */
+    public $numberOfStudiesWhereCauseVariable;
+
+    /**
+     * @var int
+     */
+    public $numberOfStudiesWhereEffectVariable;
+
+    /**
+     * @var int
+     */
+    public $numberOfTrackingReminderNotifications;
+
+    /**
+     * @var int
+     */
+    public $numberOfTrackingReminders;
+
+    /**
+     * @var int
+     */
+    public $numberOfUniqueValues;
+
+    /**
+     * @var string
+     */
+    public $numberOfUserChildren;
+
+    /**
+     * @var string
+     */
+    public $numberOfUserFoods;
+
+    /**
+     * @var string
+     */
+    public $numberOfUserIngredients;
+
+    /**
+     * @var string
+     */
+    public $numberOfUserJoinedVariables;
+
+    /**
+     * @var string
+     */
+    public $numberOfUserParents;
+
+    /**
+     * @var int
+     */
+    public $numberOfUserTagsWhereTagVariable;
+
+    /**
+     * @var int
+     */
+    public $numberOfUserTagsWhereTaggedVariable;
+
+    /**
+     * @var int
+     */
+    public $numberOfUserVariables;
+
+    /**
+     * @var int
+     */
+    public $numberOfUsersWherePrimaryOutcomeVariable;
+
+    /**
+     * @var int
+     */
+    public $numberOfVariablesWhereBestCauseVariable;
+
+    /**
+     * @var int
+     */
+    public $numberOfVariablesWhereBestEffectVariable;
+
+    /**
+     * @var int
+     */
+    public $numberOfVotesWhereCauseVariable;
+
+    /**
+     * @var int
+     */
+    public $numberOfVotesWhereEffectVariable;
+
+    /**
+     * @var int
+     */
+    public $onsetDelay;
+
+    /**
+     * @var string
+     */
+    public $optimalValueMessage;
+
+    /**
+     * @var bool
+     */
+    public $outcome;
+
+    /**
+     * @var string
+     */
+    public $outcomesCount;
+
+    /**
+     * @var string
+     */
+    public $parentId;
+
+    /**
+     * @var string
+     */
+    public $populationCauseStudiesCount;
+
+    /**
+     * @var string
+     */
+    public $populationEffectStudiesCount;
+
+    /**
+     * @var string
+     */
+    public $predictor;
+
+    /**
+     * @var string
+     */
+    public $predictorsCount;
+
+    /**
+     * @var float
+     */
+    public $price;
+
+    /**
+     * @var string
+     */
+    public $productUrl;
+
+    /**
+     * @var string
+     */
+    public $publicOutcomesCount;
+
+    /**
+     * @var string
+     */
+    public $publicPredictorsCount;
+
+    /**
+     * @var string
+     */
+    public $reasonForAnalysis;
+
+    /**
+     * @var int
+     */
+    public $recordSizeInKb;
+
+    /**
+     * @var string
+     */
+    public $reportTitle;
+
+    /**
+     * @var int
+     */
+    public $secondMostCommonValue;
+
+    /**
+     * @var string
+     */
+    public $sideEffectVariablesCount;
+
+    /**
+     * @var string
+     */
+    public $sideEffectsCount;
+
+    /**
+     * @var float
+     */
+    public $skewness;
+
+    /**
+     * @var string
+     */
+    public $slug;
+
+    /**
+     * @var int
+     */
+    public $sortOrder;
+
+    /**
+     * @var string
+     */
+    public $sourceUrl;
+
+    /**
+     * @var float
+     */
+    public $standardDeviation;
+
+    /**
+     * @var string
+     */
+    public $studiesCount;
+
+    /**
+     * @var string
+     */
+    public $studiesWhereCauseVariableCount;
+
+    /**
+     * @var string
+     */
+    public $studiesWhereEffectVariableCount;
+
+    /**
+     * @var string
+     */
+    public $subtitle;
+
+    /**
+     * @var array
+     */
+    public $synonyms;
+
+    /**
+     * @var string
+     */
+    public $tagsCount;
+
+    /**
+     * @var int
+     */
+    public $thirdMostCommonValue;
+
+    /**
+     * @var string
+     */
+    public $thirdPartyCorrelationsCount;
+
+    /**
+     * @var string
+     */
+    public $trackingReminderNotificationsCount;
+
+    /**
+     * @var string
+     */
+    public $trackingRemindersCount;
+
+    /**
+     * @var string
+     */
+    public $treatmentSideEffectsWhereTreatmentCount;
+
+    /**
+     * @var int
+     */
+    public $unitId;
+
+    /**
+     * @var string
+     */
+    public $upVotedPublicOutcomesCount;
+
+    /**
+     * @var string
+     */
+    public $upVotedPublicPredictorsCount;
+
+    /**
+     * @var string
+     */
+    public $upc12;
+
+    /**
+     * @var string
+     */
+    public $upc14;
+
+    /**
+     * @var string
+     */
+    public $updatedAt;
+
+    /**
+     * @var string
+     */
+    public $userErrorMessage;
+
+    /**
+     * @var string
+     */
+    public $userTaggedByCount;
+
+    /**
+     * @var string
+     */
+    public $userTagsCount;
+
+    /**
+     * @var string
+     */
+    public $userTagsWhereTagVariableCount;
+
+    /**
+     * @var string
+     */
+    public $userTagsWhereTaggedVariableCount;
+
+    /**
+     * @var string
+     */
+    public $userVariableClientsCount;
+
+    /**
+     * @var string
+     */
+    public $userVariableOutcomeCategoriesCount;
+
+    /**
+     * @var string
+     */
+    public $userVariablePredictorCategoriesCount;
+
+    /**
+     * @var string
+     */
+    public $userVariablesCount;
+
+    /**
+     * @var string
+     */
+    public $userVariablesExcludingTestUsersCount;
+
+    /**
+     * @var string
+     */
+    public $usersCount;
+
+    /**
+     * @var string
+     */
+    public $usersWherePrimaryOutcomeVariableCount;
+
+    /**
+     * @var string
+     */
+    public $valence;
+
+    /**
+     * @var int
+     */
+    public $variableCategoryId;
+
+    /**
+     * @var int
+     */
+    public $variableId;
+
+    /**
+     * @var string
+     */
+    public $variableOutcomeCategoriesCount;
+
+    /**
+     * @var string
+     */
+    public $variablePredictorCategoriesCount;
+
+    /**
+     * @var string
+     */
+    public $variableUserSourcesCount;
+
+    /**
+     * @var string
+     */
+    public $variablesCount;
+
+    /**
+     * @var string
+     */
+    public $variablesWhereBestCauseVariableCount;
+
+    /**
+     * @var string
+     */
+    public $variablesWhereBestEffectVariableCount;
+
+    /**
+     * @var float
+     */
+    public $variance;
+
+    /**
+     * @var string
+     */
+    public $votesCount;
+
+    /**
+     * @var string
+     */
+    public $votesWhereCauseCount;
+
+    /**
+     * @var string
+     */
+    public $votesWhereCauseVariableCount;
+
+    /**
+     * @var string
+     */
+    public $votesWhereEffectCount;
+
+    /**
+     * @var string
+     */
+    public $votesWhereEffectVariableCount;
+
+    /**
+     * @var string
+     */
+    public $wikipediaTitle;
+
+    /**
+     * @var string
+     */
+    public $wikipediaUrl;
+
+    /**
+     * @var int
+     */
+    public $wpPostId;
+
+
+    /**
+     * @return string|null
+     */
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string|null $title
+     *
+     * @return Variable
+     */
+    public function setTitle(?string $title): Variable
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     *
+     * @return Variable
+     */
+    public function setId(?int $id): Variable
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string|null $name
+     *
+     * @return Variable
+     */
+    public function setName(?string $name): Variable
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAbbreviatedUnitName(): ?string
+    {
+        return $this->abbreviatedUnitName;
+    }
+
+    /**
+     * @param string|null $abbreviatedUnitName
+     *
+     * @return Variable
+     */
+    public function setAbbreviatedUnitName(?string $abbreviatedUnitName): Variable
+    {
+        $this->abbreviatedUnitName = $abbreviatedUnitName;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getActionsCount(): ?string
+    {
+        return $this->actionsCount;
+    }
+
+    /**
+     * @param string|null $actionsCount
+     *
+     * @return Variable
+     */
+    public function setActionsCount(?string $actionsCount): Variable
+    {
+        $this->actionsCount = $actionsCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAdditionalMetaData(): ?string
+    {
+        return $this->additionalMetaData;
+    }
+
+    /**
+     * @param string|null $additionalMetaData
+     *
+     * @return Variable
+     */
+    public function setAdditionalMetaData(?string $additionalMetaData): Variable
+    {
+        $this->additionalMetaData = $additionalMetaData;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAggregateCorrelationsCount(): ?string
+    {
+        return $this->aggregateCorrelationsCount;
+    }
+
+    /**
+     * @param string|null $aggregateCorrelationsCount
+     *
+     * @return Variable
+     */
+    public function setAggregateCorrelationsCount(?string $aggregateCorrelationsCount): Variable
+    {
+        $this->aggregateCorrelationsCount = $aggregateCorrelationsCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAggregateCorrelationsWhereCauseVariableCount(): ?string
+    {
+        return $this->aggregateCorrelationsWhereCauseVariableCount;
+    }
+
+    /**
+     * @param string|null $aggregateCorrelationsWhereCauseVariableCount
+     *
+     * @return Variable
+     */
+    public function setAggregateCorrelationsWhereCauseVariableCount(?string $aggregateCorrelationsWhereCauseVariableCount): Variable
+    {
+        $this->aggregateCorrelationsWhereCauseVariableCount = $aggregateCorrelationsWhereCauseVariableCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAggregateCorrelationsWhereEffectVariableCount(): ?string
+    {
+        return $this->aggregateCorrelationsWhereEffectVariableCount;
+    }
+
+    /**
+     * @param string|null $aggregateCorrelationsWhereEffectVariableCount
+     *
+     * @return Variable
+     */
+    public function setAggregateCorrelationsWhereEffectVariableCount(?string $aggregateCorrelationsWhereEffectVariableCount): Variable
+    {
+        $this->aggregateCorrelationsWhereEffectVariableCount = $aggregateCorrelationsWhereEffectVariableCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAnalysisEndedAt(): ?string
+    {
+        return $this->analysisEndedAt;
+    }
+
+    /**
+     * @param string|null $analysisEndedAt
+     *
+     * @return Variable
+     */
+    public function setAnalysisEndedAt(?string $analysisEndedAt): Variable
+    {
+        $this->analysisEndedAt = $analysisEndedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAnalysisRequestedAt(): ?string
+    {
+        return $this->analysisRequestedAt;
+    }
+
+    /**
+     * @param string|null $analysisRequestedAt
+     *
+     * @return Variable
+     */
+    public function setAnalysisRequestedAt(?string $analysisRequestedAt): Variable
+    {
+        $this->analysisRequestedAt = $analysisRequestedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAnalysisSettingsModifiedAt(): ?string
+    {
+        return $this->analysisSettingsModifiedAt;
+    }
+
+    /**
+     * @param string|null $analysisSettingsModifiedAt
+     *
+     * @return Variable
+     */
+    public function setAnalysisSettingsModifiedAt(?string $analysisSettingsModifiedAt): Variable
+    {
+        $this->analysisSettingsModifiedAt = $analysisSettingsModifiedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAnalysisStartedAt(): ?string
+    {
+        return $this->analysisStartedAt;
+    }
+
+    /**
+     * @param string|null $analysisStartedAt
+     *
+     * @return Variable
+     */
+    public function setAnalysisStartedAt(?string $analysisStartedAt): Variable
+    {
+        $this->analysisStartedAt = $analysisStartedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getApplicationsWhereOutcomeVariableCount(): ?string
+    {
+        return $this->applicationsWhereOutcomeVariableCount;
+    }
+
+    /**
+     * @param string|null $applicationsWhereOutcomeVariableCount
+     *
+     * @return Variable
+     */
+    public function setApplicationsWhereOutcomeVariableCount(?string $applicationsWhereOutcomeVariableCount): Variable
+    {
+        $this->applicationsWhereOutcomeVariableCount = $applicationsWhereOutcomeVariableCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getApplicationsWherePredictorVariableCount(): ?string
+    {
+        return $this->applicationsWherePredictorVariableCount;
+    }
+
+    /**
+     * @param string|null $applicationsWherePredictorVariableCount
+     *
+     * @return Variable
+     */
+    public function setApplicationsWherePredictorVariableCount(?string $applicationsWherePredictorVariableCount): Variable
+    {
+        $this->applicationsWherePredictorVariableCount = $applicationsWherePredictorVariableCount;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getAverageSecondsBetweenMeasurements(): ?int
+    {
+        return $this->averageSecondsBetweenMeasurements;
+    }
+
+    /**
+     * @param int|null $averageSecondsBetweenMeasurements
+     *
+     * @return Variable
+     */
+    public function setAverageSecondsBetweenMeasurements(?int $averageSecondsBetweenMeasurements): Variable
+    {
+        $this->averageSecondsBetweenMeasurements = $averageSecondsBetweenMeasurements;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getBestAggregateCorrelationId(): ?int
+    {
+        return $this->bestAggregateCorrelationId;
+    }
+
+    /**
+     * @param int|null $bestAggregateCorrelationId
+     *
+     * @return Variable
+     */
+    public function setBestAggregateCorrelationId(?int $bestAggregateCorrelationId): Variable
+    {
+        $this->bestAggregateCorrelationId = $bestAggregateCorrelationId;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getBestCauseVariableId(): ?int
+    {
+        return $this->bestCauseVariableId;
+    }
+
+    /**
+     * @param int|null $bestCauseVariableId
+     *
+     * @return Variable
+     */
+    public function setBestCauseVariableId(?int $bestCauseVariableId): Variable
+    {
+        $this->bestCauseVariableId = $bestCauseVariableId;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getBestEffectVariableId(): ?int
+    {
+        return $this->bestEffectVariableId;
+    }
+
+    /**
+     * @param int|null $bestEffectVariableId
+     *
+     * @return Variable
+     */
+    public function setBestEffectVariableId(?int $bestEffectVariableId): Variable
+    {
+        $this->bestEffectVariableId = $bestEffectVariableId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBoring(): ?string
+    {
+        return $this->boring;
+    }
+
+    /**
+     * @param string|null $boring
+     *
+     * @return Variable
+     */
+    public function setBoring(?string $boring): Variable
+    {
+        $this->boring = $boring;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBrandName(): ?string
+    {
+        return $this->brandName;
+    }
+
+    /**
+     * @param string|null $brandName
+     *
+     * @return Variable
+     */
+    public function setBrandName(?string $brandName): Variable
+    {
+        $this->brandName = $brandName;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCanonicalVariableId(): ?string
+    {
+        return $this->canonicalVariableId;
+    }
+
+    /**
+     * @param string|null $canonicalVariableId
+     *
+     * @return Variable
+     */
+    public function setCanonicalVariableId(?string $canonicalVariableId): Variable
+    {
+        $this->canonicalVariableId = $canonicalVariableId;
+
+        return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function isCauseOnly(): ?bool
+    {
+        return $this->causeOnly;
+    }
+
+    /**
+     * @param bool|null $causeOnly
+     *
+     * @return Variable
+     */
+    public function setCauseOnly(?bool $causeOnly): Variable
+    {
+        $this->causeOnly = $causeOnly;
+
+        return $this;
+    }
+
+    /**
+     * @return Charts|null
+     */
+    public function getCharts(): ?Charts
+    {
+        return $this->charts;
+    }
+
+    /**
+     * @param Charts|null $charts
+     *
+     * @return Variable
+     */
+    public function setCharts(?Charts $charts): Variable
+    {
+        $this->charts = $charts;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getClientId(): ?string
+    {
+        return $this->clientId;
+    }
+
+    /**
+     * @param string|null $clientId
+     *
+     * @return Variable
+     */
+    public function setClientId(?string $clientId): Variable
+    {
+        $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCombinationOperation(): ?string
+    {
+        return $this->combinationOperation;
+    }
+
+    /**
+     * @param string|null $combinationOperation
+     *
+     * @return Variable
+     */
+    public function setCombinationOperation(?string $combinationOperation): Variable
+    {
+        $this->combinationOperation = $combinationOperation;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCommonAlias(): ?string
+    {
+        return $this->commonAlias;
+    }
+
+    /**
+     * @param string|null $commonAlias
+     *
+     * @return Variable
+     */
+    public function setCommonAlias(?string $commonAlias): Variable
+    {
+        $this->commonAlias = $commonAlias;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCommonMaximumAllowedDailyValue(): ?string
+    {
+        return $this->commonMaximumAllowedDailyValue;
+    }
+
+    /**
+     * @param string|null $commonMaximumAllowedDailyValue
+     *
+     * @return Variable
+     */
+    public function setCommonMaximumAllowedDailyValue(?string $commonMaximumAllowedDailyValue): Variable
+    {
+        $this->commonMaximumAllowedDailyValue = $commonMaximumAllowedDailyValue;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCommonMinimumAllowedDailyValue(): ?string
+    {
+        return $this->commonMinimumAllowedDailyValue;
+    }
+
+    /**
+     * @param string|null $commonMinimumAllowedDailyValue
+     *
+     * @return Variable
+     */
+    public function setCommonMinimumAllowedDailyValue(?string $commonMinimumAllowedDailyValue): Variable
+    {
+        $this->commonMinimumAllowedDailyValue = $commonMinimumAllowedDailyValue;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCommonMinimumAllowedNonZeroValue(): ?string
+    {
+        return $this->commonMinimumAllowedNonZeroValue;
+    }
+
+    /**
+     * @param string|null $commonMinimumAllowedNonZeroValue
+     *
+     * @return Variable
+     */
+    public function setCommonMinimumAllowedNonZeroValue(?string $commonMinimumAllowedNonZeroValue): Variable
+    {
+        $this->commonMinimumAllowedNonZeroValue = $commonMinimumAllowedNonZeroValue;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCommonTaggedByCount(): ?string
+    {
+        return $this->commonTaggedByCount;
+    }
+
+    /**
+     * @param string|null $commonTaggedByCount
+     *
+     * @return Variable
+     */
+    public function setCommonTaggedByCount(?string $commonTaggedByCount): Variable
+    {
+        $this->commonTaggedByCount = $commonTaggedByCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCommonTagsCount(): ?string
+    {
+        return $this->commonTagsCount;
+    }
+
+    /**
+     * @param string|null $commonTagsCount
+     *
+     * @return Variable
+     */
+    public function setCommonTagsCount(?string $commonTagsCount): Variable
+    {
+        $this->commonTagsCount = $commonTagsCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCommonTagsWhereTagVariableCount(): ?string
+    {
+        return $this->commonTagsWhereTagVariableCount;
+    }
+
+    /**
+     * @param string|null $commonTagsWhereTagVariableCount
+     *
+     * @return Variable
+     */
+    public function setCommonTagsWhereTagVariableCount(?string $commonTagsWhereTagVariableCount): Variable
+    {
+        $this->commonTagsWhereTagVariableCount = $commonTagsWhereTagVariableCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCommonTagsWhereTaggedVariableCount(): ?string
+    {
+        return $this->commonTagsWhereTaggedVariableCount;
+    }
+
+    /**
+     * @param string|null $commonTagsWhereTaggedVariableCount
+     *
+     * @return Variable
+     */
+    public function setCommonTagsWhereTaggedVariableCount(?string $commonTagsWhereTaggedVariableCount): Variable
+    {
+        $this->commonTagsWhereTaggedVariableCount = $commonTagsWhereTaggedVariableCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getConditionCausesWhereCauseCount(): ?string
+    {
+        return $this->conditionCausesWhereCauseCount;
+    }
+
+    /**
+     * @param string|null $conditionCausesWhereCauseCount
+     *
+     * @return Variable
+     */
+    public function setConditionCausesWhereCauseCount(?string $conditionCausesWhereCauseCount): Variable
+    {
+        $this->conditionCausesWhereCauseCount = $conditionCausesWhereCauseCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getConditionCausesWhereConditionCount(): ?string
+    {
+        return $this->conditionCausesWhereConditionCount;
+    }
+
+    /**
+     * @param string|null $conditionCausesWhereConditionCount
+     *
+     * @return Variable
+     */
+    public function setConditionCausesWhereConditionCount(?string $conditionCausesWhereConditionCount): Variable
+    {
+        $this->conditionCausesWhereConditionCount = $conditionCausesWhereConditionCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getConditionTreatmentsCount(): ?string
+    {
+        return $this->conditionTreatmentsCount;
+    }
+
+    /**
+     * @param string|null $conditionTreatmentsCount
+     *
+     * @return Variable
+     */
+    public function setConditionTreatmentsCount(?string $conditionTreatmentsCount): Variable
+    {
+        $this->conditionTreatmentsCount = $conditionTreatmentsCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getConditionTreatmentsWhereConditionCount(): ?string
+    {
+        return $this->conditionTreatmentsWhereConditionCount;
+    }
+
+    /**
+     * @param string|null $conditionTreatmentsWhereConditionCount
+     *
+     * @return Variable
+     */
+    public function setConditionTreatmentsWhereConditionCount(?string $conditionTreatmentsWhereConditionCount): Variable
+    {
+        $this->conditionTreatmentsWhereConditionCount = $conditionTreatmentsWhereConditionCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getConditionTreatmentsWhereTreatmentCount(): ?string
+    {
+        return $this->conditionTreatmentsWhereTreatmentCount;
+    }
+
+    /**
+     * @param string|null $conditionTreatmentsWhereTreatmentCount
+     *
+     * @return Variable
+     */
+    public function setConditionTreatmentsWhereTreatmentCount(?string $conditionTreatmentsWhereTreatmentCount): Variable
+    {
+        $this->conditionTreatmentsWhereTreatmentCount = $conditionTreatmentsWhereTreatmentCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getControllable(): ?string
+    {
+        return $this->controllable;
+    }
+
+    /**
+     * @param string|null $controllable
+     *
+     * @return Variable
+     */
+    public function setControllable(?string $controllable): Variable
+    {
+        $this->controllable = $controllable;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCorrelationCausalityVotesWhereCauseVariableCount(): ?string
+    {
+        return $this->correlationCausalityVotesWhereCauseVariableCount;
+    }
+
+    /**
+     * @param string|null $correlationCausalityVotesWhereCauseVariableCount
+     *
+     * @return Variable
+     */
+    public function setCorrelationCausalityVotesWhereCauseVariableCount(?string $correlationCausalityVotesWhereCauseVariableCount): Variable
+    {
+        $this->correlationCausalityVotesWhereCauseVariableCount = $correlationCausalityVotesWhereCauseVariableCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCorrelationCausalityVotesWhereEffectVariableCount(): ?string
+    {
+        return $this->correlationCausalityVotesWhereEffectVariableCount;
+    }
+
+    /**
+     * @param string|null $correlationCausalityVotesWhereEffectVariableCount
+     *
+     * @return Variable
+     */
+    public function setCorrelationCausalityVotesWhereEffectVariableCount(?string $correlationCausalityVotesWhereEffectVariableCount): Variable
+    {
+        $this->correlationCausalityVotesWhereEffectVariableCount = $correlationCausalityVotesWhereEffectVariableCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCorrelationUsefulnessVotesWhereCauseVariableCount(): ?string
+    {
+        return $this->correlationUsefulnessVotesWhereCauseVariableCount;
+    }
+
+    /**
+     * @param string|null $correlationUsefulnessVotesWhereCauseVariableCount
+     *
+     * @return Variable
+     */
+    public function setCorrelationUsefulnessVotesWhereCauseVariableCount(?string $correlationUsefulnessVotesWhereCauseVariableCount): Variable
+    {
+        $this->correlationUsefulnessVotesWhereCauseVariableCount = $correlationUsefulnessVotesWhereCauseVariableCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCorrelationUsefulnessVotesWhereEffectVariableCount(): ?string
+    {
+        return $this->correlationUsefulnessVotesWhereEffectVariableCount;
+    }
+
+    /**
+     * @param string|null $correlationUsefulnessVotesWhereEffectVariableCount
+     *
+     * @return Variable
+     */
+    public function setCorrelationUsefulnessVotesWhereEffectVariableCount(?string $correlationUsefulnessVotesWhereEffectVariableCount): Variable
+    {
+        $this->correlationUsefulnessVotesWhereEffectVariableCount = $correlationUsefulnessVotesWhereEffectVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets charts_link_email
-     *
-     * @return string
+     * @return string|null
      */
-    public function getChartsLinkEmail()
+    public function getCorrelationsCount(): ?string
     {
-        return $this->container['charts_link_email'];
+        return $this->correlationsCount;
     }
 
     /**
-     * Sets charts_link_email
-     *
-     * @param string $charts_link_email Ex: mailto:?subject=Check%20out%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20data%21&body=See%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20history%20at%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png%0A%0AHave%20a%20great%20day!
+     * @param string|null $correlationsCount
      *
-     * @return $this
+     * @return Variable
      */
-    public function setChartsLinkEmail($charts_link_email)
+    public function setCorrelationsCount(?string $correlationsCount): Variable
     {
-        $this->container['charts_link_email'] = $charts_link_email;
+        $this->correlationsCount = $correlationsCount;
 
         return $this;
     }
 
     /**
-     * Gets charts_link_facebook
-     *
-     * @return string
+     * @return string|null
      */
-    public function getChartsLinkFacebook()
+    public function getCorrelationsWhereCauseVariableCount(): ?string
     {
-        return $this->container['charts_link_facebook'];
+        return $this->correlationsWhereCauseVariableCount;
     }
 
     /**
-     * Sets charts_link_facebook
-     *
-     * @param string $charts_link_facebook Ex: https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png
+     * @param string|null $correlationsWhereCauseVariableCount
      *
-     * @return $this
+     * @return Variable
      */
-    public function setChartsLinkFacebook($charts_link_facebook)
+    public function setCorrelationsWhereCauseVariableCount(?string $correlationsWhereCauseVariableCount): Variable
     {
-        $this->container['charts_link_facebook'] = $charts_link_facebook;
+        $this->correlationsWhereCauseVariableCount = $correlationsWhereCauseVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets charts_link_google
-     *
-     * @return string
+     * @return string|null
      */
-    public function getChartsLinkGoogle()
+    public function getCorrelationsWhereEffectVariableCount(): ?string
     {
-        return $this->container['charts_link_google'];
+        return $this->correlationsWhereEffectVariableCount;
     }
 
     /**
-     * Sets charts_link_google
-     *
-     * @param string $charts_link_google Ex: https://plus.google.com/share?url=https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png
+     * @param string|null $correlationsWhereEffectVariableCount
      *
-     * @return $this
+     * @return Variable
      */
-    public function setChartsLinkGoogle($charts_link_google)
+    public function setCorrelationsWhereEffectVariableCount(?string $correlationsWhereEffectVariableCount): Variable
     {
-        $this->container['charts_link_google'] = $charts_link_google;
+        $this->correlationsWhereEffectVariableCount = $correlationsWhereEffectVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets charts_link_static
-     *
-     * @return string
+     * @return string|null
      */
-    public function getChartsLinkStatic()
+    public function getCreatedAt(): ?string
     {
-        return $this->container['charts_link_static'];
+        return $this->createdAt;
     }
 
     /**
-     * Sets charts_link_static
-     *
-     * @param string $charts_link_static Ex: https://local.quantimo.do/api/v2/charts?variableName=Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29&userId=230&pngUrl=https%3A%2F%2Fapp.quantimo.do%2Fionic%2FModo%2Fwww%2Fimg%2Fvariable_categories%2Ftreatments.png
+     * @param string|null $createdAt
      *
-     * @return $this
+     * @return Variable
      */
-    public function setChartsLinkStatic($charts_link_static)
+    public function setCreatedAt(?string $createdAt): Variable
     {
-        $this->container['charts_link_static'] = $charts_link_static;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Gets charts_link_twitter
-     *
-     * @return string
+     * @return int|null
      */
-    public function getChartsLinkTwitter()
+    public function getCreatorUserId(): ?int
     {
-        return $this->container['charts_link_twitter'];
+        return $this->creatorUserId;
     }
 
     /**
-     * Sets charts_link_twitter
+     * @param int|null $creatorUserId
      *
-     * @param string $charts_link_twitter Ex: https://twitter.com/home?status=Check%20out%20my%20Trader%20Joes%20Bedtime%20Tea%20%2F%20Sleepytime%20Tea%20%28any%20Brand%29%20data%21%20https%3A%2F%2Flocal.quantimo.do%2Fapi%2Fv2%2Fcharts%3FvariableName%3DTrader%2520Joes%2520Bedtime%2520Tea%2520%252F%2520Sleepytime%2520Tea%2520%2528any%2520Brand%2529%26userId%3D230%26pngUrl%3Dhttps%253A%252F%252Fapp.quantimo.do%252Fionic%252FModo%252Fwww%252Fimg%252Fvariable_categories%252Ftreatments.png%20%40curedao
+     * @return Variable
+     */
+    public function setCreatorUserId(?int $creatorUserId): Variable
+    {
+        $this->creatorUserId = $creatorUserId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCtTreatmentSideEffectsWhereSideEffectVariableCount(): ?string
+    {
+        return $this->ctTreatmentSideEffectsWhereSideEffectVariableCount;
+    }
+
+    /**
+     * @param string|null $ctTreatmentSideEffectsWhereSideEffectVariableCount
      *
-     * @return $this
+     * @return Variable
      */
-    public function setChartsLinkTwitter($charts_link_twitter)
+    public function setCtTreatmentSideEffectsWhereSideEffectVariableCount(?string $ctTreatmentSideEffectsWhereSideEffectVariableCount): Variable
     {
-        $this->container['charts_link_twitter'] = $charts_link_twitter;
+        $this->ctTreatmentSideEffectsWhereSideEffectVariableCount = $ctTreatmentSideEffectsWhereSideEffectVariableCount;
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCtTreatmentSideEffectsWhereTreatmentVariableCount(): ?string
+    {
+        return $this->ctTreatmentSideEffectsWhereTreatmentVariableCount;
     }
 
     /**
-     * Gets child_common_tag_variables
+     * @param string|null $ctTreatmentSideEffectsWhereTreatmentVariableCount
      *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return Variable
+     */
+    public function setCtTreatmentSideEffectsWhereTreatmentVariableCount(?string $ctTreatmentSideEffectsWhereTreatmentVariableCount): Variable
+    {
+        $this->ctTreatmentSideEffectsWhereTreatmentVariableCount = $ctTreatmentSideEffectsWhereTreatmentVariableCount;
+
+        return $this;
+    }
+
+    /**
+     * @return DataSourcesCount|null
      */
-    public function getChildCommonTagVariables()
+    public function getDataSourcesCount(): ?DataSourcesCount
     {
-        return $this->container['child_common_tag_variables'];
+        return $this->dataSourcesCount;
     }
 
     /**
-     * Sets child_common_tag_variables
+     * @param DataSourcesCount|null $dataSourcesCount
      *
-     * @param \CureDAO\Client\Models\Variable[] $child_common_tag_variables Commonly defined for all users. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
+     * @return Variable
+     */
+    public function setDataSourcesCount(?DataSourcesCount $dataSourcesCount): Variable
+    {
+        $this->dataSourcesCount = $dataSourcesCount;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getDefaultUnitId(): ?int
+    {
+        return $this->defaultUnitId;
+    }
+
+    /**
+     * @param int|null $defaultUnitId
      *
-     * @return $this
+     * @return Variable
      */
-    public function setChildCommonTagVariables($child_common_tag_variables)
+    public function setDefaultUnitId(?int $defaultUnitId): Variable
     {
-        $this->container['child_common_tag_variables'] = $child_common_tag_variables;
+        $this->defaultUnitId = $defaultUnitId;
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDefaultValue(): ?string
+    {
+        return $this->defaultValue;
     }
 
     /**
-     * Gets child_user_tag_variables
+     * @param string|null $defaultValue
      *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return Variable
+     */
+    public function setDefaultValue(?string $defaultValue): Variable
+    {
+        $this->defaultValue = $defaultValue;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
      */
-    public function getChildUserTagVariables()
+    public function getDeletionReason(): ?string
     {
-        return $this->container['child_user_tag_variables'];
+        return $this->deletionReason;
     }
 
     /**
-     * Sets child_user_tag_variables
+     * @param string|null $deletionReason
      *
-     * @param \CureDAO\Client\Models\Variable[] $child_user_tag_variables User-Defined Variable Setting: An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
+     * @return Variable
+     */
+    public function setDeletionReason(?string $deletionReason): Variable
+    {
+        $this->deletionReason = $deletionReason;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string|null $description
      *
-     * @return $this
+     * @return Variable
      */
-    public function setChildUserTagVariables($child_user_tag_variables)
+    public function setDescription(?string $description): Variable
     {
-        $this->container['child_user_tag_variables'] = $child_user_tag_variables;
+        $this->description = $description;
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDisplayName(): ?string
+    {
+        return $this->displayName;
     }
 
     /**
-     * Gets client_id
+     * @param string|null $displayName
      *
-     * @return string
+     * @return Variable
+     */
+    public function setDisplayName(?string $displayName): Variable
+    {
+        $this->displayName = $displayName;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
      */
-    public function getClientId()
+    public function getDurationOfAction(): ?int
     {
-        return $this->container['client_id'];
+        return $this->durationOfAction;
     }
 
     /**
-     * Sets client_id
+     * @param int|null $durationOfAction
      *
-     * @param string $client_id Your CureDAO client id can be obtained by creating an app at https://builder.curedao.org
+     * @return Variable
+     */
+    public function setDurationOfAction(?int $durationOfAction): Variable
+    {
+        $this->durationOfAction = $durationOfAction;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getEarliestNonTaggedMeasurementStartAt(): ?string
+    {
+        return $this->earliestNonTaggedMeasurementStartAt;
+    }
+
+    /**
+     * @param string|null $earliestNonTaggedMeasurementStartAt
      *
-     * @return $this
+     * @return Variable
      */
-    public function setClientId($client_id)
+    public function setEarliestNonTaggedMeasurementStartAt(?string $earliestNonTaggedMeasurementStartAt): Variable
     {
-        $this->container['client_id'] = $client_id;
+        $this->earliestNonTaggedMeasurementStartAt = $earliestNonTaggedMeasurementStartAt;
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getEarliestTaggedMeasurementStartAt(): ?string
+    {
+        return $this->earliestTaggedMeasurementStartAt;
     }
 
     /**
-     * Gets combination_operation
+     * @param string|null $earliestTaggedMeasurementStartAt
      *
-     * @return string
+     * @return Variable
+     */
+    public function setEarliestTaggedMeasurementStartAt(?string $earliestTaggedMeasurementStartAt): Variable
+    {
+        $this->earliestTaggedMeasurementStartAt = $earliestTaggedMeasurementStartAt;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
      */
-    public function getCombinationOperation()
+    public function getFavoritersCount(): ?string
     {
-        return $this->container['combination_operation'];
+        return $this->favoritersCount;
     }
 
     /**
-     * Sets combination_operation
+     * @param string|null $favoritersCount
      *
-     * @param string $combination_operation User-Defined Variable Setting: How to aggregate measurements over time. SUM should be used for things like minutes of exercise.  If you use MEAN for exercise, then a person might exercise more minutes in one day but add separate measurements that were smaller.  So when we are doing correlational analysis, we would think that the person exercised less that day even though they exercised more.  Conversely, we must use MEAN for things such as ratings which cannot be SUMMED.
+     * @return Variable
+     */
+    public function setFavoritersCount(?string $favoritersCount): Variable
+    {
+        $this->favoritersCount = $favoritersCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFavoritesCount(): ?string
+    {
+        return $this->favoritesCount;
+    }
+
+    /**
+     * @param string|null $favoritesCount
      *
-     * @return $this
+     * @return Variable
      */
-    public function setCombinationOperation($combination_operation)
+    public function setFavoritesCount(?string $favoritesCount): Variable
     {
-        $allowedValues = $this->getCombinationOperationAllowableValues();
-        if (!is_null($combination_operation) && !in_array($combination_operation, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'combination_operation', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['combination_operation'] = $combination_operation;
+        $this->favoritesCount = $favoritesCount;
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFillingType(): ?string
+    {
+        return $this->fillingType;
     }
 
     /**
-     * Gets common_alias
+     * @param string|null $fillingType
      *
-     * @return string
+     * @return Variable
+     */
+    public function setFillingType(?string $fillingType): Variable
+    {
+        $this->fillingType = $fillingType;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
      */
-    public function getCommonAlias()
+    public function getFillingValue(): ?string
     {
-        return $this->container['common_alias'];
+        return $this->fillingValue;
     }
 
     /**
-     * Sets common_alias
+     * @param string|null $fillingValue
      *
-     * @param string $common_alias Ex: Anxiety / Nervousness
+     * @return Variable
+     */
+    public function setFillingValue(?string $fillingValue): Variable
+    {
+        $this->fillingValue = $fillingValue;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImageUrl(): ?string
+    {
+        return $this->imageUrl;
+    }
+
+    /**
+     * @param string|null $imageUrl
      *
-     * @return $this
+     * @return Variable
      */
-    public function setCommonAlias($common_alias)
+    public function setImageUrl(?string $imageUrl): Variable
     {
-        $this->container['common_alias'] = $common_alias;
+        $this->imageUrl = $imageUrl;
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getIndividualCauseStudiesCount(): ?string
+    {
+        return $this->individualCauseStudiesCount;
     }
 
     /**
-     * Gets common_tagged_variables
+     * @param string|null $individualCauseStudiesCount
      *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return Variable
+     */
+    public function setIndividualCauseStudiesCount(?string $individualCauseStudiesCount): Variable
+    {
+        $this->individualCauseStudiesCount = $individualCauseStudiesCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
      */
-    public function getCommonTaggedVariables()
+    public function getIndividualEffectStudiesCount(): ?string
     {
-        return $this->container['common_tagged_variables'];
+        return $this->individualEffectStudiesCount;
     }
 
     /**
-     * Sets common_tagged_variables
+     * @param string|null $individualEffectStudiesCount
      *
-     * @param \CureDAO\Client\Models\Variable[] $common_tagged_variables common_tagged_variables
+     * @return Variable
+     */
+    public function setIndividualEffectStudiesCount(?string $individualEffectStudiesCount): Variable
+    {
+        $this->individualEffectStudiesCount = $individualEffectStudiesCount;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getInformationalUrl(): ?string
+    {
+        return $this->informationalUrl;
+    }
+
+    /**
+     * @param string|null $informationalUrl
      *
-     * @return $this
+     * @return Variable
      */
-    public function setCommonTaggedVariables($common_tagged_variables)
+    public function setInformationalUrl(?string $informationalUrl): Variable
     {
-        $this->container['common_tagged_variables'] = $common_tagged_variables;
+        $this->informationalUrl = $informationalUrl;
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getIonIcon(): ?string
+    {
+        return $this->ionIcon;
     }
 
     /**
-     * Gets common_tag_variables
+     * @param string|null $ionIcon
      *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return Variable
+     */
+    public function setIonIcon(?string $ionIcon): Variable
+    {
+        $this->ionIcon = $ionIcon;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
      */
-    public function getCommonTagVariables()
+    public function getIsGoal(): ?string
     {
-        return $this->container['common_tag_variables'];
+        return $this->isGoal;
     }
 
     /**
-     * Sets common_tag_variables
+     * @param string|null $isGoal
      *
-     * @param \CureDAO\Client\Models\Variable[] $common_tag_variables common_tag_variables
+     * @return Variable
+     */
+    public function setIsGoal(?string $isGoal): Variable
+    {
+        $this->isGoal = $isGoal;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getIsPublic(): ?int
+    {
+        return $this->isPublic;
+    }
+
+    /**
+     * @param int|null $isPublic
      *
-     * @return $this
+     * @return Variable
      */
-    public function setCommonTagVariables($common_tag_variables)
+    public function setIsPublic(?int $isPublic): Variable
     {
-        $this->container['common_tag_variables'] = $common_tag_variables;
+        $this->isPublic = $isPublic;
 
         return $this;
+    }
+
+    /**
+     * @return float|null
+     */
+    public function getKurtosis(): ?float
+    {
+        return $this->kurtosis;
     }
 
     /**
-     * Gets created_at
+     * @param float|null $kurtosis
      *
-     * @return string
+     * @return Variable
+     */
+    public function setKurtosis(?float $kurtosis): Variable
+    {
+        $this->kurtosis = $kurtosis;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
      */
-    public function getCreatedAt()
+    public function getLatestNonTaggedMeasurementStartAt(): ?string
     {
-        return $this->container['created_at'];
+        return $this->latestNonTaggedMeasurementStartAt;
     }
 
     /**
-     * Sets created_at
+     * @param string|null $latestNonTaggedMeasurementStartAt
      *
-     * @param string $created_at When the record was first created. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss  datetime format
+     * @return Variable
+     */
+    public function setLatestNonTaggedMeasurementStartAt(?string $latestNonTaggedMeasurementStartAt): Variable
+    {
+        $this->latestNonTaggedMeasurementStartAt = $latestNonTaggedMeasurementStartAt;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLatestTaggedMeasurementStartAt(): ?string
+    {
+        return $this->latestTaggedMeasurementStartAt;
+    }
+
+    /**
+     * @param string|null $latestTaggedMeasurementStartAt
      *
-     * @return $this
+     * @return Variable
      */
-    public function setCreatedAt($created_at)
+    public function setLatestTaggedMeasurementStartAt(?string $latestTaggedMeasurementStartAt): Variable
     {
-        $this->container['created_at'] = $created_at;
+        $this->latestTaggedMeasurementStartAt = $latestTaggedMeasurementStartAt;
 
         return $this;
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function isManualTracking(): ?bool
+    {
+        return $this->manualTracking;
     }
 
     /**
-     * Gets data_source_names
+     * @param bool|null $manualTracking
      *
-     * @return string
+     * @return Variable
+     */
+    public function setManualTracking(?bool $manualTracking): Variable
+    {
+        $this->manualTracking = $manualTracking;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
      */
-    public function getDataSourceNames()
+    public function getMaximumAllowedDailyValue(): ?string
     {
-        return $this->container['data_source_names'];
+        return $this->maximumAllowedDailyValue;
     }
 
     /**
-     * Sets data_source_names
+     * @param string|null $maximumAllowedDailyValue
      *
-     * @param string $data_source_names Comma-separated list of source names to limit variables to those sources
+     * @return Variable
+     */
+    public function setMaximumAllowedDailyValue(?string $maximumAllowedDailyValue): Variable
+    {
+        $this->maximumAllowedDailyValue = $maximumAllowedDailyValue;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getMaximumAllowedValue(): ?string
+    {
+        return $this->maximumAllowedValue;
+    }
+
+    /**
+     * @param string|null $maximumAllowedValue
      *
-     * @return $this
+     * @return Variable
      */
-    public function setDataSourceNames($data_source_names)
+    public function setMaximumAllowedValue(?string $maximumAllowedValue): Variable
     {
-        $this->container['data_source_names'] = $data_source_names;
+        $this->maximumAllowedValue = $maximumAllowedValue;
 
         return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getMaximumRecordedValue(): ?int
+    {
+        return $this->maximumRecordedValue;
     }
 
     /**
-     * Gets data_sources
+     * @param int|null $maximumRecordedValue
      *
-     * @return \CureDAO\Client\Models\DataSource[]
+     * @return Variable
+     */
+    public function setMaximumRecordedValue(?int $maximumRecordedValue): Variable
+    {
+        $this->maximumRecordedValue = $maximumRecordedValue;
+
+        return $this;
+    }
+
+    /**
+     * @return float|null
      */
-    public function getDataSources()
+    public function getMean(): ?float
     {
-        return $this->container['data_sources'];
+        return $this->mean;
     }
 
     /**
-     * Sets data_sources
+     * @param float|null $mean
      *
-     * @param \CureDAO\Client\Models\DataSource[] $data_sources These are sources of measurements for this variable
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setDataSources($data_sources)
+    public function setMean(?float $mean): Variable
     {
-        $this->container['data_sources'] = $data_sources;
+        $this->mean = $mean;
 
         return $this;
     }
 
     /**
-     * Gets description
-     *
-     * @return string
+     * @return string|null
      */
-    public function getDescription()
+    public function getMeasurementsCount(): ?string
     {
-        return $this->container['description'];
+        return $this->measurementsCount;
     }
 
     /**
-     * Sets description
+     * @param string|null $measurementsCount
      *
-     * @param string $description User-Defined Variable Setting: Ex: Summary to be used in studies.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setDescription($description)
+    public function setMeasurementsCount(?string $measurementsCount): Variable
     {
-        $this->container['description'] = $description;
+        $this->measurementsCount = $measurementsCount;
 
         return $this;
     }
 
     /**
-     * Gets display_name
-     *
-     * @return string
+     * @return string|null
      */
-    public function getDisplayName()
+    public function getMediaCount(): ?string
     {
-        return $this->container['display_name'];
+        return $this->mediaCount;
     }
 
     /**
-     * Sets display_name
+     * @param string|null $mediaCount
      *
-     * @param string $display_name Ex: Trader Joe's Bedtime Tea
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setDisplayName($display_name)
+    public function setMediaCount(?string $mediaCount): Variable
     {
-        $this->container['display_name'] = $display_name;
+        $this->mediaCount = $mediaCount;
 
         return $this;
     }
 
     /**
-     * Gets duration_of_action
-     *
-     * @return int
+     * @return float|null
      */
-    public function getDurationOfAction()
+    public function getMedian(): ?float
     {
-        return $this->container['duration_of_action'];
+        return $this->median;
     }
 
     /**
-     * Sets duration_of_action
+     * @param float|null $median
      *
-     * @param int $duration_of_action The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay. Unit: Seconds
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setDurationOfAction($duration_of_action)
+    public function setMedian(?float $median): Variable
     {
-        $this->container['duration_of_action'] = $duration_of_action;
+        $this->median = $median;
 
         return $this;
     }
 
     /**
-     * Gets duration_of_action_in_hours
-     *
-     * @return float
+     * @return int|null
      */
-    public function getDurationOfActionInHours()
+    public function getMedianSecondsBetweenMeasurements(): ?int
     {
-        return $this->container['duration_of_action_in_hours'];
+        return $this->medianSecondsBetweenMeasurements;
     }
 
     /**
-     * Sets duration_of_action_in_hours
+     * @param int|null $medianSecondsBetweenMeasurements
      *
-     * @param float $duration_of_action_in_hours User-Defined Variable Setting: The amount of time over which a predictor/stimulus event can exert an observable influence on an outcome variable value. For instance, aspirin (stimulus/predictor) typically decreases headache severity for approximately four hours (duration of action) following the onset delay.  Unit: Hours
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setDurationOfActionInHours($duration_of_action_in_hours)
+    public function setMedianSecondsBetweenMeasurements(?int $medianSecondsBetweenMeasurements): Variable
     {
-        $this->container['duration_of_action_in_hours'] = $duration_of_action_in_hours;
+        $this->medianSecondsBetweenMeasurements = $medianSecondsBetweenMeasurements;
 
         return $this;
     }
 
     /**
-     * Gets earliest_filling_time
-     *
-     * @return int
+     * @return string|null
      */
-    public function getEarliestFillingTime()
+    public function getMetaData(): ?string
     {
-        return $this->container['earliest_filling_time'];
+        return $this->metaData;
     }
 
     /**
-     * Sets earliest_filling_time
+     * @param string|null $metaData
      *
-     * @param int $earliest_filling_time Earliest filling time
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setEarliestFillingTime($earliest_filling_time)
+    public function setMetaData(?string $metaData): Variable
     {
-        $this->container['earliest_filling_time'] = $earliest_filling_time;
+        $this->metaData = $metaData;
 
         return $this;
     }
 
     /**
-     * Gets earliest_measurement_time
-     *
-     * @return int
+     * @return int|null
      */
-    public function getEarliestMeasurementTime()
+    public function getMinimumAllowedSecondsBetweenMeasurements(): ?int
     {
-        return $this->container['earliest_measurement_time'];
+        return $this->minimumAllowedSecondsBetweenMeasurements;
     }
 
     /**
-     * Sets earliest_measurement_time
+     * @param int|null $minimumAllowedSecondsBetweenMeasurements
      *
-     * @param int $earliest_measurement_time Earliest measurement time
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setEarliestMeasurementTime($earliest_measurement_time)
+    public function setMinimumAllowedSecondsBetweenMeasurements(?int $minimumAllowedSecondsBetweenMeasurements): Variable
     {
-        $this->container['earliest_measurement_time'] = $earliest_measurement_time;
+        $this->minimumAllowedSecondsBetweenMeasurements = $minimumAllowedSecondsBetweenMeasurements;
 
         return $this;
     }
 
     /**
-     * Gets earliest_source_time
-     *
-     * @return int
+     * @return int|null
      */
-    public function getEarliestSourceTime()
+    public function getMinimumAllowedValue(): ?int
     {
-        return $this->container['earliest_source_time'];
+        return $this->minimumAllowedValue;
     }
 
     /**
-     * Sets earliest_source_time
+     * @param int|null $minimumAllowedValue
      *
-     * @param int $earliest_source_time Earliest source time
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setEarliestSourceTime($earliest_source_time)
+    public function setMinimumAllowedValue(?int $minimumAllowedValue): Variable
     {
-        $this->container['earliest_source_time'] = $earliest_source_time;
+        $this->minimumAllowedValue = $minimumAllowedValue;
 
         return $this;
     }
 
     /**
-     * Gets error_message
-     *
-     * @return string
+     * @return int|null
      */
-    public function getErrorMessage()
+    public function getMinimumRecordedValue(): ?int
     {
-        return $this->container['error_message'];
+        return $this->minimumRecordedValue;
     }
 
     /**
-     * Sets error_message
+     * @param int|null $minimumRecordedValue
      *
-     * @param string $error_message Error message from last analysis
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setErrorMessage($error_message)
+    public function setMinimumRecordedValue(?int $minimumRecordedValue): Variable
     {
-        $this->container['error_message'] = $error_message;
+        $this->minimumRecordedValue = $minimumRecordedValue;
 
         return $this;
     }
 
     /**
-     * Gets experiment_end_time
-     *
-     * @return string
+     * @return int|null
      */
-    public function getExperimentEndTime()
+    public function getMostCommonConnectorId(): ?int
     {
-        return $this->container['experiment_end_time'];
+        return $this->mostCommonConnectorId;
     }
 
     /**
-     * Sets experiment_end_time
+     * @param int|null $mostCommonConnectorId
      *
-     * @param string $experiment_end_time User-Defined Variable Setting: Latest measurement time to be used in analysis. Format: UTC ISO 8601 YYYY-MM-DDThh:mm:ss.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setExperimentEndTime($experiment_end_time)
+    public function setMostCommonConnectorId(?int $mostCommonConnectorId): Variable
     {
-        $this->container['experiment_end_time'] = $experiment_end_time;
+        $this->mostCommonConnectorId = $mostCommonConnectorId;
 
         return $this;
     }
 
     /**
-     * Gets experiment_start_time
-     *
-     * @return string
+     * @return int|null
      */
-    public function getExperimentStartTime()
+    public function getMostCommonOriginalUnitId(): ?int
     {
-        return $this->container['experiment_start_time'];
+        return $this->mostCommonOriginalUnitId;
     }
 
     /**
-     * Sets experiment_start_time
+     * @param int|null $mostCommonOriginalUnitId
      *
-     * @param string $experiment_start_time User-Defined Variable Setting: Earliest measurement time to be used in analysis. Format: UTC ISO 8601 YYYY-MM-DDThh:mm:ss.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setExperimentStartTime($experiment_start_time)
+    public function setMostCommonOriginalUnitId(?int $mostCommonOriginalUnitId): Variable
     {
-        $this->container['experiment_start_time'] = $experiment_start_time;
+        $this->mostCommonOriginalUnitId = $mostCommonOriginalUnitId;
 
         return $this;
     }
 
     /**
-     * Gets filling_type
-     *
-     * @return string
+     * @return string|null
      */
-    public function getFillingType()
+    public function getMostCommonSourceName(): ?string
     {
-        return $this->container['filling_type'];
+        return $this->mostCommonSourceName;
     }
 
     /**
-     * Sets filling_type
+     * @param string|null $mostCommonSourceName
      *
-     * @param string $filling_type User-Defined Variable Setting: When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven't taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setFillingType($filling_type)
+    public function setMostCommonSourceName(?string $mostCommonSourceName): Variable
     {
-        $allowedValues = $this->getFillingTypeAllowableValues();
-        if (!is_null($filling_type) && !in_array($filling_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'filling_type', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['filling_type'] = $filling_type;
+        $this->mostCommonSourceName = $mostCommonSourceName;
 
         return $this;
     }
 
     /**
-     * Gets filling_value
-     *
-     * @return float
+     * @return int|null
      */
-    public function getFillingValue()
+    public function getMostCommonValue(): ?int
     {
-        return $this->container['filling_value'];
+        return $this->mostCommonValue;
     }
 
     /**
-     * Sets filling_value
+     * @param int|null $mostCommonValue
      *
-     * @param float $filling_value User-Defined Variable Setting: When it comes to analysis to determine the effects of this variable, knowing when it did not occur is as important as knowing when it did occur. For example, if you are tracking a medication, it is important to know when you did not take it, but you do not have to log zero values for all the days when you haven't taken it. Hence, you can specify a filling value (typically 0) to insert whenever data is missing.  Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setFillingValue($filling_value)
+    public function setMostCommonValue(?int $mostCommonValue): Variable
     {
-        $this->container['filling_value'] = $filling_value;
+        $this->mostCommonValue = $mostCommonValue;
 
         return $this;
     }
 
     /**
-     * Gets icon_icon
-     *
-     * @return string
+     * @return string|null
      */
-    public function getIconIcon()
+    public function getNewestDataAt(): ?string
     {
-        return $this->container['icon_icon'];
+        return $this->newestDataAt;
     }
 
     /**
-     * Sets icon_icon
+     * @param string|null $newestDataAt
      *
-     * @param string $icon_icon Ex: ion-sad-outline
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setIconIcon($icon_icon)
+    public function setNewestDataAt(?string $newestDataAt): Variable
     {
-        $this->container['icon_icon'] = $icon_icon;
+        $this->newestDataAt = $newestDataAt;
 
         return $this;
     }
 
     /**
-     * Gets id
-     *
-     * @return int
+     * @return int|null
      */
-    public function getId()
+    public function getNumberCommonTaggedBy(): ?int
     {
-        return $this->container['id'];
+        return $this->numberCommonTaggedBy;
     }
 
     /**
-     * Sets id
+     * @param int|null $numberCommonTaggedBy
      *
-     * @param int $id Ex: 95614
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setId($id)
+    public function setNumberCommonTaggedBy(?int $numberCommonTaggedBy): Variable
     {
-        $this->container['id'] = $id;
+        $this->numberCommonTaggedBy = $numberCommonTaggedBy;
 
         return $this;
     }
 
     /**
-     * Gets image_url
-     *
-     * @return string
+     * @return int|null
      */
-    public function getImageUrl()
+    public function getNumberOfAggregateCorrelationsAsCause(): ?int
     {
-        return $this->container['image_url'];
+        return $this->numberOfAggregateCorrelationsAsCause;
     }
 
     /**
-     * Sets image_url
+     * @param int|null $numberOfAggregateCorrelationsAsCause
      *
-     * @param string $image_url What do you expect?
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setImageUrl($image_url)
+    public function setNumberOfAggregateCorrelationsAsCause(?int $numberOfAggregateCorrelationsAsCause): Variable
     {
-        $this->container['image_url'] = $image_url;
+        $this->numberOfAggregateCorrelationsAsCause = $numberOfAggregateCorrelationsAsCause;
 
         return $this;
     }
 
     /**
-     * Gets informational_url
-     *
-     * @return string
+     * @return int|null
      */
-    public function getInformationalUrl()
+    public function getNumberOfAggregateCorrelationsAsEffect(): ?int
     {
-        return $this->container['informational_url'];
+        return $this->numberOfAggregateCorrelationsAsEffect;
     }
 
     /**
-     * Sets informational_url
+     * @param int|null $numberOfAggregateCorrelationsAsEffect
      *
-     * @param string $informational_url Ex: https://google.com
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setInformationalUrl($informational_url)
+    public function setNumberOfAggregateCorrelationsAsEffect(?int $numberOfAggregateCorrelationsAsEffect): Variable
     {
-        $this->container['informational_url'] = $informational_url;
+        $this->numberOfAggregateCorrelationsAsEffect = $numberOfAggregateCorrelationsAsEffect;
 
         return $this;
     }
 
     /**
-     * Gets ingredient_of_common_tag_variables
-     *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return int|null
      */
-    public function getIngredientOfCommonTagVariables()
+    public function getNumberOfApplicationsWhereOutcomeVariable(): ?int
     {
-        return $this->container['ingredient_of_common_tag_variables'];
+        return $this->numberOfApplicationsWhereOutcomeVariable;
     }
 
     /**
-     * Sets ingredient_of_common_tag_variables
+     * @param int|null $numberOfApplicationsWhereOutcomeVariable
      *
-     * @param \CureDAO\Client\Models\Variable[] $ingredient_of_common_tag_variables Commonly defined for all users. IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption and we can use this data to see how sugar might be affecting you.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setIngredientOfCommonTagVariables($ingredient_of_common_tag_variables)
+    public function setNumberOfApplicationsWhereOutcomeVariable(?int $numberOfApplicationsWhereOutcomeVariable): Variable
     {
-        $this->container['ingredient_of_common_tag_variables'] = $ingredient_of_common_tag_variables;
+        $this->numberOfApplicationsWhereOutcomeVariable = $numberOfApplicationsWhereOutcomeVariable;
 
         return $this;
     }
 
     /**
-     * Gets ingredient_common_tag_variables
-     *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return int|null
      */
-    public function getIngredientCommonTagVariables()
+    public function getNumberOfApplicationsWherePredictorVariable(): ?int
     {
-        return $this->container['ingredient_common_tag_variables'];
+        return $this->numberOfApplicationsWherePredictorVariable;
     }
 
     /**
-     * Sets ingredient_common_tag_variables
+     * @param int|null $numberOfApplicationsWherePredictorVariable
      *
-     * @param \CureDAO\Client\Models\Variable[] $ingredient_common_tag_variables Commonly defined for all users. IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption and we can use this data to see how sugar might be affecting you.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setIngredientCommonTagVariables($ingredient_common_tag_variables)
+    public function setNumberOfApplicationsWherePredictorVariable(?int $numberOfApplicationsWherePredictorVariable): Variable
     {
-        $this->container['ingredient_common_tag_variables'] = $ingredient_common_tag_variables;
+        $this->numberOfApplicationsWherePredictorVariable = $numberOfApplicationsWherePredictorVariable;
 
         return $this;
     }
 
     /**
-     * Gets ingredient_of_user_tag_variables
-     *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return string|null
      */
-    public function getIngredientOfUserTagVariables()
+    public function getNumberOfCommonChildren(): ?string
     {
-        return $this->container['ingredient_of_user_tag_variables'];
+        return $this->numberOfCommonChildren;
     }
 
     /**
-     * Sets ingredient_of_user_tag_variables
+     * @param string|null $numberOfCommonChildren
      *
-     * @param \CureDAO\Client\Models\Variable[] $ingredient_of_user_tag_variables User-Defined Variable Setting: IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption and we can use this data to see how sugar might be affecting you.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setIngredientOfUserTagVariables($ingredient_of_user_tag_variables)
+    public function setNumberOfCommonChildren(?string $numberOfCommonChildren): Variable
     {
-        $this->container['ingredient_of_user_tag_variables'] = $ingredient_of_user_tag_variables;
+        $this->numberOfCommonChildren = $numberOfCommonChildren;
 
         return $this;
     }
 
     /**
-     * Gets ingredient_user_tag_variables
-     *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return string|null
      */
-    public function getIngredientUserTagVariables()
+    public function getNumberOfCommonFoods(): ?string
     {
-        return $this->container['ingredient_user_tag_variables'];
+        return $this->numberOfCommonFoods;
     }
 
     /**
-     * Sets ingredient_user_tag_variables
+     * @param string|null $numberOfCommonFoods
      *
-     * @param \CureDAO\Client\Models\Variable[] $ingredient_user_tag_variables User-Defined Variable Setting: IngredientOf variable measurements will be included in analysis of the ingredient variable.  For instance, a ingredient of the variable Lollipop could be Sugar.  This way you only have to record Lollipop consumption and we can use this data to see how sugar might be affecting you.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setIngredientUserTagVariables($ingredient_user_tag_variables)
+    public function setNumberOfCommonFoods(?string $numberOfCommonFoods): Variable
     {
-        $this->container['ingredient_user_tag_variables'] = $ingredient_user_tag_variables;
+        $this->numberOfCommonFoods = $numberOfCommonFoods;
 
         return $this;
     }
 
     /**
-     * Gets input_type
-     *
-     * @return string
+     * @return string|null
      */
-    public function getInputType()
+    public function getNumberOfCommonIngredients(): ?string
     {
-        return $this->container['input_type'];
+        return $this->numberOfCommonIngredients;
     }
 
     /**
-     * Sets input_type
+     * @param string|null $numberOfCommonIngredients
      *
-     * @param string $input_type Type of input field to show for recording measurements
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setInputType($input_type)
+    public function setNumberOfCommonIngredients(?string $numberOfCommonIngredients): Variable
     {
-        $this->container['input_type'] = $input_type;
+        $this->numberOfCommonIngredients = $numberOfCommonIngredients;
 
         return $this;
     }
 
     /**
-     * Gets ion_icon
-     *
-     * @return string
+     * @return string|null
      */
-    public function getIonIcon()
+    public function getNumberOfCommonJoinedVariables(): ?string
     {
-        return $this->container['ion_icon'];
+        return $this->numberOfCommonJoinedVariables;
     }
 
     /**
-     * Sets ion_icon
+     * @param string|null $numberOfCommonJoinedVariables
      *
-     * @param string $ion_icon What do you expect?
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setIonIcon($ion_icon)
+    public function setNumberOfCommonJoinedVariables(?string $numberOfCommonJoinedVariables): Variable
     {
-        $this->container['ion_icon'] = $ion_icon;
+        $this->numberOfCommonJoinedVariables = $numberOfCommonJoinedVariables;
 
         return $this;
     }
 
     /**
-     * Gets joined_common_tag_variables
-     *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return string|null
      */
-    public function getJoinedCommonTagVariables()
+    public function getNumberOfCommonParents(): ?string
     {
-        return $this->container['joined_common_tag_variables'];
+        return $this->numberOfCommonParents;
     }
 
     /**
-     * Sets joined_common_tag_variables
+     * @param string|null $numberOfCommonParents
      *
-     * @param \CureDAO\Client\Models\Variable[] $joined_common_tag_variables Commonly defined for all users.  Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setJoinedCommonTagVariables($joined_common_tag_variables)
+    public function setNumberOfCommonParents(?string $numberOfCommonParents): Variable
     {
-        $this->container['joined_common_tag_variables'] = $joined_common_tag_variables;
+        $this->numberOfCommonParents = $numberOfCommonParents;
 
         return $this;
     }
 
     /**
-     * Gets joined_user_tag_variables
-     *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return int|null
      */
-    public function getJoinedUserTagVariables()
+    public function getNumberOfCommonTags(): ?int
     {
-        return $this->container['joined_user_tag_variables'];
+        return $this->numberOfCommonTags;
     }
 
     /**
-     * Sets joined_user_tag_variables
+     * @param int|null $numberOfCommonTags
      *
-     * @param \CureDAO\Client\Models\Variable[] $joined_user_tag_variables User-Defined Variable Setting: Joining can be used used to merge duplicate variables. For instance, if two variables called Apples (Red Delicious) and Red Delicious Apples are joined, when one of them is analyzed, the measurements for the other will be included as well.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setJoinedUserTagVariables($joined_user_tag_variables)
+    public function setNumberOfCommonTags(?int $numberOfCommonTags): Variable
     {
-        $this->container['joined_user_tag_variables'] = $joined_user_tag_variables;
+        $this->numberOfCommonTags = $numberOfCommonTags;
 
         return $this;
     }
 
     /**
-     * Gets join_with
-     *
-     * @return int
+     * @return int|null
      */
-    public function getJoinWith()
+    public function getNumberOfCommonTagsWhereTagVariable(): ?int
     {
-        return $this->container['join_with'];
+        return $this->numberOfCommonTagsWhereTagVariable;
     }
 
     /**
-     * Sets join_with
+     * @param int|null $numberOfCommonTagsWhereTagVariable
      *
-     * @param int $join_with Duplicate variables. If the variable is joined with some other variable then it is not shown to user in the list of variables
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setJoinWith($join_with)
+    public function setNumberOfCommonTagsWhereTagVariable(?int $numberOfCommonTagsWhereTagVariable): Variable
     {
-        $this->container['join_with'] = $join_with;
+        $this->numberOfCommonTagsWhereTagVariable = $numberOfCommonTagsWhereTagVariable;
 
         return $this;
     }
 
     /**
-     * Gets kurtosis
-     *
-     * @return float
+     * @return int|null
      */
-    public function getKurtosis()
+    public function getNumberOfCommonTagsWhereTaggedVariable(): ?int
     {
-        return $this->container['kurtosis'];
+        return $this->numberOfCommonTagsWhereTaggedVariable;
     }
 
     /**
-     * Sets kurtosis
+     * @param int|null $numberOfCommonTagsWhereTaggedVariable
      *
-     * @param float $kurtosis Kurtosis
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setKurtosis($kurtosis)
+    public function setNumberOfCommonTagsWhereTaggedVariable(?int $numberOfCommonTagsWhereTaggedVariable): Variable
     {
-        $this->container['kurtosis'] = $kurtosis;
+        $this->numberOfCommonTagsWhereTaggedVariable = $numberOfCommonTagsWhereTaggedVariable;
 
         return $this;
     }
 
     /**
-     * Gets last_processed_daily_value
-     *
-     * @return double
+     * @return int|null
      */
-    public function getLastProcessedDailyValue()
+    public function getNumberOfMeasurements(): ?int
     {
-        return $this->container['last_processed_daily_value'];
+        return $this->numberOfMeasurements;
     }
 
     /**
-     * Sets last_processed_daily_value
+     * @param int|null $numberOfMeasurements
      *
-     * @param double $last_processed_daily_value Calculated Statistic: Ex: 500. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setLastProcessedDailyValue($last_processed_daily_value)
+    public function setNumberOfMeasurements(?int $numberOfMeasurements): Variable
     {
-        $this->container['last_processed_daily_value'] = $last_processed_daily_value;
+        $this->numberOfMeasurements = $numberOfMeasurements;
 
         return $this;
     }
 
     /**
-     * Gets last_successful_update_time
-     *
-     * @return string
+     * @return string|null
      */
-    public function getLastSuccessfulUpdateTime()
+    public function getNumberOfOutcomeCaseStudies(): ?string
     {
-        return $this->container['last_successful_update_time'];
+        return $this->numberOfOutcomeCaseStudies;
     }
 
     /**
-     * Sets last_successful_update_time
+     * @param string|null $numberOfOutcomeCaseStudies
      *
-     * @param string $last_successful_update_time When this variable or its settings were last updated UTC ISO 8601 YYYY-MM-DDThh:mm:ss
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setLastSuccessfulUpdateTime($last_successful_update_time)
+    public function setNumberOfOutcomeCaseStudies(?string $numberOfOutcomeCaseStudies): Variable
     {
-        $this->container['last_successful_update_time'] = $last_successful_update_time;
+        $this->numberOfOutcomeCaseStudies = $numberOfOutcomeCaseStudies;
 
         return $this;
     }
 
     /**
-     * Gets last_value
-     *
-     * @return float
+     * @return string|null
      */
-    public function getLastValue()
+    public function getNumberOfOutcomePopulationStudies(): ?string
     {
-        return $this->container['last_value'];
+        return $this->numberOfOutcomePopulationStudies;
     }
 
     /**
-     * Sets last_value
+     * @param string|null $numberOfOutcomePopulationStudies
      *
-     * @param float $last_value Calculated Statistic: Last measurement value in the common unit or user unit if different. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setLastValue($last_value)
+    public function setNumberOfOutcomePopulationStudies(?string $numberOfOutcomePopulationStudies): Variable
     {
-        $this->container['last_value'] = $last_value;
+        $this->numberOfOutcomePopulationStudies = $numberOfOutcomePopulationStudies;
 
         return $this;
     }
 
     /**
-     * Gets latest_filling_time
-     *
-     * @return int
+     * @return string|null
      */
-    public function getLatestFillingTime()
+    public function getNumberOfPredictorCaseStudies(): ?string
     {
-        return $this->container['latest_filling_time'];
+        return $this->numberOfPredictorCaseStudies;
     }
 
     /**
-     * Sets latest_filling_time
+     * @param string|null $numberOfPredictorCaseStudies
      *
-     * @param int $latest_filling_time Latest filling time
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setLatestFillingTime($latest_filling_time)
+    public function setNumberOfPredictorCaseStudies(?string $numberOfPredictorCaseStudies): Variable
     {
-        $this->container['latest_filling_time'] = $latest_filling_time;
+        $this->numberOfPredictorCaseStudies = $numberOfPredictorCaseStudies;
 
         return $this;
     }
 
     /**
-     * Gets latest_measurement_time
-     *
-     * @return int
+     * @return string|null
      */
-    public function getLatestMeasurementTime()
+    public function getNumberOfPredictorPopulationStudies(): ?string
     {
-        return $this->container['latest_measurement_time'];
+        return $this->numberOfPredictorPopulationStudies;
     }
 
     /**
-     * Sets latest_measurement_time
+     * @param string|null $numberOfPredictorPopulationStudies
      *
-     * @param int $latest_measurement_time Latest measurement time. Format: Unix-time epoch seconds.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setLatestMeasurementTime($latest_measurement_time)
+    public function setNumberOfPredictorPopulationStudies(?string $numberOfPredictorPopulationStudies): Variable
     {
-        $this->container['latest_measurement_time'] = $latest_measurement_time;
+        $this->numberOfPredictorPopulationStudies = $numberOfPredictorPopulationStudies;
 
         return $this;
     }
 
     /**
-     * Gets latest_source_time
-     *
-     * @return int
+     * @return string|null
      */
-    public function getLatestSourceTime()
+    public function getNumberOfRawMeasurements(): ?string
     {
-        return $this->container['latest_source_time'];
+        return $this->numberOfRawMeasurements;
     }
 
     /**
-     * Sets latest_source_time
+     * @param string|null $numberOfRawMeasurements
      *
-     * @param int $latest_source_time Latest source time. Format: Unix-time epoch seconds.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setLatestSourceTime($latest_source_time)
+    public function setNumberOfRawMeasurements(?string $numberOfRawMeasurements): Variable
     {
-        $this->container['latest_source_time'] = $latest_source_time;
+        $this->numberOfRawMeasurements = $numberOfRawMeasurements;
 
         return $this;
     }
 
     /**
-     * Gets latest_user_measurement_time
-     *
-     * @return int
+     * @return int|null
      */
-    public function getLatestUserMeasurementTime()
+    public function getNumberOfRawMeasurementsWithTagsJoinsChildren(): ?int
     {
-        return $this->container['latest_user_measurement_time'];
+        return $this->numberOfRawMeasurementsWithTagsJoinsChildren;
     }
 
     /**
-     * Sets latest_user_measurement_time
+     * @param int|null $numberOfRawMeasurementsWithTagsJoinsChildren
      *
-     * @param int $latest_user_measurement_time Ex: 1501383600. Format: Unix-time epoch seconds.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setLatestUserMeasurementTime($latest_user_measurement_time)
+    public function setNumberOfRawMeasurementsWithTagsJoinsChildren(?int $numberOfRawMeasurementsWithTagsJoinsChildren): Variable
     {
-        $this->container['latest_user_measurement_time'] = $latest_user_measurement_time;
+        $this->numberOfRawMeasurementsWithTagsJoinsChildren = $numberOfRawMeasurementsWithTagsJoinsChildren;
 
         return $this;
     }
 
     /**
-     * Gets latitude
-     *
-     * @return float
+     * @return string|null
      */
-    public function getLatitude()
+    public function getNumberOfSoftDeletedMeasurements(): ?string
     {
-        return $this->container['latitude'];
+        return $this->numberOfSoftDeletedMeasurements;
     }
 
     /**
-     * Sets latitude
+     * @param string|null $numberOfSoftDeletedMeasurements
      *
-     * @param float $latitude Latitude. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setLatitude($latitude)
+    public function setNumberOfSoftDeletedMeasurements(?string $numberOfSoftDeletedMeasurements): Variable
     {
-        $this->container['latitude'] = $latitude;
+        $this->numberOfSoftDeletedMeasurements = $numberOfSoftDeletedMeasurements;
 
         return $this;
     }
 
     /**
-     * Gets location
-     *
-     * @return string
+     * @return int|null
      */
-    public function getLocation()
+    public function getNumberOfStudiesWhereCauseVariable(): ?int
     {
-        return $this->container['location'];
+        return $this->numberOfStudiesWhereCauseVariable;
     }
 
     /**
-     * Sets location
+     * @param int|null $numberOfStudiesWhereCauseVariable
      *
-     * @param string $location Location
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setLocation($location)
+    public function setNumberOfStudiesWhereCauseVariable(?int $numberOfStudiesWhereCauseVariable): Variable
     {
-        $this->container['location'] = $location;
+        $this->numberOfStudiesWhereCauseVariable = $numberOfStudiesWhereCauseVariable;
 
         return $this;
     }
 
     /**
-     * Gets longitude
-     *
-     * @return float
+     * @return int|null
      */
-    public function getLongitude()
+    public function getNumberOfStudiesWhereEffectVariable(): ?int
     {
-        return $this->container['longitude'];
+        return $this->numberOfStudiesWhereEffectVariable;
     }
 
     /**
-     * Sets longitude
+     * @param int|null $numberOfStudiesWhereEffectVariable
      *
-     * @param float $longitude Longitude
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setLongitude($longitude)
+    public function setNumberOfStudiesWhereEffectVariable(?int $numberOfStudiesWhereEffectVariable): Variable
     {
-        $this->container['longitude'] = $longitude;
+        $this->numberOfStudiesWhereEffectVariable = $numberOfStudiesWhereEffectVariable;
 
         return $this;
     }
 
     /**
-     * Gets manual_tracking
-     *
-     * @return bool
+     * @return int|null
      */
-    public function getManualTracking()
+    public function getNumberOfTrackingReminderNotifications(): ?int
     {
-        return $this->container['manual_tracking'];
+        return $this->numberOfTrackingReminderNotifications;
     }
 
     /**
-     * Sets manual_tracking
+     * @param int|null $numberOfTrackingReminderNotifications
      *
-     * @param bool $manual_tracking True if the variable is an emotion or symptom rating that is not typically automatically collected by a device or app.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setManualTracking($manual_tracking)
+    public function setNumberOfTrackingReminderNotifications(?int $numberOfTrackingReminderNotifications): Variable
     {
-        $this->container['manual_tracking'] = $manual_tracking;
+        $this->numberOfTrackingReminderNotifications = $numberOfTrackingReminderNotifications;
 
         return $this;
     }
 
     /**
-     * Gets maximum_allowed_daily_value
-     *
-     * @return float
+     * @return int|null
      */
-    public function getMaximumAllowedDailyValue()
+    public function getNumberOfTrackingReminders(): ?int
     {
-        return $this->container['maximum_allowed_daily_value'];
+        return $this->numberOfTrackingReminders;
     }
 
     /**
-     * Sets maximum_allowed_daily_value
+     * @param int|null $numberOfTrackingReminders
      *
-     * @param float $maximum_allowed_daily_value User-Defined Variable Setting: The maximum allowed value a daily aggregated measurement. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMaximumAllowedDailyValue($maximum_allowed_daily_value)
+    public function setNumberOfTrackingReminders(?int $numberOfTrackingReminders): Variable
     {
-        $this->container['maximum_allowed_daily_value'] = $maximum_allowed_daily_value;
+        $this->numberOfTrackingReminders = $numberOfTrackingReminders;
 
         return $this;
     }
 
     /**
-     * Gets maximum_allowed_value
-     *
-     * @return float
+     * @return int|null
      */
-    public function getMaximumAllowedValue()
+    public function getNumberOfUniqueValues(): ?int
     {
-        return $this->container['maximum_allowed_value'];
+        return $this->numberOfUniqueValues;
     }
 
     /**
-     * Sets maximum_allowed_value
+     * @param int|null $numberOfUniqueValues
      *
-     * @param float $maximum_allowed_value User-Defined Variable Setting: The maximum allowed value a single measurement. While you can record a value above this maximum, it will be excluded from the correlation analysis.  Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMaximumAllowedValue($maximum_allowed_value)
+    public function setNumberOfUniqueValues(?int $numberOfUniqueValues): Variable
     {
-        $this->container['maximum_allowed_value'] = $maximum_allowed_value;
+        $this->numberOfUniqueValues = $numberOfUniqueValues;
 
         return $this;
     }
 
     /**
-     * Gets maximum_recorded_daily_value
-     *
-     * @return float
+     * @return string|null
      */
-    public function getMaximumRecordedDailyValue()
+    public function getNumberOfUserChildren(): ?string
     {
-        return $this->container['maximum_recorded_daily_value'];
+        return $this->numberOfUserChildren;
     }
 
     /**
-     * Sets maximum_recorded_daily_value
+     * @param string|null $numberOfUserChildren
      *
-     * @param float $maximum_recorded_daily_value Calculated Statistic: Maximum recorded daily value of this variable. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMaximumRecordedDailyValue($maximum_recorded_daily_value)
+    public function setNumberOfUserChildren(?string $numberOfUserChildren): Variable
     {
-        $this->container['maximum_recorded_daily_value'] = $maximum_recorded_daily_value;
+        $this->numberOfUserChildren = $numberOfUserChildren;
 
         return $this;
     }
 
     /**
-     * Gets maximum_recorded_value
-     *
-     * @return double
+     * @return string|null
      */
-    public function getMaximumRecordedValue()
+    public function getNumberOfUserFoods(): ?string
     {
-        return $this->container['maximum_recorded_value'];
+        return $this->numberOfUserFoods;
     }
 
     /**
-     * Sets maximum_recorded_value
+     * @param string|null $numberOfUserFoods
      *
-     * @param double $maximum_recorded_value Calculated Statistic: Ex: 1. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMaximumRecordedValue($maximum_recorded_value)
+    public function setNumberOfUserFoods(?string $numberOfUserFoods): Variable
     {
-        $this->container['maximum_recorded_value'] = $maximum_recorded_value;
+        $this->numberOfUserFoods = $numberOfUserFoods;
 
         return $this;
     }
 
     /**
-     * Gets mean
-     *
-     * @return float
+     * @return string|null
      */
-    public function getMean()
+    public function getNumberOfUserIngredients(): ?string
     {
-        return $this->container['mean'];
+        return $this->numberOfUserIngredients;
     }
 
     /**
-     * Sets mean
+     * @param string|null $numberOfUserIngredients
      *
-     * @param float $mean Mean. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMean($mean)
+    public function setNumberOfUserIngredients(?string $numberOfUserIngredients): Variable
     {
-        $this->container['mean'] = $mean;
+        $this->numberOfUserIngredients = $numberOfUserIngredients;
 
         return $this;
     }
 
     /**
-     * Gets measurements_at_last_analysis
-     *
-     * @return int
+     * @return string|null
      */
-    public function getMeasurementsAtLastAnalysis()
+    public function getNumberOfUserJoinedVariables(): ?string
     {
-        return $this->container['measurements_at_last_analysis'];
+        return $this->numberOfUserJoinedVariables;
     }
 
     /**
-     * Sets measurements_at_last_analysis
+     * @param string|null $numberOfUserJoinedVariables
      *
-     * @param int $measurements_at_last_analysis Number of measurements at last analysis
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMeasurementsAtLastAnalysis($measurements_at_last_analysis)
+    public function setNumberOfUserJoinedVariables(?string $numberOfUserJoinedVariables): Variable
     {
-        $this->container['measurements_at_last_analysis'] = $measurements_at_last_analysis;
+        $this->numberOfUserJoinedVariables = $numberOfUserJoinedVariables;
 
         return $this;
     }
 
     /**
-     * Gets median
-     *
-     * @return float
+     * @return string|null
      */
-    public function getMedian()
+    public function getNumberOfUserParents(): ?string
     {
-        return $this->container['median'];
+        return $this->numberOfUserParents;
     }
 
     /**
-     * Sets median
+     * @param string|null $numberOfUserParents
      *
-     * @param float $median Median
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMedian($median)
+    public function setNumberOfUserParents(?string $numberOfUserParents): Variable
     {
-        $this->container['median'] = $median;
+        $this->numberOfUserParents = $numberOfUserParents;
 
         return $this;
     }
 
     /**
-     * Gets minimum_allowed_value
-     *
-     * @return float
+     * @return int|null
      */
-    public function getMinimumAllowedValue()
+    public function getNumberOfUserTagsWhereTagVariable(): ?int
     {
-        return $this->container['minimum_allowed_value'];
+        return $this->numberOfUserTagsWhereTagVariable;
     }
 
     /**
-     * Sets minimum_allowed_value
+     * @param int|null $numberOfUserTagsWhereTagVariable
      *
-     * @param float $minimum_allowed_value User-Defined Variable Setting: The minimum allowed value a single measurement. While you can record a value below this minimum, it will be excluded from the correlation analysis. Unit: User-specified or common
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMinimumAllowedValue($minimum_allowed_value)
+    public function setNumberOfUserTagsWhereTagVariable(?int $numberOfUserTagsWhereTagVariable): Variable
     {
-        $this->container['minimum_allowed_value'] = $minimum_allowed_value;
+        $this->numberOfUserTagsWhereTagVariable = $numberOfUserTagsWhereTagVariable;
 
         return $this;
     }
 
     /**
-     * Gets minimum_allowed_daily_value
-     *
-     * @return float
+     * @return int|null
      */
-    public function getMinimumAllowedDailyValue()
+    public function getNumberOfUserTagsWhereTaggedVariable(): ?int
     {
-        return $this->container['minimum_allowed_daily_value'];
+        return $this->numberOfUserTagsWhereTaggedVariable;
     }
 
     /**
-     * Sets minimum_allowed_daily_value
+     * @param int|null $numberOfUserTagsWhereTaggedVariable
      *
-     * @param float $minimum_allowed_daily_value User-Defined Variable Setting: The minimum allowed value a daily aggregated measurement.  For instance, you might set to 100 for steps to keep erroneous 0 daily steps out of the analysis. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMinimumAllowedDailyValue($minimum_allowed_daily_value)
+    public function setNumberOfUserTagsWhereTaggedVariable(?int $numberOfUserTagsWhereTaggedVariable): Variable
     {
-        $this->container['minimum_allowed_daily_value'] = $minimum_allowed_daily_value;
+        $this->numberOfUserTagsWhereTaggedVariable = $numberOfUserTagsWhereTaggedVariable;
 
         return $this;
     }
 
     /**
-     * Gets minimum_non_zero_value
-     *
-     * @return float
+     * @return int|null
      */
-    public function getMinimumNonZeroValue()
+    public function getNumberOfUserVariables(): ?int
     {
-        return $this->container['minimum_non_zero_value'];
+        return $this->numberOfUserVariables;
     }
 
     /**
-     * Sets minimum_non_zero_value
+     * @param int|null $numberOfUserVariables
      *
-     * @param float $minimum_non_zero_value User-Defined Variable Setting: The minimum allowed non-zero value a single measurement.  For instance, you might set to 100 mL for steps to keep erroneous 0 daily steps out of the analysis. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMinimumNonZeroValue($minimum_non_zero_value)
+    public function setNumberOfUserVariables(?int $numberOfUserVariables): Variable
     {
-        $this->container['minimum_non_zero_value'] = $minimum_non_zero_value;
+        $this->numberOfUserVariables = $numberOfUserVariables;
 
         return $this;
     }
 
     /**
-     * Gets minimum_recorded_value
-     *
-     * @return float
+     * @return int|null
      */
-    public function getMinimumRecordedValue()
+    public function getNumberOfUsersWherePrimaryOutcomeVariable(): ?int
     {
-        return $this->container['minimum_recorded_value'];
+        return $this->numberOfUsersWherePrimaryOutcomeVariable;
     }
 
     /**
-     * Sets minimum_recorded_value
+     * @param int|null $numberOfUsersWherePrimaryOutcomeVariable
      *
-     * @param float $minimum_recorded_value Minimum recorded value of this variable. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMinimumRecordedValue($minimum_recorded_value)
+    public function setNumberOfUsersWherePrimaryOutcomeVariable(?int $numberOfUsersWherePrimaryOutcomeVariable): Variable
     {
-        $this->container['minimum_recorded_value'] = $minimum_recorded_value;
+        $this->numberOfUsersWherePrimaryOutcomeVariable = $numberOfUsersWherePrimaryOutcomeVariable;
 
         return $this;
     }
 
     /**
-     * Gets most_common_connector_id
-     *
-     * @return int
+     * @return int|null
      */
-    public function getMostCommonConnectorId()
+    public function getNumberOfVariablesWhereBestCauseVariable(): ?int
     {
-        return $this->container['most_common_connector_id'];
+        return $this->numberOfVariablesWhereBestCauseVariable;
     }
 
     /**
-     * Sets most_common_connector_id
+     * @param int|null $numberOfVariablesWhereBestCauseVariable
      *
-     * @param int $most_common_connector_id Ex: 51
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMostCommonConnectorId($most_common_connector_id)
+    public function setNumberOfVariablesWhereBestCauseVariable(?int $numberOfVariablesWhereBestCauseVariable): Variable
     {
-        $this->container['most_common_connector_id'] = $most_common_connector_id;
+        $this->numberOfVariablesWhereBestCauseVariable = $numberOfVariablesWhereBestCauseVariable;
 
         return $this;
     }
 
     /**
-     * Gets most_common_original_unit_id
-     *
-     * @return int
+     * @return int|null
      */
-    public function getMostCommonOriginalUnitId()
+    public function getNumberOfVariablesWhereBestEffectVariable(): ?int
     {
-        return $this->container['most_common_original_unit_id'];
+        return $this->numberOfVariablesWhereBestEffectVariable;
     }
 
     /**
-     * Sets most_common_original_unit_id
+     * @param int|null $numberOfVariablesWhereBestEffectVariable
      *
-     * @param int $most_common_original_unit_id Ex: 23
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMostCommonOriginalUnitId($most_common_original_unit_id)
+    public function setNumberOfVariablesWhereBestEffectVariable(?int $numberOfVariablesWhereBestEffectVariable): Variable
     {
-        $this->container['most_common_original_unit_id'] = $most_common_original_unit_id;
+        $this->numberOfVariablesWhereBestEffectVariable = $numberOfVariablesWhereBestEffectVariable;
 
         return $this;
     }
 
     /**
-     * Gets most_common_unit_id
-     *
-     * @return int
+     * @return int|null
      */
-    public function getMostCommonUnitId()
+    public function getNumberOfVotesWhereCauseVariable(): ?int
     {
-        return $this->container['most_common_unit_id'];
+        return $this->numberOfVotesWhereCauseVariable;
     }
 
     /**
-     * Sets most_common_unit_id
+     * @param int|null $numberOfVotesWhereCauseVariable
      *
-     * @param int $most_common_unit_id Most common Unit ID
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMostCommonUnitId($most_common_unit_id)
+    public function setNumberOfVotesWhereCauseVariable(?int $numberOfVotesWhereCauseVariable): Variable
     {
-        $this->container['most_common_unit_id'] = $most_common_unit_id;
+        $this->numberOfVotesWhereCauseVariable = $numberOfVotesWhereCauseVariable;
 
         return $this;
     }
 
     /**
-     * Gets most_common_value
-     *
-     * @return float
+     * @return int|null
      */
-    public function getMostCommonValue()
+    public function getNumberOfVotesWhereEffectVariable(): ?int
     {
-        return $this->container['most_common_value'];
+        return $this->numberOfVotesWhereEffectVariable;
     }
 
     /**
-     * Sets most_common_value
+     * @param int|null $numberOfVotesWhereEffectVariable
      *
-     * @param float $most_common_value Calculated Statistic: Most common value. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setMostCommonValue($most_common_value)
+    public function setNumberOfVotesWhereEffectVariable(?int $numberOfVotesWhereEffectVariable): Variable
     {
-        $this->container['most_common_value'] = $most_common_value;
+        $this->numberOfVotesWhereEffectVariable = $numberOfVotesWhereEffectVariable;
 
         return $this;
     }
 
     /**
-     * Gets name
-     *
-     * @return string
+     * @return int|null
      */
-    public function getName()
+    public function getOnsetDelay(): ?int
     {
-        return $this->container['name'];
+        return $this->onsetDelay;
     }
 
     /**
-     * Sets name
+     * @param int|null $onsetDelay
      *
-     * @param string $name Ex: Trader Joes Bedtime Tea / Sleepytime Tea (any Brand)
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setName($name)
+    public function setOnsetDelay(?int $onsetDelay): Variable
     {
-        $this->container['name'] = $name;
+        $this->onsetDelay = $onsetDelay;
 
         return $this;
     }
 
     /**
-     * Gets number_of_aggregate_correlations_as_cause
-     *
-     * @return int
+     * @return string|null
      */
-    public function getNumberOfAggregateCorrelationsAsCause()
+    public function getOptimalValueMessage(): ?string
     {
-        return $this->container['number_of_aggregate_correlations_as_cause'];
+        return $this->optimalValueMessage;
     }
 
     /**
-     * Sets number_of_aggregate_correlations_as_cause
+     * @param string|null $optimalValueMessage
      *
-     * @param int $number_of_aggregate_correlations_as_cause Ex: 1
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfAggregateCorrelationsAsCause($number_of_aggregate_correlations_as_cause)
+    public function setOptimalValueMessage(?string $optimalValueMessage): Variable
     {
-        $this->container['number_of_aggregate_correlations_as_cause'] = $number_of_aggregate_correlations_as_cause;
+        $this->optimalValueMessage = $optimalValueMessage;
 
         return $this;
     }
 
     /**
-     * Gets number_of_aggregate_correlations_as_effect
-     *
-     * @return int
+     * @return bool|null
      */
-    public function getNumberOfAggregateCorrelationsAsEffect()
+    public function isOutcome(): ?bool
     {
-        return $this->container['number_of_aggregate_correlations_as_effect'];
+        return $this->outcome;
     }
 
     /**
-     * Sets number_of_aggregate_correlations_as_effect
+     * @param bool|null $outcome
      *
-     * @param int $number_of_aggregate_correlations_as_effect Ex: 310
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfAggregateCorrelationsAsEffect($number_of_aggregate_correlations_as_effect)
+    public function setOutcome(?bool $outcome): Variable
     {
-        $this->container['number_of_aggregate_correlations_as_effect'] = $number_of_aggregate_correlations_as_effect;
+        $this->outcome = $outcome;
 
         return $this;
     }
 
     /**
-     * Gets number_of_changes
-     *
-     * @return int
+     * @return string|null
      */
-    public function getNumberOfChanges()
+    public function getOutcomesCount(): ?string
     {
-        return $this->container['number_of_changes'];
+        return $this->outcomesCount;
     }
 
     /**
-     * Sets number_of_changes
+     * @param string|null $outcomesCount
      *
-     * @param int $number_of_changes Number of changes
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfChanges($number_of_changes)
+    public function setOutcomesCount(?string $outcomesCount): Variable
     {
-        $this->container['number_of_changes'] = $number_of_changes;
+        $this->outcomesCount = $outcomesCount;
 
         return $this;
     }
 
     /**
-     * Gets number_of_correlations
-     *
-     * @return int
+     * @return string|null
      */
-    public function getNumberOfCorrelations()
+    public function getParentId(): ?string
     {
-        return $this->container['number_of_correlations'];
+        return $this->parentId;
     }
 
     /**
-     * Sets number_of_correlations
+     * @param string|null $parentId
      *
-     * @param int $number_of_correlations Number of correlations for this variable
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfCorrelations($number_of_correlations)
+    public function setParentId(?string $parentId): Variable
     {
-        $this->container['number_of_correlations'] = $number_of_correlations;
+        $this->parentId = $parentId;
 
         return $this;
     }
 
     /**
-     * Gets number_of_correlations_as_cause
-     *
-     * @return int
+     * @return string|null
      */
-    public function getNumberOfCorrelationsAsCause()
+    public function getPopulationCauseStudiesCount(): ?string
     {
-        return $this->container['number_of_correlations_as_cause'];
+        return $this->populationCauseStudiesCount;
     }
 
     /**
-     * Sets number_of_correlations_as_cause
+     * @param string|null $populationCauseStudiesCount
      *
-     * @param int $number_of_correlations_as_cause numberOfAggregateCorrelationsAsCause plus numberOfUserCorrelationsAsCause
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfCorrelationsAsCause($number_of_correlations_as_cause)
+    public function setPopulationCauseStudiesCount(?string $populationCauseStudiesCount): Variable
     {
-        $this->container['number_of_correlations_as_cause'] = $number_of_correlations_as_cause;
+        $this->populationCauseStudiesCount = $populationCauseStudiesCount;
 
         return $this;
     }
 
     /**
-     * Gets number_of_correlations_as_effect
-     *
-     * @return int
+     * @return string|null
      */
-    public function getNumberOfCorrelationsAsEffect()
+    public function getPopulationEffectStudiesCount(): ?string
     {
-        return $this->container['number_of_correlations_as_effect'];
+        return $this->populationEffectStudiesCount;
     }
 
     /**
-     * Sets number_of_correlations_as_effect
+     * @param string|null $populationEffectStudiesCount
      *
-     * @param int $number_of_correlations_as_effect numberOfAggregateCorrelationsAsEffect plus numberOfUserCorrelationsAsEffect
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfCorrelationsAsEffect($number_of_correlations_as_effect)
+    public function setPopulationEffectStudiesCount(?string $populationEffectStudiesCount): Variable
     {
-        $this->container['number_of_correlations_as_effect'] = $number_of_correlations_as_effect;
+        $this->populationEffectStudiesCount = $populationEffectStudiesCount;
 
         return $this;
     }
 
     /**
-     * Gets number_of_processed_daily_measurements
-     *
-     * @return int
+     * @return string|null
      */
-    public function getNumberOfProcessedDailyMeasurements()
+    public function getPredictor(): ?string
     {
-        return $this->container['number_of_processed_daily_measurements'];
+        return $this->predictor;
     }
 
     /**
-     * Sets number_of_processed_daily_measurements
+     * @param string|null $predictor
      *
-     * @param int $number_of_processed_daily_measurements Number of processed measurements
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfProcessedDailyMeasurements($number_of_processed_daily_measurements)
+    public function setPredictor(?string $predictor): Variable
     {
-        $this->container['number_of_processed_daily_measurements'] = $number_of_processed_daily_measurements;
+        $this->predictor = $predictor;
 
         return $this;
     }
 
     /**
-     * Gets number_of_raw_measurements
-     *
-     * @return int
+     * @return string|null
      */
-    public function getNumberOfRawMeasurements()
+    public function getPredictorsCount(): ?string
     {
-        return $this->container['number_of_raw_measurements'];
+        return $this->predictorsCount;
     }
 
     /**
-     * Sets number_of_raw_measurements
+     * @param string|null $predictorsCount
      *
-     * @param int $number_of_raw_measurements Ex: 295
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfRawMeasurements($number_of_raw_measurements)
+    public function setPredictorsCount(?string $predictorsCount): Variable
     {
-        $this->container['number_of_raw_measurements'] = $number_of_raw_measurements;
+        $this->predictorsCount = $predictorsCount;
 
         return $this;
     }
 
     /**
-     * Gets number_of_tracking_reminders
-     *
-     * @return int
+     * @return float|null
      */
-    public function getNumberOfTrackingReminders()
+    public function getPrice(): ?float
     {
-        return $this->container['number_of_tracking_reminders'];
+        return $this->price;
     }
 
     /**
-     * Sets number_of_tracking_reminders
+     * @param float|null $price
      *
-     * @param int $number_of_tracking_reminders Ex: 1
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfTrackingReminders($number_of_tracking_reminders)
+    public function setPrice(?float $price): Variable
     {
-        $this->container['number_of_tracking_reminders'] = $number_of_tracking_reminders;
+        $this->price = $price;
 
         return $this;
     }
 
     /**
-     * Gets number_of_unique_daily_values
-     *
-     * @return float
+     * @return string|null
      */
-    public function getNumberOfUniqueDailyValues()
+    public function getProductUrl(): ?string
     {
-        return $this->container['number_of_unique_daily_values'];
+        return $this->productUrl;
     }
 
     /**
-     * Sets number_of_unique_daily_values
+     * @param string|null $productUrl
      *
-     * @param float $number_of_unique_daily_values Number of unique daily values
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfUniqueDailyValues($number_of_unique_daily_values)
+    public function setProductUrl(?string $productUrl): Variable
     {
-        $this->container['number_of_unique_daily_values'] = $number_of_unique_daily_values;
+        $this->productUrl = $productUrl;
 
         return $this;
     }
 
     /**
-     * Gets number_of_unique_values
-     *
-     * @return int
+     * @return string|null
      */
-    public function getNumberOfUniqueValues()
+    public function getPublicOutcomesCount(): ?string
     {
-        return $this->container['number_of_unique_values'];
+        return $this->publicOutcomesCount;
     }
 
     /**
-     * Sets number_of_unique_values
+     * @param string|null $publicOutcomesCount
      *
-     * @param int $number_of_unique_values Ex: 2
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfUniqueValues($number_of_unique_values)
+    public function setPublicOutcomesCount(?string $publicOutcomesCount): Variable
     {
-        $this->container['number_of_unique_values'] = $number_of_unique_values;
+        $this->publicOutcomesCount = $publicOutcomesCount;
 
         return $this;
     }
 
     /**
-     * Gets number_of_user_correlations_as_cause
-     *
-     * @return int
+     * @return string|null
      */
-    public function getNumberOfUserCorrelationsAsCause()
+    public function getPublicPredictorsCount(): ?string
     {
-        return $this->container['number_of_user_correlations_as_cause'];
+        return $this->publicPredictorsCount;
     }
 
     /**
-     * Sets number_of_user_correlations_as_cause
+     * @param string|null $publicPredictorsCount
      *
-     * @param int $number_of_user_correlations_as_cause Ex: 115
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfUserCorrelationsAsCause($number_of_user_correlations_as_cause)
+    public function setPublicPredictorsCount(?string $publicPredictorsCount): Variable
     {
-        $this->container['number_of_user_correlations_as_cause'] = $number_of_user_correlations_as_cause;
+        $this->publicPredictorsCount = $publicPredictorsCount;
 
         return $this;
     }
 
     /**
-     * Gets number_of_user_correlations_as_effect
-     *
-     * @return int
+     * @return string|null
      */
-    public function getNumberOfUserCorrelationsAsEffect()
+    public function getReasonForAnalysis(): ?string
     {
-        return $this->container['number_of_user_correlations_as_effect'];
+        return $this->reasonForAnalysis;
     }
 
     /**
-     * Sets number_of_user_correlations_as_effect
+     * @param string|null $reasonForAnalysis
      *
-     * @param int $number_of_user_correlations_as_effect Ex: 29014
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfUserCorrelationsAsEffect($number_of_user_correlations_as_effect)
+    public function setReasonForAnalysis(?string $reasonForAnalysis): Variable
     {
-        $this->container['number_of_user_correlations_as_effect'] = $number_of_user_correlations_as_effect;
+        $this->reasonForAnalysis = $reasonForAnalysis;
 
         return $this;
     }
 
     /**
-     * Gets number_of_user_variables
-     *
-     * @return int
+     * @return int|null
      */
-    public function getNumberOfUserVariables()
+    public function getRecordSizeInKb(): ?int
     {
-        return $this->container['number_of_user_variables'];
+        return $this->recordSizeInKb;
     }
 
     /**
-     * Sets number_of_user_variables
+     * @param int|null $recordSizeInKb
      *
-     * @param int $number_of_user_variables Ex: 2
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setNumberOfUserVariables($number_of_user_variables)
+    public function setRecordSizeInKb(?int $recordSizeInKb): Variable
     {
-        $this->container['number_of_user_variables'] = $number_of_user_variables;
+        $this->recordSizeInKb = $recordSizeInKb;
 
         return $this;
     }
 
     /**
-     * Gets onset_delay
-     *
-     * @return int
+     * @return string|null
      */
-    public function getOnsetDelay()
+    public function getReportTitle(): ?string
     {
-        return $this->container['onset_delay'];
+        return $this->reportTitle;
     }
 
     /**
-     * Sets onset_delay
+     * @param string|null $reportTitle
      *
-     * @param int $onset_delay The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setOnsetDelay($onset_delay)
+    public function setReportTitle(?string $reportTitle): Variable
     {
-        $this->container['onset_delay'] = $onset_delay;
+        $this->reportTitle = $reportTitle;
 
         return $this;
     }
 
     /**
-     * Gets onset_delay_in_hours
-     *
-     * @return double
+     * @return int|null
      */
-    public function getOnsetDelayInHours()
+    public function getSecondMostCommonValue(): ?int
     {
-        return $this->container['onset_delay_in_hours'];
+        return $this->secondMostCommonValue;
     }
 
     /**
-     * Sets onset_delay_in_hours
+     * @param int|null $secondMostCommonValue
      *
-     * @param double $onset_delay_in_hours User-Defined Variable Setting: The amount of time in seconds that elapses after the predictor/stimulus event before the outcome as perceived by a self-tracker is known as the onset delay. For example, the onset delay between the time a person takes an aspirin (predictor/stimulus event) and the time a person perceives a change in their headache severity (outcome) is approximately 30 minutes.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setOnsetDelayInHours($onset_delay_in_hours)
+    public function setSecondMostCommonValue(?int $secondMostCommonValue): Variable
     {
-        $this->container['onset_delay_in_hours'] = $onset_delay_in_hours;
+        $this->secondMostCommonValue = $secondMostCommonValue;
 
         return $this;
     }
 
     /**
-     * Gets outcome
-     *
-     * @return bool
+     * @return string|null
      */
-    public function getOutcome()
+    public function getSideEffectVariablesCount(): ?string
     {
-        return $this->container['outcome'];
+        return $this->sideEffectVariablesCount;
     }
 
     /**
-     * Sets outcome
+     * @param string|null $sideEffectVariablesCount
      *
-     * @param bool $outcome User-Defined Variable Setting: True for variables for which a human would generally want to identify the influencing factors. These include symptoms of illness, physique, mood, cognitive performance, etc.  Generally correlation calculations are only performed on outcome variables
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setOutcome($outcome)
+    public function setSideEffectVariablesCount(?string $sideEffectVariablesCount): Variable
     {
-        $this->container['outcome'] = $outcome;
+        $this->sideEffectVariablesCount = $sideEffectVariablesCount;
 
         return $this;
     }
 
     /**
-     * Gets outcome_of_interest
-     *
-     * @return bool
+     * @return string|null
      */
-    public function getOutcomeOfInterest()
+    public function getSideEffectsCount(): ?string
     {
-        return $this->container['outcome_of_interest'];
+        return $this->sideEffectsCount;
     }
 
     /**
-     * Sets outcome_of_interest
+     * @param string|null $sideEffectsCount
      *
-     * @param bool $outcome_of_interest Do you want to receive updates on newly discovered factors influencing this variable?
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setOutcomeOfInterest($outcome_of_interest)
+    public function setSideEffectsCount(?string $sideEffectsCount): Variable
     {
-        $this->container['outcome_of_interest'] = $outcome_of_interest;
+        $this->sideEffectsCount = $sideEffectsCount;
 
         return $this;
     }
 
     /**
-     * Gets parent_common_tag_variables
-     *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return float|null
      */
-    public function getParentCommonTagVariables()
+    public function getSkewness(): ?float
     {
-        return $this->container['parent_common_tag_variables'];
+        return $this->skewness;
     }
 
     /**
-     * Sets parent_common_tag_variables
+     * @param float|null $skewness
      *
-     * @param \CureDAO\Client\Models\Variable[] $parent_common_tag_variables Commonly defined for all users.  An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setParentCommonTagVariables($parent_common_tag_variables)
+    public function setSkewness(?float $skewness): Variable
     {
-        $this->container['parent_common_tag_variables'] = $parent_common_tag_variables;
+        $this->skewness = $skewness;
 
         return $this;
     }
 
     /**
-     * Gets parent_user_tag_variables
-     *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return string|null
      */
-    public function getParentUserTagVariables()
+    public function getSlug(): ?string
     {
-        return $this->container['parent_user_tag_variables'];
+        return $this->slug;
     }
 
     /**
-     * Sets parent_user_tag_variables
+     * @param string|null $slug
      *
-     * @param \CureDAO\Client\Models\Variable[] $parent_user_tag_variables User-defined. An example of a parent category variable would be Fruit when tagged with the child sub-type variables Apple.  Child variable (Apple) measurements will be included when the parent category (Fruit) is analyzed.  This allows us to see how Fruit consumption might be affecting without having to record both Fruit and Apple intake.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setParentUserTagVariables($parent_user_tag_variables)
+    public function setSlug(?string $slug): Variable
     {
-        $this->container['parent_user_tag_variables'] = $parent_user_tag_variables;
+        $this->slug = $slug;
 
         return $this;
     }
 
     /**
-     * Gets png_path
-     *
-     * @return string
+     * @return int|null
      */
-    public function getPngPath()
+    public function getSortOrder(): ?int
     {
-        return $this->container['png_path'];
+        return $this->sortOrder;
     }
 
     /**
-     * Sets png_path
+     * @param int|null $sortOrder
      *
-     * @param string $png_path Ex: img/variable_categories/treatments.png
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setPngPath($png_path)
+    public function setSortOrder(?int $sortOrder): Variable
     {
-        $this->container['png_path'] = $png_path;
+        $this->sortOrder = $sortOrder;
 
         return $this;
     }
 
     /**
-     * Gets png_url
-     *
-     * @return string
+     * @return string|null
      */
-    public function getPngUrl()
+    public function getSourceUrl(): ?string
     {
-        return $this->container['png_url'];
+        return $this->sourceUrl;
     }
 
     /**
-     * Sets png_url
+     * @param string|null $sourceUrl
      *
-     * @param string $png_url Ex: https://web.quantimo.do/img/variable_categories/treatments.png
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setPngUrl($png_url)
+    public function setSourceUrl(?string $sourceUrl): Variable
     {
-        $this->container['png_url'] = $png_url;
+        $this->sourceUrl = $sourceUrl;
 
         return $this;
     }
 
     /**
-     * Gets predictor_of_interest
-     *
-     * @return int
+     * @return float|null
      */
-    public function getPredictorOfInterest()
+    public function getStandardDeviation(): ?float
     {
-        return $this->container['predictor_of_interest'];
+        return $this->standardDeviation;
     }
 
     /**
-     * Sets predictor_of_interest
+     * @param float|null $standardDeviation
      *
-     * @param int $predictor_of_interest Ex: 0
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setPredictorOfInterest($predictor_of_interest)
+    public function setStandardDeviation(?float $standardDeviation): Variable
     {
-        $this->container['predictor_of_interest'] = $predictor_of_interest;
+        $this->standardDeviation = $standardDeviation;
 
         return $this;
     }
 
     /**
-     * Gets price
-     *
-     * @return double
+     * @return string|null
      */
-    public function getPrice()
+    public function getStudiesCount(): ?string
     {
-        return $this->container['price'];
+        return $this->studiesCount;
     }
 
     /**
-     * Sets price
+     * @param string|null $studiesCount
      *
-     * @param double $price Ex: 95.4
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setPrice($price)
+    public function setStudiesCount(?string $studiesCount): Variable
     {
-        $this->container['price'] = $price;
+        $this->studiesCount = $studiesCount;
 
         return $this;
     }
 
     /**
-     * Gets product_url
-     *
-     * @return string
+     * @return string|null
      */
-    public function getProductUrl()
+    public function getStudiesWhereCauseVariableCount(): ?string
     {
-        return $this->container['product_url'];
+        return $this->studiesWhereCauseVariableCount;
     }
 
     /**
-     * Sets product_url
+     * @param string|null $studiesWhereCauseVariableCount
      *
-     * @param string $product_url Link to associated product for purchase
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setProductUrl($product_url)
+    public function setStudiesWhereCauseVariableCount(?string $studiesWhereCauseVariableCount): Variable
     {
-        $this->container['product_url'] = $product_url;
+        $this->studiesWhereCauseVariableCount = $studiesWhereCauseVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets public
-     *
-     * @return bool
+     * @return string|null
      */
-    public function getPublic()
+    public function getStudiesWhereEffectVariableCount(): ?string
     {
-        return $this->container['public'];
+        return $this->studiesWhereEffectVariableCount;
     }
 
     /**
-     * Sets public
+     * @param string|null $studiesWhereEffectVariableCount
      *
-     * @param bool $public Should this variable show up in automcomplete searches for users who do not already have measurements for it?
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setPublic($public)
+    public function setStudiesWhereEffectVariableCount(?string $studiesWhereEffectVariableCount): Variable
     {
-        $this->container['public'] = $public;
+        $this->studiesWhereEffectVariableCount = $studiesWhereEffectVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets question
-     *
-     * @return string
+     * @return string|null
      */
-    public function getQuestion()
+    public function getSubtitle(): ?string
     {
-        return $this->container['question'];
+        return $this->subtitle;
     }
 
     /**
-     * Sets question
+     * @param string|null $subtitle
      *
-     * @param string $question Ex: How is your overall mood?
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setQuestion($question)
+    public function setSubtitle(?string $subtitle): Variable
     {
-        $this->container['question'] = $question;
+        $this->subtitle = $subtitle;
 
         return $this;
     }
 
     /**
-     * Gets long_question
-     *
-     * @return string
+     * @return array|null
      */
-    public function getLongQuestion()
+    public function getSynonyms(): ?array
     {
-        return $this->container['long_question'];
+        return $this->synonyms;
     }
 
     /**
-     * Sets long_question
+     * @param array|null $synonyms
      *
-     * @param string $long_question Ex: How is your overall mood on a scale of 1 to 5??
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setLongQuestion($long_question)
+    public function setSynonyms(?array $synonyms): Variable
     {
-        $this->container['long_question'] = $long_question;
+        $this->synonyms = $synonyms;
 
         return $this;
     }
 
     /**
-     * Gets raw_measurements_at_last_analysis
-     *
-     * @return int
+     * @return string|null
      */
-    public function getRawMeasurementsAtLastAnalysis()
+    public function getTagsCount(): ?string
     {
-        return $this->container['raw_measurements_at_last_analysis'];
+        return $this->tagsCount;
     }
 
     /**
-     * Sets raw_measurements_at_last_analysis
+     * @param string|null $tagsCount
      *
-     * @param int $raw_measurements_at_last_analysis Ex: 131
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setRawMeasurementsAtLastAnalysis($raw_measurements_at_last_analysis)
+    public function setTagsCount(?string $tagsCount): Variable
     {
-        $this->container['raw_measurements_at_last_analysis'] = $raw_measurements_at_last_analysis;
+        $this->tagsCount = $tagsCount;
 
         return $this;
     }
 
     /**
-     * Gets second_most_common_value
-     *
-     * @return double
+     * @return int|null
      */
-    public function getSecondMostCommonValue()
+    public function getThirdMostCommonValue(): ?int
     {
-        return $this->container['second_most_common_value'];
+        return $this->thirdMostCommonValue;
     }
 
     /**
-     * Sets second_most_common_value
+     * @param int|null $thirdMostCommonValue
      *
-     * @param double $second_most_common_value Calculated Statistic: Ex: 1. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setSecondMostCommonValue($second_most_common_value)
+    public function setThirdMostCommonValue(?int $thirdMostCommonValue): Variable
     {
-        $this->container['second_most_common_value'] = $second_most_common_value;
+        $this->thirdMostCommonValue = $thirdMostCommonValue;
 
         return $this;
     }
 
     /**
-     * Gets second_to_last_value
-     *
-     * @return double
+     * @return string|null
      */
-    public function getSecondToLastValue()
+    public function getThirdPartyCorrelationsCount(): ?string
     {
-        return $this->container['second_to_last_value'];
+        return $this->thirdPartyCorrelationsCount;
     }
 
     /**
-     * Sets second_to_last_value
+     * @param string|null $thirdPartyCorrelationsCount
      *
-     * @param double $second_to_last_value Calculated Statistic: Ex: 250. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setSecondToLastValue($second_to_last_value)
+    public function setThirdPartyCorrelationsCount(?string $thirdPartyCorrelationsCount): Variable
     {
-        $this->container['second_to_last_value'] = $second_to_last_value;
+        $this->thirdPartyCorrelationsCount = $thirdPartyCorrelationsCount;
 
         return $this;
     }
 
     /**
-     * Gets share_user_measurements
-     *
-     * @return bool
+     * @return string|null
      */
-    public function getShareUserMeasurements()
+    public function getTrackingReminderNotificationsCount(): ?string
     {
-        return $this->container['share_user_measurements'];
+        return $this->trackingReminderNotificationsCount;
     }
 
     /**
-     * Sets share_user_measurements
+     * @param string|null $trackingReminderNotificationsCount
      *
-     * @param bool $share_user_measurements Would you like to make your measurements publicly visible?
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setShareUserMeasurements($share_user_measurements)
+    public function setTrackingReminderNotificationsCount(?string $trackingReminderNotificationsCount): Variable
     {
-        $this->container['share_user_measurements'] = $share_user_measurements;
+        $this->trackingReminderNotificationsCount = $trackingReminderNotificationsCount;
 
         return $this;
     }
 
     /**
-     * Gets skewness
-     *
-     * @return float
+     * @return string|null
      */
-    public function getSkewness()
+    public function getTrackingRemindersCount(): ?string
     {
-        return $this->container['skewness'];
+        return $this->trackingRemindersCount;
     }
 
     /**
-     * Sets skewness
+     * @param string|null $trackingRemindersCount
      *
-     * @param float $skewness Skewness
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setSkewness($skewness)
+    public function setTrackingRemindersCount(?string $trackingRemindersCount): Variable
     {
-        $this->container['skewness'] = $skewness;
+        $this->trackingRemindersCount = $trackingRemindersCount;
 
         return $this;
     }
 
     /**
-     * Gets standard_deviation
-     *
-     * @return double
+     * @return string|null
      */
-    public function getStandardDeviation()
+    public function getTreatmentSideEffectsWhereTreatmentCount(): ?string
     {
-        return $this->container['standard_deviation'];
+        return $this->treatmentSideEffectsWhereTreatmentCount;
     }
 
     /**
-     * Sets standard_deviation
+     * @param string|null $treatmentSideEffectsWhereTreatmentCount
      *
-     * @param double $standard_deviation Standard deviation Ex: 0.46483219855434
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setStandardDeviation($standard_deviation)
+    public function setTreatmentSideEffectsWhereTreatmentCount(?string $treatmentSideEffectsWhereTreatmentCount): Variable
     {
-        $this->container['standard_deviation'] = $standard_deviation;
+        $this->treatmentSideEffectsWhereTreatmentCount = $treatmentSideEffectsWhereTreatmentCount;
 
         return $this;
     }
 
     /**
-     * Gets status
-     *
-     * @return string
+     * @return int|null
      */
-    public function getStatus()
+    public function getUnitId(): ?int
     {
-        return $this->container['status'];
+        return $this->unitId;
     }
 
     /**
-     * Sets status
+     * @param int|null $unitId
      *
-     * @param string $status status
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setStatus($status)
+    public function setUnitId(?int $unitId): Variable
     {
-        $this->container['status'] = $status;
+        $this->unitId = $unitId;
 
         return $this;
     }
 
     /**
-     * Gets subtitle
-     *
-     * @return string
+     * @return string|null
      */
-    public function getSubtitle()
+    public function getUpVotedPublicOutcomesCount(): ?string
     {
-        return $this->container['subtitle'];
+        return $this->upVotedPublicOutcomesCount;
     }
 
     /**
-     * Sets subtitle
+     * @param string|null $upVotedPublicOutcomesCount
      *
-     * @param string $subtitle Based on sort filter and can be shown beneath variable name on search list
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setSubtitle($subtitle)
+    public function setUpVotedPublicOutcomesCount(?string $upVotedPublicOutcomesCount): Variable
     {
-        $this->container['subtitle'] = $subtitle;
+        $this->upVotedPublicOutcomesCount = $upVotedPublicOutcomesCount;
 
         return $this;
     }
 
     /**
-     * Gets svg_url
-     *
-     * @return string
+     * @return string|null
      */
-    public function getSvgUrl()
+    public function getUpVotedPublicPredictorsCount(): ?string
     {
-        return $this->container['svg_url'];
+        return $this->upVotedPublicPredictorsCount;
     }
 
     /**
-     * Sets svg_url
+     * @param string|null $upVotedPublicPredictorsCount
      *
-     * @param string $svg_url Ex: https://web.quantimo.do/img/variable_categories/treatments.svg
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setSvgUrl($svg_url)
+    public function setUpVotedPublicPredictorsCount(?string $upVotedPublicPredictorsCount): Variable
     {
-        $this->container['svg_url'] = $svg_url;
+        $this->upVotedPublicPredictorsCount = $upVotedPublicPredictorsCount;
 
         return $this;
     }
 
     /**
-     * Gets third_most_common_value
-     *
-     * @return double
+     * @return string|null
      */
-    public function getThirdMostCommonValue()
+    public function getUpc12(): ?string
     {
-        return $this->container['third_most_common_value'];
+        return $this->upc12;
     }
 
     /**
-     * Sets third_most_common_value
+     * @param string|null $upc12
      *
-     * @param double $third_most_common_value Calculated Statistic: Ex: 6. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setThirdMostCommonValue($third_most_common_value)
+    public function setUpc12(?string $upc12): Variable
     {
-        $this->container['third_most_common_value'] = $third_most_common_value;
+        $this->upc12 = $upc12;
 
         return $this;
     }
 
     /**
-     * Gets third_to_last_value
-     *
-     * @return double
+     * @return string|null
      */
-    public function getThirdToLastValue()
+    public function getUpc14(): ?string
     {
-        return $this->container['third_to_last_value'];
+        return $this->upc14;
     }
 
     /**
-     * Sets third_to_last_value
+     * @param string|null $upc14
      *
-     * @param double $third_to_last_value Calculated Statistic: Ex: 250. Unit: User-specified or common.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setThirdToLastValue($third_to_last_value)
+    public function setUpc14(?string $upc14): Variable
     {
-        $this->container['third_to_last_value'] = $third_to_last_value;
+        $this->upc14 = $upc14;
 
         return $this;
     }
 
     /**
-     * Gets tracking_instructions
-     *
-     * @return string
+     * @return string|null
      */
-    public function getTrackingInstructions()
+    public function getUpdatedAt(): ?string
     {
-        return $this->container['tracking_instructions'];
+        return $this->updatedAt;
     }
 
     /**
-     * Sets tracking_instructions
+     * @param string|null $updatedAt
      *
-     * @param string $tracking_instructions HTML instructions for tracking
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setTrackingInstructions($tracking_instructions)
+    public function setUpdatedAt(?string $updatedAt): Variable
     {
-        $this->container['tracking_instructions'] = $tracking_instructions;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
     /**
-     * Gets tracking_instructions_card
-     *
-     * @return \CureDAO\Client\Models\Card
+     * @return string|null
      */
-    public function getTrackingInstructionsCard()
+    public function getUserErrorMessage(): ?string
     {
-        return $this->container['tracking_instructions_card'];
+        return $this->userErrorMessage;
     }
 
     /**
-     * Sets tracking_instructions_card
+     * @param string|null $userErrorMessage
      *
-     * @param \CureDAO\Client\Models\Card $tracking_instructions_card Instructions for tracking with buttons and images
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setTrackingInstructionsCard($tracking_instructions_card)
+    public function setUserErrorMessage(?string $userErrorMessage): Variable
     {
-        $this->container['tracking_instructions_card'] = $tracking_instructions_card;
+        $this->userErrorMessage = $userErrorMessage;
 
         return $this;
     }
 
     /**
-     * Gets unit
-     *
-     * @return \CureDAO\Client\Models\Unit
+     * @return string|null
      */
-    public function getUnit()
+    public function getUserTaggedByCount(): ?string
     {
-        return $this->container['unit'];
+        return $this->userTaggedByCount;
     }
 
     /**
-     * Sets unit
+     * @param string|null $userTaggedByCount
      *
-     * @param \CureDAO\Client\Models\Unit $unit unit
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUnit($unit)
+    public function setUserTaggedByCount(?string $userTaggedByCount): Variable
     {
-        $this->container['unit'] = $unit;
+        $this->userTaggedByCount = $userTaggedByCount;
 
         return $this;
     }
 
     /**
-     * Gets unit_abbreviated_name
-     *
-     * @return string
+     * @return string|null
      */
-    public function getUnitAbbreviatedName()
+    public function getUserTagsCount(): ?string
     {
-        return $this->container['unit_abbreviated_name'];
+        return $this->userTagsCount;
     }
 
     /**
-     * Sets unit_abbreviated_name
+     * @param string|null $userTagsCount
      *
-     * @param string $unit_abbreviated_name Ex: count
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUnitAbbreviatedName($unit_abbreviated_name)
+    public function setUserTagsCount(?string $userTagsCount): Variable
     {
-        $this->container['unit_abbreviated_name'] = $unit_abbreviated_name;
+        $this->userTagsCount = $userTagsCount;
 
         return $this;
     }
 
     /**
-     * Gets unit_category_id
-     *
-     * @return int
+     * @return string|null
      */
-    public function getUnitCategoryId()
+    public function getUserTagsWhereTagVariableCount(): ?string
     {
-        return $this->container['unit_category_id'];
+        return $this->userTagsWhereTagVariableCount;
     }
 
     /**
-     * Sets unit_category_id
+     * @param string|null $userTagsWhereTagVariableCount
      *
-     * @param int $unit_category_id Ex: 6
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUnitCategoryId($unit_category_id)
+    public function setUserTagsWhereTagVariableCount(?string $userTagsWhereTagVariableCount): Variable
     {
-        $this->container['unit_category_id'] = $unit_category_id;
+        $this->userTagsWhereTagVariableCount = $userTagsWhereTagVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets unit_category_name
-     *
-     * @return string
+     * @return string|null
      */
-    public function getUnitCategoryName()
+    public function getUserTagsWhereTaggedVariableCount(): ?string
     {
-        return $this->container['unit_category_name'];
+        return $this->userTagsWhereTaggedVariableCount;
     }
 
     /**
-     * Sets unit_category_name
+     * @param string|null $userTagsWhereTaggedVariableCount
      *
-     * @param string $unit_category_name Ex: Miscellany
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUnitCategoryName($unit_category_name)
+    public function setUserTagsWhereTaggedVariableCount(?string $userTagsWhereTaggedVariableCount): Variable
     {
-        $this->container['unit_category_name'] = $unit_category_name;
+        $this->userTagsWhereTaggedVariableCount = $userTagsWhereTaggedVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets unit_id
-     *
-     * @return int
+     * @return string|null
      */
-    public function getUnitId()
+    public function getUserVariableClientsCount(): ?string
     {
-        return $this->container['unit_id'];
+        return $this->userVariableClientsCount;
     }
 
     /**
-     * Sets unit_id
+     * @param string|null $userVariableClientsCount
      *
-     * @param int $unit_id ID of unit to use for this variable
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUnitId($unit_id)
+    public function setUserVariableClientsCount(?string $userVariableClientsCount): Variable
     {
-        $this->container['unit_id'] = $unit_id;
+        $this->userVariableClientsCount = $userVariableClientsCount;
 
         return $this;
     }
 
     /**
-     * Gets unit_name
-     *
-     * @return string
+     * @return string|null
      */
-    public function getUnitName()
+    public function getUserVariableOutcomeCategoriesCount(): ?string
     {
-        return $this->container['unit_name'];
+        return $this->userVariableOutcomeCategoriesCount;
     }
 
     /**
-     * Sets unit_name
+     * @param string|null $userVariableOutcomeCategoriesCount
      *
-     * @param string $unit_name User-Defined Variable Setting: Count
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUnitName($unit_name)
+    public function setUserVariableOutcomeCategoriesCount(?string $userVariableOutcomeCategoriesCount): Variable
     {
-        $this->container['unit_name'] = $unit_name;
+        $this->userVariableOutcomeCategoriesCount = $userVariableOutcomeCategoriesCount;
 
         return $this;
     }
 
     /**
-     * Gets upc
-     *
-     * @return string
+     * @return string|null
      */
-    public function getUpc()
+    public function getUserVariablePredictorCategoriesCount(): ?string
     {
-        return $this->container['upc'];
+        return $this->userVariablePredictorCategoriesCount;
     }
 
     /**
-     * Sets upc
+     * @param string|null $userVariablePredictorCategoriesCount
      *
-     * @param string $upc Universal product code or similar
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUpc($upc)
+    public function setUserVariablePredictorCategoriesCount(?string $userVariablePredictorCategoriesCount): Variable
     {
-        $this->container['upc'] = $upc;
+        $this->userVariablePredictorCategoriesCount = $userVariablePredictorCategoriesCount;
 
         return $this;
     }
 
     /**
-     * Gets updated
-     *
-     * @return int
+     * @return string|null
      */
-    public function getUpdated()
+    public function getUserVariablesCount(): ?string
     {
-        return $this->container['updated'];
+        return $this->userVariablesCount;
     }
 
     /**
-     * Sets updated
+     * @param string|null $userVariablesCount
      *
-     * @param int $updated updated
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUpdated($updated)
+    public function setUserVariablesCount(?string $userVariablesCount): Variable
     {
-        $this->container['updated'] = $updated;
+        $this->userVariablesCount = $userVariablesCount;
 
         return $this;
     }
 
     /**
-     * Gets updated_at
-     *
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedAt()
+    public function getUserVariablesExcludingTestUsersCount(): ?string
     {
-        return $this->container['updated_at'];
+        return $this->userVariablesExcludingTestUsersCount;
     }
 
     /**
-     * Sets updated_at
+     * @param string|null $userVariablesExcludingTestUsersCount
      *
-     * @param string $updated_at When the record in the database was last updated. Use UTC ISO 8601 YYYY-MM-DDThh:mm:ss datetime format
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUpdatedAt($updated_at)
+    public function setUserVariablesExcludingTestUsersCount(?string $userVariablesExcludingTestUsersCount): Variable
     {
-        $this->container['updated_at'] = $updated_at;
+        $this->userVariablesExcludingTestUsersCount = $userVariablesExcludingTestUsersCount;
 
         return $this;
     }
 
     /**
-     * Gets updated_time
-     *
-     * @return string
+     * @return string|null
      */
-    public function getUpdatedTime()
+    public function getUsersCount(): ?string
     {
-        return $this->container['updated_time'];
+        return $this->usersCount;
     }
 
     /**
-     * Sets updated_time
+     * @param string|null $usersCount
      *
-     * @param string $updated_time Ex: 2017-07-30 14:58:26
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUpdatedTime($updated_time)
+    public function setUsersCount(?string $usersCount): Variable
     {
-        $this->container['updated_time'] = $updated_time;
+        $this->usersCount = $usersCount;
 
         return $this;
     }
 
     /**
-     * Gets user_id
-     *
-     * @return int
+     * @return string|null
      */
-    public function getUserId()
+    public function getUsersWherePrimaryOutcomeVariableCount(): ?string
     {
-        return $this->container['user_id'];
+        return $this->usersWherePrimaryOutcomeVariableCount;
     }
 
     /**
-     * Sets user_id
+     * @param string|null $usersWherePrimaryOutcomeVariableCount
      *
-     * @param int $user_id User ID
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUserId($user_id)
+    public function setUsersWherePrimaryOutcomeVariableCount(?string $usersWherePrimaryOutcomeVariableCount): Variable
     {
-        $this->container['user_id'] = $user_id;
+        $this->usersWherePrimaryOutcomeVariableCount = $usersWherePrimaryOutcomeVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets user_tagged_variables
-     *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return string|null
      */
-    public function getUserTaggedVariables()
+    public function getValence(): ?string
     {
-        return $this->container['user_tagged_variables'];
+        return $this->valence;
     }
 
     /**
-     * Sets user_tagged_variables
+     * @param string|null $valence
      *
-     * @param \CureDAO\Client\Models\Variable[] $user_tagged_variables user_tagged_variables
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUserTaggedVariables($user_tagged_variables)
+    public function setValence(?string $valence): Variable
     {
-        $this->container['user_tagged_variables'] = $user_tagged_variables;
+        $this->valence = $valence;
 
         return $this;
     }
 
     /**
-     * Gets user_tag_variables
-     *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return int|null
      */
-    public function getUserTagVariables()
+    public function getVariableCategoryId(): ?int
     {
-        return $this->container['user_tag_variables'];
+        return $this->variableCategoryId;
     }
 
     /**
-     * Sets user_tag_variables
+     * @param int|null $variableCategoryId
      *
-     * @param \CureDAO\Client\Models\Variable[] $user_tag_variables user_tag_variables
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUserTagVariables($user_tag_variables)
+    public function setVariableCategoryId(?int $variableCategoryId): Variable
     {
-        $this->container['user_tag_variables'] = $user_tag_variables;
+        $this->variableCategoryId = $variableCategoryId;
 
         return $this;
     }
 
     /**
-     * Gets user_variable_unit_abbreviated_name
-     *
-     * @return string
+     * @return int|null
      */
-    public function getUserVariableUnitAbbreviatedName()
+    public function getVariableId(): ?int
     {
-        return $this->container['user_variable_unit_abbreviated_name'];
+        return $this->variableId;
     }
 
     /**
-     * Sets user_variable_unit_abbreviated_name
+     * @param int|null $variableId
      *
-     * @param string $user_variable_unit_abbreviated_name Ex: count
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUserVariableUnitAbbreviatedName($user_variable_unit_abbreviated_name)
+    public function setVariableId(?int $variableId): Variable
     {
-        $this->container['user_variable_unit_abbreviated_name'] = $user_variable_unit_abbreviated_name;
+        $this->variableId = $variableId;
 
         return $this;
     }
 
     /**
-     * Gets user_variable_unit_category_id
-     *
-     * @return int
+     * @return string|null
      */
-    public function getUserVariableUnitCategoryId()
+    public function getVariableOutcomeCategoriesCount(): ?string
     {
-        return $this->container['user_variable_unit_category_id'];
+        return $this->variableOutcomeCategoriesCount;
     }
 
     /**
-     * Sets user_variable_unit_category_id
+     * @param string|null $variableOutcomeCategoriesCount
      *
-     * @param int $user_variable_unit_category_id Ex: 6
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUserVariableUnitCategoryId($user_variable_unit_category_id)
+    public function setVariableOutcomeCategoriesCount(?string $variableOutcomeCategoriesCount): Variable
     {
-        $this->container['user_variable_unit_category_id'] = $user_variable_unit_category_id;
+        $this->variableOutcomeCategoriesCount = $variableOutcomeCategoriesCount;
 
         return $this;
     }
 
     /**
-     * Gets user_variable_unit_category_name
-     *
-     * @return string
+     * @return string|null
      */
-    public function getUserVariableUnitCategoryName()
+    public function getVariablePredictorCategoriesCount(): ?string
     {
-        return $this->container['user_variable_unit_category_name'];
+        return $this->variablePredictorCategoriesCount;
     }
 
     /**
-     * Sets user_variable_unit_category_name
+     * @param string|null $variablePredictorCategoriesCount
      *
-     * @param string $user_variable_unit_category_name Ex: Miscellany
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUserVariableUnitCategoryName($user_variable_unit_category_name)
+    public function setVariablePredictorCategoriesCount(?string $variablePredictorCategoriesCount): Variable
     {
-        $this->container['user_variable_unit_category_name'] = $user_variable_unit_category_name;
+        $this->variablePredictorCategoriesCount = $variablePredictorCategoriesCount;
 
         return $this;
     }
 
     /**
-     * Gets user_variable_unit_id
-     *
-     * @return int
+     * @return string|null
      */
-    public function getUserVariableUnitId()
+    public function getVariableUserSourcesCount(): ?string
     {
-        return $this->container['user_variable_unit_id'];
+        return $this->variableUserSourcesCount;
     }
 
     /**
-     * Sets user_variable_unit_id
+     * @param string|null $variableUserSourcesCount
      *
-     * @param int $user_variable_unit_id Ex: 23
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUserVariableUnitId($user_variable_unit_id)
+    public function setVariableUserSourcesCount(?string $variableUserSourcesCount): Variable
     {
-        $this->container['user_variable_unit_id'] = $user_variable_unit_id;
+        $this->variableUserSourcesCount = $variableUserSourcesCount;
 
         return $this;
     }
 
     /**
-     * Gets user_variable_unit_name
-     *
-     * @return string
+     * @return string|null
      */
-    public function getUserVariableUnitName()
+    public function getVariablesCount(): ?string
     {
-        return $this->container['user_variable_unit_name'];
+        return $this->variablesCount;
     }
 
     /**
-     * Sets user_variable_unit_name
+     * @param string|null $variablesCount
      *
-     * @param string $user_variable_unit_name Ex: Count
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setUserVariableUnitName($user_variable_unit_name)
+    public function setVariablesCount(?string $variablesCount): Variable
     {
-        $this->container['user_variable_unit_name'] = $user_variable_unit_name;
+        $this->variablesCount = $variablesCount;
 
         return $this;
     }
 
     /**
-     * Gets variable_category
-     *
-     * @return \CureDAO\Client\Models\VariableCategory
+     * @return string|null
      */
-    public function getVariableCategory()
+    public function getVariablesWhereBestCauseVariableCount(): ?string
     {
-        return $this->container['variable_category'];
+        return $this->variablesWhereBestCauseVariableCount;
     }
 
     /**
-     * Sets variable_category
+     * @param string|null $variablesWhereBestCauseVariableCount
      *
-     * @param \CureDAO\Client\Models\VariableCategory $variable_category variable_category
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setVariableCategory($variable_category)
+    public function setVariablesWhereBestCauseVariableCount(?string $variablesWhereBestCauseVariableCount): Variable
     {
-        $this->container['variable_category'] = $variable_category;
+        $this->variablesWhereBestCauseVariableCount = $variablesWhereBestCauseVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets joined_variables
-     *
-     * @return \CureDAO\Client\Models\Variable[]
+     * @return string|null
      */
-    public function getJoinedVariables()
+    public function getVariablesWhereBestEffectVariableCount(): ?string
     {
-        return $this->container['joined_variables'];
+        return $this->variablesWhereBestEffectVariableCount;
     }
 
     /**
-     * Sets joined_variables
+     * @param string|null $variablesWhereBestEffectVariableCount
      *
-     * @param \CureDAO\Client\Models\Variable[] $joined_variables Array of Variables that are joined with this Variable
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setJoinedVariables($joined_variables)
+    public function setVariablesWhereBestEffectVariableCount(?string $variablesWhereBestEffectVariableCount): Variable
     {
-        $this->container['joined_variables'] = $joined_variables;
+        $this->variablesWhereBestEffectVariableCount = $variablesWhereBestEffectVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets valence
-     *
-     * @return string
+     * @return float|null
      */
-    public function getValence()
+    public function getVariance(): ?float
     {
-        return $this->container['valence'];
+        return $this->variance;
     }
 
     /**
-     * Sets valence
+     * @param float|null $variance
      *
-     * @param string $valence Valence indicates what type of buttons should be used when recording measurements for this variable. positive - Face buttons with the happiest face equating to a 5/5 rating where higher is better like Overall Mood. negative - Face buttons with happiest face equating to a 1/5 rating where lower is better like Headache Severity. numeric - Just 1 to 5 numeric buttons for neutral variables.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setValence($valence)
+    public function setVariance(?float $variance): Variable
     {
-        $this->container['valence'] = $valence;
+        $this->variance = $variance;
 
         return $this;
     }
 
     /**
-     * Gets variable_category_id
-     *
-     * @return int
+     * @return string|null
      */
-    public function getVariableCategoryId()
+    public function getVotesCount(): ?string
     {
-        return $this->container['variable_category_id'];
+        return $this->votesCount;
     }
 
     /**
-     * Sets variable_category_id
+     * @param string|null $votesCount
      *
-     * @param int $variable_category_id Ex: 6
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setVariableCategoryId($variable_category_id)
+    public function setVotesCount(?string $votesCount): Variable
     {
-        $this->container['variable_category_id'] = $variable_category_id;
+        $this->votesCount = $votesCount;
 
         return $this;
     }
 
     /**
-     * Gets variable_category_name
-     *
-     * @return string
+     * @return string|null
      */
-    public function getVariableCategoryName()
+    public function getVotesWhereCauseCount(): ?string
     {
-        return $this->container['variable_category_name'];
+        return $this->votesWhereCauseCount;
     }
 
     /**
-     * Sets variable_category_name
+     * @param string|null $votesWhereCauseCount
      *
-     * @param string $variable_category_name User-Defined Variable Setting: Variable category like Emotions, Sleep, Physical Activities, Treatments, Symptoms, etc.
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setVariableCategoryName($variable_category_name)
+    public function setVotesWhereCauseCount(?string $votesWhereCauseCount): Variable
     {
-        $allowedValues = $this->getVariableCategoryNameAllowableValues();
-        if (!is_null($variable_category_name) && !in_array($variable_category_name, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'variable_category_name', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['variable_category_name'] = $variable_category_name;
+        $this->votesWhereCauseCount = $votesWhereCauseCount;
 
         return $this;
     }
 
     /**
-     * Gets variable_id
-     *
-     * @return int
+     * @return string|null
      */
-    public function getVariableId()
+    public function getVotesWhereCauseVariableCount(): ?string
     {
-        return $this->container['variable_id'];
+        return $this->votesWhereCauseVariableCount;
     }
 
     /**
-     * Sets variable_id
+     * @param string|null $votesWhereCauseVariableCount
      *
-     * @param int $variable_id Ex: 96380
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setVariableId($variable_id)
+    public function setVotesWhereCauseVariableCount(?string $votesWhereCauseVariableCount): Variable
     {
-        $this->container['variable_id'] = $variable_id;
+        $this->votesWhereCauseVariableCount = $votesWhereCauseVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets variable_name
-     *
-     * @return string
+     * @return string|null
      */
-    public function getVariableName()
+    public function getVotesWhereEffectCount(): ?string
     {
-        return $this->container['variable_name'];
+        return $this->votesWhereEffectCount;
     }
 
     /**
-     * Sets variable_name
+     * @param string|null $votesWhereEffectCount
      *
-     * @param string $variable_name Ex: Sleep Duration
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setVariableName($variable_name)
+    public function setVotesWhereEffectCount(?string $votesWhereEffectCount): Variable
     {
-        $this->container['variable_name'] = $variable_name;
+        $this->votesWhereEffectCount = $votesWhereEffectCount;
 
         return $this;
     }
 
     /**
-     * Gets variance
-     *
-     * @return double
+     * @return string|null
      */
-    public function getVariance()
+    public function getVotesWhereEffectVariableCount(): ?string
     {
-        return $this->container['variance'];
+        return $this->votesWhereEffectVariableCount;
     }
 
     /**
-     * Sets variance
+     * @param string|null $votesWhereEffectVariableCount
      *
-     * @param double $variance Statistic: Ex: 115947037.40816
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setVariance($variance)
+    public function setVotesWhereEffectVariableCount(?string $votesWhereEffectVariableCount): Variable
     {
-        $this->container['variance'] = $variance;
+        $this->votesWhereEffectVariableCount = $votesWhereEffectVariableCount;
 
         return $this;
     }
 
     /**
-     * Gets wikipedia_title
-     *
-     * @return string
+     * @return string|null
      */
-    public function getWikipediaTitle()
+    public function getWikipediaTitle(): ?string
     {
-        return $this->container['wikipedia_title'];
+        return $this->wikipediaTitle;
     }
 
     /**
-     * Sets wikipedia_title
+     * @param string|null $wikipediaTitle
      *
-     * @param string $wikipedia_title User-Defined Variable Setting: You can help to improve the studies by pasting the title of the most appropriate Wikipedia article for this variable
-     *
-     * @return $this
+     * @return Variable
      */
-    public function setWikipediaTitle($wikipedia_title)
+    public function setWikipediaTitle(?string $wikipediaTitle): Variable
     {
-        $this->container['wikipedia_title'] = $wikipedia_title;
+        $this->wikipediaTitle = $wikipediaTitle;
 
         return $this;
-    }
-    /**
-     * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
-     * @return boolean
-     */
-    public function offsetExists($offset)
-    {
-        return isset($this->container[$offset]);
     }
 
     /**
-     * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
-     * @return mixed
+     * @return string|null
      */
-    public function offsetGet($offset)
+    public function getWikipediaUrl(): ?string
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->wikipediaUrl;
     }
 
     /**
-     * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed   $value  Value to be set
+     * @param string|null $wikipediaUrl
      *
-     * @return void
+     * @return Variable
      */
-    public function offsetSet($offset, $value)
+    public function setWikipediaUrl(?string $wikipediaUrl): Variable
     {
-        if (is_null($offset)) {
-            $this->container[] = $value;
-        } else {
-            $this->container[$offset] = $value;
-        }
+        $this->wikipediaUrl = $wikipediaUrl;
+
+        return $this;
     }
 
     /**
-     * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
-     * @return void
+     * @return int|null
      */
-    public function offsetUnset($offset)
+    public function getWpPostId(): ?int
     {
-        unset($this->container[$offset]);
+        return $this->wpPostId;
     }
 
     /**
-     * Gets the string presentation of the object
+     * @param int|null $wpPostId
      *
-     * @return string
+     * @return Variable
      */
-    public function __toString()
+    public function setWpPostId(?int $wpPostId): Variable
     {
-        if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
-        }
+        $this->wpPostId = $wpPostId;
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        return $this;
     }
 }
+

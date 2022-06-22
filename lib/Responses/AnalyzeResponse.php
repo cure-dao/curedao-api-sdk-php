@@ -15,8 +15,8 @@ class AnalyzeResponse extends BaseResponse
         $this->analysis = new Analysis($data['analysis']);
         $this->outcomeUserVariable = new UserVariable($data["outcome_user_variable"]);
         $this->predictorUserVariable = new UserVariable($data["predictor_user_variable"]);
-        //$this->outcomeVariable = new Variable($data["outcome_variable"]);
-        //$this->predictorVariable = new Variable($data["predictor_variable"]);
+        $this->outcomeVariable = new Variable($data["outcome_variable"]);
+        $this->predictorVariable = new Variable($data["predictor_variable"]);
         if(isset($data['user'])){
             $this->user = new User($data['user']);
         }
