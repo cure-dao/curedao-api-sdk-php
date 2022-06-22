@@ -2,7 +2,7 @@
 
 namespace CureDAO\Client;
 
-use CureDAO\Client\Requests\HttpClient;
+use CureDAO\Client\Requests\BaseRequest;
 use ICanBoogie\Inflector;
 use Illuminate\Support\Collection;
 use LogicException;
@@ -49,7 +49,7 @@ abstract class BaseModel
         }
         throw new LogicException("Unit not found");
     }
-    protected static function getClient(): HttpClient{
-        return new HttpClient();
+    protected static function getClient(): BaseRequest{
+        return new BaseRequest();
     }
 }

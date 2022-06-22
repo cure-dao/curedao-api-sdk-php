@@ -3,7 +3,7 @@ namespace CureDAO\Client\Requests;
 use CureDAO\Client\Models\MeasurementSet;
 use CureDAO\Client\Responses\AnalyzeResponse;
 
-class AnalysisRequest extends HttpClient
+class AnalysisRequest extends BaseRequest
 {
 
     private $predictorMeasurementSet;
@@ -15,7 +15,6 @@ class AnalysisRequest extends HttpClient
      * @param int|string $yourUserId
      * @param MeasurementSet $predictorMeasurementSet
      * @param MeasurementSet $outcomeMeasurementSet
-     * @throws \Exception
      */
     public function __construct($yourUserId, MeasurementSet $predictorMeasurementSet, MeasurementSet $outcomeMeasurementSet)
     {
@@ -95,7 +94,7 @@ class AnalysisRequest extends HttpClient
 
     public function getResponse(): AnalyzeResponse
     {
-        return new AnalyzeResponse($this->getData());
+        return $this->response = new AnalyzeResponse($this->getData());
     }
 
 }

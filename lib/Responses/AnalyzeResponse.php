@@ -13,7 +13,13 @@ class AnalyzeResponse extends BaseResponse
     {
         parent::__construct($data);
         $this->analysis = new Analysis($data['analysis']);
-        //$this->predictorUserVariable = new UserVariable($data['analysis']);
+        $this->outcomeUserVariable = new UserVariable($data["outcome_user_variable"]);
+        $this->predictorUserVariable = new UserVariable($data["predictor_user_variable"]);
+        //$this->outcomeVariable = new Variable($data["outcome_variable"]);
+        //$this->predictorVariable = new Variable($data["predictor_variable"]);
+        if(isset($data['user'])){
+            $this->user = new User($data['user']);
+        }
     }
 
     /**
@@ -194,9 +200,9 @@ class AnalyzeResponse extends BaseResponse
 
     public function saveHtml(string $path = null)
     {
-        $slug = $this->getSlug();
+        $slug = $this->getSlug() ?? "index";
         if(!$path){
-            $path = __DIR__."../../public/".$slug.".html";
+            $path = __DIR__."/../../public/".$slug.".html";
         }
         file_put_contents($path, $this->getHtml());
     }

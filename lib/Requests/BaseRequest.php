@@ -1,8 +1,9 @@
 <?php
 namespace CureDAO\Client\Requests;
+use CureDAO\Client\ApiException;
 use Httpful\Request;
 
-class HttpClient
+class BaseRequest
 {
     /**
      * @var string
@@ -53,7 +54,6 @@ class HttpClient
     public function getData(): array
     {
         return $this->data;
-        return $this->getRequest()->body;
     }
 
     /**
@@ -61,6 +61,7 @@ class HttpClient
      * @param array $payload
      * @param array $headers
      * @return array
+     * @throws ApiException
      * @throws \Httpful\Exception\ConnectionErrorException
      */
     public function post(string $path, array $payload, array $headers = []): array
@@ -76,6 +77,11 @@ class HttpClient
             ->send();
         return $this->getDataFromResponse();
     }
+
+    /**
+     * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws ApiException
+     */
     public function get(string $path, array $params = []): array{
         if(isset($_ENV['CUREDAO_CLIENT_ID'])) {
             $params['client_id'] = $_ENV["CUREDAO_CLIENT_ID"];
@@ -85,7 +91,7 @@ class HttpClient
             //->expectsJson()
             //->withXTrivialHeader('Just as a demo')
             ->send();
-        return $this->getDataFromResponse($path);
+        return $this->getDataFromResponse();
     }
     private function getUrl(string $path, array $params = []): string{
         $url = $this->getBaseUrl() . $path;
@@ -111,12 +117,12 @@ class HttpClient
 
     /**
      * @return array
-     * @throws \Exception
+     * @throws ApiException
      */
     protected function getDataFromResponse(): array {
         $body = $this->request->body;
         if(!empty($body->error)){
-            throw new \Exception($body->error);
+            throw new ApiException($body->error);
         }
         $this->data = $body->data ?? $body['data'] ?? $body;
         if(!is_array($this->data)){

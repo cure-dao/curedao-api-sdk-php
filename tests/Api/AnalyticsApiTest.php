@@ -88,10 +88,10 @@ class AnalyticsApiTest extends \CureDAO\Tests\BaseTestCase
 
         $response->saveHtml();
 
-        $this->generateModels("UserVariable", $response->predictor_variable);
+        $this->generateModels("Variable", $response->getPredictorVariable());
         //$this->generateModels("AnalysisResponse", $response);
         //$this->generateModels("UserVariable", $response->predictor_user_variable);
-        $this->assertNotNull($response->analysis);
+        $this->assertNotNull($response->getAnalysis());
         $this->assertStringContainsString(DailyStepCountVariable::NAME,
             $response->getHtml(), 'study-html');
         $this->assertStringContainsString(HeartRateVariabilityVariable::NAME,
