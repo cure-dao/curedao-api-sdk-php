@@ -17,7 +17,7 @@ class BaseRequest
 
     public function __construct() {
         if(!isset($_ENV['CUREDAO_CLIENT_ID'])){
-            $envPath = __DIR__ . '/../../../..';
+            $envPath = __DIR__ . '/../../../../..';
             if(!file_exists($envPath."/.env")){
                 $envPath = __DIR__ . '/../..';
             }
