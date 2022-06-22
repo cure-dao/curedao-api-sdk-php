@@ -1,6 +1,6 @@
 {
     "name": "cure-dao/cure-dao-sdk-php",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "A PHP SDK for the CureDAO Collaborative for Precision Health API",
     "keywords": [
         "curedao",
