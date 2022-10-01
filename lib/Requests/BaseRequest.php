@@ -128,6 +128,9 @@ class BaseRequest
         if(!is_array($this->data)){
             $this->data = json_decode(json_encode($this->data), true);
         }
+        if(!is_array($this->data)){
+            dd($body);
+        }
         return $this->data;
     }
 }

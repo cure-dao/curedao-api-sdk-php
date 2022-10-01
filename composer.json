@@ -28,7 +28,8 @@
         "icanboogie/inflector": "^2",
         "illuminate/collections": "^8",
         "pragmarx/ia-str": "^7",
-        "json-mapper/json-mapper": "^2"
+        "json-mapper/json-mapper": "^2",
+        "wanfeiyy/dd": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "*"

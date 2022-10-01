@@ -1,0 +1,26 @@
+
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '20 4 * * *'
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: php-actions/composer@v6
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@v3
+        env:
+          CUREDAO_CLIENT_ID: ${{ secrets.CUREDAO_CLIENT_ID }}
+          CUREDAO_CLIENT_SECRET: ${{ secrets.CUREDAO_CLIENT_SECRET }}
+        with:
+          bootstrap: vendor/autoload.php
+          configuration: test/phpunit.xml.dist
+          args: --coverage-text
+          php_version: "7.4"

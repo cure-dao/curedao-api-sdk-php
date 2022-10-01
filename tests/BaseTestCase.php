@@ -3,10 +3,9 @@
 namespace CureDAO\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Strikebit\Util\PhpGenerator;
-
 class BaseTestCase extends TestCase
 {
+
     /**
      * @param string $className
      * @param $body
