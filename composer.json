@@ -1,6 +1,6 @@
 {
     "name": "cure-dao/cure-dao-sdk-php",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "A PHP SDK for the CureDAO Collaborative for Precision Health API",
     "keywords": [
         "curedao",
@@ -28,12 +28,10 @@
         "icanboogie/inflector": "^2",
         "illuminate/collections": "^8",
         "pragmarx/ia-str": "^7",
-        "json-mapper/json-mapper": "^2",
-        "strikebit/json-to-php": "^1"
+        "json-mapper/json-mapper": "^2"
     },
     "require-dev": {
-        "phpunit/phpunit": "*",
-        "satooshi/php-coveralls": "*"
+        "phpunit/phpunit": "*"
     },
     "autoload": {
         "psr-4": {
